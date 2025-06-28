@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Cities in Uttarakhand - Discover the Land of Gods</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url("https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .city-card {
+        transition: all 0.4s ease;
+        overflow: hidden;
+      }
+      .city-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+      }
+      .city-card:hover .city-image {
+        transform: scale(1.15);
+      }
+      .city-card:hover .overlay {
+        opacity: 0.9;
+      }
+      .city-card:hover .cta-button {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .city-image {
+        transition: transform 0.7s ease;
+      }
+      .overlay {
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.8),
+          rgba(147, 51, 234, 0.8)
+        );
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
+      .cta-button {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+      }
+      .filter-chip {
+        transition: all 0.3s ease;
+      }
+      .filter-chip.active {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        color: white;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+      }
+      .featured-ribbon {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        animation: shimmer 2s infinite;
+      }
+      @keyframes shimmer {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+      .breadcrumb-item {
+        transition: color 0.3s ease;
+      }
+      .breadcrumb-item:hover {
+        color: #3b82f6;
+      }
+      .stats-counter {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+      }
+      .category-icon {
+        background: linear-gradient(135deg, #10b981, #059669);
+      }
+      .city-stats {
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+      }
+      .load-more-btn {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        transition: all 0.3s ease;
+      }
+      .load-more-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Breadcrumb Navigation -->
+    <nav class="bg-white border-b border-gray-200 py-3">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center space-x-2 text-sm">
+          <a
+            href="#"
+            class="breadcrumb-item text-gray-600 hover:text-blue-600 transition-colors"
+          >
+            <i class="fas fa-home mr-1"></i>Home
+          </a>
+          <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+          <a
+            href="#"
+            class="breadcrumb-item text-gray-600 hover:text-blue-600 transition-colors"
+            >States</a
+          >
+          <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+          <a
+            href="#"
+            class="breadcrumb-item text-gray-600 hover:text-blue-600 transition-colors"
+            >Uttarakhand</a
+          >
+          <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+          <span class="text-blue-600 font-medium">Cities</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="hero-bg h-96 flex items-center justify-center text-white relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-900/30 to-purple-900/30"
+      ></div>
+      <div class="text-center max-w-5xl px-4 relative z-10">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          Explore Cities in Uttarakhand
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-8"
+        >
+          Discover curated travel guides across Uttarakhand's most loved
+          destinations. From spiritual centers to adventure hubs, explore the
+          Land of Gods.
+        </p>
+
+        <!-- Stats -->
+        <div class="flex flex-wrap justify-center gap-6 text-sm">
+          <div class="stats-counter px-4 py-2 rounded-full">
+            <i class="fas fa-city mr-2"></i>
+            <span class="font-semibold">12 Cities</span>
+          </div>
+          <div class="stats-counter px-4 py-2 rounded-full">
+            <i class="fas fa-mountain mr-2"></i>
+            <span class="font-semibold">Hill Stations</span>
+          </div>
+          <div class="stats-counter px-4 py-2 rounded-full">
+            <i class="fas fa-om mr-2"></i>
+            <span class="font-semibold">Spiritual Centers</span>
+          </div>
+          <div class="stats-counter px-4 py-2 rounded-full">
+            <i class="fas fa-hiking mr-2"></i>
+            <span class="font-semibold">Adventure Sports</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section
+      class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 py-6"
+    >
+      <div class="container mx-auto px-4">
+        <div
+          class="flex flex-col md:flex-row gap-4 items-center justify-between"
+        >
+          <!-- Category Filters -->
+          <div class="flex flex-wrap gap-3">
+            <span
+              class="text-sm font-semibold text-gray-700 mr-2 flex items-center"
+              >Explore by Category:</span
+            >
+            <button
+              class="filter-chip active px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="all"
+            >
+              <i class="fas fa-th-large mr-1"></i>All Cities
+            </button>
+            <button
+              class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="spiritual"
+            >
+              <i class="fas fa-om mr-1"></i>Spiritual
+            </button>
+            <button
+              class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="nature"
+            >
+              <i class="fas fa-leaf mr-1"></i>Nature
+            </button>
+            <button
+              class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="adventure"
+            >
+              <i class="fas fa-mountain mr-1"></i>Adventure
+            </button>
+            <button
+              class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="wellness"
+            >
+              <i class="fas fa-spa mr-1"></i>Wellness
+            </button>
+            <button
+              class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="family"
+            >
+              <i class="fas fa-users mr-1"></i>Family
+            </button>
+          </div>
+
+          <!-- Results Count -->
+          <div class="text-sm text-gray-600">
+            <span id="results-count">Showing 12 cities</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cities Grid Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <!-- Featured Cities Header -->
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Featured Destinations
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Start your journey with these must-visit cities that showcase the
+            best of Uttarakhand's diversity
+          </p>
+        </div>
+
+        <!-- Cities Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+          id="cities-grid"
+        >
+          <!-- Rishikesh - Featured -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer relative"
+            data-category="spiritual wellness adventure"
+            data-city="rishikesh"
+          >
+            <!-- Featured Ribbon -->
+            <div
+              class="featured-ribbon absolute top-4 left-0 z-20 text-white px-4 py-1 text-xs font-bold transform -rotate-45 -translate-x-3 translate-y-3"
+            >
+              FEATURED
+            </div>
+
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Rishikesh"
+                class="city-image w-full h-full object-cover"
+              />
+
+              <!-- Overlay -->
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-arrow-right mr-2"></i>Explore City
+                </div>
+              </div>
+
+              <!-- City Stats -->
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-4 text-white"
+              >
+                <h3 class="text-xl font-bold mb-1">Rishikesh</h3>
+                <p class="text-sm opacity-90 mb-2">Yoga Capital of the World</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-green-500/80 px-2 py-1 rounded-full text-xs"
+                      >Spiritual</span
+                    >
+                    <span class="bg-blue-500/80 px-2 py-1 rounded-full text-xs"
+                      >Adventure</span
+                    >
+                  </div>
+                  <div class="text-xs opacity-75">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.8
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Haridwar - Featured -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer relative"
+            data-category="spiritual family"
+            data-city="haridwar"
+          >
+            <div
+              class="featured-ribbon absolute top-4 left-0 z-20 text-white px-4 py-1 text-xs font-bold transform -rotate-45 -translate-x-3 translate-y-3"
+            >
+              FEATURED
+            </div>
+
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Haridwar"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-arrow-right mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-4 text-white"
+              >
+                <h3 class="text-xl font-bold mb-1">Haridwar</h3>
+                <p class="text-sm opacity-90 mb-2">Gateway to the Char Dham</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span
+                      class="bg-orange-500/80 px-2 py-1 rounded-full text-xs"
+                      >Spiritual</span
+                    >
+                    <span
+                      class="bg-purple-500/80 px-2 py-1 rounded-full text-xs"
+                      >Family</span
+                    >
+                  </div>
+                  <div class="text-xs opacity-75">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.7
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dehradun - Featured -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer relative"
+            data-category="nature family"
+            data-city="dehradun"
+          >
+            <div
+              class="featured-ribbon absolute top-4 left-0 z-20 text-white px-4 py-1 text-xs font-bold transform -rotate-45 -translate-x-3 translate-y-3"
+            >
+              FEATURED
+            </div>
+
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Dehradun"
+                class="city-image w-full h-full object-cover"
+              />
+              <a
+                href="city.html"
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-arrow-right mr-2"></i>Explore City
+                </div>
+              </a>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-4 text-white"
+              >
+                <h3 class="text-xl font-bold mb-1">Dehradun</h3>
+                <p class="text-sm opacity-90 mb-2">
+                  Capital City & Education Hub
+                </p>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-green-500/80 px-2 py-1 rounded-full text-xs"
+                      >Nature</span
+                    >
+                    <span class="bg-blue-500/80 px-2 py-1 rounded-full text-xs"
+                      >Family</span
+                    >
+                  </div>
+                  <div class="text-xs opacity-75">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.5
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mussoorie -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-category="nature family"
+            data-city="mussoorie"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Mussoorie"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-arrow-right mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-4 text-white"
+              >
+                <h3 class="text-xl font-bold mb-1">Mussoorie</h3>
+                <p class="text-sm opacity-90 mb-2">Queen of the Hills</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-green-500/80 px-2 py-1 rounded-full text-xs"
+                      >Nature</span
+                    >
+                    <span class="bg-pink-500/80 px-2 py-1 rounded-full text-xs"
+                      >Romance</span
+                    >
+                  </div>
+                  <div class="text-xs opacity-75">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.6
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nainital -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-category="nature family"
+            data-city="nainital"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Nainital"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-arrow-right mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-4 text-white"
+              >
+                <h3 class="text-xl font-bold mb-1">Nainital</h3>
+                <p class="text-sm opacity-90 mb-2">Lake City of India</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-blue-500/80 px-2 py-1 rounded-full text-xs"
+                      >Lakes</span
+                    >
+                    <span class="bg-green-500/80 px-2 py-1 rounded-full text-xs"
+                      >Boating</span
+                    >
+                  </div>
+                  <div class="text-xs opacity-75">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.7
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Almora -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-category="nature spiritual"
+            data-city="almora"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Almora"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-arrow-right mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-4 text-white"
+              >
+                <h3 class="text-xl font-bold mb-1">Almora</h3>
+                <p class="text-sm opacity-90 mb-2">
+                  Cultural Heritage & Serenity
+                </p>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span
+                      class="bg-yellow-500/80 px-2 py-1 rounded-full text-xs"
+                      >Culture</span
+                    >
+                    <span class="bg-green-500/80 px-2 py-1 rounded-full text-xs"
+                      >Peaceful</span
+                    >
+                  </div>
+                  <div class="text-xs opacity-75">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.4
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Badrinath -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-category="spiritual"
+            data-city="badrinath"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Badrinath"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-arrow-right mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-4 text-white"
+              >
+                <h3 class="text-xl font-bold mb-1">Badrinath</h3>
+                <p class="text-sm opacity-90 mb-2">Sacred Temple Town</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span
+                      class="bg-orange-500/80 px-2 py-1 rounded-full text-xs"
+                      >Pilgrimage</span
+                    >
+                    <span
+                      class="bg-purple-500/80 px-2 py-1 rounded-full text-xs"
+                      >Temple</span
+                    >
+                  </div>
+                  <div class="text-xs opacity-75">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.9
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Auli -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-category="adventure nature"
+            data-city="auli"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1551524164-6cf2ac531fb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Auli"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-arrow-right mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-4 text-white"
+              >
+                <h3 class="text-xl font-bold mb-1">Auli</h3>
+                <p class="text-sm opacity-90 mb-2">Skiing Paradise</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-blue-500/80 px-2 py-1 rounded-full text-xs"
+                      >Skiing</span
+                    >
+                    <span
+                      class="bg-white/80 text-gray-800 px-2 py-1 rounded-full text-xs"
+                      >Snow</span
+                    >
+                  </div>
+                  <div class="text-xs opacity-75">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.6
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hidden cities for "Show More" functionality -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer hidden"
+            data-category="nature adventure"
+            data-city="kedarnath"
+            data-hidden="true"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Kedarnath"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-arrow-right mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-4 text-white"
+              >
+                <h3 class="text-xl font-bold mb-1">Kedarnath</h3>
+                <p class="text-sm opacity-90 mb-2">Lord Shiva's Abode</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span
+                      class="bg-orange-500/80 px-2 py-1 rounded-full text-xs"
+                      >Spiritual</span
+                    >
+                    <span class="bg-red-500/80 px-2 py-1 rounded-full text-xs"
+                      >Trekking</span
+                    >
+                  </div>
+                  <div class="text-xs opacity-75">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.8
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer hidden"
+            data-category="nature family"
+            data-city="ranikhet"
+            data-hidden="true"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Ranikhet"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-arrow-right mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-4 text-white"
+              >
+                <h3 class="text-xl font-bold mb-1">Ranikhet</h3>
+                <p class="text-sm opacity-90 mb-2">Queen's Meadow</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-green-500/80 px-2 py-1 rounded-full text-xs"
+                      >Hills</span
+                    >
+                    <span class="bg-pink-500/80 px-2 py-1 rounded-full text-xs"
+                      >Peaceful</span
+                    >
+                  </div>
+                  <div class="text-xs opacity-75">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.5
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer hidden"
+            data-category="adventure nature"
+            data-city="chopta"
+            data-hidden="true"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Chopta"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-arrow-right mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-4 text-white"
+              >
+                <h3 class="text-xl font-bold mb-1">Chopta</h3>
+                <p class="text-sm opacity-90 mb-2">Mini Switzerland of India</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-green-500/80 px-2 py-1 rounded-full text-xs"
+                      >Trekking</span
+                    >
+                    <span class="bg-blue-500/80 px-2 py-1 rounded-full text-xs"
+                      >Camping</span
+                    >
+                  </div>
+                  <div class="text-xs opacity-75">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.7
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer hidden"
+            data-category="spiritual nature"
+            data-city="gangotri"
+            data-hidden="true"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Gangotri"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-arrow-right mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-4 text-white"
+              >
+                <h3 class="text-xl font-bold mb-1">Gangotri</h3>
+                <p class="text-sm opacity-90 mb-2">Source of Holy Ganges</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-blue-500/80 px-2 py-1 rounded-full text-xs"
+                      >Sacred</span
+                    >
+                    <span
+                      class="bg-orange-500/80 px-2 py-1 rounded-full text-xs"
+                      >Pilgrimage</span
+                    >
+                  </div>
+                  <div class="text-xs opacity-75">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.8
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-12">
+          <button
+            id="load-more-btn"
+            class="load-more-btn text-white px-8 py-4 rounded-full font-semibold inline-flex items-center"
+          >
+            <i class="fas fa-plus mr-2"></i>Show More Cities
+          </button>
+        </div>
+
+        <!-- No Results Message -->
+        <div id="no-results" class="text-center py-16 hidden">
+          <div class="text-gray-400 mb-4">
+            <i class="fas fa-search text-6xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-600 mb-2">
+            No cities found
+          </h3>
+          <p class="text-gray-500">
+            Try selecting a different category to explore more destinations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-gradient-to-r from-blue-600 to-purple-600 py-16">
+      <div class="container mx-auto px-4 text-center text-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Ready to Explore Uttarakhand?
+        </h2>
+        <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          From spiritual journeys to adventure sports, from serene lakes to
+          snow-capped peaks - Uttarakhand offers experiences that will transform
+          your soul.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+          >
+            <i class="fas fa-route mr-2"></i>Plan Your Journey
+          </button>
+          <button
+            class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+          >
+            <i class="fas fa-phone mr-2"></i>Contact Local Guide
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+      // Filter functionality
+      const filterChips = document.querySelectorAll(".filter-chip");
+      const cityCards = document.querySelectorAll(".city-card");
+      const resultsCount = document.getElementById("results-count");
+      const noResults = document.getElementById("no-results");
+      const loadMoreBtn = document.getElementById("load-more-btn");
+
+      let currentCategory = "all";
+      let showingMore = false;
+
+      // Category filter functionality
+      filterChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          // Remove active class from all chips
+          filterChips.forEach((c) => c.classList.remove("active"));
+          // Add active class to clicked chip
+          chip.classList.add("active");
+
+          currentCategory = chip.getAttribute("data-category");
+          applyFilters();
+        });
+      });
+
+      // Load more functionality
+      loadMoreBtn.addEventListener("click", () => {
+        showingMore = !showingMore;
+
+        const hiddenCards = document.querySelectorAll('[data-hidden="true"]');
+        hiddenCards.forEach((card) => {
+          if (showingMore) {
+            card.classList.remove("hidden");
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+
+        loadMoreBtn.innerHTML = showingMore
+          ? '<i class="fas fa-minus mr-2"></i>Show Less Cities'
+          : '<i class="fas fa-plus mr-2"></i>Show More Cities';
+
+        applyFilters();
+      });
+
+      function applyFilters() {
+        let visibleCount = 0;
+
+        cityCards.forEach((card) => {
+          const categories = card.getAttribute("data-category");
+          const isHidden = card.getAttribute("data-hidden") === "true";
+
+          // Check if card should be shown based on category
+          const matchesCategory =
+            currentCategory === "all" ||
+            (categories && categories.includes(currentCategory));
+
+          // Check if card should be shown based on load more state
+          const shouldShow = matchesCategory && (!isHidden || showingMore);
+
+          if (shouldShow) {
+            card.style.display = "block";
+            visibleCount++;
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        // Update results count
+        const categoryText =
+          currentCategory === "all" ? "cities" : `${currentCategory} cities`;
+        resultsCount.textContent = `Showing ${visibleCount} ${categoryText}`;
+
+        // Show/hide no results message
+        if (visibleCount === 0) {
+          noResults.classList.remove("hidden");
+        } else {
+          noResults.classList.add("hidden");
+        }
+      }
+
+      // City card click functionality
+      cityCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          const cityName = card.getAttribute("data-city");
+          // In a real app, this would navigate to the city detail page
+          console.log(`Navigating to /cities/${cityName}`);
+          window.location.href = `#/cities/${cityName}`;
+        });
+      });
+
+      // Smooth scroll reveal animation
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        cityCards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(50px)";
+          card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+          observer.observe(card);
+        });
+      });
+
+      // Breadcrumb navigation
+      document.querySelectorAll(".breadcrumb-item").forEach((item) => {
+        item.addEventListener("click", (e) => {
+          e.preventDefault();
+          const href = item.getAttribute("href");
+          if (href && href !== "#") {
+            console.log(`Navigating to ${href}`);
+            // window.location.href = href;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rent Vehicles in Dehradun - Bikes, Cars & More</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.3)
+          ),
+          url("https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .vehicle-card {
+        transition: all 0.4s ease;
+        backdrop-filter: blur(10px);
+      }
+      .vehicle-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+      .filter-btn.active {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+      }
+      .availability-badge {
+        animation: pulse 2s infinite;
+      }
+      .price-highlight {
+        background: linear-gradient(135deg, #10b981, #059669);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .vehicle-image {
+        filter: brightness(1.1) contrast(1.1);
+        transition: all 0.3s ease;
+      }
+      .vehicle-card:hover .vehicle-image {
+        filter: brightness(1.2) contrast(1.2);
+        transform: scale(1.05);
+      }
+      .rating-stars {
+        color: #fbbf24;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+      }
+      .feature-icon {
+        background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+        transition: all 0.3s ease;
+      }
+      .feature-icon:hover {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white;
+        transform: scale(1.1);
+      }
+      .process-step {
+        background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+      }
+      .testimonial-bg {
+        background: linear-gradient(135deg, #fef3c7, #fde68a);
+      }
+      .price-slider {
+        background: linear-gradient(to right, #3b82f6, #1d4ed8);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Hero Banner -->
+    <section
+      class="hero-bg h-96 flex items-center justify-center text-white relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-900/30 to-green-900/30"
+      ></div>
+      <div class="text-center max-w-4xl px-4 relative z-10">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          Rent Vehicles in Dehradun
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed mb-8"
+        >
+          Choose from bikes, scooters, cars and more – with or without a driver.
+          Explore the beautiful valleys and mountain roads at your own pace.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 text-sm">
+          <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+            <i class="fas fa-shield-alt mr-2"></i>Fully Insured
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+            <i class="fas fa-tools mr-2"></i>24/7 Support
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+            <i class="fas fa-map-marked-alt mr-2"></i>Free Pickup
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <section
+      class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 py-6"
+    >
+      <div class="container mx-auto px-4">
+        <!-- Vehicle Type Filters -->
+        <div class="mb-4">
+          <h3 class="text-sm font-semibold text-gray-700 mb-3">Vehicle Type</h3>
+          <div class="flex flex-wrap gap-2">
+            <button
+              class="filter-btn active px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-500 hover:text-white transition-all text-sm font-medium"
+              data-filter="all"
+              data-type="vehicle"
+            >
+              <i class="fas fa-th-large mr-1"></i>All
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-500 hover:text-white transition-all text-sm font-medium"
+              data-filter="scooter"
+              data-type="vehicle"
+            >
+              <i class="fas fa-motorcycle mr-1"></i>Scooter
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-500 hover:text-white transition-all text-sm font-medium"
+              data-filter="bike"
+              data-type="vehicle"
+            >
+              <i class="fas fa-motorcycle mr-1"></i>Bike
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-500 hover:text-white transition-all text-sm font-medium"
+              data-filter="car"
+              data-type="vehicle"
+            >
+              <i class="fas fa-car mr-1"></i>Car
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-500 hover:text-white transition-all text-sm font-medium"
+              data-filter="suv"
+              data-type="vehicle"
+            >
+              <i class="fas fa-truck mr-1"></i>SUV
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-500 hover:text-white transition-all text-sm font-medium"
+              data-filter="auto"
+              data-type="vehicle"
+            >
+              <i class="fas fa-taxi mr-1"></i>Auto
+            </button>
+          </div>
+        </div>
+
+        <!-- Mode & Transmission Filters -->
+        <div class="grid md:grid-cols-3 gap-4">
+          <div>
+            <h3 class="text-sm font-semibold text-gray-700 mb-2">Mode</h3>
+            <div class="flex gap-2">
+              <button
+                class="filter-btn active px-3 py-1 rounded-full border border-gray-300 hover:bg-green-500 hover:text-white transition-all text-sm"
+                data-filter="all"
+                data-type="mode"
+              >
+                All
+              </button>
+              <button
+                class="filter-btn px-3 py-1 rounded-full border border-gray-300 hover:bg-green-500 hover:text-white transition-all text-sm"
+                data-filter="self-drive"
+                data-type="mode"
+              >
+                Self Drive
+              </button>
+              <button
+                class="filter-btn px-3 py-1 rounded-full border border-gray-300 hover:bg-green-500 hover:text-white transition-all text-sm"
+                data-filter="with-driver"
+                data-type="mode"
+              >
+                With Driver
+              </button>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold text-gray-700 mb-2">
+              Transmission
+            </h3>
+            <div class="flex gap-2">
+              <button
+                class="filter-btn active px-3 py-1 rounded-full border border-gray-300 hover:bg-purple-500 hover:text-white transition-all text-sm"
+                data-filter="all"
+                data-type="transmission"
+              >
+                All
+              </button>
+              <button
+                class="filter-btn px-3 py-1 rounded-full border border-gray-300 hover:bg-purple-500 hover:text-white transition-all text-sm"
+                data-filter="manual"
+                data-type="transmission"
+              >
+                Manual
+              </button>
+              <button
+                class="filter-btn px-3 py-1 rounded-full border border-gray-300 hover:bg-purple-500 hover:text-white transition-all text-sm"
+                data-filter="automatic"
+                data-type="transmission"
+              >
+                Automatic
+              </button>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold text-gray-700 mb-2">
+              Price Range
+            </h3>
+            <select
+              class="w-full px-3 py-1 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option>All Prices</option>
+              <option>₹200 - ₹500</option>
+              <option>₹500 - ₹1000</option>
+              <option>₹1000 - ₹2000</option>
+              <option>₹2000+</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vehicles Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <!-- Vehicle 1 - Honda Activa 5G -->
+        <div
+          class="vehicle-card bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden mb-12 grid lg:grid-cols-5 gap-0 relative"
+          data-category="scooter self-drive automatic"
+        >
+          <div class="lg:col-span-2 relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Honda Activa 5G"
+              class="vehicle-image w-full h-full object-cover min-h-80"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="availability-badge bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-circle text-xs mr-1"></i>Available Today
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div
+                class="bg-black/60 backdrop-blur-sm text-white p-3 rounded-lg"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm opacity-90">Starting from</p>
+                    <p class="text-2xl font-bold price-highlight">
+                      ₹300<span class="text-sm">/day</span>
+                    </p>
+                  </div>
+                  <div class="text-right">
+                    <div class="rating-stars text-lg">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-sm opacity-90">4.6 (89 reviews)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-3 p-8 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-3xl font-bold text-gray-800">Honda Activa 5G</h3>
+              <div class="flex gap-2">
+                <span
+                  class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  <i class="fas fa-motorcycle mr-1"></i>Scooter
+                </span>
+                <span
+                  class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  Self Drive Only
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+              Perfect for city exploration and short trips to nearby
+              attractions. Fuel-efficient, easy to handle, and ideal for
+              navigating through Dehradun's busy streets and scenic routes.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-4 mb-6">
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-gas-pump text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">Petrol</p>
+                <p class="text-xs text-gray-500">60 kmpl</p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-cogs text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">Automatic</p>
+                <p class="text-xs text-gray-500">CVT</p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-users text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">2 Seater</p>
+                <p class="text-xs text-gray-500">Comfortable</p>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                  <i class="fas fa-id-card text-blue-600 mr-2"></i>Documents
+                  Required
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Driving License</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Aadhaar Card</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                  <i class="fas fa-plus-circle text-green-600 mr-2"></i>Add-ons
+                  Available
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Helmet (₹50)</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Pickup (Free)</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book Honda Activa
+            </button>
+          </div>
+        </div>
+
+        <!-- Vehicle 2 - Royal Enfield Classic 350 -->
+        <div
+          class="vehicle-card bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden mb-12 grid lg:grid-cols-5 gap-0 relative"
+          data-category="bike self-drive manual"
+        >
+          <div
+            class="lg:col-span-3 p-8 flex flex-col justify-center order-2 lg:order-1"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-3xl font-bold text-gray-800">
+                Royal Enfield Classic 350
+              </h3>
+              <div class="flex gap-2">
+                <span
+                  class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  <i class="fas fa-motorcycle mr-1"></i>Bike
+                </span>
+                <span
+                  class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  Self Drive Only
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+              The perfect companion for mountain adventures and long rides.
+              Experience the thrill of riding through scenic mountain roads with
+              this iconic motorcycle that combines classic styling with modern
+              reliability.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-4 mb-6">
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-gas-pump text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">Petrol</p>
+                <p class="text-xs text-gray-500">35 kmpl</p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-cogs text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">Manual</p>
+                <p class="text-xs text-gray-500">5-Speed</p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-tachometer-alt text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">350cc</p>
+                <p class="text-xs text-gray-500">Powerful</p>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                  <i class="fas fa-id-card text-blue-600 mr-2"></i>Documents
+                  Required
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Driving License</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Aadhaar Card</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                  <i class="fas fa-plus-circle text-green-600 mr-2"></i>Add-ons
+                  Available
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Helmet (₹50)</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Extra Fuel (₹200)</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-orange-600 hover:to-red-600 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book Royal Enfield
+            </button>
+          </div>
+          <div
+            class="lg:col-span-2 relative overflow-hidden order-1 lg:order-2"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Royal Enfield Classic 350"
+              class="vehicle-image w-full h-full object-cover min-h-80"
+            />
+            <div class="absolute top-4 right-4">
+              <span
+                class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-clock text-xs mr-1"></i>2 Left Today
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div
+                class="bg-black/60 backdrop-blur-sm text-white p-3 rounded-lg"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm opacity-90">Starting from</p>
+                    <p class="text-2xl font-bold price-highlight">
+                      ₹800<span class="text-sm">/day</span>
+                    </p>
+                  </div>
+                  <div class="text-right">
+                    <div class="rating-stars text-lg">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-sm opacity-90">4.8 (156 reviews)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- How It Works Section -->
+        <div class="my-16">
+          <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+            How It Works
+          </h2>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="process-step text-center p-8 rounded-2xl">
+              <div
+                class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-search text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                1. Choose Your Vehicle
+              </h3>
+              <p class="text-gray-600">
+                Browse our wide selection of bikes, scooters, and cars. Filter
+                by your preferences and compare options.
+              </p>
+            </div>
+            <div class="process-step text-center p-8 rounded-2xl">
+              <div
+                class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-calendar-check text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                2. Book & Pay
+              </h3>
+              <p class="text-gray-600">
+                Select your dates, upload documents, and make secure payment.
+                Get instant confirmation via SMS.
+              </p>
+            </div>
+            <div class="process-step text-center p-8 rounded-2xl">
+              <div
+                class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-key text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                3. Pickup & Ride
+              </h3>
+              <p class="text-gray-600">
+                Collect your vehicle from our location or get it delivered.
+                Start your adventure in Dehradun!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vehicle 3 - Hyundai i20 -->
+        <div
+          class="vehicle-card bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden mb-12 grid lg:grid-cols-5 gap-0 relative"
+          data-category="car self-drive manual"
+        >
+          <div class="lg:col-span-2 relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Hyundai i20"
+              class="vehicle-image w-full h-full object-cover min-h-80"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="availability-badge bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-circle text-xs mr-1"></i>Available Today
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div
+                class="bg-black/60 backdrop-blur-sm text-white p-3 rounded-lg"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm opacity-90">Starting from</p>
+                    <p class="text-2xl font-bold price-highlight">
+                      ₹1,200<span class="text-sm">/day</span>
+                    </p>
+                  </div>
+                  <div class="text-right">
+                    <div class="rating-stars text-lg">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                    </div>
+                    <p class="text-sm opacity-90">4.2 (73 reviews)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-3 p-8 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-3xl font-bold text-gray-800">Hyundai i20</h3>
+              <div class="flex gap-2">
+                <span
+                  class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  <i class="fas fa-car mr-1"></i>Hatchback
+                </span>
+                <span
+                  class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  Self Drive Only
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+              Stylish and comfortable hatchback perfect for couples or small
+              families. Great for city drives and weekend getaways to nearby
+              hill stations with excellent fuel efficiency and modern features.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-4 mb-6">
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-gas-pump text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">Petrol</p>
+                <p class="text-xs text-gray-500">20 kmpl</p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-cogs text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">Manual</p>
+                <p class="text-xs text-gray-500">5-Speed</p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-users text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">5 Seater</p>
+                <p class="text-xs text-gray-500">AC + Music</p>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                  <i class="fas fa-id-card text-blue-600 mr-2"></i>Documents
+                  Required
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Driving License</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Aadhaar Card</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                  <i class="fas fa-plus-circle text-green-600 mr-2"></i>Add-ons
+                  Available
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >GPS (₹100)</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Pickup (Free)</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book Hyundai i20
+            </button>
+          </div>
+        </div>
+
+        <!-- Vehicle 4 - Dzire with Driver -->
+        <div
+          class="vehicle-card bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden mb-12 grid lg:grid-cols-5 gap-0 relative"
+          data-category="car with-driver manual"
+        >
+          <div
+            class="lg:col-span-3 p-8 flex flex-col justify-center order-2 lg:order-1"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-3xl font-bold text-gray-800">
+                Maruti Dzire with Driver
+              </h3>
+              <div class="flex gap-2">
+                <span
+                  class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  <i class="fas fa-car mr-1"></i>Sedan
+                </span>
+                <span
+                  class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  With Driver
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+              Sit back and relax while our experienced local driver takes you
+              around Dehradun and nearby attractions. Perfect for families,
+              elderly travelers, or those who prefer to enjoy the scenery
+              without driving.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-4 mb-6">
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-gas-pump text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">Petrol</p>
+                <p class="text-xs text-gray-500">22 kmpl</p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-user-tie text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">Driver</p>
+                <p class="text-xs text-gray-500">Experienced</p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-users text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">4 Seater</p>
+                <p class="text-xs text-gray-500">Comfortable</p>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                  <i class="fas fa-id-card text-blue-600 mr-2"></i>Documents
+                  Required
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >ID Proof Only</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >No DL Required</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                  <i class="fas fa-plus-circle text-green-600 mr-2"></i>Included
+                  Services
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Local Guide</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Fuel Included</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-purple-600 hover:to-pink-600 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book with Driver
+            </button>
+          </div>
+          <div
+            class="lg:col-span-2 relative overflow-hidden order-1 lg:order-2"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Maruti Dzire"
+              class="vehicle-image w-full h-full object-cover min-h-80"
+            />
+            <div class="absolute top-4 right-4">
+              <span
+                class="availability-badge bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-circle text-xs mr-1"></i>Available Today
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div
+                class="bg-black/60 backdrop-blur-sm text-white p-3 rounded-lg"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm opacity-90">Starting from</p>
+                    <p class="text-2xl font-bold price-highlight">
+                      ₹1,800<span class="text-sm">/day</span>
+                    </p>
+                  </div>
+                  <div class="text-right">
+                    <div class="rating-stars text-lg">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-sm opacity-90">4.7 (94 reviews)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Why Rent With Us Section -->
+        <div class="testimonial-bg rounded-3xl p-8 mb-16 text-center">
+          <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">
+              Why Rent With Us?
+            </h2>
+            <div class="grid md:grid-cols-4 gap-6">
+              <div class="text-center">
+                <div
+                  class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <i class="fas fa-shield-check text-white text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">
+                  Verified Vendors
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  All our rental partners are verified and trusted
+                </p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <i class="fas fa-umbrella text-white text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">Full Insurance</h3>
+                <p class="text-gray-600 text-sm">
+                  Comprehensive insurance coverage included
+                </p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <i class="fas fa-headset text-white text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">24/7 Support</h3>
+                <p class="text-gray-600 text-sm">
+                  Round-the-clock assistance and roadside help
+                </p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <i class="fas fa-map-marked-alt text-white text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">
+                  Local Expertise
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Local knowledge and route recommendations
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Continue with more vehicles... -->
+        <!-- Vehicle 5 - Ertiga 7-seater -->
+        <div
+          class="vehicle-card bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden mb-12 grid lg:grid-cols-5 gap-0 relative"
+          data-category="suv self-drive manual"
+        >
+          <div class="lg:col-span-2 relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Maruti Ertiga"
+              class="vehicle-image w-full h-full object-cover min-h-80"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-clock text-xs mr-1"></i>1 Left Today
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div
+                class="bg-black/60 backdrop-blur-sm text-white p-3 rounded-lg"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm opacity-90">Starting from</p>
+                    <p class="text-2xl font-bold price-highlight">
+                      ₹2,000<span class="text-sm">/day</span>
+                    </p>
+                  </div>
+                  <div class="text-right">
+                    <div class="rating-stars text-lg">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                    </div>
+                    <p class="text-sm opacity-90">4.3 (67 reviews)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-3 p-8 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-3xl font-bold text-gray-800">
+                Maruti Ertiga (7-Seater)
+              </h3>
+              <div class="flex gap-2">
+                <span
+                  class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  <i class="fas fa-truck mr-1"></i>SUV
+                </span>
+                <span
+                  class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  Self Drive / Driver
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+              Spacious 7-seater perfect for large families or group trips.
+              Comfortable for long journeys to hill stations with ample luggage
+              space and excellent road presence on mountain roads.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-4 mb-6">
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-gas-pump text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">Petrol</p>
+                <p class="text-xs text-gray-500">19 kmpl</p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-cogs text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">Manual</p>
+                <p class="text-xs text-gray-500">5-Speed</p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-users text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">7 Seater</p>
+                <p class="text-xs text-gray-500">Family Size</p>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                  <i class="fas fa-id-card text-blue-600 mr-2"></i>Documents
+                  Required
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Driving License</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Aadhaar Card</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                  <i class="fas fa-plus-circle text-green-600 mr-2"></i>Add-ons
+                  Available
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Driver (₹500)</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >GPS (₹100)</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-green-500 to-teal-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-green-600 hover:to-teal-600 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book Ertiga
+            </button>
+          </div>
+        </div>
+
+        <!-- Vehicle 6 - Auto Rickshaw -->
+        <div
+          class="vehicle-card bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden mb-12 grid lg:grid-cols-5 gap-0 relative"
+          data-category="auto with-driver manual"
+        >
+          <div
+            class="lg:col-span-3 p-8 flex flex-col justify-center order-2 lg:order-1"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-3xl font-bold text-gray-800">
+                Auto Rickshaw (On-Call)
+              </h3>
+              <div class="flex gap-2">
+                <span
+                  class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  <i class="fas fa-taxi mr-1"></i>Auto
+                </span>
+                <span
+                  class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  With Driver
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+              Experience authentic local transport with our on-call auto
+              rickshaw service. Perfect for short city trips, market visits, and
+              getting around narrow lanes where cars can't reach.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-4 mb-6">
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-gas-pump text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">CNG</p>
+                <p class="text-xs text-gray-500">Eco-friendly</p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-user-tie text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">Driver</p>
+                <p class="text-xs text-gray-500">Local Expert</p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="feature-icon w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2"
+                >
+                  <i class="fas fa-users text-lg"></i>
+                </div>
+                <p class="text-sm font-medium text-gray-700">3 Seater</p>
+                <p class="text-xs text-gray-500">Compact</p>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                  <i class="fas fa-id-card text-blue-600 mr-2"></i>Documents
+                  Required
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >No Documents</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Just Call & Book</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                  <i class="fas fa-plus-circle text-green-600 mr-2"></i>Special
+                  Features
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >Hourly Rates</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                    >City Tours</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-yellow-600 hover:to-orange-600 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-phone mr-2"></i>Call Auto Rickshaw
+            </button>
+          </div>
+          <div
+            class="lg:col-span-2 relative overflow-hidden order-1 lg:order-2"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Auto Rickshaw"
+              class="vehicle-image w-full h-full object-cover min-h-80"
+            />
+            <div class="absolute top-4 right-4">
+              <span
+                class="availability-badge bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-circle text-xs mr-1"></i>Always Available
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div
+                class="bg-black/60 backdrop-blur-sm text-white p-3 rounded-lg"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm opacity-90">Starting from</p>
+                    <p class="text-2xl font-bold price-highlight">
+                      ₹150<span class="text-sm">/hour</span>
+                    </p>
+                  </div>
+                  <div class="text-right">
+                    <div class="rating-stars text-lg">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                    </div>
+                    <p class="text-sm opacity-90">4.1 (234 reviews)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer Testimonial -->
+        <div class="testimonial-bg rounded-3xl p-8 mb-16 text-center">
+          <div class="max-w-3xl mx-auto">
+            <i class="fas fa-quote-left text-3xl text-amber-600 mb-4"></i>
+            <p class="text-xl text-gray-700 mb-6 italic leading-relaxed">
+              "Rented a Royal Enfield for our Mussoorie trip. The bike was in
+              perfect condition and the pickup was hassle-free. The mountain
+              roads were amazing to ride on. Highly recommend for adventure
+              seekers!"
+            </p>
+            <div class="flex items-center justify-center">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                alt="Rahul Sharma"
+                class="w-16 h-16 rounded-full mr-4"
+              />
+              <div>
+                <p class="font-semibold text-gray-800 text-lg">Rahul Sharma</p>
+                <p class="text-gray-600">Adventure Enthusiast from Delhi</p>
+                <div class="rating-stars text-sm mt-1">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center py-12">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            Ready to Start Your Dehradun Adventure?
+          </h2>
+          <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            From city scooters to mountain bikes, from family cars to luxury
+            rides with drivers – we have the perfect vehicle for your journey.
+            Book now and explore Dehradun your way!
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-phone mr-2"></i>Call for Instant Booking
+            </button>
+            <button
+              class="border-2 border-blue-500 text-blue-600 px-8 py-3 rounded-xl font-semibold hover:bg-blue-50 transition-all"
+            >
+              <i class="fas fa-whatsapp mr-2"></i>WhatsApp Support
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+      // Filter functionality
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const vehicleCards = document.querySelectorAll(".vehicle-card");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const filterType = button.getAttribute("data-type");
+          const filterValue = button.getAttribute("data-filter");
+
+          // Remove active class from buttons of the same type
+          filterButtons.forEach((btn) => {
+            if (btn.getAttribute("data-type") === filterType) {
+              btn.classList.remove("active");
+            }
+          });
+
+          // Add active class to clicked button
+          button.classList.add("active");
+
+          // Apply filters
+          applyFilters();
+        });
+      });
+
+      function applyFilters() {
+        const activeFilters = {
+          vehicle:
+            document
+              .querySelector('.filter-btn[data-type="vehicle"].active')
+              ?.getAttribute("data-filter") || "all",
+          mode:
+            document
+              .querySelector('.filter-btn[data-type="mode"].active')
+              ?.getAttribute("data-filter") || "all",
+          transmission:
+            document
+              .querySelector('.filter-btn[data-type="transmission"].active')
+              ?.getAttribute("data-filter") || "all",
+        };
+
+        vehicleCards.forEach((card) => {
+          const categories = card.getAttribute("data-category").split(" ");
+          let showCard = true;
+
+          // Check vehicle type filter
+          if (
+            activeFilters.vehicle !== "all" &&
+            !categories.includes(activeFilters.vehicle)
+          ) {
+            showCard = false;
+          }
+
+          // Check mode filter
+          if (
+            activeFilters.mode !== "all" &&
+            !categories.includes(activeFilters.mode)
+          ) {
+            showCard = false;
+          }
+
+          // Check transmission filter
+          if (
+            activeFilters.transmission !== "all" &&
+            !categories.includes(activeFilters.transmission)
+          ) {
+            showCard = false;
+          }
+
+          if (showCard) {
+            card.style.display = "grid";
+            setTimeout(() => {
+              card.style.opacity = "1";
+              card.style.transform = "translateY(0)";
+            }, 100);
+          } else {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(20px)";
+            setTimeout(() => {
+              card.style.display = "none";
+            }, 300);
+          }
+        });
+      }
+
+      // Smooth reveal animation on scroll
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".vehicle-card");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        cards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(50px)";
+          card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+          observer.observe(card);
+        });
+      });
+
+      // Book vehicle functionality (placeholder)
+      // document.querySelectorAll('button').forEach(button => {
+      //     if (button.textContent.includes('Book') || button.textContent.includes('Call')) {
+      //         button.addEventListener('click', () => {
+      //             const vehicleName = button.text  {
+      //         button.addEventListener('click', () => {
+      //             const vehicleName = button.textContent.split(' ')[1] || 'vehicle';
+      //             alert(`Booking functionality for ${vehicleName} would be implemented here!`);
+      //         });
+      //     }
+      // });
+
+      // Feature icon hover effects
+      document.querySelectorAll(".feature-icon").forEach((icon) => {
+        icon.addEventListener("mouseenter", function () {
+          this.style.transform = "scale(1.1)";
+        });
+
+        icon.addEventListener("mouseleave", function () {
+          this.style.transform = "scale(1)";
+        });
+      });
+
+      // Availability badge pulse animation
+      document.querySelectorAll(".availability-badge").forEach((badge) => {
+        if (badge.textContent.includes("Available")) {
+          badge.style.animation = "pulse 2s infinite";
+        }
+      });
+    </script>
+  </body>
+</html>

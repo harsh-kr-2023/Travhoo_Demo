@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Local Guides in Dehradun - Certified Local Experts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.3)
+          ),
+          url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .guide-card {
+        transition: all 0.4s ease;
+        backdrop-filter: blur(10px);
+      }
+      .guide-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+      .filter-btn.active {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+      }
+      .specialty-tag {
+        background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+        transition: all 0.3s ease;
+      }
+      .specialty-tag:hover {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        transform: scale(1.05);
+      }
+      .rating-stars {
+        color: #fbbf24;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+      }
+      .availability-badge {
+        animation: pulse 2s infinite;
+      }
+      .timeline-connector {
+        background: linear-gradient(to bottom, #10b981, #059669);
+      }
+      .guide-image {
+        filter: grayscale(20%) contrast(1.1);
+        transition: all 0.3s ease;
+      }
+      .guide-card:hover .guide-image {
+        filter: grayscale(0%) contrast(1.2);
+      }
+      .testimonial-bg {
+        background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Hero Banner -->
+    <section
+      class="hero-bg h-96 flex items-center justify-center text-white relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-green-900/30 to-blue-900/30"
+      ></div>
+      <div class="text-center max-w-4xl px-4 relative z-10">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          Book Local Guides in Dehradun
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed"
+        >
+          Certified, friendly, multilingual local experts who bring Dehradun's
+          stories to life. Discover hidden gems with passionate guides who call
+          this beautiful city home.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4 text-sm">
+          <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+            <i class="fas fa-certificate mr-2"></i>Verified & Certified
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+            <i class="fas fa-language mr-2"></i>Multilingual
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+            <i class="fas fa-heart mr-2"></i>Local Experts
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <section
+      class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 py-6"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap justify-center gap-3">
+          <button
+            class="filter-btn active px-6 py-3 rounded-full border border-gray-300 hover:bg-green-500 hover:text-white transition-all font-medium shadow-sm"
+            data-filter="all"
+          >
+            <i class="fas fa-users mr-2"></i>All Guides
+          </button>
+          <button
+            class="filter-btn px-6 py-3 rounded-full border border-gray-300 hover:bg-purple-500 hover:text-white transition-all font-medium shadow-sm"
+            data-filter="heritage"
+          >
+            <i class="fas fa-landmark mr-2"></i>Heritage
+          </button>
+          <button
+            class="filter-btn px-6 py-3 rounded-full border border-gray-300 hover:bg-green-600 hover:text-white transition-all font-medium shadow-sm"
+            data-filter="nature"
+          >
+            <i class="fas fa-mountain mr-2"></i>Nature
+          </button>
+          <button
+            class="filter-btn px-6 py-3 rounded-full border border-gray-300 hover:bg-blue-500 hover:text-white transition-all font-medium shadow-sm"
+            data-filter="devotional"
+          >
+            <i class="fas fa-om mr-2"></i>Devotional
+          </button>
+          <button
+            class="filter-btn px-6 py-3 rounded-full border border-gray-300 hover:bg-orange-500 hover:text-white transition-all font-medium shadow-sm"
+            data-filter="food"
+          >
+            <i class="fas fa-utensils mr-2"></i>Food Walks
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guides Section -->
+    <section class="py-16 relative">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <!-- Timeline connector (decorative) -->
+        <!-- <div
+          class="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 timeline-connector opacity-20"
+          style="height: calc(100% - 8rem); top: 4rem"
+        ></div> -->
+
+        <!-- Guide 1 - Ravi Kumar (Nature Expert) -->
+        <div
+          class="guide-card bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden mb-16 grid lg:grid-cols-5 gap-0 relative"
+          data-category="nature"
+        >
+          <div class="lg:col-span-2 relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Ravi Kumar"
+              class="guide-image w-full h-full object-cover min-h-80"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="availability-badge bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-circle text-xs mr-1"></i>Available Today
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div
+                class="bg-black/50 backdrop-blur-sm text-white p-3 rounded-lg"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm opacity-90">Starting from</p>
+                    <p class="text-xl font-bold">₹1,200/tour</p>
+                  </div>
+                  <div class="text-right">
+                    <div class="rating-stars text-lg">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-sm opacity-90">4.9 (127 reviews)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-3 p-8 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-3xl font-bold text-gray-800">Ravi Kumar</h3>
+              <div class="flex gap-2">
+                <span
+                  class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  <i class="fas fa-certificate mr-1"></i>Certified
+                </span>
+                <span
+                  class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  8 Years Experience
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed italic">
+              "Ravi has led over 200 nature treks around Mussoorie,
+              Sahastradhara, and the hidden valleys of Doon. A passionate
+              naturalist who speaks fluent Hindi, English, and Garhwali, he
+              transforms every walk into an adventure of discovery."
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-language text-green-600 mr-2"></i>Languages
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >Hindi</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >English</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >Garhwali</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-tags text-green-600 mr-2"></i>Specializations
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Nature Walks</span
+                  >
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Trekking</span
+                  >
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Wildlife</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                <i class="fas fa-route text-green-600 mr-2"></i>Popular Tours
+              </h4>
+              <div class="grid md:grid-cols-2 gap-3 text-sm">
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <p class="font-medium">Sahastradhara Nature Walk</p>
+                  <p class="text-gray-600">4 hours • ₹1,200</p>
+                </div>
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <p class="font-medium">Mussoorie Trek</p>
+                  <p class="text-gray-600">Full day • ₹1,800</p>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-green-500 to-teal-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-green-600 hover:to-teal-600 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book Ravi as Your Guide
+            </button>
+          </div>
+        </div>
+
+        <!-- Guide 2 - Meera Sharma (Heritage Expert) -->
+        <div
+          class="guide-card bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden mb-16 grid lg:grid-cols-5 gap-0 relative"
+          data-category="heritage"
+        >
+          <div
+            class="lg:col-span-3 p-8 flex flex-col justify-center order-2 lg:order-1"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-3xl font-bold text-gray-800">Meera Sharma</h3>
+              <div class="flex gap-2">
+                <span
+                  class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  <i class="fas fa-certificate mr-1"></i>Certified
+                </span>
+                <span
+                  class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  12 Years Experience
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed italic">
+              "A history graduate from Delhi University, Meera has spent over a
+              decade researching Dehradun's colonial heritage. Her storytelling
+              brings the British Raj era to life, making every monument speak
+              its forgotten tales."
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-language text-purple-600 mr-2"></i>Languages
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >Hindi</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >English</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >Punjabi</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-tags text-purple-600 mr-2"></i
+                  >Specializations
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Heritage Walks</span
+                  >
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Colonial History</span
+                  >
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Architecture</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                <i class="fas fa-route text-purple-600 mr-2"></i>Popular Tours
+              </h4>
+              <div class="grid md:grid-cols-2 gap-3 text-sm">
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <p class="font-medium">Colonial Heritage Walk</p>
+                  <p class="text-gray-600">3 hours • ₹1,000</p>
+                </div>
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <p class="font-medium">FRI Architecture Tour</p>
+                  <p class="text-gray-600">2 hours • ₹800</p>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-purple-600 hover:to-pink-600 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book Meera as Your Guide
+            </button>
+          </div>
+          <div
+            class="lg:col-span-2 relative overflow-hidden order-1 lg:order-2"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1494790108755-2616c9c0e8e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Meera Sharma"
+              class="guide-image w-full h-full object-cover min-h-80"
+            />
+            <div class="absolute top-4 right-4">
+              <span
+                class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-clock text-xs mr-1"></i>Booked Weekend
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div
+                class="bg-black/50 backdrop-blur-sm text-white p-3 rounded-lg"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm opacity-90">Starting from</p>
+                    <p class="text-xl font-bold">₹800/tour</p>
+                  </div>
+                  <div class="text-right">
+                    <div class="rating-stars text-lg">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-sm opacity-90">4.8 (89 reviews)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Why Book With Us Section -->
+        <div class="testimonial-bg rounded-3xl p-8 mb-16 text-center">
+          <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">
+              Why Book With Our Certified Guides?
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+              <div class="text-center">
+                <div
+                  class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <i class="fas fa-certificate text-white text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">
+                  Verified & Certified
+                </h3>
+                <p class="text-gray-600">
+                  All our guides are background-verified and certified by
+                  tourism authorities
+                </p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <i class="fas fa-heart text-white text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">
+                  Passionate Locals
+                </h3>
+                <p class="text-gray-600">
+                  Born and raised in Dehradun, they share authentic stories and
+                  hidden gems
+                </p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <i class="fas fa-shield-alt text-white text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">
+                  Safe & Reliable
+                </h3>
+                <p class="text-gray-600">
+                  Insured guides with emergency protocols and 24/7 support
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guide 3 - Amit Singh (Food Expert) -->
+        <div
+          class="guide-card bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden mb-16 grid lg:grid-cols-5 gap-0 relative"
+          data-category="food"
+        >
+          <div class="lg:col-span-2 relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Amit Singh"
+              class="guide-image w-full h-full object-cover min-h-80"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="availability-badge bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-circle text-xs mr-1"></i>Available Today
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div
+                class="bg-black/50 backdrop-blur-sm text-white p-3 rounded-lg"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm opacity-90">Starting from</p>
+                    <p class="text-xl font-bold">₹900/tour</p>
+                  </div>
+                  <div class="text-right">
+                    <div class="rating-stars text-lg">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-sm opacity-90">4.9 (156 reviews)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-3 p-8 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-3xl font-bold text-gray-800">Amit Singh</h3>
+              <div class="flex gap-2">
+                <span
+                  class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  <i class="fas fa-certificate mr-1"></i>Certified
+                </span>
+                <span
+                  class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  6 Years Experience
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed italic">
+              "A former chef turned food guide, Amit knows every street vendor,
+              hidden dhaba, and family recipe in Dehradun. His food walks are
+              legendary journeys through flavors that locals have cherished for
+              generations."
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-language text-orange-600 mr-2"></i>Languages
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >Hindi</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >English</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >Urdu</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-tags text-orange-600 mr-2"></i
+                  >Specializations
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Street Food</span
+                  >
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Local Cuisine</span
+                  >
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Food History</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                <i class="fas fa-route text-orange-600 mr-2"></i>Popular Tours
+              </h4>
+              <div class="grid md:grid-cols-2 gap-3 text-sm">
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <p class="font-medium">Paltan Bazaar Food Walk</p>
+                  <p class="text-gray-600">3 hours • ₹900</p>
+                </div>
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <p class="font-medium">Pahadi Cuisine Experience</p>
+                  <p class="text-gray-600">4 hours • ₹1,200</p>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-orange-600 hover:to-red-600 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book Amit as Your Guide
+            </button>
+          </div>
+        </div>
+
+        <!-- Guide 4 - Priya Negi (Devotional Expert) -->
+        <div
+          class="guide-card bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden mb-16 grid lg:grid-cols-5 gap-0 relative"
+          data-category="devotional"
+        >
+          <div
+            class="lg:col-span-3 p-8 flex flex-col justify-center order-2 lg:order-1"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-3xl font-bold text-gray-800">Priya Negi</h3>
+              <div class="flex gap-2">
+                <span
+                  class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  <i class="fas fa-certificate mr-1"></i>Certified
+                </span>
+                <span
+                  class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  10 Years Experience
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed italic">
+              "Born into a family of temple priests, Priya has deep knowledge of
+              Dehradun's spiritual heritage. She guides visitors through ancient
+              temples, sharing sacred stories and rituals that have been
+              preserved for centuries."
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-language text-blue-600 mr-2"></i>Languages
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >Hindi</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >English</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >Sanskrit</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >Garhwali</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-tags text-blue-600 mr-2"></i>Specializations
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Temple Tours</span
+                  >
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Spiritual Walks</span
+                  >
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Rituals</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                <i class="fas fa-route text-blue-600 mr-2"></i>Popular Tours
+              </h4>
+              <div class="grid md:grid-cols-2 gap-3 text-sm">
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <p class="font-medium">Sacred Temples Circuit</p>
+                  <p class="text-gray-600">4 hours • ₹1,000</p>
+                </div>
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <p class="font-medium">Mindrolling Monastery Tour</p>
+                  <p class="text-gray-600">2 hours • ₹800</p>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book Priya as Your Guide
+            </button>
+          </div>
+          <div
+            class="lg:col-span-2 relative overflow-hidden order-1 lg:order-2"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Priya Negi"
+              class="guide-image w-full h-full object-cover min-h-80"
+            />
+            <div class="absolute top-4 right-4">
+              <span
+                class="availability-badge bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-circle text-xs mr-1"></i>Available Today
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div
+                class="bg-black/50 backdrop-blur-sm text-white p-3 rounded-lg"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm opacity-90">Starting from</p>
+                    <p class="text-xl font-bold">₹800/tour</p>
+                  </div>
+                  <div class="text-right">
+                    <div class="rating-stars text-lg">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-sm opacity-90">4.7 (94 reviews)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guide 5 - Vikram Thapa (Adventure Expert) -->
+        <div
+          class="guide-card bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden mb-16 grid lg:grid-cols-5 gap-0 relative"
+          data-category="nature"
+        >
+          <div class="lg:col-span-2 relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Vikram Thapa"
+              class="guide-image w-full h-full object-cover min-h-80"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-clock text-xs mr-1"></i>Booked Weekend
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div
+                class="bg-black/50 backdrop-blur-sm text-white p-3 rounded-lg"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm opacity-90">Starting from</p>
+                    <p class="text-xl font-bold">₹1,500/tour</p>
+                  </div>
+                  <div class="text-right">
+                    <div class="rating-stars text-lg">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-sm opacity-90">4.9 (203 reviews)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-3 p-8 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-3xl font-bold text-gray-800">Vikram Thapa</h3>
+              <div class="flex gap-2">
+                <span
+                  class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  <i class="fas fa-certificate mr-1"></i>Certified
+                </span>
+                <span
+                  class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  15 Years Experience
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed italic">
+              "A former army officer turned adventure guide, Vikram specializes
+              in challenging treks and wilderness survival. His expeditions to
+              remote Himalayan trails are perfect for thrill-seekers looking for
+              authentic mountain experiences."
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-language text-green-600 mr-2"></i>Languages
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >Hindi</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >English</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >Nepali</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-tags text-green-600 mr-2"></i>Specializations
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Adventure Treks</span
+                  >
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Rock Climbing</span
+                  >
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Survival Skills</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                <i class="fas fa-route text-green-600 mr-2"></i>Popular Tours
+              </h4>
+              <div class="grid md:grid-cols-2 gap-3 text-sm">
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <p class="font-medium">Nag Tibba Trek</p>
+                  <p class="text-gray-600">2 days • ₹2,500</p>
+                </div>
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <p class="font-medium">Rock Climbing Course</p>
+                  <p class="text-gray-600">Full day • ₹1,500</p>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-green-500 to-teal-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-green-600 hover:to-teal-600 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book Vikram as Your
+              Guide
+            </button>
+          </div>
+        </div>
+
+        <!-- Testimonial Section -->
+        <div class="testimonial-bg rounded-3xl p-8 mb-16 text-center">
+          <div class="max-w-3xl mx-auto">
+            <i class="fas fa-quote-left text-3xl text-green-600 mb-4"></i>
+            <p class="text-xl text-gray-700 mb-6 italic leading-relaxed">
+              "Our guide Ravi was absolutely incredible! He didn't just show us
+              places, he made us fall in love with Dehradun. His knowledge of
+              local flora and fauna was amazing, and his stories made every step
+              of our trek memorable."
+            </p>
+            <div class="flex items-center justify-center">
+              <img
+                src="https://images.unsplash.com/photo-1494790108755-2616c9c0e8e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                alt="Sarah Johnson"
+                class="w-16 h-16 rounded-full mr-4"
+              />
+              <div>
+                <p class="font-semibold text-gray-800 text-lg">Sarah Johnson</p>
+                <p class="text-gray-600">Travel Blogger from Australia</p>
+                <div class="rating-stars text-sm mt-1">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guide 6 - Deepak Rawat (Heritage & Nature) -->
+        <div
+          class="guide-card bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden mb-16 grid lg:grid-cols-5 gap-0 relative"
+          data-category="heritage nature"
+        >
+          <div
+            class="lg:col-span-3 p-8 flex flex-col justify-center order-2 lg:order-1"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-3xl font-bold text-gray-800">Deepak Rawat</h3>
+              <div class="flex gap-2">
+                <span
+                  class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  <i class="fas fa-certificate mr-1"></i>Certified
+                </span>
+                <span
+                  class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  9 Years Experience
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed italic">
+              "A versatile guide who seamlessly blends history with nature,
+              Deepak offers unique tours that combine Dehradun's colonial
+              heritage with its natural beauty. Perfect for travelers who want
+              to experience both culture and adventure in one journey."
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-language text-indigo-600 mr-2"></i>Languages
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >Hindi</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >English</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >French</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-tags text-indigo-600 mr-2"></i
+                  >Specializations
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Heritage + Nature</span
+                  >
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Photography</span
+                  >
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Eco-tours</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                <i class="fas fa-route text-indigo-600 mr-2"></i>Popular Tours
+              </h4>
+              <div class="grid md:grid-cols-2 gap-3 text-sm">
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <p class="font-medium">FRI to Robber's Cave</p>
+                  <p class="text-gray-600">5 hours • ₹1,300</p>
+                </div>
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <p class="font-medium">Photography Walk</p>
+                  <p class="text-gray-600">3 hours • ₹1,000</p>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-indigo-600 hover:to-purple-600 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book Deepak as Your
+              Guide
+            </button>
+          </div>
+          <div
+            class="lg:col-span-2 relative overflow-hidden order-1 lg:order-2"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Deepak Rawat"
+              class="guide-image w-full h-full object-cover min-h-80"
+            />
+            <div class="absolute top-4 right-4">
+              <span
+                class="availability-badge bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-circle text-xs mr-1"></i>Available Today
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div
+                class="bg-black/50 backdrop-blur-sm text-white p-3 rounded-lg"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm opacity-90">Starting from</p>
+                    <p class="text-xl font-bold">₹1,000/tour</p>
+                  </div>
+                  <div class="text-right">
+                    <div class="rating-stars text-lg">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-sm opacity-90">4.6 (112 reviews)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guide 7 - Sunita Bisht (Cultural Expert) -->
+        <div
+          class="guide-card bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden mb-16 grid lg:grid-cols-5 gap-0 relative"
+          data-category="heritage food"
+        >
+          <div class="lg:col-span-2 relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Sunita Bisht"
+              class="guide-image w-full h-full object-cover min-h-80"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="availability-badge bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-circle text-xs mr-1"></i>Available Today
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div
+                class="bg-black/50 backdrop-blur-sm text-white p-3 rounded-lg"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm opacity-90">Starting from</p>
+                    <p class="text-xl font-bold">₹950/tour</p>
+                  </div>
+                  <div class="text-right">
+                    <div class="rating-stars text-lg">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-sm opacity-90">4.8 (87 reviews)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-3 p-8 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-3xl font-bold text-gray-800">Sunita Bisht</h3>
+              <div class="flex gap-2">
+                <span
+                  class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  <i class="fas fa-certificate mr-1"></i>Certified
+                </span>
+                <span
+                  class="bg-pink-100 text-pink-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  7 Years Experience
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed italic">
+              "A cultural anthropologist by training, Sunita specializes in
+              women's stories and traditional crafts of Uttarakhand. Her tours
+              offer unique insights into local customs, festivals, and the rich
+              cultural tapestry of the region."
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-language text-pink-600 mr-2"></i>Languages
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >Hindi</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >English</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                    >Kumaoni</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-tags text-pink-600 mr-2"></i>Specializations
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Cultural Tours</span
+                  >
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Handicrafts</span
+                  >
+                  <span
+                    class="specialty-tag px-3 py-1 rounded-full text-sm font-medium"
+                    >Local Traditions</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                <i class="fas fa-route text-pink-600 mr-2"></i>Popular Tours
+              </h4>
+              <div class="grid md:grid-cols-2 gap-3 text-sm">
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <p class="font-medium">Cultural Heritage Walk</p>
+                  <p class="text-gray-600">3 hours • ₹950</p>
+                </div>
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <p class="font-medium">Handicraft Workshop Tour</p>
+                  <p class="text-gray-600">4 hours • ₹1,200</p>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-pink-600 hover:to-rose-600 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book Sunita as Your
+              Guide
+            </button>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center py-12">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            Ready to Explore Dehradun with a Local Expert?
+          </h2>
+          <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            Our certified guides are waiting to share their passion and
+            knowledge with you. Book your perfect guide today and discover
+            Dehradun like never before!
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              class="bg-gradient-to-r from-green-500 to-teal-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-green-600 hover:to-teal-600 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-phone mr-2"></i>Call for Custom Tours
+            </button>
+            <button
+              class="border-2 border-green-500 text-green-600 px-8 py-3 rounded-xl font-semibold hover:bg-green-50 transition-all"
+            >
+              <i class="fas fa-whatsapp mr-2"></i>WhatsApp Support
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+      // Filter functionality
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const guideCards = document.querySelectorAll(".guide-card");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Remove active class from all buttons
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          // Add active class to clicked button
+          button.classList.add("active");
+
+          const filterValue = button.getAttribute("data-filter");
+
+          guideCards.forEach((card) => {
+            if (filterValue === "all") {
+              card.style.display = "grid";
+              setTimeout(() => {
+                card.style.opacity = "1";
+                card.style.transform = "translateY(0)";
+              }, 100);
+            } else {
+              const categories = card.getAttribute("data-category").split(" ");
+              if (categories.includes(filterValue)) {
+                card.style.display = "grid";
+                setTimeout(() => {
+                  card.style.opacity = "1";
+                  card.style.transform = "translateY(0)";
+                }, 100);
+              } else {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(20px)";
+                setTimeout(() => {
+                  card.style.display = "none";
+                }, 300);
+              }
+            }
+          });
+        });
+      });
+
+      // Smooth reveal animation on scroll
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".guide-card");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        cards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(50px)";
+          card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+          observer.observe(card);
+        });
+      });
+
+      // Book guide functionality (placeholder)
+      document.querySelectorAll("button").forEach((button) => {
+        if (
+          button.textContent.includes("Book") &&
+          button.textContent.includes("Guide")
+        ) {
+          button.addEventListener("click", () => {
+            const guideName = button.textContent.split(" ")[1];
+            alert(
+              `Booking functionality for ${guideName} would be implemented here!`
+            );
+          });
+        }
+      });
+
+      // Specialty tag hover effects
+      document.querySelectorAll(".specialty-tag").forEach((tag) => {
+        tag.addEventListener("mouseenter", function () {
+          this.style.transform = "scale(1.05)";
+        });
+
+        tag.addEventListener("mouseleave", function () {
+          this.style.transform = "scale(1)";
+        });
+      });
+    </script>
+  </body>
+</html>

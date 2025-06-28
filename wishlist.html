@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Travel Wishlist - Dream, Save, Explore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(147, 51, 234, 0.8)), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .wishlist-card {
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+        .wishlist-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .wishlist-card:hover .card-image {
+            transform: scale(1.1);
+        }
+        .card-image {
+            transition: transform 0.6s ease;
+        }
+        .filter-tab {
+            transition: all 0.3s ease;
+        }
+        .filter-tab.active {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        .filter-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .heart-icon {
+            transition: all 0.3s ease;
+        }
+        .heart-icon:hover {
+            transform: scale(1.2);
+            color: #ef4444;
+        }
+        .heart-icon.saved {
+            color: #ef4444;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .stats-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .empty-state {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+        }
+        .note-tooltip {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        .note-tooltip.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .visited-toggle {
+            transition: all 0.3s ease;
+        }
+        .visited-toggle.checked {
+            background: #10b981;
+        }
+        .guide-rating {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+        .export-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        .export-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+        .category-badge {
+            backdrop-filter: blur(10px);
+        }
+        .floating-action {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 50;
+        }
+        .floating-action button {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            transition: all 0.3s ease;
+        }
+        .floating-action button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Hero Section -->
+    <section class="hero-bg py-16 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-purple-900/20"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <!-- User Greeting -->
+                <div class="text-center md:text-left mb-8 md:mb-0">
+                    <div class="flex items-center justify-center md:justify-start mb-4">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="User Avatar" class="w-16 h-16 rounded-full border-4 border-white/30 mr-4">
+                        <div>
+                            <h1 class="text-4xl md:text-5xl font-bold mb-2">Hi, Harsh 👋</h1>
+                            <p class="text-blue-100 text-lg">Welcome back to your travel dreams</p>
+                        </div>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Your Travel Wishlist</h2>
+                    <p class="text-xl text-blue-100 max-w-2xl">
+                        Curate your dream trips. Save what inspires you. Travel when you're ready.
+                    </p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="stats-card p-4 rounded-2xl text-center">
+                        <div class="text-2xl font-bold mb-1">24</div>
+                        <div class="text-sm text-blue-100">Saved Items</div>
+                    </div>
+                    <div class="stats-card p-4 rounded-2xl text-center">
+                        <div class="text-2xl font-bold mb-1">8</div>
+                        <div class="text-sm text-blue-100">Cities</div>
+                    </div>
+                    <div class="stats-card p-4 rounded-2xl text-center">
+                        <div class="text-2xl font-bold mb-1">5</div>
+                        <div class="text-sm text-blue-100">Experiences</div>
+                    </div>
+                    <div class="stats-card p-4 rounded-2xl text-center">
+                        <div class="text-2xl font-bold mb-1">3</div>
+                        <div class="text-sm text-blue-100">Guides</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <section class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                    <button class="filter-tab active px-6 py-3 rounded-full text-sm font-medium bg-white border border-gray-200 hover:bg-gray-50 whitespace-nowrap" data-filter="all">
+                        <i class="fas fa-th-large mr-2"></i>All Items
+                    </button>
+                    <button class="filter-tab px-6 py-3 rounded-full text-sm font-medium bg-white border border-gray-200 hover:bg-gray-50 whitespace-nowrap" data-filter="cities">
+                        <i class="fas fa-city mr-2"></i>Saved Cities
+                    </button>
+                    <button class="filter-tab px-6 py-3 rounded-full text-sm font-medium bg-white border border-gray-200 hover:bg-gray-50 whitespace-nowrap" data-filter="experiences">
+                        <i class="fas fa-mountain mr-2"></i>Experiences
+                    </button>
+                    <button class="filter-tab px-6 py-3 rounded-full text-sm font-medium bg-white border border-gray-200 hover:bg-gray-50 whitespace-nowrap" data-filter="restaurants">
+                        <i class="fas fa-utensils mr-2"></i>Restaurants
+                    </button>
+                    <button class="filter-tab px-6 py-3 rounded-full text-sm font-medium bg-white border border-gray-200 hover:bg-gray-50 whitespace-nowrap" data-filter="attractions">
+                        <i class="fas fa-landmark mr-2"></i>Attractions
+                    </button>
+                    <button class="filter-tab px-6 py-3 rounded-full text-sm font-medium bg-white border border-gray-200 hover:bg-gray-50 whitespace-nowrap" data-filter="guides">
+                        <i class="fas fa-user-tie mr-2"></i>Guides
+                    </button>
+                </div>
+
+                <!-- Export Button -->
+                <button class="export-btn text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
+                    <i class="fas fa-download mr-2"></i>Export PDF
+                </button>
+            </div>
+            
+            <div class="text-sm text-gray-600">
+                <span id="results-count">Showing 24 saved items</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        
+        <!-- Saved Cities Section -->
+        <section id="cities-section" class="mb-12">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Saved Cities</h3>
+                <span class="text-sm text-gray-500">8 cities</span>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                
+                <!-- Rishikesh -->
+                <div class="wishlist-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="cities">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Rishikesh" class="card-image w-full h-full object-cover">
+                        
+                        <!-- Heart Icon -->
+                        <button class="heart-icon saved absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center">
+                            <i class="fas fa-heart text-lg"></i>
+                        </button>
+                        
+                        <!-- Note Icon -->
+                        <button class="absolute top-4 left-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 hover:text-blue-600 transition-colors" title="Add Note">
+                            <i class="fas fa-sticky-note"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Rishikesh</h4>
+                        <p class="text-gray-600 text-sm mb-3">3 spots saved in this city</p>
+                        
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="category-badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">Adventure</span>
+                            <span class="category-badge bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">Spiritual</span>
+                        </div>
+                        
+                        <!-- Personal Note -->
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-3 mb-4 rounded-r-lg">
+                            <p class="text-sm text-yellow-800 italic">
+                                <i class="fas fa-quote-left mr-1"></i>
+                                Perfect for our anniversary trip - river rafting and yoga retreats!
+                            </p>
+                        </div>
+                        
+                        <button class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-map-marked-alt mr-2"></i>Open City Guide
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Manali -->
+                <div class="wishlist-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="cities">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Manali" class="card-image w-full h-full object-cover">
+                        <button class="heart-icon saved absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center">
+                            <i class="fas fa-heart text-lg"></i>
+                        </button>
+                        <button class="absolute top-4 left-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 hover:text-blue-600 transition-colors" title="Add Note">
+                            <i class="fas fa-sticky-note"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Manali</h4>
+                        <p class="text-gray-600 text-sm mb-3">5 spots saved in this city</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="category-badge bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-medium">Adventure</span>
+                            <span class="category-badge bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium">Mountains</span>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-map-marked-alt mr-2"></i>Open City Guide
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Goa -->
+                <div class="wishlist-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="cities">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Goa" class="card-image w-full h-full object-cover">
+                        <button class="heart-icon saved absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center">
+                            <i class="fas fa-heart text-lg"></i>
+                        </button>
+                        <button class="absolute top-4 left-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 hover:text-blue-600 transition-colors" title="Add Note">
+                            <i class="fas fa-sticky-note"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Goa</h4>
+                        <p class="text-gray-600 text-sm mb-3">7 spots saved in this city</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="category-badge bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-medium">Beach</span>
+                            <span class="category-badge bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-xs font-medium">Nightlife</span>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-map-marked-alt mr-2"></i>Open City Guide
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Kerala -->
+                <div class="wishlist-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="cities">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Kerala" class="card-image w-full h-full object-cover">
+                        <button class="heart-icon saved absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center">
+                            <i class="fas fa-heart text-lg"></i>
+                        </button>
+                        <button class="absolute top-4 left-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 hover:text-blue-600 transition-colors" title="Add Note">
+                            <i class="fas fa-sticky-note"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Kerala</h4>
+                        <p class="text-gray-600 text-sm mb-3">4 spots saved in this city</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="category-badge bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">Nature</span>
+                            <span class="category-badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">Backwaters</span>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-map-marked-alt mr-2"></i>Open City Guide
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Saved Experiences Section -->
+        <section id="experiences-section" class="mb-12">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Saved Experiences</h3>
+                <span class="text-sm text-gray-500">5 experiences</span>
+            </div>
+            
+            <div class="space-y-4">
+                
+                <!-- River Rafting -->
+                <div class="wishlist-card bg-white rounded-2xl shadow-lg p-6 flex flex-col md:flex-row items-center gap-6" data-category="experiences">
+                    <div class="relative w-full md:w-48 h-32 rounded-xl overflow-hidden flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="River Rafting" class="card-image w-full h-full object-cover">
+                        <button class="heart-icon saved absolute top-2 right-2 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center">
+                            <i class="fas fa-heart text-sm"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between mb-2">
+                            <h4 class="text-xl font-bold text-gray-900">White Water Rafting</h4>
+                            <button class="text-gray-400 hover:text-red-500 transition-colors" title="Remove from wishlist">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <p class="text-gray-600 mb-2">
+                            <i class="fas fa-map-marker-alt mr-1"></i>Rishikesh, Uttarakhand
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Adventure</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Water Sports</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Best: Oct-Jun</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-600">
+                                <span class="font-semibold">₹1,500</span> per person
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                                    View Details
+                                </button>
+                                <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors">
+                                    Add Note
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paragliding -->
+                <div class="wishlist-card bg-white rounded-2xl shadow-lg p-6 flex flex-col md:flex-row items-center gap-6" data-category="experiences">
+                    <div class="relative w-full md:w-48 h-32 rounded-xl overflow-hidden flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Paragliding" class="card-image w-full h-full object-cover">
+                        <button class="heart-icon saved absolute top-2 right-2 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center">
+                            <i class="fas fa-heart text-sm"></i>
+                        </button>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between mb-2">
+                            <h4 class="text-xl font-bold text-gray-900">Paragliding Adventure</h4>
+                            <button class="text-gray-400 hover:text-red-500 transition-colors" title="Remove from wishlist">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <p class="text-gray-600 mb-2">
+                            <i class="fas fa-map-marker-alt mr-1"></i>Bir Billing, Himachal Pradesh
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Adventure</span>
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">Flying</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Best: Mar-Jun</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-600">
+                                <span class="font-semibold">₹2,500</span> per person
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                                    View Details
+                                </button>
+                                <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors">
+                                    Add Note
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Saved Restaurants Section -->
+        <section id="restaurants-section" class="mb-12">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Saved Restaurants</h3>
+                <span class="text-sm text-gray-500">6 restaurants</span>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Restaurant 1 -->
+                <div class="wishlist-card bg-white rounded-2xl shadow-lg overflow-hidden" data-category="restaurants">
+                    <div class="relative h-40 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Restaurant" class="card-image w-full h-full object-cover">
+                        <button class="heart-icon saved absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center">
+                            <i class="fas fa-heart text-sm"></i>
+                        </button>
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs font-medium">Must Try</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-5">
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">Chotiwala Restaurant</h4>
+                        <p class="text-gray-600 text-sm mb-2">
+                            <i class="fas fa-map-marker-alt mr-1"></i>Rishikesh, Uttarakhand
+                        </p>
+                        
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Vegetarian</span>
+                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">Local</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Budget</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-sm">
+                                <span class="font-semibold text-gray-900">₹300</span>
+                                <span class="text-gray-600"> for two</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span class="text-sm font-medium">4.2</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-2">
+                            <button class="flex-1 bg-blue-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                                Book Table
+                            </button>
+                            <button class="px-3 py-2 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                                <i class="fas fa-utensils"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restaurant 2 -->
+                <div class="wishlist-card bg-white rounded-2xl shadow-lg overflow-hidden" data-category="restaurants">
+                    <div class="relative h-40 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Restaurant" class="card-image w-full h-full object-cover">
+                        <button class="heart-icon saved absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center">
+                            <i class="fas fa-heart text-sm"></i>
+                        </button>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">Thalassery Restaurant</h4>
+                        <p class="text-gray-600 text-sm mb-2">
+                            <i class="fas fa-map-marker-alt mr-1"></i>Kochi, Kerala
+                        </p>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Non-Veg</span>
+                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">Seafood</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-sm">
+                                <span class="font-semibold text-gray-900">₹800</span>
+                                <span class="text-gray-600"> for two</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span class="text-sm font-medium">4.5</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="flex-1 bg-blue-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                                Book Table
+                            </button>
+                            <button class="px-3 py-2 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                                <i class="fas fa-utensils"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Saved Attractions Section -->
+        <section id="attractions-section" class="mb-12">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Places to Visit</h3>
+                <span class="text-sm text-gray-500">4 attractions</span>
+            </div>
+            
+            <div class="space-y-4">
+                
+                <!-- Attraction 1 -->
+                <div class="wishlist-card bg-white rounded-2xl shadow-lg p-6 flex items-center gap-6" data-category="attractions">
+                    <div class="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Taj Mahal" class="w-full h-full object-cover">
+                    </div>
+                    
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between mb-2">
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-900">Taj Mahal</h4>
+                                <p class="text-gray-600 text-sm">
+                                    <i class="fas fa-map-marker-alt mr-1"></i>Agra, Uttar Pradesh
+                                </p>
+                            </div>
+                            <button class="heart-icon saved text-red-500">
+                                <i class="fas fa-heart text-lg"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="text-sm text-gray-600">
+                                <i class="fas fa-ticket-alt mr-1"></i>₹50 (Indian) / ₹1100 (Foreign)
+                            </span>
+                            <span class="text-sm text-gray-600">
+                                <i class="fas fa-clock mr-1"></i>6:00 AM - 6:30 PM
+                            </span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only visited-toggle">
+                                    <div class="w-5 h-5 border-2 border-gray-300 rounded flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-xs hidden"></i>
+                                    </div>
+                                    <span class="ml-2 text-sm text-gray-600">Mark as Visited</span>
+                                </label>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                                    Get Directions
+                                </button>
+                                <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors">
+                                    Plan Visit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Attraction 2 -->
+                <div class="wishlist-card bg-white rounded-2xl shadow-lg p-6 flex items-center gap-6" data-category="attractions">
+                    <div class="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Red Fort" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between mb-2">
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-900">Red Fort</h4>
+                                <p class="text-gray-600 text-sm">
+                                    <i class="fas fa-map-marker-alt mr-1"></i>Delhi
+                                </p>
+                            </div>
+                            <button class="heart-icon saved text-red-500">
+                                <i class="fas fa-heart text-lg"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="text-sm text-gray-600">
+                                <i class="fas fa-ticket-alt mr-1"></i>₹35 (Indian) / ₹500 (Foreign)
+                            </span>
+                            <span class="text-sm text-gray-600">
+                                <i class="fas fa-clock mr-1"></i>9:30 AM - 4:30 PM
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only visited-toggle" checked>
+                                    <div class="w-5 h-5 border-2 border-green-500 bg-green-500 rounded flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-xs"></i>
+                                    </div>
+                                    <span class="ml-2 text-sm text-green-600 font-medium">Visited ✓</span>
+                                </label>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="bg-gray-400 text-white px-4 py-2 rounded-lg text-sm font-medium cursor-not-allowed">
+                                    Already Visited
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Saved Guides Section -->
+        <section id="guides-section" class="mb-12">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Saved Guides</h3>
+                <span class="text-sm text-gray-500">3 guides</span>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Guide 1 -->
+                <div class="wishlist-card bg-white rounded-2xl shadow-lg p-6" data-category="guides">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Guide" class="w-12 h-12 rounded-full object-cover">
+                            <div>
+                                <h4 class="font-bold text-gray-900">Rajesh Kumar</h4>
+                                <p class="text-sm text-gray-600">Rishikesh, Uttarakhand</p>
+                            </div>
+                        </div>
+                        <button class="heart-icon saved text-red-500">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="guide-rating text-white px-3 py-1 rounded-full text-sm font-medium inline-flex items-center mb-3">
+                        <i class="fas fa-star mr-1"></i>4.8 (127 reviews)
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-600 mb-2">Languages:</p>
+                        <div class="flex gap-2">
+                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs">Hindi</span>
+                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs">English</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-600 mb-2">Specializes in:</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Adventure Tours</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Spiritual Tours</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-2">
+                        <button class="flex-1 bg-blue-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-phone mr-1"></i>Contact
+                        </button>
+                        <button class="px-3 py-2 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                            <i class="fas fa-user"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Guide 2 -->
+                <div class="wishlist-card bg-white rounded-2xl shadow-lg p-6" data-category="guides">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616c6d4e6e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Guide" class="w-12 h-12 rounded-full object-cover">
+                            <div>
+                                <h4 class="font-bold text-gray-900">Priya Sharma</h4>
+                                <p class="text-sm text-gray-600">Kochi, Kerala</p>
+                            </div>
+                        </div>
+                        <button class="heart-icon saved text-red-500">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="guide-rating text-white px-3 py-1 rounded-full text-sm font-medium inline-flex items-center mb-3">
+                        <i class="fas fa-star mr-1"></i>4.9 (89 reviews)
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-600 mb-2">Languages:</p>
+                        <div class="flex gap-2">
+                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs">Malayalam</span>
+                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs">English</span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-600 mb-2">Specializes in:</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Backwater Tours</span>
+                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">Food Tours</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="flex-1 bg-blue-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-phone mr-1"></i>Contact
+                        </button>
+                        <button class="px-3 py-2 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                            <i class="fas fa-user"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Empty State (Hidden by default) -->
+        <section id="empty-state" class="empty-state rounded-3xl p-16 text-center hidden">
+            <div class="max-w-md mx-auto">
+                <div class="w-32 h-32 mx-auto mb-6 bg-blue-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-heart text-4xl text-blue-500"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Your Wishlist is Empty</h3>
+                <p class="text-gray-600 mb-8">
+                    Start building your dream travel list! Save cities, experiences, restaurants, and guides that inspire you.
+                </p>
+                <button class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors">
+                    <i class="fas fa-search mr-2"></i>Explore Destinations
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating Action Button -->
+    <div class="floating-action">
+        <button class="w-14 h-14 rounded-full text-white shadow-lg">
+            <i class="fas fa-share-alt text-xl"></i>
+        </button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Filter functionality
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const sections = document.querySelectorAll('section[id$="-section"]');
+        const resultsCount = document.getElementById('results-count');
+        const emptyState = document.getElementById('empty-state');
+        
+        let currentFilter = 'all';
+
+        // Filter tab functionality
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                filterTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                currentFilter = tab.getAttribute('data-filter');
+                applyFilter();
+            });
+        });
+
+        function applyFilter() {
+            let visibleCount = 0;
+            
+            if (currentFilter === 'all') {
+                // Show all sections
+                sections.forEach(section => {
+                    section.classList.remove('hidden');
+                    const cards = section.querySelectorAll('.wishlist-card');
+                    visibleCount += cards.length;
+                });
+                emptyState.classList.add('hidden');
+            } else {
+                // Hide all sections first
+                sections.forEach(section => section.classList.add('hidden'));
+                
+                // Show specific section
+                const targetSection = document.getElementById(`${currentFilter}-section`);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                    const cards = targetSection.querySelectorAll('.wishlist-card');
+                    visibleCount = cards.length;
+                }
+                
+                emptyState.classList.add('hidden');
+            }
+            
+            // Update results count
+            const filterText = currentFilter === 'all' ? 'saved items' : currentFilter;
+            resultsCount.textContent = `Showing ${visibleCount} ${filterText}`;
+            
+            // Show empty state if no items
+            if (visibleCount === 0) {
+                sections.forEach(section => section.classList.add('hidden'));
+                emptyState.classList.remove('hidden');
+            }
+        }
+
+        // Heart icon functionality
+        document.querySelectorAll('.heart-icon').forEach(heart => {
+            heart.addEventListener('click', (e) => {
+                e.stopPropagation();
+                heart.classList.toggle('saved');
+                
+                if (heart.classList.contains('saved')) {
+                    heart.innerHTML = '<i class="fas fa-heart text-lg"></i>';
+                } else {
+                    heart.innerHTML = '<i class="far fa-heart text-lg"></i>';
+                }
+            });
+        });
+
+        // Visited toggle functionality
+        document.querySelectorAll('.visited-toggle').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const container = this.closest('label');
+                const checkbox = container.querySelector('div');
+                const checkIcon = container.querySelector('i');
+                const text = container.querySelector('span');
+                
+                if (this.checked) {
+                    checkbox.classList.add('bg-green-500', 'border-green-500');
+                    checkbox.classList.remove('border-gray-300');
+                    checkIcon.classList.remove('hidden');
+                    text.textContent = 'Visited ✓';
+                    text.classList.add('text-green-600', 'font-medium');
+                    text.classList.remove('text-gray-600');
+                } else {
+                    checkbox.classList.remove('bg-green-500', 'border-green-500');
+                    checkbox.classList.add('border-gray-300');
+                    checkIcon.classList.add('hidden');
+                    text.textContent = 'Mark as Visited';
+                    text.classList.remove('text-green-600', 'font-medium');
+                    text.classList.add('text-gray-600');
+                }
+            });
+        });
+
+        // Export PDF functionality
+        document.querySelector('.export-btn').addEventListener('click', () => {
+            alert('Exporting your wishlist as PDF... (Feature coming soon!)');
+        });
+
+        // Floating action button
+        document.querySelector('.floating-action button').addEventListener('click', () => {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'My Travel Wishlist',
+                    text: 'Check out my travel wishlist!',
+                    url: window.location.href
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                const url = window.location.href;
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('Wishlist link copied to clipboard!');
+                });
+            }
+        });
+
+        // Card click functionality
+        document.querySelectorAll('.wishlist-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Don't trigger if clicking on buttons or interactive elements
+                if (e.target.closest('button') || e.target.closest('input') || e.target.closest('label')) {
+                    return;
+                }
+                
+                const category = card.getAttribute('data-category');
+                console.log(`Opening ${category} details...`);
+                // In a real app, this would navigate to the detail page
+            });
+        });
+
+        // Smooth scroll reveal animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.wishlist-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+
+        // Add note functionality (placeholder)
+        document.querySelectorAll('[title="Add Note"]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const note = prompt('Add a personal note:');
+                if (note) {
+                    console.log('Note added:', note);
+                    // In a real app, this would save to database
+                    alert('Note saved!');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

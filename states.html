@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore India by State - Discover Incredible India</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .hero-bg {
+        background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        position: relative;
+      }
+      .hero-bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20,30 Q30,20 40,30 L60,25 Q70,20 80,30 L85,40 Q80,50 70,45 L60,50 Q50,60 40,50 L30,55 Q20,50 15,40 Z' fill='%23ffffff' opacity='0.1'/%3E%3C/svg%3E");
+        background-size: 300px 300px;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .state-card {
+        transition: all 0.4s ease;
+        overflow: hidden;
+      }
+      .state-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+      .state-card:hover .state-image {
+        transform: scale(1.1);
+      }
+      .state-image {
+        transition: transform 0.7s ease;
+      }
+      .filter-btn.active {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+      }
+      .popular-badge {
+        animation: pulse 2s infinite;
+      }
+      .region-badge {
+        backdrop-filter: blur(10px);
+      }
+      .cta-overlay {
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+      }
+      .toggle-switch {
+        transition: all 0.3s ease;
+      }
+      .toggle-switch.active {
+        background: #3b82f6;
+      }
+      .toggle-switch.active .toggle-circle {
+        transform: translateX(24px);
+      }
+      .toggle-circle {
+        transition: transform 0.3s ease;
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-br from-blue-50 via-white to-orange-50">
+    <!-- Hero Section -->
+    <section
+      class="hero-bg h-96 flex items-center justify-center relative overflow-hidden"
+    >
+      <div class="relative z-10 text-center text-white px-4 max-w-4xl">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          Explore India by State
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed mb-8"
+        >
+          Choose a state to begin your journey through curated city travel
+          experiences. Discover the incredible diversity of India, one state at
+          a time.
+        </p>
+
+        <!-- Stats -->
+        <div class="flex flex-wrap justify-center gap-8 text-sm">
+          <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+            <span class="font-semibold">29+ States</span>
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+            <span class="font-semibold">100+ Cities</span>
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+            <span class="font-semibold">1000+ Experiences</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section
+      class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 py-6"
+    >
+      <div class="container mx-auto px-4">
+        <div
+          class="flex flex-col md:flex-row gap-4 items-center justify-between"
+        >
+          <!-- Region Filter -->
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="text-sm font-semibold text-gray-700 mr-2 flex items-center"
+              >Filter by Region:</span
+            >
+            <button
+              class="filter-btn active px-4 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-region="all"
+            >
+              All
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-region="north"
+            >
+              North
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-region="south"
+            >
+              South
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-region="east"
+            >
+              East
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-region="west"
+            >
+              West
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-region="northeast"
+            >
+              Northeast
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-region="central"
+            >
+              Central
+            </button>
+          </div>
+
+          <!-- Popular First Toggle -->
+          <div class="flex items-center gap-3">
+            <label class="flex items-center cursor-pointer">
+              <div
+                class="toggle-switch relative w-12 h-6 bg-gray-300 rounded-full"
+              >
+                <div
+                  class="toggle-circle absolute top-1 left-1 w-4 h-4 bg-white rounded-full"
+                ></div>
+              </div>
+              <span class="ml-3 text-sm font-medium text-gray-700"
+                >Popular States First</span
+              >
+            </label>
+          </div>
+        </div>
+
+        <!-- Results Count -->
+        <div class="mt-4 text-sm text-gray-600">
+          <span id="results-count">Showing 16 states</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- States Grid -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+          id="states-grid"
+        >
+          <!-- Rajasthan -->
+          <div
+            class="state-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-region="north"
+            data-popular="true"
+            data-state="rajasthan"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1599661046827-dacde6976549?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Rajasthan"
+                class="state-image w-full h-full object-cover"
+              />
+
+              <!-- Overlay -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 hover:opacity-80 transition-opacity duration-300"
+              ></div>
+
+              <!-- Popular Badge -->
+              <div class="absolute top-4 left-4">
+                <span
+                  class="popular-badge bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center"
+                >
+                  <i class="fas fa-star mr-1"></i>Popular
+                </span>
+              </div>
+
+              <!-- City Count Badge -->
+              <div class="absolute top-4 right-4">
+                <span
+                  class="region-badge bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold"
+                >
+                  8 Cities
+                </span>
+              </div>
+
+              <!-- Content Overlay -->
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3
+                  class="text-2xl font-bold mb-2 group-hover:text-orange-300 transition-colors"
+                >
+                  Rajasthan
+                </h3>
+                <p class="text-sm text-gray-200 mb-3 opacity-90">
+                  Land of Kings and Palaces
+                </p>
+                <div class="flex items-center text-sm">
+                  <span
+                    class="bg-blue-500/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium"
+                    >North India</span
+                  >
+                </div>
+              </div>
+
+              <!-- Hover CTA -->
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+              >
+                <div
+                  class="cta-overlay text-white px-6 py-3 rounded-full font-semibold transform translate-y-4 hover:translate-y-0 transition-transform duration-300"
+                >
+                  <i class="fas fa-eye mr-2"></i>Explore Cities
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kerala -->
+          <div
+            class="state-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-region="south"
+            data-popular="true"
+            data-state="kerala"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Kerala"
+                class="state-image w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 hover:opacity-80 transition-opacity duration-300"
+              ></div>
+              <div class="absolute top-4 left-4">
+                <span
+                  class="popular-badge bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center"
+                >
+                  <i class="fas fa-star mr-1"></i>Popular
+                </span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span
+                  class="region-badge bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold"
+                  >6 Cities</span
+                >
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 class="text-2xl font-bold mb-2">Kerala</h3>
+                <p class="text-sm text-gray-200 mb-3 opacity-90">
+                  God's Own Country
+                </p>
+                <div class="flex items-center text-sm">
+                  <span
+                    class="bg-blue-500/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium"
+                    >South India</span
+                  >
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+              >
+                <div
+                  class="cta-overlay text-white px-6 py-3 rounded-full font-semibold transform translate-y-4 hover:translate-y-0 transition-transform duration-300"
+                >
+                  <i class="fas fa-eye mr-2"></i>Explore Cities
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Himachal Pradesh -->
+          <div
+            class="state-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-region="north"
+            data-popular="true"
+            data-state="himachal-pradesh"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Himachal Pradesh"
+                class="state-image w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 hover:opacity-80 transition-opacity duration-300"
+              ></div>
+              <div class="absolute top-4 left-4">
+                <span
+                  class="popular-badge bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center"
+                >
+                  <i class="fas fa-star mr-1"></i>Popular
+                </span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span
+                  class="region-badge bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold"
+                  >7 Cities</span
+                >
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 class="text-2xl font-bold mb-2">Himachal Pradesh</h3>
+                <p class="text-sm text-gray-200 mb-3 opacity-90">
+                  Land of Snow-Capped Mountains
+                </p>
+                <div class="flex items-center text-sm">
+                  <span
+                    class="bg-blue-500/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium"
+                    >North India</span
+                  >
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+              >
+                <div
+                  class="cta-overlay text-white px-6 py-3 rounded-full font-semibold transform translate-y-4 hover:translate-y-0 transition-transform duration-300"
+                >
+                  <i class="fas fa-eye mr-2"></i>Explore Cities
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Goa -->
+          <div
+            class="state-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-region="west"
+            data-popular="true"
+            data-state="goa"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Goa"
+                class="state-image w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 hover:opacity-80 transition-opacity duration-300"
+              ></div>
+              <div class="absolute top-4 left-4">
+                <span
+                  class="popular-badge bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center"
+                >
+                  <i class="fas fa-star mr-1"></i>Popular
+                </span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span
+                  class="region-badge bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold"
+                  >4 Cities</span
+                >
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 class="text-2xl font-bold mb-2">Goa</h3>
+                <p class="text-sm text-gray-200 mb-3 opacity-90">
+                  Beach Paradise
+                </p>
+                <div class="flex items-center text-sm">
+                  <span
+                    class="bg-blue-500/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium"
+                    >West India</span
+                  >
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+              >
+                <div
+                  class="cta-overlay text-white px-6 py-3 rounded-full font-semibold transform translate-y-4 hover:translate-y-0 transition-transform duration-300"
+                >
+                  <i class="fas fa-eye mr-2"></i>Explore Cities
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tamil Nadu -->
+          <div
+            class="state-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-region="south"
+            data-popular="true"
+            data-state="tamil-nadu"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Tamil Nadu"
+                class="state-image w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 hover:opacity-80 transition-opacity duration-300"
+              ></div>
+              <div class="absolute top-4 left-4">
+                <span
+                  class="popular-badge bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center"
+                >
+                  <i class="fas fa-star mr-1"></i>Popular
+                </span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span
+                  class="region-badge bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold"
+                  >9 Cities</span
+                >
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 class="text-2xl font-bold mb-2">Tamil Nadu</h3>
+                <p class="text-sm text-gray-200 mb-3 opacity-90">
+                  Temple Land of South India
+                </p>
+                <div class="flex items-center text-sm">
+                  <span
+                    class="bg-blue-500/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium"
+                    >South India</span
+                  >
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+              >
+                <div
+                  class="cta-overlay text-white px-6 py-3 rounded-full font-semibold transform translate-y-4 hover:translate-y-0 transition-transform duration-300"
+                >
+                  <i class="fas fa-eye mr-2"></i>Explore Cities
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Maharashtra -->
+          <div
+            class="state-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-region="west"
+            data-popular="true"
+            data-state="maharashtra"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1595658658481-d53d3f999875?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Maharashtra"
+                class="state-image w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 hover:opacity-80 transition-opacity duration-300"
+              ></div>
+              <div class="absolute top-4 left-4">
+                <span
+                  class="popular-badge bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center"
+                >
+                  <i class="fas fa-star mr-1"></i>Popular
+                </span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span
+                  class="region-badge bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold"
+                  >10 Cities</span
+                >
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 class="text-2xl font-bold mb-2">Maharashtra</h3>
+                <p class="text-sm text-gray-200 mb-3 opacity-90">
+                  Gateway of India
+                </p>
+                <div class="flex items-center text-sm">
+                  <span
+                    class="bg-blue-500/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium"
+                    >West India</span
+                  >
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+              >
+                <div
+                  class="cta-overlay text-white px-6 py-3 rounded-full font-semibold transform translate-y-4 hover:translate-y-0 transition-transform duration-300"
+                >
+                  <i class="fas fa-eye mr-2"></i>Explore Cities
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Delhi -->
+          <div
+            class="state-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-region="north"
+            data-popular="true"
+            data-state="delhi"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Delhi"
+                class="state-image w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 hover:opacity-80 transition-opacity duration-300"
+              ></div>
+              <div class="absolute top-4 left-4">
+                <span
+                  class="popular-badge bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center"
+                >
+                  <i class="fas fa-star mr-1"></i>Popular
+                </span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span
+                  class="region-badge bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold"
+                  >3 Cities</span
+                >
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 class="text-2xl font-bold mb-2">Delhi</h3>
+                <p class="text-sm text-gray-200 mb-3 opacity-90">
+                  Capital Territory
+                </p>
+                <div class="flex items-center text-sm">
+                  <span
+                    class="bg-blue-500/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium"
+                    >North India</span
+                  >
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+              >
+                <div
+                  class="cta-overlay text-white px-6 py-3 rounded-full font-semibold transform translate-y-4 hover:translate-y-0 transition-transform duration-300"
+                >
+                  <i class="fas fa-eye mr-2"></i>Explore Cities
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Uttarakhand -->
+          <div
+            class="state-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-region="north"
+            data-popular="false"
+            data-state="uttarakhand"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Uttarakhand"
+                class="state-image w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 hover:opacity-80 transition-opacity duration-300"
+              ></div>
+              <div class="absolute top-4 right-4">
+                <span
+                  class="region-badge bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold"
+                  >5 Cities</span
+                >
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 class="text-2xl font-bold mb-2">Uttarakhand</h3>
+                <p class="text-sm text-gray-200 mb-3 opacity-90">
+                  Land of Gods
+                </p>
+                <div class="flex items-center text-sm">
+                  <span
+                    class="bg-blue-500/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium"
+                    >North India</span
+                  >
+                </div>
+              </div>
+              <a
+                href="all_cities.html"
+                class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+              >
+                <div
+                  class="cta-overlay text-white px-6 py-3 rounded-full font-semibold transform translate-y-4 hover:translate-y-0 transition-transform duration-300"
+                >
+                  <i class="fas fa-eye mr-2"></i>Explore Cities
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Gujarat -->
+          <div
+            class="state-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-region="west"
+            data-popular="false"
+            data-state="gujarat"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Gujarat"
+                class="state-image w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 hover:opacity-80 transition-opacity duration-300"
+              ></div>
+              <div class="absolute top-4 right-4">
+                <span
+                  class="region-badge bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold"
+                  >6 Cities</span
+                >
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 class="text-2xl font-bold mb-2">Gujarat</h3>
+                <p class="text-sm text-gray-200 mb-3 opacity-90">
+                  Vibrant Culture and Heritage
+                </p>
+                <div class="flex items-center text-sm">
+                  <span
+                    class="bg-blue-500/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium"
+                    >West India</span
+                  >
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+              >
+                <div
+                  class="cta-overlay text-white px-6 py-3 rounded-full font-semibold transform translate-y-4 hover:translate-y-0 transition-transform duration-300"
+                >
+                  <i class="fas fa-eye mr-2"></i>Explore Cities
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Karnataka -->
+          <div
+            class="state-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-region="south"
+            data-popular="false"
+            data-state="karnataka"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Karnataka"
+                class="state-image w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 hover:opacity-80 transition-opacity duration-300"
+              ></div>
+              <div class="absolute top-4 right-4">
+                <span
+                  class="region-badge bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold"
+                  >8 Cities</span
+                >
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 class="text-2xl font-bold mb-2">Karnataka</h3>
+                <p class="text-sm text-gray-200 mb-3 opacity-90">
+                  Garden City and Tech Hub
+                </p>
+                <div class="flex items-center text-sm">
+                  <span
+                    class="bg-blue-500/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium"
+                    >South India</span
+                  >
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+              >
+                <div
+                  class="cta-overlay text-white px-6 py-3 rounded-full font-semibold transform translate-y-4 hover:translate-y-0 transition-transform duration-300"
+                >
+                  <i class="fas fa-eye mr-2"></i>Explore Cities
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Assam -->
+          <div
+            class="state-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-region="northeast"
+            data-popular="false"
+            data-state="assam"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Assam"
+                class="state-image w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 hover:opacity-80 transition-opacity duration-300"
+              ></div>
+              <div class="absolute top-4 right-4">
+                <span
+                  class="region-badge bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold"
+                  >4 Cities</span
+                >
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 class="text-2xl font-bold mb-2">Assam</h3>
+                <p class="text-sm text-gray-200 mb-3 opacity-90">
+                  Gateway to Northeast
+                </p>
+                <div class="flex items-center text-sm">
+                  <span
+                    class="bg-blue-500/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium"
+                    >Northeast India</span
+                  >
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+              >
+                <div
+                  class="cta-overlay text-white px-6 py-3 rounded-full font-semibold transform translate-y-4 hover:translate-y-0 transition-transform duration-300"
+                >
+                  <i class="fas fa-eye mr-2"></i>Explore Cities
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Punjab -->
+          <div
+            class="state-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-region="north"
+            data-popular="false"
+            data-state="punjab"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Punjab"
+                class="state-image w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 hover:opacity-80 transition-opacity duration-300"
+              ></div>
+              <div class="absolute top-4 right-4">
+                <span
+                  class="region-badge bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold"
+                  >5 Cities</span
+                >
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 class="text-2xl font-bold mb-2">Punjab</h3>
+                <p class="text-sm text-gray-200 mb-3 opacity-90">
+                  Land of Five Rivers
+                </p>
+                <div class="flex items-center text-sm">
+                  <span
+                    class="bg-blue-500/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium"
+                    >North India</span
+                  >
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+              >
+                <div
+                  class="cta-overlay text-white px-6 py-3 rounded-full font-semibold transform translate-y-4 hover:translate-y-0 transition-transform duration-300"
+                >
+                  <i class="fas fa-eye mr-2"></i>Explore Cities
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- West Bengal -->
+          <div
+            class="state-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-region="east"
+            data-popular="false"
+            data-state="west-bengal"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1558431382-27e303142255?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="West Bengal"
+                class="state-image w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 hover:opacity-80 transition-opacity duration-300"
+              ></div>
+              <div class="absolute top-4 right-4">
+                <span
+                  class="region-badge bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold"
+                  >7 Cities</span
+                >
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 class="text-2xl font-bold mb-2">West Bengal</h3>
+                <p class="text-sm text-gray-200 mb-3 opacity-90">
+                  Cultural Capital of India
+                </p>
+                <div class="flex items-center text-sm">
+                  <span
+                    class="bg-blue-500/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium"
+                    >East India</span
+                  >
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+              >
+                <div
+                  class="cta-overlay text-white px-6 py-3 rounded-full font-semibold transform translate-y-4 hover:translate-y-0 transition-transform duration-300"
+                >
+                  <i class="fas fa-eye mr-2"></i>Explore Cities
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Madhya Pradesh -->
+          <div
+            class="state-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-region="central"
+            data-popular="false"
+            data-state="madhya-pradesh"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Madhya Pradesh"
+                class="state-image w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 hover:opacity-80 transition-opacity duration-300"
+              ></div>
+              <div class="absolute top-4 right-4">
+                <span
+                  class="region-badge bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold"
+                  >6 Cities</span
+                >
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 class="text-2xl font-bold mb-2">Madhya Pradesh</h3>
+                <p class="text-sm text-gray-200 mb-3 opacity-90">
+                  Heart of India
+                </p>
+                <div class="flex items-center text-sm">
+                  <span
+                    class="bg-blue-500/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium"
+                    >Central India</span
+                  >
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+              >
+                <div
+                  class="cta-overlay text-white px-6 py-3 rounded-full font-semibold transform translate-y-4 hover:translate-y-0 transition-transform duration-300"
+                >
+                  <i class="fas fa-eye mr-2"></i>Explore Cities
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div id="no-results" class="text-center py-16 hidden">
+          <div class="text-gray-400 mb-4">
+            <i class="fas fa-search text-6xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-600 mb-2">
+            No states found
+          </h3>
+          <p class="text-gray-500">
+            Try adjusting your filters to see more results.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-gradient-to-r from-blue-600 to-orange-600 py-16">
+      <div class="container mx-auto px-4 text-center text-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Ready to Start Your Indian Adventure?
+        </h2>
+        <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          From the snow-capped Himalayas to tropical beaches, from ancient
+          temples to modern cities - India offers experiences for every
+          traveler.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+          >
+            Plan Your Trip
+          </button>
+          <button
+            class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+          >
+            Contact Travel Expert
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+      // Filter functionality
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const stateCards = document.querySelectorAll(".state-card");
+      const resultsCount = document.getElementById("results-count");
+      const noResults = document.getElementById("no-results");
+      const toggleSwitch = document.querySelector(".toggle-switch");
+      const toggleCircle = document.querySelector(".toggle-circle");
+
+      let currentRegion = "all";
+      let showPopularFirst = false;
+
+      // Region filter functionality
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Remove active class from all buttons
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          // Add active class to clicked button
+          button.classList.add("active");
+
+          currentRegion = button.getAttribute("data-region");
+          applyFilters();
+        });
+      });
+
+      // Popular toggle functionality
+      toggleSwitch.addEventListener("click", () => {
+        showPopularFirst = !showPopularFirst;
+        toggleSwitch.classList.toggle("active");
+        applyFilters();
+      });
+
+      function applyFilters() {
+        let visibleCards = [];
+
+        stateCards.forEach((card) => {
+          const cardRegion = card.getAttribute("data-region");
+          const isPopular = card.getAttribute("data-popular") === "true";
+
+          // Check region filter
+          const matchesRegion =
+            currentRegion === "all" || cardRegion === currentRegion;
+
+          if (matchesRegion) {
+            visibleCards.push({
+              element: card,
+              popular: isPopular,
+              name: card.getAttribute("data-state"),
+            });
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        // Sort cards if popular first is enabled
+        if (showPopularFirst) {
+          visibleCards.sort((a, b) => {
+            if (a.popular && !b.popular) return -1;
+            if (!a.popular && b.popular) return 1;
+            return a.name.localeCompare(b.name);
+          });
+
+          // Reorder DOM elements
+          const grid = document.getElementById("states-grid");
+          visibleCards.forEach((card) => {
+            grid.appendChild(card.element);
+          });
+        }
+
+        // Update results count
+        const count = visibleCards.length;
+        resultsCount.textContent = `Showing ${count} state${
+          count !== 1 ? "s" : ""
+        }${
+          currentRegion !== "all"
+            ? ` in ${
+                currentRegion.charAt(0).toUpperCase() + currentRegion.slice(1)
+              } India`
+            : ""
+        }`;
+
+        // Show/hide no results message
+        if (count === 0) {
+          noResults.classList.remove("hidden");
+        } else {
+          noResults.classList.add("hidden");
+        }
+      }
+
+      // State card click functionality
+      stateCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          const stateName = card.getAttribute("data-state");
+          // In a real app, this would navigate to the state detail page
+          console.log(`Navigating to /states/${stateName}`);
+          //   alert(`Would navigate to /states/${stateName}`);
+        });
+      });
+
+      // Smooth scroll reveal animation
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        stateCards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(50px)";
+          card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+          observer.observe(card);
+        });
+      });
+    </script>
+  </body>
+</html>

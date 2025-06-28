@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Top Cities for Adventure - Discover India's Thrilling Destinations
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url("https://images.unsplash.com/photo-1551524164-6cf2ac531fb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .city-card {
+        transition: all 0.4s ease;
+        overflow: hidden;
+      }
+      .city-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+      }
+      .city-card:hover .city-image {
+        transform: scale(1.1);
+      }
+      .city-card:hover .overlay {
+        opacity: 0.9;
+      }
+      .city-card:hover .cta-button {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .city-image {
+        transition: transform 0.7s ease;
+      }
+      .overlay {
+        background: linear-gradient(
+          135deg,
+          rgba(239, 68, 68, 0.8),
+          rgba(245, 101, 101, 0.8)
+        );
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
+      .cta-button {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+      }
+      .experience-chip {
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+      .experience-chip.active {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        color: white;
+        box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+        transform: translateY(-2px);
+      }
+      .experience-chip:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+      .breadcrumb-item {
+        transition: color 0.3s ease;
+      }
+      .breadcrumb-item:hover {
+        color: #ef4444;
+      }
+      .stats-counter {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+      }
+      .highlight-tag {
+        background: rgba(239, 68, 68, 0.1);
+        color: #dc2626;
+        border: 1px solid rgba(239, 68, 68, 0.2);
+      }
+      .adventure-icon {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+      }
+      .city-stats {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.8),
+          rgba(0, 0, 0, 0.6)
+        );
+        backdrop-filter: blur(10px);
+      }
+      .experience-intro {
+        background: linear-gradient(135deg, #fef2f2, #fee2e2);
+      }
+      .scroll-indicator {
+        animation: bounce 2s infinite;
+      }
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-10px);
+        }
+        60% {
+          transform: translateY(-5px);
+        }
+      }
+      .featured-badge {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        animation: pulse 2s infinite;
+      }
+      .difficulty-easy {
+        background: linear-gradient(135deg, #10b981, #059669);
+      }
+      .difficulty-moderate {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+      }
+      .difficulty-hard {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Breadcrumb Navigation -->
+    <nav class="bg-white border-b border-gray-200 py-3">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center space-x-2 text-sm">
+          <a
+            href="#"
+            class="breadcrumb-item text-gray-600 hover:text-red-600 transition-colors"
+          >
+            <i class="fas fa-home mr-1"></i>Home
+          </a>
+          <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+          <a
+            href="#"
+            class="breadcrumb-item text-gray-600 hover:text-red-600 transition-colors"
+            >Experiences</a
+          >
+          <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+          <span class="text-red-600 font-medium">Adventure</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="hero-bg h-screen flex items-center justify-center text-white relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-red-900/40 to-orange-900/40"
+      ></div>
+      <div class="text-center max-w-6xl px-4 relative z-10">
+        <div
+          class="adventure-icon w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+        >
+          <i class="fas fa-mountain text-white text-3xl"></i>
+        </div>
+        <h1 class="text-6xl md:text-7xl font-bold mb-6">
+          Top Cities for Adventure
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-red-100 max-w-4xl mx-auto leading-relaxed mb-8"
+        >
+          Explore handpicked Indian destinations tailored for your inner
+          explorer. From Himalayan peaks to river rapids, discover where
+          adrenaline meets incredible landscapes.
+        </p>
+
+        <!-- Adventure Stats -->
+        <div class="flex flex-wrap justify-center gap-6 text-sm mb-12">
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-mountain mr-2"></i>
+            <span class="font-semibold">12 Adventure Cities</span>
+          </div>
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-hiking mr-2"></i>
+            <span class="font-semibold">50+ Activities</span>
+          </div>
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-star mr-2"></i>
+            <span class="font-semibold">Expert Guides</span>
+          </div>
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-shield-alt mr-2"></i>
+            <span class="font-semibold">Safety First</span>
+          </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+          <i class="fas fa-chevron-down text-2xl opacity-75"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Introduction -->
+    <section class="experience-intro py-16">
+      <div class="container mx-auto px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            Why Choose Adventure Travel in India?
+          </h2>
+          <p class="text-lg text-gray-700 leading-relaxed mb-8">
+            India's diverse geography offers unparalleled adventure
+            opportunities - from the snow-capped Himalayas perfect for trekking
+            and skiing, to rushing rivers ideal for rafting, and vast deserts
+            for unique expeditions. Each destination combines thrilling
+            activities with rich cultural experiences.
+          </p>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-mountain text-white text-2xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-800 mb-2">Diverse Terrains</h3>
+              <p class="text-gray-600 text-sm">
+                Mountains, rivers, deserts, and forests
+              </p>
+            </div>
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-users text-white text-2xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-800 mb-2">Expert Guides</h3>
+              <p class="text-gray-600 text-sm">
+                Local professionals ensuring safety
+              </p>
+            </div>
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-rupee-sign text-white text-2xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-800 mb-2">Great Value</h3>
+              <p class="text-gray-600 text-sm">
+                World-class adventures at affordable prices
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Filter Bar -->
+    <section
+      class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 py-6"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold text-gray-800">
+            Explore by Experience
+          </h3>
+          <span class="text-sm text-gray-600" id="results-count"
+            >Showing 12 adventure cities</span
+          >
+        </div>
+
+        <!-- Scrollable Filter Chips -->
+        <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+          <button
+            class="experience-chip active px-6 py-3 rounded-full text-sm font-medium bg-white border border-gray-200 hover:bg-gray-50 whitespace-nowrap"
+            data-experience="adventure"
+          >
+            <i class="fas fa-mountain mr-2"></i>Adventure
+          </button>
+          <button
+            class="experience-chip px-6 py-3 rounded-full text-sm font-medium bg-white border border-gray-200 hover:bg-gray-50 whitespace-nowrap"
+            data-experience="spiritual"
+          >
+            <i class="fas fa-om mr-2"></i>Spiritual
+          </button>
+          <button
+            class="experience-chip px-6 py-3 rounded-full text-sm font-medium bg-white border border-gray-200 hover:bg-gray-50 whitespace-nowrap"
+            data-experience="wellness"
+          >
+            <i class="fas fa-spa mr-2"></i>Wellness
+          </button>
+          <button
+            class="experience-chip px-6 py-3 rounded-full text-sm font-medium bg-white border border-gray-200 hover:bg-gray-50 whitespace-nowrap"
+            data-experience="food"
+          >
+            <i class="fas fa-utensils mr-2"></i>Food Trails
+          </button>
+          <button
+            class="experience-chip px-6 py-3 rounded-full text-sm font-medium bg-white border border-gray-200 hover:bg-gray-50 whitespace-nowrap"
+            data-experience="trekking"
+          >
+            <i class="fas fa-hiking mr-2"></i>Trekking
+          </button>
+          <button
+            class="experience-chip px-6 py-3 rounded-full text-sm font-medium bg-white border border-gray-200 hover:bg-gray-50 whitespace-nowrap"
+            data-experience="wildlife"
+          >
+            <i class="fas fa-paw mr-2"></i>Wildlife
+          </button>
+          <button
+            class="experience-chip px-6 py-3 rounded-full text-sm font-medium bg-white border border-gray-200 hover:bg-gray-50 whitespace-nowrap"
+            data-experience="heritage"
+          >
+            <i class="fas fa-landmark mr-2"></i>Heritage
+          </button>
+          <button
+            class="experience-chip px-6 py-3 rounded-full text-sm font-medium bg-white border border-gray-200 hover:bg-gray-50 whitespace-nowrap"
+            data-experience="festivals"
+          >
+            <i class="fas fa-calendar-alt mr-2"></i>Festivals
+          </button>
+          <button
+            class="experience-chip px-6 py-3 rounded-full text-sm font-medium bg-white border border-gray-200 hover:bg-gray-50 whitespace-nowrap"
+            data-experience="solo"
+          >
+            <i class="fas fa-user mr-2"></i>Solo-Friendly
+          </button>
+          <button
+            class="experience-chip px-6 py-3 rounded-full text-sm font-medium bg-white border border-gray-200 hover:bg-gray-50 whitespace-nowrap"
+            data-experience="romantic"
+          >
+            <i class="fas fa-heart mr-2"></i>Romantic
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cities Grid Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Adventure Awaits in These Cities
+          </h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            From heart-pounding river rafting to serene mountain treks, these
+            destinations offer the perfect blend of adrenaline and natural
+            beauty.
+          </p>
+        </div>
+
+        <!-- Cities Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          id="cities-grid"
+        >
+          <!-- Rishikesh - Featured -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer relative"
+            data-experience="adventure spiritual wellness"
+            data-city="rishikesh"
+          >
+            <div
+              class="featured-badge absolute top-4 left-4 z-20 text-white px-3 py-1 rounded-full text-xs font-bold"
+            >
+              <i class="fas fa-star mr-1"></i>FEATURED
+            </div>
+
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Rishikesh Adventure"
+                class="city-image w-full h-full object-cover"
+              />
+
+              <!-- Difficulty Badge -->
+              <div
+                class="difficulty-moderate absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-semibold"
+              >
+                Moderate
+              </div>
+
+              <!-- Overlay -->
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-compass mr-2"></i>Explore City
+                </div>
+              </div>
+
+              <!-- City Info -->
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-6 text-white"
+              >
+                <h3 class="text-2xl font-bold mb-2">Rishikesh</h3>
+                <p class="text-sm opacity-90 mb-3">
+                  River rafting + ashrams + yoga
+                </p>
+
+                <!-- Highlights -->
+                <div class="mb-4">
+                  <p class="text-xs opacity-75 mb-2">TOP HIGHLIGHTS:</p>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >White Water Rafting</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Bungee Jumping</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Yoga Retreats</span
+                    >
+                  </div>
+                </div>
+
+                <!-- Tags and Rating -->
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-red-500/80 px-2 py-1 rounded-full text-xs"
+                      >Adventure</span
+                    >
+                    <span class="bg-green-500/80 px-2 py-1 rounded-full text-xs"
+                      >Spiritual</span
+                    >
+                  </div>
+                  <div class="text-xs">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.8 (2.1k)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Manali -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-experience="adventure trekking"
+            data-city="manali"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Manali Adventure"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="difficulty-moderate absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-semibold"
+              >
+                Moderate
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-compass mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-6 text-white"
+              >
+                <h3 class="text-2xl font-bold mb-2">Manali</h3>
+                <p class="text-sm opacity-90 mb-3">
+                  Paragliding & mountain treks
+                </p>
+                <div class="mb-4">
+                  <p class="text-xs opacity-75 mb-2">TOP HIGHLIGHTS:</p>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Paragliding</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Solang Valley</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Snow Sports</span
+                    >
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-red-500/80 px-2 py-1 rounded-full text-xs"
+                      >Adventure</span
+                    >
+                    <span class="bg-blue-500/80 px-2 py-1 rounded-full text-xs"
+                      >Mountains</span
+                    >
+                  </div>
+                  <div class="text-xs">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.6 (1.8k)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Auli -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-experience="adventure trekking"
+            data-city="auli"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1551524164-6cf2ac531fb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Auli Skiing"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="difficulty-hard absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-semibold"
+              >
+                Advanced
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-compass mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-6 text-white"
+              >
+                <h3 class="text-2xl font-bold mb-2">Auli</h3>
+                <p class="text-sm opacity-90 mb-3">
+                  Skiing paradise in Himalayas
+                </p>
+                <div class="mb-4">
+                  <p class="text-xs opacity-75 mb-2">TOP HIGHLIGHTS:</p>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Skiing</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Cable Car</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Snow Trekking</span
+                    >
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-red-500/80 px-2 py-1 rounded-full text-xs"
+                      >Adventure</span
+                    >
+                    <span
+                      class="bg-white/80 text-gray-800 px-2 py-1 rounded-full text-xs"
+                      >Snow Sports</span
+                    >
+                  </div>
+                  <div class="text-xs">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.7 (956)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leh Ladakh -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-experience="adventure trekking solo"
+            data-city="leh"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Leh Ladakh"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="difficulty-hard absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-semibold"
+              >
+                Expert
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-compass mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-6 text-white"
+              >
+                <h3 class="text-2xl font-bold mb-2">Leh Ladakh</h3>
+                <p class="text-sm opacity-90 mb-3">
+                  High-altitude biking & stargazing
+                </p>
+                <div class="mb-4">
+                  <p class="text-xs opacity-75 mb-2">TOP HIGHLIGHTS:</p>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Bike Expeditions</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Pangong Lake</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Stargazing</span
+                    >
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-red-500/80 px-2 py-1 rounded-full text-xs"
+                      >Adventure</span
+                    >
+                    <span
+                      class="bg-purple-500/80 px-2 py-1 rounded-full text-xs"
+                      >Solo-Friendly</span
+                    >
+                  </div>
+                  <div class="text-xs">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.9 (2.5k)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Spiti Valley -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-experience="adventure trekking solo"
+            data-city="spiti"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Spiti Valley"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="difficulty-hard absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-semibold"
+              >
+                Expert
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-compass mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-6 text-white"
+              >
+                <h3 class="text-2xl font-bold mb-2">Spiti Valley</h3>
+                <p class="text-sm opacity-90 mb-3">
+                  High-altitude road trips & monasteries
+                </p>
+                <div class="mb-4">
+                  <p class="text-xs opacity-75 mb-2">TOP HIGHLIGHTS:</p>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Road Trips</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Monasteries</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Desert Mountains</span
+                    >
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-red-500/80 px-2 py-1 rounded-full text-xs"
+                      >Adventure</span
+                    >
+                    <span
+                      class="bg-yellow-500/80 px-2 py-1 rounded-full text-xs"
+                      >Remote</span
+                    >
+                  </div>
+                  <div class="text-xs">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.8 (1.2k)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coorg -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-experience="adventure trekking"
+            data-city="coorg"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Coorg Trekking"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="difficulty-easy absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-semibold"
+              >
+                Easy
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-compass mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-6 text-white"
+              >
+                <h3 class="text-2xl font-bold mb-2">Coorg</h3>
+                <p class="text-sm opacity-90 mb-3">
+                  Coffee plantations & jungle treks
+                </p>
+                <div class="mb-4">
+                  <p class="text-xs opacity-75 mb-2">TOP HIGHLIGHTS:</p>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Jungle Treks</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Coffee Tours</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Waterfalls</span
+                    >
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-red-500/80 px-2 py-1 rounded-full text-xs"
+                      >Adventure</span
+                    >
+                    <span class="bg-green-500/80 px-2 py-1 rounded-full text-xs"
+                      >Nature</span
+                    >
+                  </div>
+                  <div class="text-xs">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.5 (1.4k)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Goa -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-experience="adventure"
+            data-city="goa"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Goa Water Sports"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="difficulty-easy absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-semibold"
+              >
+                Easy
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-compass mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-6 text-white"
+              >
+                <h3 class="text-2xl font-bold mb-2">Goa</h3>
+                <p class="text-sm opacity-90 mb-3">
+                  Water sports & beach adventures
+                </p>
+                <div class="mb-4">
+                  <p class="text-xs opacity-75 mb-2">TOP HIGHLIGHTS:</p>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Parasailing</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Jet Skiing</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Scuba Diving</span
+                    >
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-red-500/80 px-2 py-1 rounded-full text-xs"
+                      >Adventure</span
+                    >
+                    <span class="bg-blue-500/80 px-2 py-1 rounded-full text-xs"
+                      >Beach</span
+                    >
+                  </div>
+                  <div class="text-xs">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.4 (3.2k)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kasol -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-experience="adventure trekking solo"
+            data-city="kasol"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Kasol Trekking"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="difficulty-moderate absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-semibold"
+              >
+                Moderate
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-compass mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-6 text-white"
+              >
+                <h3 class="text-2xl font-bold mb-2">Kasol</h3>
+                <p class="text-sm opacity-90 mb-3">
+                  Parvati Valley treks & backpacking
+                </p>
+                <div class="mb-4">
+                  <p class="text-xs opacity-75 mb-2">TOP HIGHLIGHTS:</p>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Kheerganga Trek</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Backpacking</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >River Camping</span
+                    >
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-red-500/80 px-2 py-1 rounded-full text-xs"
+                      >Adventure</span
+                    >
+                    <span
+                      class="bg-purple-500/80 px-2 py-1 rounded-full text-xs"
+                      >Backpacking</span
+                    >
+                  </div>
+                  <div class="text-xs">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.6 (1.1k)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mcleod Ganj -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-experience="adventure trekking spiritual"
+            data-city="mcleodganj"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Mcleod Ganj"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="difficulty-easy absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-semibold"
+              >
+                Easy
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-compass mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-6 text-white"
+              >
+                <h3 class="text-2xl font-bold mb-2">Mcleod Ganj</h3>
+                <p class="text-sm opacity-90 mb-3">
+                  Triund trek & Tibetan culture
+                </p>
+                <div class="mb-4">
+                  <p class="text-xs opacity-75 mb-2">TOP HIGHLIGHTS:</p>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Triund Trek</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Dalai Lama Temple</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Tibetan Culture</span
+                    >
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-red-500/80 px-2 py-1 rounded-full text-xs"
+                      >Adventure</span
+                    >
+                    <span
+                      class="bg-orange-500/80 px-2 py-1 rounded-full text-xs"
+                      >Spiritual</span
+                    >
+                  </div>
+                  <div class="text-xs">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.5 (1.6k)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bir Billing -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-experience="adventure"
+            data-city="bir"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1551524164-6cf2ac531fb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Bir Billing Paragliding"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="difficulty-moderate absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-semibold"
+              >
+                Moderate
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-compass mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-6 text-white"
+              >
+                <h3 class="text-2xl font-bold mb-2">Bir Billing</h3>
+                <p class="text-sm opacity-90 mb-3">
+                  World's best paragliding destination
+                </p>
+                <div class="mb-4">
+                  <p class="text-xs opacity-75 mb-2">TOP HIGHLIGHTS:</p>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Paragliding</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Tibetan Colony</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Mountain Views</span
+                    >
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-red-500/80 px-2 py-1 rounded-full text-xs"
+                      >Adventure</span
+                    >
+                    <span class="bg-blue-500/80 px-2 py-1 rounded-full text-xs"
+                      >Flying</span
+                    >
+                  </div>
+                  <div class="text-xs">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.7 (892)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jaisalmer -->
+          <div
+            class="city-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-experience="adventure heritage"
+            data-city="jaisalmer"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1599661046827-dacde6976549?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Jaisalmer Desert Safari"
+                class="city-image w-full h-full object-cover"
+              />
+              <div
+                class="difficulty-easy absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-semibold"
+              >
+                Easy
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-compass mr-2"></i>Explore City
+                </div>
+              </div>
+              <div
+                class="city-stats absolute bottom-0 left-0 right-0 p-6 text-white"
+              >
+                <h3 class="text-2xl font-bold mb-2">Jaisalmer</h3>
+                <p class="text-sm opacity-90 mb-3">
+                  Desert safaris & golden fort
+                </p>
+                <div class="mb-4">
+                  <p class="text-xs opacity-75 mb-2">TOP HIGHLIGHTS:</p>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Camel Safari</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Desert Camping</span
+                    >
+                    <span class="bg-white/20 px-2 py-1 rounded-full text-xs"
+                      >Sand Dunes</span
+                    >
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span class="bg-red-500/80 px-2 py-1 rounded-full text-xs"
+                      >Adventure</span
+                    >
+                    <span
+                      class="bg-yellow-500/80 px-2 py-1 rounded-full text-xs"
+                      >Desert</span
+                    >
+                  </div>
+                  <div class="text-xs">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>4.3 (2.1k)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div id="no-results" class="text-center py-16 hidden">
+          <div class="text-gray-400 mb-4">
+            <i class="fas fa-search text-6xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-600 mb-2">
+            No cities found for this experience
+          </h3>
+          <p class="text-gray-500">
+            Try selecting a different experience category to explore more
+            destinations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-gradient-to-r from-red-600 to-orange-600 py-16">
+      <div class="container mx-auto px-4 text-center text-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Ready for Your Next Adventure?
+        </h2>
+        <p class="text-xl text-red-100 mb-8 max-w-2xl mx-auto">
+          Don't just dream about adventure - live it! Book your next thrilling
+          experience in India's most exciting destinations. Expert guides,
+          safety equipment, and unforgettable memories included.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            class="bg-white text-red-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors text-lg"
+          >
+            <i class="fas fa-calendar-check mr-2"></i>Book Adventure Package
+          </button>
+          <button
+            class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-red-600 transition-colors text-lg"
+          >
+            <i class="fas fa-phone mr-2"></i>Talk to Adventure Expert
+          </button>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div class="flex flex-wrap justify-center gap-8 mt-12 text-sm">
+          <div class="flex items-center">
+            <i class="fas fa-shield-check mr-2"></i>
+            <span>Safety Certified</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-users mr-2"></i>
+            <span>Expert Guides</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-medal mr-2"></i>
+            <span>Award Winning</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-headset mr-2"></i>
+            <span>24/7 Support</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+      // Experience filter functionality
+      const experienceChips = document.querySelectorAll(".experience-chip");
+      const cityCards = document.querySelectorAll(".city-card");
+      const resultsCount = document.getElementById("results-count");
+      const noResults = document.getElementById("no-results");
+
+      let currentExperience = "adventure";
+
+      // Experience filter functionality
+      experienceChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          // Remove active class from all chips
+          experienceChips.forEach((c) => c.classList.remove("active"));
+          // Add active class to clicked chip
+          chip.classList.add("active");
+
+          currentExperience = chip.getAttribute("data-experience");
+          applyFilters();
+
+          // Update page content based on experience
+          updatePageContent(currentExperience);
+        });
+      });
+
+      function applyFilters() {
+        let visibleCount = 0;
+
+        cityCards.forEach((card) => {
+          const experiences = card.getAttribute("data-experience");
+
+          // Check if card matches current experience
+          const matchesExperience =
+            experiences && experiences.includes(currentExperience);
+
+          if (matchesExperience) {
+            card.style.display = "block";
+            visibleCount++;
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        // Update results count
+        const experienceText =
+          currentExperience.charAt(0).toUpperCase() +
+          currentExperience.slice(1);
+        resultsCount.textContent = `Showing ${visibleCount} ${experienceText.toLowerCase()} cities`;
+
+        // Show/hide no results message
+        if (visibleCount === 0) {
+          noResults.classList.remove("hidden");
+        } else {
+          noResults.classList.add("hidden");
+        }
+      }
+
+      function updatePageContent(experience) {
+        // Update hero title and description based on experience
+        const heroTitle = document.querySelector("h1");
+        const heroDescription = document.querySelector(".hero-bg p");
+        const sectionTitle = document.querySelector(".py-16 h2");
+
+        const experienceData = {
+          adventure: {
+            title: "Top Cities for Adventure",
+            description:
+              "Explore handpicked Indian destinations tailored for your inner explorer. From Himalayan peaks to river rapids, discover where adrenaline meets incredible landscapes.",
+            sectionTitle: "Adventure Awaits in These Cities",
+          },
+          spiritual: {
+            title: "Top Cities for Spiritual Journeys",
+            description:
+              "Discover sacred destinations where ancient wisdom meets modern seekers. Find peace, enlightenment, and spiritual awakening in India's holiest cities.",
+            sectionTitle: "Sacred Destinations for Your Soul",
+          },
+          wellness: {
+            title: "Top Cities for Wellness Retreats",
+            description:
+              "Rejuvenate your mind, body, and soul in India's premier wellness destinations. From Ayurvedic treatments to yoga retreats, find your path to holistic healing.",
+            sectionTitle: "Wellness Sanctuaries Across India",
+          },
+          food: {
+            title: "Top Cities for Food Trails",
+            description:
+              "Embark on a culinary journey through India's most flavorful destinations. From street food to royal cuisines, taste the authentic flavors of incredible India.",
+            sectionTitle: "Culinary Adventures Await",
+          },
+          trekking: {
+            title: "Top Cities for Trekking",
+            description:
+              "Lace up your boots and explore India's most spectacular trekking destinations. From gentle hill walks to challenging mountain expeditions.",
+            sectionTitle: "Epic Trekking Destinations",
+          },
+        };
+
+        const data = experienceData[experience] || experienceData.adventure;
+
+        if (heroTitle) heroTitle.textContent = data.title;
+        if (heroDescription) heroDescription.textContent = data.description;
+        if (sectionTitle) sectionTitle.textContent = data.sectionTitle;
+      }
+
+      // City card click functionality
+      cityCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          const cityName = card.getAttribute("data-city");
+          // In a real app, this would navigate to the city detail page
+          console.log(`Navigating to /cities/${cityName}`);
+          window.location.href = `#/cities/${cityName}`;
+        });
+      });
+
+      // Smooth scroll reveal animation
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        cityCards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(50px)";
+          card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+          observer.observe(card);
+        });
+      });
+
+      // Breadcrumb navigation
+      document.querySelectorAll(".breadcrumb-item").forEach((item) => {
+        item.addEventListener("click", (e) => {
+          e.preventDefault();
+          const href = item.getAttribute("href");
+          if (href && href !== "#") {
+            console.log(`Navigating to ${href}`);
+            // window.location.href = href;
+          }
+        });
+      });
+
+      // Smooth scrolling for scroll indicator
+      document
+        .querySelector(".scroll-indicator")
+        .addEventListener("click", () => {
+          document.querySelector(".experience-intro").scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+    </script>
+  </body>
+</html>

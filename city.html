@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dehradun Travel Guide - Complete City Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+          ),
+          url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .smooth-scroll {
+        scroll-behavior: smooth;
+      }
+      .service-card:hover {
+        transform: translateY(-5px);
+      }
+      .navbar-blur {
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.95);
+      }
+    </style>
+  </head>
+  <body class="smooth-scroll">
+    <!-- Fixed Navbar -->
+    <nav class="fixed top-0 w-full z-50 navbar-blur border-b border-gray-200">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <!-- Brand -->
+          <div class="flex items-center space-x-2">
+            <div
+              class="h-10 w-10 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center"
+            >
+              <i class="fas fa-mountain text-white text-lg"></i>
+            </div>
+            <div>
+              <h1 class="text-xl font-bold text-gray-800">Dehradun Guide</h1>
+              <p class="text-xs text-gray-600">
+                Your Complete Travel Companion
+              </p>
+            </div>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden lg:flex items-center space-x-6">
+            <a
+              href="#home"
+              class="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors"
+              >About</a
+            >
+            <a
+              href="#services"
+              class="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors"
+              >Services</a
+            >
+            <a
+              href="#rentals"
+              class="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors"
+              >Rentals</a
+            >
+            <a
+              href="#tours"
+              class="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors"
+              >Tours</a
+            >
+            <a
+              href="#food"
+              class="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors"
+              >Food</a
+            >
+            <a
+              href="#wellness"
+              class="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors"
+              >Wellness</a
+            >
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button
+            class="lg:hidden text-gray-700 hover:text-green-600"
+            onclick="toggleMobileMenu()"
+          >
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div
+          id="mobileMenu"
+          class="lg:hidden hidden bg-white border-t border-gray-200 py-4"
+        >
+          <div class="flex flex-col space-y-3">
+            <a
+              href="#home"
+              class="text-sm font-medium text-gray-700 hover:text-green-600 px-4 py-2"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="text-sm font-medium text-gray-700 hover:text-green-600 px-4 py-2"
+              >About</a
+            >
+            <a
+              href="#services"
+              class="text-sm font-medium text-gray-700 hover:text-green-600 px-4 py-2"
+              >Services</a
+            >
+            <a
+              href="#rentals"
+              class="text-sm font-medium text-gray-700 hover:text-green-600 px-4 py-2"
+              >Rentals</a
+            >
+            <a
+              href="#tours"
+              class="text-sm font-medium text-gray-700 hover:text-green-600 px-4 py-2"
+              >Tours</a
+            >
+            <a
+              href="#food"
+              class="text-sm font-medium text-gray-700 hover:text-green-600 px-4 py-2"
+              >Food</a
+            >
+            <a
+              href="#wellness"
+              class="text-sm font-medium text-gray-700 hover:text-green-600 px-4 py-2"
+              >Wellness</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section
+      id="home"
+      class="hero-bg h-screen flex items-center justify-center text-white"
+    >
+      <div class="text-center max-w-4xl px-4">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">Welcome to Dehradun</h1>
+        <p class="text-xl md:text-2xl mb-4">
+          Gateway to the Himalayas and Capital of Uttarakhand
+        </p>
+        <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
+          Experience the perfect blend of natural beauty, adventure, and
+          spiritual serenity in the heart of the Doon Valley
+        </p>
+        <div class="mt-8">
+          <a
+            href="#about"
+            class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-block"
+          >
+            Explore Dehradun
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-4xl font-bold text-gray-800 mb-8">About Dehradun</h2>
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-left">
+              <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                Nestled in the foothills of the Himalayas, Dehradun is a
+                picturesque city that serves as the capital of Uttarakhand.
+                Known for its pleasant climate, prestigious educational
+                institutions, and proximity to popular hill stations like
+                Mussoorie and Rishikesh.
+              </p>
+              <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                The city offers a perfect blend of urban amenities and natural
+                beauty, making it an ideal destination for travelers seeking
+                both adventure and tranquility. From ancient temples to modern
+                attractions, Dehradun has something for every type of traveler.
+              </p>
+              <div class="grid grid-cols-2 gap-4 mt-8">
+                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                  <i
+                    class="fas fa-thermometer-half text-green-500 text-2xl mb-2"
+                  ></i>
+                  <p class="font-semibold">Pleasant Climate</p>
+                  <p class="text-sm text-gray-600">Year-round comfort</p>
+                </div>
+                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                  <i class="fas fa-mountain text-blue-500 text-2xl mb-2"></i>
+                  <p class="font-semibold">Hill Station Gateway</p>
+                  <p class="text-sm text-gray-600">Access to Himalayas</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Dehradun City View"
+                class="rounded-lg shadow-lg w-full"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Services Overview -->
+    <section id="services" class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-gray-800 mb-4">
+            Our Core Services
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Everything you need for a perfect Dehradun experience
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <a
+            href="#rentals"
+            class="group bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center"
+          >
+            <i
+              class="fas fa-car text-blue-500 text-3xl mb-3 group-hover:scale-110 transition-transform"
+            ></i>
+            <h3 class="font-semibold text-gray-800 mb-2">Local Rentals</h3>
+            <p class="text-sm text-gray-600">Car & bike rentals</p>
+          </a>
+
+          <a
+            href="#self-drives"
+            class="group bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center"
+          >
+            <i
+              class="fas fa-road text-green-500 text-3xl mb-3 group-hover:scale-110 transition-transform"
+            ></i>
+            <h3 class="font-semibold text-gray-800 mb-2">Self Drives</h3>
+            <p class="text-sm text-gray-600">Independent exploration</p>
+          </a>
+
+          <a
+            href="#guides"
+            class="group bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center"
+          >
+            <i
+              class="fas fa-user-tie text-purple-500 text-3xl mb-3 group-hover:scale-110 transition-transform"
+            ></i>
+            <h3 class="font-semibold text-gray-800 mb-2">Tour Guides</h3>
+            <p class="text-sm text-gray-600">Expert local guides</p>
+          </a>
+
+          <a
+            href="#bookings"
+            class="group bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center"
+          >
+            <i
+              class="fas fa-ticket-alt text-red-500 text-3xl mb-3 group-hover:scale-110 transition-transform"
+            ></i>
+            <h3 class="font-semibold text-gray-800 mb-2">Entry Booking</h3>
+            <p class="text-sm text-gray-600">Tourist attractions</p>
+          </a>
+
+          <a
+            href="#packages"
+            class="group bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center"
+          >
+            <i
+              class="fas fa-suitcase text-orange-500 text-3xl mb-3 group-hover:scale-110 transition-transform"
+            ></i>
+            <h3 class="font-semibold text-gray-800 mb-2">Package Tours</h3>
+            <p class="text-sm text-gray-600">Complete itineraries</p>
+          </a>
+
+          <a
+            href="#transfers"
+            class="group bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center"
+          >
+            <i
+              class="fas fa-shuttle-van text-teal-500 text-3xl mb-3 group-hover:scale-110 transition-transform"
+            ></i>
+            <h3 class="font-semibold text-gray-800 mb-2">Transfers</h3>
+            <p class="text-sm text-gray-600">Pick-up & drop</p>
+          </a>
+
+          <a
+            href="#group-travel"
+            class="group bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center"
+          >
+            <i
+              class="fas fa-users text-indigo-500 text-3xl mb-3 group-hover:scale-110 transition-transform"
+            ></i>
+            <h3 class="font-semibold text-gray-800 mb-2">Group Travel</h3>
+            <p class="text-sm text-gray-600">Shared experiences</p>
+          </a>
+
+          <a
+            href="#food"
+            class="group bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center"
+          >
+            <i
+              class="fas fa-utensils text-yellow-500 text-3xl mb-3 group-hover:scale-110 transition-transform"
+            ></i>
+            <h3 class="font-semibold text-gray-800 mb-2">Food & Dining</h3>
+            <p class="text-sm text-gray-600">Local cuisine</p>
+          </a>
+
+          <a
+            href="#shopping"
+            class="group bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center"
+          >
+            <i
+              class="fas fa-shopping-bag text-pink-500 text-3xl mb-3 group-hover:scale-110 transition-transform"
+            ></i>
+            <h3 class="font-semibold text-gray-800 mb-2">Shopping</h3>
+            <p class="text-sm text-gray-600">Handicrafts & more</p>
+          </a>
+
+          <a
+            href="#exploration"
+            class="group bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center"
+          >
+            <i
+              class="fas fa-camera text-cyan-500 text-3xl mb-3 group-hover:scale-110 transition-transform"
+            ></i>
+            <h3 class="font-semibold text-gray-800 mb-2">Photo Walks</h3>
+            <p class="text-sm text-gray-600">City exploration</p>
+          </a>
+
+          <a
+            href="#wellness"
+            class="group bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center"
+          >
+            <i
+              class="fas fa-spa text-green-600 text-3xl mb-3 group-hover:scale-110 transition-transform"
+            ></i>
+            <h3 class="font-semibold text-gray-800 mb-2">Wellness</h3>
+            <p class="text-sm text-gray-600">Yoga & spa</p>
+          </a>
+
+          <a
+            href="#safety"
+            class="group bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center"
+          >
+            <i
+              class="fas fa-shield-alt text-red-600 text-3xl mb-3 group-hover:scale-110 transition-transform"
+            ></i>
+            <h3 class="font-semibold text-gray-800 mb-2">Safety</h3>
+            <p class="text-sm text-gray-600">Emergency services</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Sections -->
+
+    <!-- 1. Book Local Rental Drives -->
+    <section id="rentals" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <i class="fas fa-car-side text-blue-500 text-4xl mb-4"></i>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            Trusted Local Rental Partners
+          </h2>
+          <p class="text-lg text-gray-600">
+            Explore verified vendors and independent drivers for flexible
+            mobility in Dehradun
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Vendor 1 -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1688744207911-da0aeac913ad"
+              alt="Ravi Travels"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Ravi Travels</h3>
+              <p class="text-gray-600 text-sm mb-3">
+                Serving Dehradun since 2008 with sedans, SUVs & tour drivers.
+              </p>
+              <ul class="text-sm text-gray-700 mb-4">
+                <li><strong>Fleet:</strong> 6 Cars, 2 SUVs</li>
+                <li><strong>Services:</strong> With Driver, Self Drive</li>
+                <li><strong>Rating:</strong> ⭐ 4.7 (210 reviews)</li>
+              </ul>
+              <button
+                class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg"
+              >
+                View Vendor Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Vendor 2 -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1682142575786-321c9d64082c"
+              alt="Anjali - Independent Driver"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Anjali Sharma (Driver)</h3>
+              <p class="text-gray-600 text-sm mb-3">
+                Experienced local driver with excellent knowledge of temple
+                trails and local gems.
+              </p>
+              <ul class="text-sm text-gray-700 mb-4">
+                <li><strong>Vehicle:</strong> Dzire (AC)</li>
+                <li><strong>Services:</strong> With Driver Only</li>
+                <li><strong>Rating:</strong> ⭐ 4.9 (118 reviews)</li>
+              </ul>
+              <button
+                class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg"
+              >
+                View Driver Profile
+              </button>
+            </div>
+          </div>
+
+          <!-- Vendor 3 -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1748342603065-80fcb3ffecfc"
+              alt="Himalaya Drive"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Himalaya Drive</h3>
+              <p class="text-gray-600 text-sm mb-3">
+                Offers both luxury and budget rentals. Pickup/drop available at
+                airport & station.
+              </p>
+              <ul class="text-sm text-gray-700 mb-4">
+                <li><strong>Fleet:</strong> 3 Hatchbacks, 2 Luxury Cars</li>
+                <li>
+                  <strong>Services:</strong> Self Drive, Airport Transfers
+                </li>
+                <li><strong>Rating:</strong> ⭐ 4.6 (180 reviews)</li>
+              </ul>
+              <button
+                class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg"
+              >
+                View Vendor Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-10">
+          <a
+            href="rental.html"
+            class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors inline-block"
+          >
+            Show More Vendors
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Self Drives -->
+    <section id="self-drives" class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <i class="fas fa-road text-green-500 text-4xl mb-4"></i>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            Self Drive Adventures
+          </h2>
+          <p class="text-lg text-gray-600">
+            Take control of your journey with our self-drive options
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Mountain Route"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Mussoorie Route</h3>
+              <p class="text-gray-600 mb-4">
+                Scenic drive to the Queen of Hills
+              </p>
+              <button
+                class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Rishikesh Route"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Rishikesh Route</h3>
+              <p class="text-gray-600 mb-4">
+                Journey to the Yoga Capital of the World
+              </p>
+              <button
+                class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Haridwar Route"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Haridwar Circuit</h3>
+              <p class="text-gray-600 mb-4">
+                Spiritual journey to the holy city
+              </p>
+              <button
+                class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Valley Tour"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Doon Valley Tour</h3>
+              <p class="text-gray-600 mb-4">
+                Explore the beautiful valley landscapes
+              </p>
+              <button
+                class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <button
+            class="bg-gray-300 text-gray-500 px-6 py-3 rounded-lg cursor-not-allowed"
+            disabled
+          >
+            Show More Routes
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Book Tour Guides -->
+    <section id="guides" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <i class="fas fa-user-tie text-purple-500 text-4xl mb-4"></i>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            Professional Tour Guides
+          </h2>
+          <p class="text-lg text-gray-600">
+            Expert local guides to enhance your Dehradun experience
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Heritage Guide"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Guides</h3>
+              <p class="text-gray-600 mb-4">
+                Experts in local history and cultural heritage
+              </p>
+              <button
+                class="w-full bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://plus.unsplash.com/premium_photo-1718570264126-48594b527c85?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Adventure Guide"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Guides</h3>
+              <p class="text-gray-600 mb-4">
+                Certified guides for trekking and outdoor activities
+              </p>
+              <button
+                class="w-full bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Nature Guide"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Guides</h3>
+              <p class="text-gray-600 mb-4">Wildlife and nature specialists</p>
+              <button
+                class="w-full bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Cultural Guide"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Guides</h3>
+              <p class="text-gray-600 mb-4">
+                Local culture and tradition experts
+              </p>
+              <button
+                class="w-full bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <a
+            href="tourist_guide.html"
+            class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg transition-colors inline-block"
+          >
+            Show More Guides
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Tourist Entry Booking -->
+    <section id="bookings" class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <i class="fas fa-ticket-alt text-red-500 text-4xl mb-4"></i>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            Tourist Entry Booking
+          </h2>
+          <p class="text-lg text-gray-600">
+            Skip the queues with advance bookings for popular attractions
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Robber's Cave"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Robber's Cave</h3>
+              <p class="text-gray-600 mb-4">
+                Natural cave formation with river stream
+              </p>
+              <button
+                class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Sahasradhara"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Sahasradhara</h3>
+              <p class="text-gray-600 mb-4">
+                Thousand-fold spring with therapeutic waters
+              </p>
+              <button
+                class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Forest Research Institute"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">
+                Forest Research Institute
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Colonial architecture and forestry museum
+              </p>
+              <button
+                class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Mindrolling Monastery"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Mindrolling Monastery</h3>
+              <p class="text-gray-600 mb-4">
+                Buddhist monastery with stunning architecture
+              </p>
+              <button
+                class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <button
+            class="bg-gray-300 text-gray-500 px-6 py-3 rounded-lg cursor-not-allowed"
+            disabled
+          >
+            Show More Attractions
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Package Tours -->
+    <section id="packages" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <i class="fas fa-suitcase text-orange-500 text-4xl mb-4"></i>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            Complete Package Tours
+          </h2>
+          <p class="text-lg text-gray-600">
+            Carefully curated tour packages for every type of traveler
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Weekend Package"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Weekend Getaway</h3>
+              <p class="text-gray-600 mb-4">
+                2-day perfect weekend in Dehradun
+              </p>
+              <button
+                class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Adventure Package"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Adventure Package</h3>
+              <p class="text-gray-600 mb-4">
+                Thrilling activities and outdoor adventures
+              </p>
+              <button
+                class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Heritage Package"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Heritage Tour</h3>
+              <p class="text-gray-600 mb-4">
+                Historical sites and cultural experiences
+              </p>
+              <button
+                class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Family Package"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Family Package</h3>
+              <p class="text-gray-600 mb-4">
+                Family-friendly activities and attractions
+              </p>
+              <button
+                class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <button
+            class="bg-gray-300 text-gray-500 px-6 py-3 rounded-lg cursor-not-allowed"
+            disabled
+          >
+            Show More Packages
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Pick-up/Drop Transfers -->
+    <section id="transfers" class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <i class="fas fa-shuttle-van text-teal-500 text-4xl mb-4"></i>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            Transfer Services
+          </h2>
+          <p class="text-lg text-gray-600">
+            Reliable pick-up and drop services for seamless travel
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Airport Transfer"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Airport Transfers</h3>
+              <p class="text-gray-600 mb-4">
+                Direct transfers to/from Jolly Grant Airport
+              </p>
+              <button
+                class="w-full bg-teal-500 hover:bg-teal-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Book Transfer
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Railway Transfer"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Railway Transfers</h3>
+              <p class="text-gray-600 mb-4">
+                Pick-up/drop from Dehradun Railway Station
+              </p>
+              <button
+                class="w-full bg-teal-500 hover:bg-teal-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Book Transfer
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Hotel Transfer"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Hotel Transfers</h3>
+              <p class="text-gray-600 mb-4">
+                Convenient hotel to attraction transfers
+              </p>
+              <button
+                class="w-full bg-teal-500 hover:bg-teal-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Book Transfer
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Outstation Transfer"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Outstation Transfers</h3>
+              <p class="text-gray-600 mb-4">
+                Transfers to Mussoorie, Rishikesh, and beyond
+              </p>
+              <button
+                class="w-full bg-teal-500 hover:bg-teal-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Book Transfer
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <button
+            class="bg-gray-300 text-gray-500 px-6 py-3 rounded-lg cursor-not-allowed"
+            disabled
+          >
+            Show More Options
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Shared Group Travel -->
+    <section id="group-travel" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <i class="fas fa-users text-indigo-500 text-4xl mb-4"></i>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            Shared Group Travel
+          </h2>
+          <p class="text-lg text-gray-600">
+            Join fellow travelers for cost-effective and social experiences
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Group Trek"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Group Treks</h3>
+              <p class="text-gray-600 mb-4">Join organized trekking groups</p>
+              <button
+                class="w-full bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Join Group
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Shared Cab"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Shared Cabs</h3>
+              <p class="text-gray-600 mb-4">
+                Cost-effective shared transportation
+              </p>
+              <button
+                class="w-full bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Join Group
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Group Tours"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Group Tours</h3>
+              <p class="text-gray-600 mb-4">
+                Organized group sightseeing tours
+              </p>
+              <button
+                class="w-full bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Join Group
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Adventure Groups"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Adventure Groups</h3>
+              <p class="text-gray-600 mb-4">Join adventure activity groups</p>
+              <button
+                class="w-full bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Join Group
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <button
+            class="bg-gray-300 text-gray-500 px-6 py-3 rounded-lg cursor-not-allowed"
+            disabled
+          >
+            Show More Groups
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Local Food & Table Booking -->
+    <section id="food" class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <i class="fas fa-utensils text-yellow-500 text-4xl mb-4"></i>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            Local Food & Dining
+          </h2>
+          <p class="text-lg text-gray-600">
+            Discover authentic flavors and book the best dining experiences
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Local Cuisine"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Garhwali Cuisine</h3>
+              <p class="text-gray-600 mb-4">
+                Authentic local dishes and traditional flavors
+              </p>
+              <button
+                class="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Book Table
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Fine Dining"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Fine Dining</h3>
+              <p class="text-gray-600 mb-4">
+                Premium restaurants with excellent ambiance
+              </p>
+              <button
+                class="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Book Table
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Street Food"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Street Food Tours</h3>
+              <p class="text-gray-600 mb-4">
+                Guided tours of local street food hotspots
+              </p>
+              <button
+                class="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Book Tour
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Cafes"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Cozy Cafes</h3>
+              <p class="text-gray-600 mb-4">
+                Perfect spots for coffee and relaxation
+              </p>
+              <button
+                class="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Book Table
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <a
+            href="restaurant.html"
+            class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg transition-colors inline-block"
+          >
+            Show More Restaurants
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Shopping & Handicraft Experiences -->
+    <section id="shopping" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <i class="fas fa-shopping-bag text-pink-500 text-4xl mb-4"></i>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            Shopping & Handicrafts
+          </h2>
+          <p class="text-lg text-gray-600">
+            Discover local crafts and unique shopping experiences
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Local Markets"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Local Markets</h3>
+              <p class="text-gray-600 mb-4">
+                Traditional markets with authentic products
+              </p>
+              <button
+                class="w-full bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Explore Markets
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Handicrafts"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Handicraft Workshops</h3>
+              <p class="text-gray-600 mb-4">
+                Learn traditional crafts from local artisans
+              </p>
+              <button
+                class="w-full bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Book Workshop
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Antique Shops"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Antique Shops</h3>
+              <p class="text-gray-600 mb-4">
+                Unique vintage items and collectibles
+              </p>
+              <button
+                class="w-full bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Visit Shops
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Souvenir Shops"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Souvenir Shopping</h3>
+              <p class="text-gray-600 mb-4">
+                Perfect mementos of your Dehradun visit
+              </p>
+              <button
+                class="w-full bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Shop Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <button
+            class="bg-gray-300 text-gray-500 px-6 py-3 rounded-lg cursor-not-allowed"
+            disabled
+          >
+            Show More Shops
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. City Exploration & Photo Walks -->
+    <section id="exploration" class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <i class="fas fa-camera text-cyan-500 text-4xl mb-4"></i>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            City Exploration & Photo Walks
+          </h2>
+          <p class="text-lg text-gray-600">
+            Capture the beauty of Dehradun through guided photography tours
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Heritage Walk"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Heritage Photo Walk</h3>
+              <p class="text-gray-600 mb-4">
+                Capture historical architecture and monuments
+              </p>
+              <button
+                class="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Join Walk
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Nature Photography"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Nature Photography</h3>
+              <p class="text-gray-600 mb-4">
+                Scenic landscapes and natural beauty
+              </p>
+              <button
+                class="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Join Walk
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Street Photography"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Street Photography</h3>
+              <p class="text-gray-600 mb-4">
+                Capture local life and street scenes
+              </p>
+              <button
+                class="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Join Walk
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Sunrise Photography"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Sunrise Photography</h3>
+              <p class="text-gray-600 mb-4">
+                Early morning golden hour sessions
+              </p>
+              <button
+                class="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Join Walk
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <button
+            class="bg-gray-300 text-gray-500 px-6 py-3 rounded-lg cursor-not-allowed"
+            disabled
+          >
+            Show More Tours
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Wellness & Yoga -->
+    <section id="wellness" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <i class="fas fa-spa text-green-600 text-4xl mb-4"></i>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">Wellness & Yoga</h2>
+          <p class="text-lg text-gray-600">
+            Rejuvenate your mind, body, and soul in the serene environment
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Yoga Classes"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Yoga Classes</h3>
+              <p class="text-gray-600 mb-4">
+                Traditional yoga sessions in peaceful settings
+              </p>
+              <button
+                class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Book Session
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Meditation"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Meditation Retreats</h3>
+              <p class="text-gray-600 mb-4">
+                Guided meditation and mindfulness sessions
+              </p>
+              <button
+                class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Book Session
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Spa Services"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Spa & Massage</h3>
+              <p class="text-gray-600 mb-4">
+                Relaxing spa treatments and therapeutic massage
+              </p>
+              <button
+                class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Book Session
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Ayurveda"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Ayurvedic Treatments</h3>
+              <p class="text-gray-600 mb-4">
+                Traditional healing and wellness therapies
+              </p>
+              <button
+                class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Book Session
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <button
+            class="bg-gray-300 text-gray-500 px-6 py-3 rounded-lg cursor-not-allowed"
+            disabled
+          >
+            Show More Services
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. Safety & Emergency -->
+    <section id="safety" class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <i class="fas fa-shield-alt text-red-600 text-4xl mb-4"></i>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            Safety & Emergency Services
+          </h2>
+          <p class="text-lg text-gray-600">
+            Your safety is our priority - 24/7 support and emergency assistance
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Emergency Helpline"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">24/7 Helpline</h3>
+              <p class="text-gray-600 mb-4">
+                Round-the-clock emergency assistance
+              </p>
+              <button
+                class="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Get Help
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Medical Assistance"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Medical Assistance</h3>
+              <p class="text-gray-600 mb-4">
+                Quick access to medical facilities and doctors
+              </p>
+              <button
+                class="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Find Help
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Travel Insurance"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Travel Insurance</h3>
+              <p class="text-gray-600 mb-4">
+                Comprehensive travel insurance options
+              </p>
+              <button
+                class="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Get Quote
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-transform"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+              alt="Safety Guidelines"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Safety Guidelines</h3>
+              <p class="text-gray-600 mb-4">
+                Important safety tips and local guidelines
+              </p>
+              <button
+                class="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg transition-colors"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <button
+            class="bg-gray-300 text-gray-500 px-6 py-3 rounded-lg cursor-not-allowed"
+            disabled
+          >
+            Show More Resources
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-4">
+              <div
+                class="h-10 w-10 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center"
+              >
+                <i class="fas fa-mountain text-white text-lg"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">Dehradun Guide</h3>
+                <p class="text-sm text-gray-400">
+                  Your Complete Travel Companion
+                </p>
+              </div>
+            </div>
+            <p class="text-gray-400 mb-4">
+              Experience the best of Dehradun with our comprehensive travel
+              services and local expertise.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#about" class="hover:text-white transition-colors"
+                  >About Dehradun</a
+                >
+              </li>
+              <li>
+                <a href="#services" class="hover:text-white transition-colors"
+                  >Our Services</a
+                >
+              </li>
+              <li>
+                <a href="#rentals" class="hover:text-white transition-colors"
+                  >Vehicle Rentals</a
+                >
+              </li>
+              <li>
+                <a href="#tours" class="hover:text-white transition-colors"
+                  >Tour Packages</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Services</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#guides" class="hover:text-white transition-colors"
+                  >Tour Guides</a
+                >
+              </li>
+              <li>
+                <a href="#food" class="hover:text-white transition-colors"
+                  >Food & Dining</a
+                >
+              </li>
+              <li>
+                <a href="#wellness" class="hover:text-white transition-colors"
+                  >Wellness</a
+                >
+              </li>
+              <li>
+                <a href="#safety" class="hover:text-white transition-colors"
+                  >Safety Support</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+            <div class="space-y-3 text-gray-400">
+              <div class="flex items-center space-x-2">
+                <i class="fas fa-phone"></i>
+                <span>+91 135-123-4567</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <i class="fas fa-envelope"></i>
+                <span>info@dehradunguide.com</span>
+              </div>
+              <div class="flex items-start space-x-2">
+                <i class="fas fa-map-marker-alt mt-1"></i>
+                <span>Clock Tower, Dehradun, Uttarakhand 248001</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-700 pt-8 mt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm">
+              © 2024 Dehradun Guide. All rights reserved.
+            </p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white text-sm transition-colors"
+                >Privacy Policy</a
+              >
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white text-sm transition-colors"
+                >Terms of Service</a
+              >
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white text-sm transition-colors"
+                >Contact</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Mobile menu toggle
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("hidden");
+      }
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+            window.scrollTo({
+              top: offsetTop,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll("#mobileMenu a").forEach((link) => {
+        link.addEventListener("click", function () {
+          document.getElementById("mobileMenu").classList.add("hidden");
+        });
+      });
+
+      // Add active class to navbar links based on scroll position
+      window.addEventListener("scroll", function () {
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.clientHeight;
+          if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("text-green-600");
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("text-green-600");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

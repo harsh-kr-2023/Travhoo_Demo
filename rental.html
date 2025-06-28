@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Rental Vehicles in Dehradun - Verified Vendors & Drivers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.3)
+          ),
+          url("https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .vendor-card {
+        transition: all 0.4s ease;
+        backdrop-filter: blur(10px);
+      }
+      .vendor-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+      .filter-btn.active {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+      }
+      .service-badge {
+        background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+        transition: all 0.3s ease;
+      }
+      .service-badge:hover {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white;
+        transform: scale(1.05);
+      }
+      .rating-stars {
+        color: #fbbf24;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+      }
+      .vendor-image {
+        filter: brightness(1.1) contrast(1.1);
+        transition: all 0.3s ease;
+      }
+      .vendor-card:hover .vendor-image {
+        filter: brightness(1.2) contrast(1.2);
+        transform: scale(1.05);
+      }
+      .trust-badge {
+        background: linear-gradient(135deg, #10b981, #059669);
+        animation: pulse 2s infinite;
+      }
+      .fleet-counter {
+        background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      }
+      .vendor-detail-modal {
+        backdrop-filter: blur(20px);
+        background: rgba(255, 255, 255, 0.95);
+      }
+      .vehicle-mini-card {
+        transition: all 0.3s ease;
+      }
+      .vehicle-mini-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .testimonial-bg {
+        background: linear-gradient(135deg, #fef3c7, #fde68a);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Hero Section -->
+    <section
+      class="hero-bg h-96 flex items-center justify-center text-white relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-purple-900/40"
+      ></div>
+      <div class="text-center max-w-5xl px-4 relative z-10">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          Book Rental Vehicles in Dehradun
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed mb-8"
+        >
+          Browse verified vendors and local drivers offering cars, SUVs, and
+          self-drive options. Choose from trusted rental agencies and
+          experienced independent drivers.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 text-sm">
+          <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+            <i class="fas fa-shield-check mr-2"></i>Verified Partners
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+            <i class="fas fa-users mr-2"></i>Local Experts
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+            <i class="fas fa-car mr-2"></i>Wide Fleet Selection
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+            <i class="fas fa-headset mr-2"></i>24/7 Support
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <section
+      class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 py-6"
+    >
+      <div class="container mx-auto px-4">
+        <!-- Type Toggle -->
+        <div class="mb-4">
+          <h3 class="text-sm font-semibold text-gray-700 mb-3">
+            Provider Type
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <button
+              class="filter-btn active px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-500 hover:text-white transition-all text-sm font-medium"
+              data-filter="all"
+              data-type="provider"
+            >
+              <i class="fas fa-th-large mr-1"></i>All Providers
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-500 hover:text-white transition-all text-sm font-medium"
+              data-filter="vendor"
+              data-type="provider"
+            >
+              <i class="fas fa-building mr-1"></i>Rental Agencies
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-500 hover:text-white transition-all text-sm font-medium"
+              data-filter="driver"
+              data-type="provider"
+            >
+              <i class="fas fa-user-tie mr-1"></i>Independent Drivers
+            </button>
+          </div>
+        </div>
+
+        <!-- Service & Vehicle Filters -->
+        <div class="grid md:grid-cols-3 gap-4">
+          <div>
+            <h3 class="text-sm font-semibold text-gray-700 mb-2">
+              Service Mode
+            </h3>
+            <div class="flex gap-2">
+              <button
+                class="filter-btn active px-3 py-1 rounded-full border border-gray-300 hover:bg-green-500 hover:text-white transition-all text-sm"
+                data-filter="all"
+                data-type="mode"
+              >
+                All
+              </button>
+              <button
+                class="filter-btn px-3 py-1 rounded-full border border-gray-300 hover:bg-green-500 hover:text-white transition-all text-sm"
+                data-filter="self-drive"
+                data-type="mode"
+              >
+                Self Drive
+              </button>
+              <button
+                class="filter-btn px-3 py-1 rounded-full border border-gray-300 hover:bg-green-500 hover:text-white transition-all text-sm"
+                data-filter="with-driver"
+                data-type="mode"
+              >
+                With Driver
+              </button>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold text-gray-700 mb-2">
+              Vehicle Type
+            </h3>
+            <div class="flex gap-2">
+              <button
+                class="filter-btn active px-3 py-1 rounded-full border border-gray-300 hover:bg-purple-500 hover:text-white transition-all text-sm"
+                data-filter="all"
+                data-type="vehicle"
+              >
+                All
+              </button>
+              <button
+                class="filter-btn px-3 py-1 rounded-full border border-gray-300 hover:bg-purple-500 hover:text-white transition-all text-sm"
+                data-filter="hatchback"
+                data-type="vehicle"
+              >
+                Hatchback
+              </button>
+              <button
+                class="filter-btn px-3 py-1 rounded-full border border-gray-300 hover:bg-purple-500 hover:text-white transition-all text-sm"
+                data-filter="sedan"
+                data-type="vehicle"
+              >
+                Sedan
+              </button>
+              <button
+                class="filter-btn px-3 py-1 rounded-full border border-gray-300 hover:bg-purple-500 hover:text-white transition-all text-sm"
+                data-filter="suv"
+                data-type="vehicle"
+              >
+                SUV
+              </button>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold text-gray-700 mb-2">
+              Price Range
+            </h3>
+            <select
+              class="w-full px-3 py-1 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option>All Prices</option>
+              <option>₹500 - ₹1000</option>
+              <option>₹1000 - ₹2000</option>
+              <option>₹2000 - ₹3000</option>
+              <option>₹3000+</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vendors Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <!-- Vendor 1 - Ravi Travels (Rental Agency) -->
+        <div
+          class="vendor-card bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden mb-12 grid lg:grid-cols-5 gap-0 relative"
+          data-category="vendor self-drive with-driver sedan suv"
+        >
+          <div class="lg:col-span-2 relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Ravi Travels Office"
+              class="vendor-image w-full h-full object-cover min-h-80"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="trust-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-certificate text-xs mr-1"></i>Verified Agency
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div
+                class="bg-black/60 backdrop-blur-sm text-white p-3 rounded-lg"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm opacity-90">Starting from</p>
+                    <p class="text-2xl font-bold text-green-400">
+                      ₹1,200<span class="text-sm">/day</span>
+                    </p>
+                  </div>
+                  <div class="text-right">
+                    <div class="rating-stars text-lg">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-sm opacity-90">4.8 (2,340 reviews)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-3 p-8 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-3xl font-bold text-gray-800">Ravi Travels</h3>
+              <div class="flex gap-2">
+                <span
+                  class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  <i class="fas fa-building mr-1"></i>Rental Agency
+                </span>
+                <span
+                  class="fleet-counter text-white px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  15 Years Experience
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed italic">
+              "Ravi Travels has served over 10,000 happy tourists since 2008. We
+              specialize in premium self-drive and chauffeur services with a
+              fleet of well-maintained vehicles and experienced local drivers."
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-car text-blue-600 mr-2"></i>Available Fleet
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="fleet-counter text-white px-3 py-1 rounded-full text-sm"
+                    >12 Cars</span
+                  >
+                  <span
+                    class="fleet-counter text-white px-3 py-1 rounded-full text-sm"
+                    >5 SUVs</span
+                  >
+                  <span
+                    class="fleet-counter text-white px-3 py-1 rounded-full text-sm"
+                    >3 Vans</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-cogs text-blue-600 mr-2"></i>Services Offered
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="service-badge px-3 py-1 rounded-full text-sm font-medium"
+                    >Self Drive</span
+                  >
+                  <span
+                    class="service-badge px-3 py-1 rounded-full text-sm font-medium"
+                    >With Driver</span
+                  >
+                  <span
+                    class="service-badge px-3 py-1 rounded-full text-sm font-medium"
+                    >Airport Pickup</span
+                  >
+                  <span
+                    class="service-badge px-3 py-1 rounded-full text-sm font-medium"
+                    >Group Tours</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                <i class="fas fa-star text-yellow-500 mr-2"></i>Why Choose Ravi
+                Travels
+              </h4>
+              <div class="grid md:grid-cols-2 gap-3 text-sm">
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>24/7 Roadside Assistance</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>Free Pickup & Drop</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>Comprehensive Insurance</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>Local Route Guidance</span>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 transition-all transform hover:scale-105 shadow-lg"
+              onclick="openVendorDetail('ravi-travels')"
+            >
+              <i class="fas fa-eye mr-2"></i>View Vehicles & Book
+            </button>
+          </div>
+        </div>
+
+        <!-- Vendor 2 - Suresh Kumar (Independent Driver) -->
+        <div
+          class="vendor-card bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden mb-12 grid lg:grid-cols-5 gap-0 relative"
+          data-category="driver with-driver sedan"
+        >
+          <div
+            class="lg:col-span-3 p-8 flex flex-col justify-center order-2 lg:order-1"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-3xl font-bold text-gray-800">Suresh Kumar</h3>
+              <div class="flex gap-2">
+                <span
+                  class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  <i class="fas fa-user-tie mr-1"></i>Independent Driver
+                </span>
+                <span
+                  class="fleet-counter text-white px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  8 Years Experience
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed italic">
+              "Local Dehradun driver with 8+ years of experience. I know every
+              corner of the city and surrounding hills. Perfect for tourists who
+              want personalized service and local insights during their
+              journey."
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-car text-green-600 mr-2"></i>My Vehicle
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="fleet-counter text-white px-3 py-1 rounded-full text-sm"
+                    >Dzire 2022</span
+                  >
+                  <span
+                    class="fleet-counter text-white px-3 py-1 rounded-full text-sm"
+                    >AC + Music</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-language text-green-600 mr-2"></i>Languages
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="service-badge px-3 py-1 rounded-full text-sm font-medium"
+                    >Hindi</span
+                  >
+                  <span
+                    class="service-badge px-3 py-1 rounded-full text-sm font-medium"
+                    >English</span
+                  >
+                  <span
+                    class="service-badge px-3 py-1 rounded-full text-sm font-medium"
+                    >Garhwali</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                <i class="fas fa-route text-green-600 mr-2"></i>Specializes In
+              </h4>
+              <div class="grid md:grid-cols-2 gap-3 text-sm">
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>Mussoorie Day Trips</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>Airport Transfers</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>Local Sightseeing</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>Hill Station Tours</span>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-green-500 to-teal-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-green-600 hover:to-teal-600 transition-all transform hover:scale-105 shadow-lg"
+              onclick="openVendorDetail('suresh-kumar')"
+            >
+              <i class="fas fa-phone mr-2"></i>Contact Suresh
+            </button>
+          </div>
+          <div
+            class="lg:col-span-2 relative overflow-hidden order-1 lg:order-2"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Suresh Kumar"
+              class="vendor-image w-full h-full object-cover min-h-80"
+            />
+            <div class="absolute top-4 right-4">
+              <span
+                class="trust-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-user-check text-xs mr-1"></i>Verified Driver
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div
+                class="bg-black/60 backdrop-blur-sm text-white p-3 rounded-lg"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm opacity-90">Starting from</p>
+                    <p class="text-2xl font-bold text-green-400">
+                      ₹1,500<span class="text-sm">/day</span>
+                    </p>
+                  </div>
+                  <div class="text-right">
+                    <div class="rating-stars text-lg">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-sm opacity-90">4.9 (156 reviews)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust Section -->
+        <div class="testimonial-bg rounded-3xl p-8 mb-16 text-center">
+          <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">
+              Why Choose Our Verified Partners?
+            </h2>
+            <div class="grid md:grid-cols-4 gap-6">
+              <div class="text-center">
+                <div
+                  class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <i class="fas fa-shield-check text-white text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">
+                  Background Verified
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  All drivers and agencies are thoroughly verified
+                </p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <i class="fas fa-star text-white text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">Highly Rated</h3>
+                <p class="text-gray-600 text-sm">
+                  Only top-rated providers with 4+ star ratings
+                </p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <i class="fas fa-headset text-white text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">24/7 Support</h3>
+                <p class="text-gray-600 text-sm">
+                  Round-the-clock assistance for all bookings
+                </p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <i class="fas fa-map-marked-alt text-white text-2xl"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">
+                  Local Expertise
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Deep knowledge of local routes and attractions
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vendor 3 - Mountain Wheels (Rental Agency) -->
+        <div
+          class="vendor-card bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden mb-12 grid lg:grid-cols-5 gap-0 relative"
+          data-category="vendor self-drive suv hatchback"
+        >
+          <div class="lg:col-span-2 relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Mountain Wheels"
+              class="vendor-image w-full h-full object-cover min-h-80"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="trust-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-certificate text-xs mr-1"></i>Premium Partner
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div
+                class="bg-black/60 backdrop-blur-sm text-white p-3 rounded-lg"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm opacity-90">Starting from</p>
+                    <p class="text-2xl font-bold text-green-400">
+                      ₹800<span class="text-sm">/day</span>
+                    </p>
+                  </div>
+                  <div class="text-right">
+                    <div class="rating-stars text-lg">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                    </div>
+                    <p class="text-sm opacity-90">4.3 (890 reviews)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-3 p-8 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-3xl font-bold text-gray-800">Mountain Wheels</h3>
+              <div class="flex gap-2">
+                <span
+                  class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  <i class="fas fa-building mr-1"></i>Self-Drive Specialist
+                </span>
+                <span
+                  class="fleet-counter text-white px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  5 Years Experience
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed italic">
+              "Specializing in self-drive rentals for adventure enthusiasts. Our
+              well-maintained fleet includes hatchbacks perfect for city drives
+              and SUVs ready for mountain adventures."
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-car text-blue-600 mr-2"></i>Available Fleet
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="fleet-counter text-white px-3 py-1 rounded-full text-sm"
+                    >8 Hatchbacks</span
+                  >
+                  <span
+                    class="fleet-counter text-white px-3 py-1 rounded-full text-sm"
+                    >4 SUVs</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-cogs text-blue-600 mr-2"></i>Services Offered
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="service-badge px-3 py-1 rounded-full text-sm font-medium"
+                    >Self Drive Only</span
+                  >
+                  <span
+                    class="service-badge px-3 py-1 rounded-full text-sm font-medium"
+                    >GPS Included</span
+                  >
+                  <span
+                    class="service-badge px-3 py-1 rounded-full text-sm font-medium"
+                    >Fuel Efficient</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                <i class="fas fa-star text-yellow-500 mr-2"></i>Perfect For
+              </h4>
+              <div class="grid md:grid-cols-2 gap-3 text-sm">
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>Weekend Getaways</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>City Exploration</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>Budget Travelers</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>Young Couples</span>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-purple-600 hover:to-pink-600 transition-all transform hover:scale-105 shadow-lg"
+              onclick="openVendorDetail('mountain-wheels')"
+            >
+              <i class="fas fa-eye mr-2"></i>Explore Fleet
+            </button>
+          </div>
+        </div>
+
+        <!-- Vendor 4 - Rajesh Singh (Independent Driver) -->
+        <div
+          class="vendor-card bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden mb-12 grid lg:grid-cols-5 gap-0 relative"
+          data-category="driver with-driver suv"
+        >
+          <div
+            class="lg:col-span-3 p-8 flex flex-col justify-center order-2 lg:order-1"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-3xl font-bold text-gray-800">Rajesh Singh</h3>
+              <div class="flex gap-2">
+                <span
+                  class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  <i class="fas fa-user-tie mr-1"></i>Independent Driver
+                </span>
+                <span
+                  class="fleet-counter text-white px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  12 Years Experience
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed italic">
+              "Experienced driver specializing in family tours and group travel.
+              My Innova is perfect for comfortable long-distance journeys to
+              hill stations and pilgrimage sites around Uttarakhand."
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-car text-green-600 mr-2"></i>My Vehicle
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="fleet-counter text-white px-3 py-1 rounded-full text-sm"
+                    >Innova 2021</span
+                  >
+                  <span
+                    class="fleet-counter text-white px-3 py-1 rounded-full text-sm"
+                    >7-Seater</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                  <i class="fas fa-route text-green-600 mr-2"></i>Popular Routes
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="service-badge px-3 py-1 rounded-full text-sm font-medium"
+                    >Haridwar</span
+                  >
+                  <span
+                    class="service-badge px-3 py-1 rounded-full text-sm font-medium"
+                    >Rishikesh</span
+                  >
+                  <span
+                    class="service-badge px-3 py-1 rounded-full text-sm font-medium"
+                    >Mussoorie</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                <i class="fas fa-users text-green-600 mr-2"></i>Best For
+              </h4>
+              <div class="grid md:grid-cols-2 gap-3 text-sm">
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>Family Groups</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>Multi-day Tours</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>Pilgrimage Trips</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  <span>Elderly Travelers</span>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-orange-600 hover:to-red-600 transition-all transform hover:scale-105 shadow-lg"
+              onclick="openVendorDetail('rajesh-singh')"
+            >
+              <i class="fas fa-phone mr-2"></i>Contact Rajesh
+            </button>
+          </div>
+          <div
+            class="lg:col-span-2 relative overflow-hidden order-1 lg:order-2"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Rajesh Singh"
+              class="vendor-image w-full h-full object-cover min-h-80"
+            />
+            <div class="absolute top-4 right-4">
+              <span
+                class="trust-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-award text-xs mr-1"></i>Top Rated
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div
+                class="bg-black/60 backdrop-blur-sm text-white p-3 rounded-lg"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm opacity-90">Starting from</p>
+                    <p class="text-2xl font-bold text-green-400">
+                      ₹2,200<span class="text-sm">/day</span>
+                    </p>
+                  </div>
+                  <div class="text-right">
+                    <div class="rating-stars text-lg">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-sm opacity-90">4.7 (203 reviews)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer Testimonial -->
+        <div class="testimonial-bg rounded-3xl p-8 mb-16 text-center">
+          <div class="max-w-3xl mx-auto">
+            <i class="fas fa-quote-left text-3xl text-amber-600 mb-4"></i>
+            <p class="text-xl text-gray-700 mb-6 italic leading-relaxed">
+              "Booked with Ravi Travels for our family trip to Mussoorie. The
+              car was spotless, driver was courteous, and the entire experience
+              was seamless. They even suggested great local restaurants!"
+            </p>
+            <div class="flex items-center justify-center">
+              <img
+                src="https://images.unsplash.com/photo-1494790108755-2616c9c0e8e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                alt="Priya Mehta"
+                class="w-16 h-16 rounded-full mr-4"
+              />
+              <div>
+                <p class="font-semibold text-gray-800 text-lg">Priya Mehta</p>
+                <p class="text-gray-600">Family Traveler from Mumbai</p>
+                <div class="rating-stars text-sm mt-1">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center py-12">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            Ready to Book Your Perfect Ride?
+          </h2>
+          <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            Choose from our verified rental agencies and experienced independent
+            drivers. Every provider is background-checked and highly rated by
+            travelers like you.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-phone mr-2"></i>Call for Instant Booking
+            </button>
+            <button
+              class="border-2 border-blue-500 text-blue-600 px-8 py-3 rounded-xl font-semibold hover:bg-blue-50 transition-all"
+            >
+              <i class="fas fa-whatsapp mr-2"></i>WhatsApp Support
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vendor Detail Modal -->
+    <div id="vendorModal" class="fixed inset-0 z-50 hidden">
+      <div
+        class="vendor-detail-modal min-h-screen p-4 flex items-center justify-center"
+      >
+        <div
+          class="bg-white rounded-3xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto"
+        >
+          <!-- Modal content will be dynamically loaded here -->
+          <div id="modalContent"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      // Filter functionality
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const vendorCards = document.querySelectorAll(".vendor-card");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const filterType = button.getAttribute("data-type");
+          const filterValue = button.getAttribute("data-filter");
+
+          // Remove active class from buttons of the same type
+          filterButtons.forEach((btn) => {
+            if (btn.getAttribute("data-type") === filterType) {
+              btn.classList.remove("active");
+            }
+          });
+
+          // Add active class to clicked button
+          button.classList.add("active");
+
+          // Apply filters
+          applyFilters();
+        });
+      });
+
+      function applyFilters() {
+        const activeFilters = {
+          provider:
+            document
+              .querySelector('.filter-btn[data-type="provider"].active')
+              ?.getAttribute("data-filter") || "all",
+          mode:
+            document
+              .querySelector('.filter-btn[data-type="mode"].active')
+              ?.getAttribute("data-filter") || "all",
+          vehicle:
+            document
+              .querySelector('.filter-btn[data-type="vehicle"].active')
+              ?.getAttribute("data-filter") || "all",
+        };
+
+        vendorCards.forEach((card) => {
+          const categories = card.getAttribute("data-category").split(" ");
+          let showCard = true;
+
+          // Check provider type filter
+          if (
+            activeFilters.provider !== "all" &&
+            !categories.includes(activeFilters.provider)
+          ) {
+            showCard = false;
+          }
+
+          // Check mode filter
+          if (
+            activeFilters.mode !== "all" &&
+            !categories.includes(activeFilters.mode)
+          ) {
+            showCard = false;
+          }
+
+          // Check vehicle filter
+          if (
+            activeFilters.vehicle !== "all" &&
+            !categories.includes(activeFilters.vehicle)
+          ) {
+            showCard = false;
+          }
+
+          if (showCard) {
+            card.style.display = "grid";
+            setTimeout(() => {
+              card.style.opacity = "1";
+              card.style.transform = "translateY(0)";
+            }, 100);
+          } else {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(20px)";
+            setTimeout(() => {
+              card.style.display = "none";
+            }, 300);
+          }
+        });
+      }
+
+      // Vendor detail modal functionality
+      function openVendorDetail(vendorId) {
+        const modal = document.getElementById("vendorModal");
+        const modalContent = document.getElementById("modalContent");
+
+        // Sample vendor detail content (in real app, this would be fetched from API)
+        const vendorDetails = {
+          "ravi-travels": {
+            name: "Ravi Travels",
+            type: "Rental Agency",
+            rating: "4.8",
+            reviews: "2,340",
+            experience: "15 Years",
+            description:
+              "Premium rental agency with comprehensive fleet and professional service.",
+            vehicles: [
+              {
+                name: "Maruti Dzire 2022",
+                type: "Sedan",
+                mode: "Self Drive / With Driver",
+                price: "₹1,200",
+                transmission: "Manual",
+                fuel: "Petrol",
+                status: "Available",
+              },
+              {
+                name: "Hyundai Creta 2023",
+                type: "SUV",
+                mode: "Self Drive / With Driver",
+                price: "₹2,000",
+                transmission: "Automatic",
+                fuel: "Petrol",
+                status: "Available",
+              },
+              {
+                name: "Toyota Innova 2021",
+                type: "SUV",
+                mode: "With Driver Only",
+                price: "₹2,500",
+                transmission: "Manual",
+                fuel: "Diesel",
+                status: "Booked",
+              },
+              {
+                name: "Maruti Swift 2022",
+                type: "Hatchback",
+                mode: "Self Drive",
+                price: "₹800",
+                transmission: "Manual",
+                fuel: "Petrol",
+                status: "Available",
+              },
+            ],
+            policies: [
+              "Valid driving license required for self-drive",
+              "Fuel charges extra for self-drive rentals",
+              "Free cancellation up to 24 hours before pickup",
+              "24/7 roadside assistance included",
+              "Comprehensive insurance coverage provided",
+            ],
+          },
+          "suresh-kumar": {
+            name: "Suresh Kumar",
+            type: "Independent Driver",
+            rating: "4.9",
+            reviews: "156",
+            experience: "8 Years",
+            description:
+              "Experienced local driver with excellent knowledge of Dehradun and surrounding areas.",
+            vehicles: [
+              {
+                name: "Maruti Dzire 2022",
+                type: "Sedan",
+                mode: "With Driver Only",
+                price: "₹1,500",
+                transmission: "Manual",
+                fuel: "Petrol",
+                status: "Available",
+              },
+            ],
+            policies: [
+              "Driver charges included in price",
+              "Fuel charges included for local trips",
+              "Extra charges for outstation trips",
+              "Advance booking recommended",
+              "Flexible pickup and drop locations",
+            ],
+          },
+          "mountain-wheels": {
+            name: "Mountain Wheels",
+            type: "Self-Drive Specialist",
+            rating: "4.3",
+            reviews: "890",
+            experience: "5 Years",
+            description:
+              "Specialized in self-drive rentals with modern fleet and competitive pricing.",
+            vehicles: [
+              {
+                name: "Maruti Swift 2023",
+                type: "Hatchback",
+                mode: "Self Drive Only",
+                price: "₹800",
+                transmission: "Manual",
+                fuel: "Petrol",
+                status: "Available",
+              },
+              {
+                name: "Hyundai i20 2022",
+                type: "Hatchback",
+                mode: "Self Drive Only",
+                price: "₹900",
+                transmission: "Manual",
+                fuel: "Petrol",
+                status: "Available",
+              },
+              {
+                name: "Mahindra XUV300 2023",
+                type: "SUV",
+                mode: "Self Drive Only",
+                price: "₹1,800",
+                transmission: "Manual",
+                fuel: "Petrol",
+                status: "Booked",
+              },
+            ],
+            policies: [
+              "Self-drive only - no driver service",
+              "GPS navigation system included",
+              "Fuel charges extra",
+              "Security deposit required",
+              "Free pickup from select locations",
+            ],
+          },
+          "rajesh-singh": {
+            name: "Rajesh Singh",
+            type: "Independent Driver",
+            rating: "4.7",
+            reviews: "203",
+            experience: "12 Years",
+            description:
+              "Family-friendly driver specializing in comfortable long-distance travel.",
+            vehicles: [
+              {
+                name: "Toyota Innova 2021",
+                type: "SUV",
+                mode: "With Driver Only",
+                price: "₹2,200",
+                transmission: "Manual",
+                fuel: "Diesel",
+                status: "Available",
+              },
+            ],
+            policies: [
+              "Driver charges included",
+              "Fuel included for trips up to 300km",
+              "Overnight charges apply for multi-day trips",
+              "Specializes in family and group travel",
+              "Flexible itinerary planning",
+            ],
+          },
+        };
+
+        const vendor = vendorDetails[vendorId];
+        if (!vendor) return;
+
+        modalContent.innerHTML = `
+                <div class="p-8">
+                    <!-- Header -->
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-800 mb-2">${
+                              vendor.name
+                            }</h2>
+                            <div class="flex items-center gap-4">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">${
+                                  vendor.type
+                                }</span>
+                                <div class="flex items-center">
+                                    <div class="rating-stars text-lg mr-2">
+                                        ${'<i class="fas fa-star"></i>'.repeat(
+                                          Math.floor(parseFloat(vendor.rating))
+                                        )}
+                                        ${
+                                          parseFloat(vendor.rating) % 1 !== 0
+                                            ? '<i class="fas fa-star-half-alt"></i>'
+                                            : ""
+                                        }
+                                    </div>
+                                    <span class="text-gray-600">${
+                                      vendor.rating
+                                    } (${vendor.reviews} reviews)</span>
+                                </div>
+                                <span class="text-gray-600">${
+                                  vendor.experience
+                                } Experience</span>
+                            </div>
+                        </div>
+                        <button onclick="closeVendorDetail()" class="text-gray-500 hover:text-gray-700 text-2xl">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <p class="text-gray-600 text-lg mb-8">${
+                      vendor.description
+                    }</p>
+
+                    <!-- Fleet Section -->
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Available Fleet</h3>
+                        <div class="grid gap-4">
+                            ${vendor.vehicles
+                              .map(
+                                (vehicle) => `
+                                <div class="vehicle-mini-card bg-gray-50 rounded-xl p-4 flex items-center justify-between">
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-gray-800 mb-1">${
+                                          vehicle.name
+                                        }</h4>
+                                        <div class="flex items-center gap-4 text-sm text-gray-600">
+                                            <span><i class="fas fa-car mr-1"></i>${
+                                              vehicle.type
+                                            }</span>
+                                            <span><i class="fas fa-cogs mr-1"></i>${
+                                              vehicle.transmission
+                                            }</span>
+                                            <span><i class="fas fa-gas-pump mr-1"></i>${
+                                              vehicle.fuel
+                                            }</span>
+                                            <span><i class="fas fa-user-tie mr-1"></i>${
+                                              vehicle.mode
+                                            }</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-xl font-bold text-green-600 mb-1">${
+                                          vehicle.price
+                                        }/day</p>
+                                        <span class="px-2 py-1 rounded-full text-xs font-medium ${
+                                          vehicle.status === "Available"
+                                            ? "bg-green-100 text-green-800"
+                                            : "bg-red-100 text-red-800"
+                                        }">
+                                            ${vehicle.status}
+                                        </span>
+                                    </div>
+                                    <button class="ml-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all ${
+                                      vehicle.status !== "Available"
+                                        ? "opacity-50 cursor-not-allowed"
+                                        : ""
+                                    }" ${
+                                  vehicle.status !== "Available"
+                                    ? "disabled"
+                                    : ""
+                                }>
+                                        ${
+                                          vehicle.status === "Available"
+                                            ? "Book Now"
+                                            : "Unavailable"
+                                        }
+                                    </button>
+                                </div>
+                            `
+                              )
+                              .join("")}
+                        </div>
+                    </div>
+
+                    <!-- Policies Section -->
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Rental Policies</h3>
+                        <div class="bg-gray-50 rounded-xl p-6">
+                            <ul class="space-y-2">
+                                ${vendor.policies
+                                  .map(
+                                    (policy) => `
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                        <span class="text-gray-700">${policy}</span>
+                                    </li>
+                                `
+                                  )
+                                  .join("")}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Contact Section -->
+                    <div class="flex gap-4">
+                        <button class="flex-1 bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 transition-all">
+                            <i class="fas fa-phone mr-2"></i>Call ${vendor.name}
+                        </button>
+                        <button class="flex-1 bg-gradient-to-r from-green-500 to-teal-500 text-white px-6 py-3 rounded-xl font-semibold hover:from-green-600 hover:to-teal-600 transition-all">
+                            <i class="fas fa-whatsapp mr-2"></i>WhatsApp
+                        </button>
+                    </div>
+                </div>
+            `;
+
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeVendorDetail() {
+        const modal = document.getElementById("vendorModal");
+        modal.classList.add("hidden");
+        document.body.style.overflow = "auto";
+      }
+
+      // Close modal when clicking outside
+      document
+        .getElementById("vendorModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeVendorDetail();
+          }
+        });
+
+      // Smooth reveal animation on scroll
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".vendor-card");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        cards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(50px)";
+          card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+          observer.observe(card);
+        });
+      });
+
+      // Service badge hover effects
+      document.querySelectorAll(".service-badge").forEach((badge) => {
+        badge.addEventListener("mouseenter", function () {
+          this.style.transform = "scale(1.05)";
+        });
+
+        badge.addEventListener("mouseleave", function () {
+          this.style.transform = "scale(1)";
+        });
+      });
+    </script>
+  </body>
+</html>
