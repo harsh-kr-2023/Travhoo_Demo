@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solo Travel - Connect Everywhere | Travel Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url("https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .benefit-card {
+        transition: all 0.4s ease;
+      }
+      .benefit-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+      .destination-card {
+        transition: all 0.4s ease;
+        overflow: hidden;
+      }
+      .destination-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+      .destination-card:hover .destination-image {
+        transform: scale(1.1);
+      }
+      .destination-card:hover .overlay {
+        opacity: 1;
+      }
+      .destination-card:hover .cta-button {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .destination-image {
+        transition: transform 0.7s ease;
+      }
+      .overlay {
+        background: linear-gradient(
+          135deg,
+          rgba(236, 72, 153, 0.9),
+          rgba(168, 85, 247, 0.9)
+        );
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
+      .cta-button {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+      }
+      .experience-card {
+        transition: all 0.3s ease;
+      }
+      .experience-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+      .community-feature {
+        background: linear-gradient(135deg, #fef3c7, #fde68a);
+        border: 2px solid #f59e0b;
+      }
+      .community-feature:hover {
+        background: linear-gradient(135deg, #fde68a, #fcd34d);
+        transform: translateY(-3px);
+      }
+      .safety-card {
+        background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+        border: 2px solid #10b981;
+      }
+      .package-card {
+        transition: all 0.3s ease;
+      }
+      .package-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+      .solo-badge {
+        background: linear-gradient(135deg, #ec4899, #a855f7);
+      }
+      .group-size-badge {
+        background: rgba(59, 130, 246, 0.1);
+        color: #1d4ed8;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+      }
+      .social-tag {
+        background: rgba(236, 72, 153, 0.1);
+        color: #be185d;
+        border: 1px solid rgba(236, 72, 153, 0.2);
+      }
+      .floating-connect {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 50;
+      }
+      .floating-connect button {
+        background: linear-gradient(135deg, #ec4899, #a855f7);
+        transition: all 0.3s ease;
+      }
+      .floating-connect button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 15px 30px rgba(236, 72, 153, 0.4);
+      }
+      .stats-counter {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+      }
+      .feature-icon {
+        background: linear-gradient(135deg, #ec4899, #a855f7);
+      }
+      .carousel-container {
+        scroll-behavior: smooth;
+      }
+      .carousel-container::-webkit-scrollbar {
+        display: none;
+      }
+      .trust-badge {
+        background: rgba(16, 185, 129, 0.1);
+        color: #047857;
+        border: 1px solid rgba(16, 185, 129, 0.2);
+      }
+      .discount-tag {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+      .planning-tool {
+        background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+        border: 2px solid #0ea5e9;
+      }
+      .planning-tool:hover {
+        background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+        transform: translateY(-3px);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Hero Section -->
+    <section
+      class="hero-bg min-h-screen flex items-center justify-center text-white relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-pink-900/30 to-purple-900/30"
+      ></div>
+      <div class="text-center max-w-6xl px-4 relative z-10">
+        <div
+          class="feature-icon w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-8"
+        >
+          <i class="fas fa-user-friends text-white text-4xl"></i>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">
+          Travel Solo, Connect Everywhere
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-pink-100 max-w-4xl mx-auto leading-relaxed mb-12"
+        >
+          Go solo, join small groups, or make new friends on the road. Discover
+          safe, social, and meaningful travel experiences designed for
+          independent explorers.
+        </p>
+
+        <!-- Hero Stats -->
+        <div class="flex flex-wrap justify-center gap-6 text-sm mb-12">
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-user-check mr-2"></i>
+            <span class="font-semibold">25,000+ Solo Travelers</span>
+          </div>
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-shield-check mr-2"></i>
+            <span class="font-semibold">100% Safe Destinations</span>
+          </div>
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-heart mr-2"></i>
+            <span class="font-semibold">15,000+ Connections Made</span>
+          </div>
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-star mr-2"></i>
+            <span class="font-semibold">4.8/5 Solo Experience Rating</span>
+          </div>
+        </div>
+
+        <button
+          class="bg-gradient-to-r from-pink-600 to-purple-600 text-white px-12 py-5 rounded-full text-xl font-bold hover:from-pink-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-2xl"
+        >
+          <i class="fas fa-compass mr-3"></i>Find Solo-Friendly Trips
+        </button>
+      </div>
+    </section>
+
+    <!-- Why Travel Solo / Small Groups -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            Why Travel Solo or in Small Groups?
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Discover the freedom, connections, and authentic experiences that
+            come with solo and small group travel.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Meet Like-minded People -->
+          <div
+            class="benefit-card bg-gradient-to-br from-pink-50 to-rose-50 p-8 rounded-3xl text-center"
+          >
+            <div
+              class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-users text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              Meet Like-minded People
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Connect with fellow travelers who share your passion for adventure
+              and exploration.
+            </p>
+            <div
+              class="bg-pink-100 text-pink-800 px-4 py-2 rounded-full text-sm font-semibold inline-block"
+            >
+              15,000+ Connections Made
+            </div>
+          </div>
+
+          <!-- Flexibility & Freedom -->
+          <div
+            class="benefit-card bg-gradient-to-br from-purple-50 to-violet-50 p-8 rounded-3xl text-center"
+          >
+            <div
+              class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-route text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              Flexibility & Freedom
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Travel at your own pace, change plans spontaneously, and follow
+              your interests.
+            </p>
+            <div
+              class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-semibold inline-block"
+            >
+              Your Schedule, Your Way
+            </div>
+          </div>
+
+          <!-- Budget-friendly -->
+          <div
+            class="benefit-card bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-3xl text-center"
+          >
+            <div
+              class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-piggy-bank text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              Budget-Friendly Shared Costs
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Split accommodation, transport, and activity costs with other solo
+              travelers.
+            </p>
+            <div
+              class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold inline-block"
+            >
+              Save up to 40%
+            </div>
+          </div>
+
+          <!-- Safe & Vetted -->
+          <div
+            class="benefit-card bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-3xl text-center"
+          >
+            <div
+              class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-shield-check text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              Safe, Vetted Vendors
+            </h3>
+            <p class="text-gray-600 mb-4">
+              All our partners are thoroughly screened for solo traveler safety
+              and reliability.
+            </p>
+            <div
+              class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold inline-block"
+            >
+              100% Verified Partners
+            </div>
+          </div>
+
+          <!-- Build Connections -->
+          <div
+            class="benefit-card bg-gradient-to-br from-yellow-50 to-amber-50 p-8 rounded-3xl text-center"
+          >
+            <div
+              class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-heart text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              Build Lifelong Connections
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Form meaningful friendships and travel networks that last beyond
+              your trip.
+            </p>
+            <div
+              class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-semibold inline-block"
+            >
+              Friendships for Life
+            </div>
+          </div>
+
+          <!-- Personal Growth -->
+          <div
+            class="benefit-card bg-gradient-to-br from-teal-50 to-cyan-50 p-8 rounded-3xl text-center"
+          >
+            <div
+              class="w-16 h-16 bg-teal-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-seedling text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              Personal Growth
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Challenge yourself, build confidence, and discover your true
+              potential through solo travel.
+            </p>
+            <div
+              class="bg-teal-100 text-teal-800 px-4 py-2 rounded-full text-sm font-semibold inline-block"
+            >
+              Transform Yourself
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solo-Friendly Destinations Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-pink-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            Solo-Friendly Destinations
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Handpicked destinations known for their safety, welcoming locals,
+            and vibrant solo travel communities.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Rishikesh -->
+          <div
+            class="destination-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Rishikesh Solo Travel"
+                class="destination-image w-full h-full object-cover"
+              />
+
+              <div
+                class="trust-badge absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-semibold"
+              >
+                <i class="fas fa-shield-check mr-1"></i>Safe for Solo
+              </div>
+
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-map-marked-alt mr-2"></i>Explore City Guide
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Rishikesh</h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Perfect for solo café hopping, yoga retreats, and spiritual
+                exploration with a welcoming community.
+              </p>
+
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Spiritual</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Yoga Friendly</span
+                >
+                <span
+                  class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Budget Friendly</span
+                >
+              </div>
+
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-coffee mr-2 text-brown-500"></i>
+                  <span>Amazing café culture</span>
+                </div>
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-om mr-2 text-orange-500"></i>
+                  <span>Yoga & meditation centers</span>
+                </div>
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-users mr-2 text-pink-500"></i>
+                  <span>Active solo traveler community</span>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-pink-600 text-white py-3 rounded-xl font-semibold hover:bg-pink-700 transition-colors"
+              >
+                <i class="fas fa-compass mr-2"></i>Explore City Guide
+              </button>
+            </div>
+          </div>
+
+          <!-- Goa -->
+          <div
+            class="destination-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Goa Solo Travel"
+                class="destination-image w-full h-full object-cover"
+              />
+              <div
+                class="trust-badge absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-semibold"
+              >
+                <i class="fas fa-moon mr-1"></i>Vibrant Nightlife
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-map-marked-alt mr-2"></i>Explore City Guide
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Goa</h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Beach paradise with friendly locals, vibrant nightlife, and
+                countless opportunities to meet fellow travelers.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Beach</span
+                >
+                <span
+                  class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Nightlife</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Friendly Locals</span
+                >
+              </div>
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-umbrella-beach mr-2 text-blue-500"></i>
+                  <span>Beautiful beaches & shacks</span>
+                </div>
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-cocktail mr-2 text-pink-500"></i>
+                  <span>Social beach clubs</span>
+                </div>
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-motorcycle mr-2 text-red-500"></i>
+                  <span>Easy solo exploration</span>
+                </div>
+              </div>
+              <button
+                class="w-full bg-pink-600 text-white py-3 rounded-xl font-semibold hover:bg-pink-700 transition-colors"
+              >
+                <i class="fas fa-compass mr-2"></i>Explore City Guide
+              </button>
+            </div>
+          </div>
+
+          <!-- Leh -->
+          <div
+            class="destination-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Leh Solo Travel"
+                class="destination-image w-full h-full object-cover"
+              />
+              <div
+                class="trust-badge absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-semibold"
+              >
+                <i class="fas fa-mountain mr-1"></i>Adventure Hub
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-map-marked-alt mr-2"></i>Explore City Guide
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Leh, Ladakh</h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Adventure capital perfect for solo trekkers and bikers, with a
+                strong community of adventure enthusiasts.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Adventure</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Trekking</span
+                >
+                <span
+                  class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Biking</span
+                >
+              </div>
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-hiking mr-2 text-green-500"></i>
+                  <span>Epic trekking routes</span>
+                </div>
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-motorcycle mr-2 text-red-500"></i>
+                  <span>Bike-friendly roads</span>
+                </div>
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-users mr-2 text-blue-500"></i>
+                  <span>Adventure community</span>
+                </div>
+              </div>
+              <button
+                class="w-full bg-pink-600 text-white py-3 rounded-xl font-semibold hover:bg-pink-700 transition-colors"
+              >
+                <i class="fas fa-compass mr-2"></i>Explore City Guide
+              </button>
+            </div>
+          </div>
+
+          <!-- Pondicherry -->
+          <div
+            class="destination-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Pondicherry Solo Travel"
+                class="destination-image w-full h-full object-cover"
+              />
+              <div
+                class="trust-badge absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-semibold"
+              >
+                <i class="fas fa-camera mr-1"></i>Photography Paradise
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-map-marked-alt mr-2"></i>Explore City Guide
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Pondicherry</h3>
+              <p class="text-gray-600 text-sm mb-4">
+                French colonial charm perfect for solo photography walks, café
+                culture, and peaceful beach time.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Colonial</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Beach</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Café Culture</span
+                >
+              </div>
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-camera mr-2 text-purple-500"></i>
+                  <span>Instagram-worthy streets</span>
+                </div>
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-coffee mr-2 text-brown-500"></i>
+                  <span>Charming cafés</span>
+                </div>
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-peace mr-2 text-green-500"></i>
+                  <span>Peaceful atmosphere</span>
+                </div>
+              </div>
+              <button
+                class="w-full bg-pink-600 text-white py-3 rounded-xl font-semibold hover:bg-pink-700 transition-colors"
+              >
+                <i class="fas fa-compass mr-2"></i>Explore City Guide
+              </button>
+            </div>
+          </div>
+
+          <!-- Jaipur -->
+          <div
+            class="destination-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1599661046827-dacde6976549?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Jaipur Solo Travel"
+                class="destination-image w-full h-full object-cover"
+              />
+              <div
+                class="trust-badge absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-semibold"
+              >
+                <i class="fas fa-crown mr-1"></i>Royal Heritage
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-map-marked-alt mr-2"></i>Explore City Guide
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Jaipur</h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Pink City perfect for solo cultural exploration, palace visits,
+                and traditional craft shopping.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Heritage</span
+                >
+                <span
+                  class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Culture</span
+                >
+                <span
+                  class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Shopping</span
+                >
+              </div>
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-fort-awesome mr-2 text-orange-500"></i>
+                  <span>Magnificent palaces</span>
+                </div>
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-shopping-bag mr-2 text-pink-500"></i>
+                  <span>Vibrant markets</span>
+                </div>
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-utensils mr-2 text-red-500"></i>
+                  <span>Amazing street food</span>
+                </div>
+              </div>
+              <button
+                class="w-full bg-pink-600 text-white py-3 rounded-xl font-semibold hover:bg-pink-700 transition-colors"
+              >
+                <i class="fas fa-compass mr-2"></i>Explore City Guide
+              </button>
+            </div>
+          </div>
+
+          <!-- Hampi -->
+          <div
+            class="destination-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Hampi Solo Travel"
+                class="destination-image w-full h-full object-cover"
+              />
+              <div
+                class="trust-badge absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-semibold"
+              >
+                <i class="fas fa-history mr-1"></i>Ancient Wonder
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-map-marked-alt mr-2"></i>Explore City Guide
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Hampi</h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Ancient ruins and backpacker haven perfect for solo exploration,
+                rock climbing, and meeting fellow travelers.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-brown-100 text-brown-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Historical</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Backpacker</span
+                >
+                <span
+                  class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Rock Climbing</span
+                >
+              </div>
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-monument mr-2 text-brown-500"></i>
+                  <span>Ancient temple ruins</span>
+                </div>
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-mountain mr-2 text-green-500"></i>
+                  <span>Boulder climbing</span>
+                </div>
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="fas fa-backpack mr-2 text-blue-500"></i>
+                  <span>Backpacker community</span>
+                </div>
+              </div>
+              <button
+                class="w-full bg-pink-600 text-white py-3 rounded-xl font-semibold hover:bg-pink-700 transition-colors"
+              >
+                <i class="fas fa-compass mr-2"></i>Explore City Guide
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Group Experiences for Solo Travelers -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            Group Experiences for Solo Travelers
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Join small groups of like-minded solo travelers for shared
+            experiences, cost savings, and new friendships.
+          </p>
+        </div>
+
+        <!-- Carousel Controls -->
+        <div class="flex justify-center mb-8">
+          <div class="flex gap-4">
+            <button
+              id="prev-exp"
+              class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-pink-600 transition-colors"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button
+              id="next-exp"
+              class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-pink-600 transition-colors"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Experiences Carousel -->
+        <div
+          class="carousel-container overflow-x-auto"
+          id="experiences-carousel"
+        >
+          <div class="flex gap-6 pb-4" style="width: max-content">
+            <!-- Guided City Walk -->
+            <div
+              class="experience-card bg-white rounded-3xl shadow-lg p-6 w-80 flex-shrink-0"
+            >
+              <div class="relative h-40 mb-6 rounded-2xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                  alt="Guided City Walk"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="solo-badge absolute top-3 right-3 text-white px-2 py-1 rounded-full text-xs font-bold"
+                >
+                  SOLO FRIENDLY
+                </div>
+              </div>
+
+              <h3 class="text-lg font-bold text-gray-900 mb-2">
+                Guided City Walks
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Explore hidden gems and local stories with fellow solo travelers
+                in small intimate groups.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="group-size-badge px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  <i class="fas fa-users mr-1"></i>6-8 people max
+                </div>
+                <div class="text-lg font-bold text-gray-900">₹800</div>
+              </div>
+
+              <div
+                class="flex items-center justify-between text-sm text-gray-600 mb-4"
+              >
+                <span><i class="fas fa-clock mr-1"></i>3 hours</span>
+                <span
+                  ><i class="fas fa-map-marker-alt mr-1"></i>Multiple
+                  cities</span
+                >
+              </div>
+
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="social-tag px-2 py-1 rounded-full text-xs font-medium"
+                  >Meet New People</span
+                >
+                <span
+                  class="social-tag px-2 py-1 rounded-full text-xs font-medium"
+                  >Solo-Friendly</span
+                >
+              </div>
+
+              <button
+                class="w-full bg-pink-600 text-white py-3 rounded-xl font-semibold hover:bg-pink-700 transition-colors"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+
+            <!-- Food Tours -->
+            <div
+              class="experience-card bg-white rounded-3xl shadow-lg p-6 w-80 flex-shrink-0"
+            >
+              <div class="relative h-40 mb-6 rounded-2xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                  alt="Food Tours"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="solo-badge absolute top-3 right-3 text-white px-2 py-1 rounded-full text-xs font-bold"
+                >
+                  SOLO FRIENDLY
+                </div>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">
+                Street Food Tours
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Discover local cuisines and food culture while bonding with
+                fellow food enthusiasts.
+              </p>
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="group-size-badge px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  <i class="fas fa-users mr-1"></i>8-10 people max
+                </div>
+                <div class="text-lg font-bold text-gray-900">₹1,200</div>
+              </div>
+              <div
+                class="flex items-center justify-between text-sm text-gray-600 mb-4"
+              >
+                <span><i class="fas fa-clock mr-1"></i>4 hours</span>
+                <span><i class="fas fa-utensils mr-1"></i>8+ tastings</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="social-tag px-2 py-1 rounded-full text-xs font-medium"
+                  >Foodie Community</span
+                >
+                <span
+                  class="social-tag px-2 py-1 rounded-full text-xs font-medium"
+                  >Cultural</span
+                >
+              </div>
+              <button
+                class="w-full bg-pink-600 text-white py-3 rounded-xl font-semibold hover:bg-pink-700 transition-colors"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+
+            <!-- Trekking Groups -->
+            <div
+              class="experience-card bg-white rounded-3xl shadow-lg p-6 w-80 flex-shrink-0"
+            >
+              <div class="relative h-40 mb-6 rounded-2xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                  alt="Trekking Groups"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="solo-badge absolute top-3 right-3 text-white px-2 py-1 rounded-full text-xs font-bold"
+                >
+                  ADVENTURE
+                </div>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">
+                Solo Trekking Groups
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Join adventure-loving solo travelers for safe and social
+                trekking experiences.
+              </p>
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="group-size-badge px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  <i class="fas fa-users mr-1"></i>6-12 people max
+                </div>
+                <div class="text-lg font-bold text-gray-900">₹2,500</div>
+              </div>
+              <div
+                class="flex items-center justify-between text-sm text-gray-600 mb-4"
+              >
+                <span><i class="fas fa-clock mr-1"></i>2-3 days</span>
+                <span><i class="fas fa-mountain mr-1"></i>All levels</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="social-tag px-2 py-1 rounded-full text-xs font-medium"
+                  >Adventure Buddies</span
+                >
+                <span
+                  class="social-tag px-2 py-1 rounded-full text-xs font-medium"
+                  >Nature</span
+                >
+              </div>
+              <button
+                class="w-full bg-pink-600 text-white py-3 rounded-xl font-semibold hover:bg-pink-700 transition-colors"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+
+            <!-- Yoga Retreats -->
+            <div
+              class="experience-card bg-white rounded-3xl shadow-lg p-6 w-80 flex-shrink-0"
+            >
+              <div class="relative h-40 mb-6 rounded-2xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                  alt="Yoga Retreats"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="solo-badge absolute top-3 right-3 text-white px-2 py-1 rounded-full text-xs font-bold"
+                >
+                  WELLNESS
+                </div>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">
+                Solo Yoga Retreats
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Find inner peace and connect with mindful travelers in serene
+                group settings.
+              </p>
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="group-size-badge px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  <i class="fas fa-users mr-1"></i>8-15 people max
+                </div>
+                <div class="text-lg font-bold text-gray-900">₹3,500</div>
+              </div>
+              <div
+                class="flex items-center justify-between text-sm text-gray-600 mb-4"
+              >
+                <span><i class="fas fa-clock mr-1"></i>3-5 days</span>
+                <span><i class="fas fa-om mr-1"></i>All levels</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="social-tag px-2 py-1 rounded-full text-xs font-medium"
+                  >Mindful Community</span
+                >
+                <span
+                  class="social-tag px-2 py-1 rounded-full text-xs font-medium"
+                  >Wellness</span
+                >
+              </div>
+              <button
+                class="w-full bg-pink-600 text-white py-3 rounded-xl font-semibold hover:bg-pink-700 transition-colors"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+
+            <!-- Photography Workshops -->
+            <div
+              class="experience-card bg-white rounded-3xl shadow-lg p-6 w-80 flex-shrink-0"
+            >
+              <div class="relative h-40 mb-6 rounded-2xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                  alt="Photography Workshops"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="solo-badge absolute top-3 right-3 text-white px-2 py-1 rounded-full text-xs font-bold"
+                >
+                  CREATIVE
+                </div>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">
+                Photography Walks
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Capture stunning shots while learning from pros and connecting
+                with creative souls.
+              </p>
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="group-size-badge px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  <i class="fas fa-users mr-1"></i>6-10 people max
+                </div>
+                <div class="text-lg font-bold text-gray-900">₹1,500</div>
+              </div>
+              <div
+                class="flex items-center justify-between text-sm text-gray-600 mb-4"
+              >
+                <span><i class="fas fa-clock mr-1"></i>4 hours</span>
+                <span><i class="fas fa-camera mr-1"></i>All skill levels</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="social-tag px-2 py-1 rounded-full text-xs font-medium"
+                  >Creative Network</span
+                >
+                <span
+                  class="social-tag px-2 py-1 rounded-full text-xs font-medium"
+                  >Skill Building</span
+                >
+              </div>
+              <button
+                class="w-full bg-pink-600 text-white py-3 rounded-xl font-semibold hover:bg-pink-700 transition-colors"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+
+            <!-- Cultural Shows -->
+            <div
+              class="experience-card bg-white rounded-3xl shadow-lg p-6 w-80 flex-shrink-0"
+            >
+              <div class="relative h-40 mb-6 rounded-2xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                  alt="Cultural Shows"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="solo-badge absolute top-3 right-3 text-white px-2 py-1 rounded-full text-xs font-bold"
+                >
+                  CULTURAL
+                </div>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">
+                Cultural Evenings
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Experience local culture with group seating and shared dinner
+                experiences.
+              </p>
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="group-size-badge px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  <i class="fas fa-users mr-1"></i>10-20 people max
+                </div>
+                <div class="text-lg font-bold text-gray-900">₹2,000</div>
+              </div>
+              <div
+                class="flex items-center justify-between text-sm text-gray-600 mb-4"
+              >
+                <span><i class="fas fa-clock mr-1"></i>3 hours</span>
+                <span
+                  ><i class="fas fa-theater-masks mr-1"></i>Traditional</span
+                >
+              </div>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="social-tag px-2 py-1 rounded-full text-xs font-medium"
+                  >Cultural Exchange</span
+                >
+                <span
+                  class="social-tag px-2 py-1 rounded-full text-xs font-medium"
+                  >Group Dining</span
+                >
+              </div>
+              <button
+                class="w-full bg-pink-600 text-white py-3 rounded-xl font-semibold hover:bg-pink-700 transition-colors"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meet Travel Buddies / Community Explorer -->
+    <section class="py-20 bg-gradient-to-br from-yellow-50 to-orange-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            Meet Travel Buddies & Join Our Community
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Connect with like-minded solo travelers, find travel companions, and
+            build lasting friendships through our community platform.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Join Group Chats -->
+          <div
+            class="community-feature p-8 rounded-3xl text-center transition-all"
+          >
+            <div
+              class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-comments text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              Join Group Chats
+            </h3>
+            <p class="text-gray-600 text-sm mb-6">
+              Connect with travelers heading to your destination and plan
+              together.
+            </p>
+
+            <div class="space-y-2 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>City-specific groups</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Real-time messaging</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Share tips & experiences</span>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-yellow-600 text-white py-3 rounded-xl font-semibold hover:bg-yellow-700 transition-colors"
+            >
+              <i class="fas fa-comment mr-2"></i>Join Chats
+            </button>
+          </div>
+
+          <!-- Find Travel Buddies -->
+          <div
+            class="community-feature p-8 rounded-3xl text-center transition-all"
+          >
+            <div
+              class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-user-friends text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              Find Travel Buddies
+            </h3>
+            <p class="text-gray-600 text-sm mb-6">
+              Match with compatible travelers based on interests and travel
+              dates.
+            </p>
+
+            <div class="space-y-2 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Smart matching algorithm</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Verified profiles</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Interest-based matching</span>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-orange-600 text-white py-3 rounded-xl font-semibold hover:bg-orange-700 transition-colors"
+            >
+              <i class="fas fa-search mr-2"></i>Find Buddies
+            </button>
+          </div>
+
+          <!-- Share Itineraries -->
+          <div
+            class="community-feature p-8 rounded-3xl text-center transition-all"
+          >
+            <div
+              class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-route text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              Share Itineraries
+            </h3>
+            <p class="text-gray-600 text-sm mb-6">
+              Share your travel plans and discover others' amazing itineraries.
+            </p>
+
+            <div class="space-y-2 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Public itinerary sharing</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Get travel inspiration</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Collaborative planning</span>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-pink-600 text-white py-3 rounded-xl font-semibold hover:bg-pink-700 transition-colors"
+            >
+              <i class="fas fa-share mr-2"></i>Share Plans
+            </button>
+          </div>
+
+          <!-- Local Meetups -->
+          <div
+            class="community-feature p-8 rounded-3xl text-center transition-all"
+          >
+            <div
+              class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-calendar-check text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Local Meetups</h3>
+            <p class="text-gray-600 text-sm mb-6">
+              Join or organize meetups with fellow solo travelers in your
+              destination.
+            </p>
+
+            <div class="space-y-2 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Organize meetups</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Join existing events</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Safe meeting spots</span>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-purple-600 text-white py-3 rounded-xl font-semibold hover:bg-purple-700 transition-colors"
+            >
+              <i class="fas fa-calendar mr-2"></i>View Meetups
+            </button>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <button
+            class="bg-gradient-to-r from-yellow-600 to-orange-600 text-white px-12 py-5 rounded-full text-xl font-bold hover:from-yellow-700 hover:to-orange-700 transition-all transform hover:scale-105 shadow-2xl"
+          >
+            <i class="fas fa-users mr-3"></i>Connect with Travelers
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solo Packages & Deals -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            Solo Packages & Exclusive Deals
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Special offers designed specifically for solo travelers - no single
+            supplements, flexible dates, and group discounts.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- No Single Supplement -->
+          <div
+            class="package-card bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-3xl border-2 border-green-200 relative overflow-hidden"
+          >
+            <div
+              class="discount-tag absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-bold"
+            >
+              SAVE ₹2000+
+            </div>
+            <div
+              class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-user-check text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">
+              No Single Supplement
+            </h3>
+            <p class="text-gray-600 text-center mb-6">
+              Book solo without paying extra! We'll match you with a compatible
+              roommate or upgrade you for free.
+            </p>
+
+            <div class="bg-white p-4 rounded-2xl mb-6">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-green-600 mb-2">₹0</div>
+                <div class="text-sm text-gray-600">Extra Solo Charges</div>
+              </div>
+            </div>
+
+            <div class="space-y-2 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Compatible roommate matching</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Free upgrades when available</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Same-gender matching only</span>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors"
+            >
+              <i class="fas fa-handshake mr-2"></i>Find Roommate
+            </button>
+          </div>
+
+          <!-- Flexible Date Changes -->
+          <div
+            class="package-card bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-3xl border-2 border-blue-200 relative overflow-hidden"
+          >
+            <div
+              class="discount-tag absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-bold"
+            >
+              FREE CHANGES
+            </div>
+            <div
+              class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-calendar-alt text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">
+              Flexible Date Changes
+            </h3>
+            <p class="text-gray-600 text-center mb-6">
+              Change your travel dates up to 3 times without any penalty -
+              perfect for spontaneous solo travelers.
+            </p>
+
+            <div class="bg-white p-4 rounded-2xl mb-6">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-blue-600 mb-2">3x</div>
+                <div class="text-sm text-gray-600">Free Date Changes</div>
+              </div>
+            </div>
+
+            <div class="space-y-2 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Change dates up to 3 times</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>No penalty charges</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Subject to availability</span>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+            >
+              <i class="fas fa-calendar mr-2"></i>Book Flexible
+            </button>
+          </div>
+
+          <!-- Solo Group Discounts -->
+          <div
+            class="package-card bg-gradient-to-br from-purple-50 to-violet-50 p-8 rounded-3xl border-2 border-purple-200 relative overflow-hidden"
+          >
+            <div
+              class="discount-tag absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-bold"
+            >
+              UP TO 25% OFF
+            </div>
+            <div
+              class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-users text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">
+              Solo Group Discounts
+            </h3>
+            <p class="text-gray-600 text-center mb-6">
+              Join other solo travelers and get group discounts while
+              maintaining your independence.
+            </p>
+
+            <div class="bg-white p-4 rounded-2xl mb-6">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-purple-600 mb-2">25%</div>
+                <div class="text-sm text-gray-600">Maximum Savings</div>
+              </div>
+            </div>
+
+            <div class="space-y-2 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Automatic group formation</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Maintain solo flexibility</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Shared activity costs</span>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-purple-600 text-white py-3 rounded-xl font-semibold hover:bg-purple-700 transition-colors"
+            >
+              <i class="fas fa-percentage mr-2"></i>Get Discount
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Safety & Support -->
+    <section class="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
+      <div class="container mx-auto px-4">
+        <div class="safety-card p-12 rounded-3xl max-w-5xl mx-auto">
+          <div class="text-center mb-12">
+            <div
+              class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-8"
+            >
+              <i class="fas fa-shield-check text-white text-3xl"></i>
+            </div>
+            <h2 class="text-4xl font-bold text-gray-900 mb-6">
+              Your Safety is Our Priority
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+              Comprehensive safety measures and 24/7 support designed
+              specifically for solo travelers.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Women-Specific Safety -->
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-female text-white text-2xl"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-3">
+                Women-Specific Safety
+              </h3>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span>Women-only groups available</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span>Female guide options</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span>Safe accommodation verified</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 24/7 Helpline -->
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-phone text-white text-2xl"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-3">
+                24/7 Solo Helpline
+              </h3>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span>Dedicated solo travel support</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span>Emergency assistance</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span>Multi-language support</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Local Emergency Contacts -->
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-map-marker-alt text-white text-2xl"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-3">
+                Local Emergency Contacts
+              </h3>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span>Local emergency numbers</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span>Nearest hospital info</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span>Police station locations</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Travel Insurance -->
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-umbrella text-white text-2xl"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-3">
+                Travel Insurance
+              </h3>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span>Comprehensive coverage</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span>Solo traveler specific</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span>Affordable rates</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-12">
+            <div class="bg-white p-6 rounded-2xl inline-block">
+              <h4 class="text-lg font-bold text-gray-900 mb-2">
+                Emergency Helpline
+              </h4>
+              <div class="text-2xl font-bold text-green-600">
+                +91 98765 43210
+              </div>
+              <div class="text-sm text-gray-600">
+                Available 24/7 for solo travelers
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Planning Tools -->
+    <section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            Solo Travel Planning Tools
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Smart tools designed to make solo travel planning effortless and
+            help you make the most of your journey.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Expense Split Calculator -->
+          <div class="planning-tool p-8 rounded-3xl transition-all">
+            <div
+              class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-calculator text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+              Expense Split Calculator
+            </h3>
+            <p class="text-gray-600 text-sm mb-6 text-center">
+              Calculate shared costs with other solo travelers for activities
+              and accommodation.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Split bills fairly</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Track shared expenses</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Multiple currencies</span>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+            >
+              <i class="fas fa-calculator mr-2"></i>Calculate Splits
+            </button>
+          </div>
+
+          <!-- Itinerary Builder -->
+          <div class="planning-tool p-8 rounded-3xl transition-all">
+            <div
+              class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-route text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+              Solo Itinerary Builder
+            </h3>
+            <p class="text-gray-600 text-sm mb-6 text-center">
+              Build your perfect solo itinerary with group experience
+              integration options.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Drag & drop planning</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Group activity suggestions</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Solo-friendly recommendations</span>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors"
+            >
+              <i class="fas fa-map mr-2"></i>Build Itinerary
+            </button>
+          </div>
+
+          <!-- Wishlist Manager -->
+          <div class="planning-tool p-8 rounded-3xl transition-all">
+            <div
+              class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-heart text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+              Solo Travel Wishlist
+            </h3>
+            <p class="text-gray-600 text-sm mb-6 text-center">
+              Save destinations, experiences, and accommodations to your
+              personal wishlist.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Save favorite destinations</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Track price changes</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Share with friends</span>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-purple-600 text-white py-3 rounded-xl font-semibold hover:bg-purple-700 transition-colors"
+            >
+              <i class="fas fa-bookmark mr-2"></i>Manage Wishlist
+            </button>
+          </div>
+
+          <!-- Cost Comparison -->
+          <div class="planning-tool p-8 rounded-3xl transition-all">
+            <div
+              class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-balance-scale text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+              Solo vs Group Costs
+            </h3>
+            <p class="text-gray-600 text-sm mb-6 text-center">
+              Compare costs between solo travel and joining group experiences.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Real-time price comparison</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Savings calculator</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Best value recommendations</span>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-orange-600 text-white py-3 rounded-xl font-semibold hover:bg-orange-700 transition-colors"
+            >
+              <i class="fas fa-chart-line mr-2"></i>Compare Costs
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-gradient-to-r from-pink-600 to-purple-600 py-20">
+      <div class="container mx-auto px-4 text-center text-white">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">
+          Ready to Start Your Solo Adventure?
+        </h2>
+        <p class="text-xl text-pink-100 mb-12 max-w-3xl mx-auto">
+          Join thousands of solo travelers who've discovered the joy of
+          independent exploration with our supportive community. Your next
+          adventure is just a click away!
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+          <button
+            class="bg-white text-pink-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors"
+          >
+            <i class="fas fa-compass mr-2"></i>Find Solo Trips
+          </button>
+          <button
+            class="border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-pink-600 transition-colors"
+          >
+            <i class="fas fa-users mr-2"></i>Join Community
+          </button>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div class="text-center">
+            <div class="text-3xl font-bold mb-2">25,000+</div>
+            <div class="text-pink-100">Solo Travelers</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold mb-2">200+</div>
+            <div class="text-pink-100">Destinations</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold mb-2">4.8/5</div>
+            <div class="text-pink-100">Safety Rating</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Connect Button -->
+    <div class="floating-connect">
+      <button class="w-16 h-16 rounded-full text-white shadow-2xl">
+        <i class="fas fa-user-friends text-xl"></i>
+      </button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      // Experiences carousel functionality
+      const expCarousel = document.getElementById("experiences-carousel");
+      const prevExpBtn = document.getElementById("prev-exp");
+      const nextExpBtn = document.getElementById("next-exp");
+
+      let expScrollAmount = 0;
+      const expCardWidth = 320; // Card width + gap
+
+      prevExpBtn.addEventListener("click", () => {
+        expScrollAmount = Math.max(0, expScrollAmount - expCardWidth);
+        expCarousel.scrollTo({
+          left: expScrollAmount,
+          behavior: "smooth",
+        });
+      });
+
+      nextExpBtn.addEventListener("click", () => {
+        const maxScroll = expCarousel.scrollWidth - expCarousel.clientWidth;
+        expScrollAmount = Math.min(maxScroll, expScrollAmount + expCardWidth);
+        expCarousel.scrollTo({
+          left: expScrollAmount,
+          behavior: "smooth",
+        });
+      });
+
+      // Update button states based on scroll position
+      expCarousel.addEventListener("scroll", () => {
+        expScrollAmount = expCarousel.scrollLeft;
+        const maxScroll = expCarousel.scrollWidth - expCarousel.clientWidth;
+
+        prevExpBtn.style.opacity = expScrollAmount > 0 ? "1" : "0.5";
+        nextExpBtn.style.opacity = expScrollAmount < maxScroll ? "1" : "0.5";
+      });
+
+      // Smooth scroll reveal animation
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        // Animate cards on scroll
+        document
+          .querySelectorAll(
+            ".benefit-card, .destination-card, .experience-card, .community-feature, .package-card, .planning-tool"
+          )
+          .forEach((card, index) => {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(50px)";
+            card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+          });
+      });
+
+      // Floating connect button functionality
+      document
+        .querySelector(".floating-connect button")
+        .addEventListener("click", () => {
+          // In a real app, this would open the community connection interface
+          alert(
+            "Connect with fellow solo travelers! Community features coming soon."
+          );
+        });
+
+      // CTA button functionality
+      document.querySelectorAll("button").forEach((button) => {
+        if (
+          button.textContent.includes("Find Solo-Friendly Trips") ||
+          button.textContent.includes("Find Solo Trips")
+        ) {
+          button.addEventListener("click", () => {
+            // In a real app, this would navigate to the solo trips search
+            console.log("Navigating to solo trips search...");
+            alert("Redirecting to solo-friendly trips...");
+          });
+        }
+      });
+
+      // Community connection functionality
+      document.querySelectorAll("button").forEach((button) => {
+        if (
+          button.textContent.includes("Connect with Travelers") ||
+          button.textContent.includes("Join Community")
+        ) {
+          button.addEventListener("click", () => {
+            // In a real app, this would open the community platform
+            console.log("Opening community platform...");
+            alert("Welcome to the solo traveler community!");
+          });
+        }
+      });
+
+      // Experience view details functionality
+      document.querySelectorAll("button").forEach((button) => {
+        if (button.textContent.includes("View Details")) {
+          button.addEventListener("click", () => {
+            // In a real app, this would navigate to the experience detail page
+            const experienceCard = button.closest(".experience-card");
+            const experienceName =
+              experienceCard.querySelector("h3").textContent;
+            console.log(`Viewing details for: ${experienceName}`);
+            alert(`Opening details for ${experienceName}...`);
+          });
+        }
+      });
+
+      // Destination guide functionality
+      document.querySelectorAll("button").forEach((button) => {
+        if (button.textContent.includes("Explore City Guide")) {
+          button.addEventListener("click", () => {
+            // In a real app, this would navigate to the city guide
+            const destinationCard = button.closest(".destination-card");
+            const cityName = destinationCard.querySelector("h3").textContent;
+            console.log(`Opening city guide for: ${cityName}`);
+            alert(`Opening ${cityName} solo travel guide...`);
+          });
+        }
+      });
+
+      // Auto-scroll carousel on mobile
+      let autoScrollInterval;
+
+      function startAutoScroll() {
+        autoScrollInterval = setInterval(() => {
+          const maxScroll = expCarousel.scrollWidth - expCarousel.clientWidth;
+          if (expScrollAmount >= maxScroll) {
+            expScrollAmount = 0;
+          } else {
+            expScrollAmount += expCardWidth;
+          }
+          expCarousel.scrollTo({
+            left: expScrollAmount,
+            behavior: "smooth",
+          });
+        }, 4000);
+      }
+
+      function stopAutoScroll() {
+        clearInterval(autoScrollInterval);
+      }
+
+      // Start auto-scroll on mobile devices
+      if (window.innerWidth < 768) {
+        startAutoScroll();
+
+        // Pause auto-scroll when user interacts
+        expCarousel.addEventListener("touchstart", stopAutoScroll);
+        expCarousel.addEventListener("touchend", () => {
+          setTimeout(startAutoScroll, 5000);
+        });
+      }
+
+      // Planning tools functionality
+      document.querySelectorAll(".planning-tool button").forEach((button) => {
+        button.addEventListener("click", () => {
+          const toolName = button
+            .closest(".planning-tool")
+            .querySelector("h3").textContent;
+          console.log(`Opening ${toolName}...`);
+          alert(`${toolName} will open here...`);
+        });
+      });
+
+      // Package booking functionality
+      document.querySelectorAll(".package-card button").forEach((button) => {
+        button.addEventListener("click", () => {
+          const packageName = button
+            .closest(".package-card")
+            .querySelector("h3").textContent;
+          console.log(`Booking ${packageName}...`);
+          alert(`Booking ${packageName}...`);
+        });
+      });
+
+      // Community feature functionality
+      document
+        .querySelectorAll(".community-feature button")
+        .forEach((button) => {
+          button.addEventListener("click", () => {
+            const featureName = button
+              .closest(".community-feature")
+              .querySelector("h3").textContent;
+            console.log(`Accessing ${featureName}...`);
+            alert(`${featureName} feature will open here...`);
+          });
+        });
+    </script>
+  </body>
+</html>

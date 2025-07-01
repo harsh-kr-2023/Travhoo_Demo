@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Group Travel - Plan Amazing Trips Together | Travel Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url("https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .benefit-card {
+        transition: all 0.4s ease;
+      }
+      .benefit-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+      .destination-card {
+        transition: all 0.4s ease;
+        overflow: hidden;
+      }
+      .destination-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+      .destination-card:hover .destination-image {
+        transform: scale(1.1);
+      }
+      .destination-card:hover .overlay {
+        opacity: 1;
+      }
+      .destination-card:hover .cta-button {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .destination-image {
+        transition: transform 0.7s ease;
+      }
+      .overlay {
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.9),
+          rgba(147, 51, 234, 0.9)
+        );
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
+      .cta-button {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+      }
+      .transport-card {
+        transition: all 0.3s ease;
+      }
+      .transport-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+      .accommodation-card {
+        transition: all 0.3s ease;
+      }
+      .accommodation-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+      .experience-card {
+        transition: all 0.3s ease;
+      }
+      .experience-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+      .planning-tool {
+        background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+        border: 2px solid #0ea5e9;
+      }
+      .planning-tool:hover {
+        background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+        transform: translateY(-3px);
+      }
+      .deal-badge {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+      .support-card {
+        background: linear-gradient(135deg, #10b981, #059669);
+      }
+      .carousel-container {
+        scroll-behavior: smooth;
+      }
+      .carousel-container::-webkit-scrollbar {
+        display: none;
+      }
+      .floating-chat {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 50;
+      }
+      .floating-chat button {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        transition: all 0.3s ease;
+      }
+      .floating-chat button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+      }
+      .stats-counter {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+      }
+      .group-size-badge {
+        background: rgba(59, 130, 246, 0.1);
+        color: #1d4ed8;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+      }
+      .discount-tag {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+      }
+      .feature-icon {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Hero Section -->
+    <section
+      class="hero-bg min-h-screen flex items-center justify-center text-white relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-900/30 to-purple-900/30"
+      ></div>
+      <div class="text-center max-w-6xl px-4 relative z-10">
+        <div
+          class="feature-icon w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-8"
+        >
+          <i class="fas fa-users text-white text-4xl"></i>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">
+          Travel Together, Create Memories Together
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-12"
+        >
+          Plan the perfect group trip, from weekend getaways to grand
+          adventures. Discover exclusive group deals, seamless coordination
+          tools, and unforgettable experiences designed for groups.
+        </p>
+
+        <!-- Hero Stats -->
+        <div class="flex flex-wrap justify-center gap-6 text-sm mb-12">
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-users mr-2"></i>
+            <span class="font-semibold">50,000+ Groups Served</span>
+          </div>
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-map-marked-alt mr-2"></i>
+            <span class="font-semibold">200+ Destinations</span>
+          </div>
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-percentage mr-2"></i>
+            <span class="font-semibold">Up to 30% Group Savings</span>
+          </div>
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-headset mr-2"></i>
+            <span class="font-semibold">24/7 Group Support</span>
+          </div>
+        </div>
+
+        <button
+          class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-5 rounded-full text-xl font-bold hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-2xl"
+        >
+          <i class="fas fa-rocket mr-3"></i>Start Planning Your Group Trip
+        </button>
+      </div>
+    </section>
+
+    <!-- Group Travel Benefits Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            Why Choose Group Travel with Us?
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            We make group travel planning effortless with exclusive benefits,
+            dedicated support, and seamless coordination tools.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Cost Savings -->
+          <div
+            class="benefit-card bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-3xl text-center"
+          >
+            <div
+              class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-piggy-bank text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              Massive Cost Savings
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Save up to 30% with exclusive group discounts on accommodation,
+              transport, and activities.
+            </p>
+            <div
+              class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold inline-block"
+            >
+              Book for 6, Pay for 5
+            </div>
+          </div>
+
+          <!-- Hassle-free Logistics -->
+          <div
+            class="benefit-card bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-3xl text-center"
+          >
+            <div
+              class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-cogs text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              Hassle-Free Logistics
+            </h3>
+            <p class="text-gray-600 mb-4">
+              We handle all the complex coordination so you can focus on having
+              fun with your group.
+            </p>
+            <div
+              class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold inline-block"
+            >
+              End-to-End Planning
+            </div>
+          </div>
+
+          <!-- Personalized Itineraries -->
+          <div
+            class="benefit-card bg-gradient-to-br from-purple-50 to-violet-50 p-8 rounded-3xl text-center"
+          >
+            <div
+              class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-route text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              Personalized Itineraries
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Custom-built experiences that match your group's interests,
+              budget, and travel style.
+            </p>
+            <div
+              class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-semibold inline-block"
+            >
+              Tailored for You
+            </div>
+          </div>
+
+          <!-- Dedicated Support -->
+          <div
+            class="benefit-card bg-gradient-to-br from-orange-50 to-amber-50 p-8 rounded-3xl text-center"
+          >
+            <div
+              class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-headset text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              Dedicated Group Support
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Your personal group travel expert available 24/7 to assist with
+              any needs or changes.
+            </p>
+            <div
+              class="bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-semibold inline-block"
+            >
+              24/7 Available
+            </div>
+          </div>
+
+          <!-- Flexible Payments -->
+          <div
+            class="benefit-card bg-gradient-to-br from-pink-50 to-rose-50 p-8 rounded-3xl text-center"
+          >
+            <div
+              class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-credit-card text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              Flexible Payment Options
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Split payments among group members, partial payments, and flexible
+              cancellation policies.
+            </p>
+            <div
+              class="bg-pink-100 text-pink-800 px-4 py-2 rounded-full text-sm font-semibold inline-block"
+            >
+              Split & Pay Easy
+            </div>
+          </div>
+
+          <!-- Safety & Trust -->
+          <div
+            class="benefit-card bg-gradient-to-br from-teal-50 to-cyan-50 p-8 rounded-3xl text-center"
+          >
+            <div
+              class="w-16 h-16 bg-teal-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-shield-check text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              Safety & Vetted Vendors
+            </h3>
+            <p class="text-gray-600 mb-4">
+              All our partners are thoroughly vetted for safety, quality, and
+              reliability standards.
+            </p>
+            <div
+              class="bg-teal-100 text-teal-800 px-4 py-2 rounded-full text-sm font-semibold inline-block"
+            >
+              Verified Partners
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Group Destinations Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            Top Group Destinations
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Discover amazing destinations perfect for group adventures, from
+            mountain retreats to beach getaways.
+          </p>
+        </div>
+
+        <!-- Carousel Controls -->
+        <div class="flex justify-center mb-8">
+          <div class="flex gap-4">
+            <button
+              id="prev-dest"
+              class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-blue-600 transition-colors"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button
+              id="next-dest"
+              class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-blue-600 transition-colors"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Destinations Carousel -->
+        <div
+          class="carousel-container overflow-x-auto"
+          id="destinations-carousel"
+        >
+          <div class="flex gap-8 pb-4" style="width: max-content">
+            <!-- Rishikesh -->
+            <div
+              class="destination-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer w-80 flex-shrink-0"
+            >
+              <div class="relative h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                  alt="Rishikesh Group Adventure"
+                  class="destination-image w-full h-full object-cover"
+                />
+
+                <div
+                  class="group-size-badge absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  Perfect for 8-15 people
+                </div>
+
+                <div
+                  class="overlay absolute inset-0 flex items-center justify-center"
+                >
+                  <div
+                    class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                  >
+                    <i class="fas fa-compass mr-2"></i>Explore Group Packages
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-3">
+                  Rishikesh Adventure
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                  Perfect for adventure groups with river rafting, group yoga
+                  sessions, and team building activities in the spiritual
+                  capital.
+                </p>
+
+                <div class="mb-4">
+                  <p class="text-xs text-gray-500 mb-2">
+                    POPULAR GROUP ACTIVITIES:
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs"
+                      >River Rafting</span
+                    >
+                    <span
+                      class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs"
+                      >Group Yoga</span
+                    >
+                    <span
+                      class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs"
+                      >Cultural Tours</span
+                    >
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <div class="text-sm text-gray-600">
+                    <span class="font-semibold text-gray-900">₹2,500</span> per
+                    person
+                  </div>
+                  <button
+                    class="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-colors"
+                  >
+                    View Packages
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Goa -->
+            <div
+              class="destination-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer w-80 flex-shrink-0"
+            >
+              <div class="relative h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                  alt="Goa Beach Groups"
+                  class="destination-image w-full h-full object-cover"
+                />
+                <div
+                  class="group-size-badge absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  Perfect for 6-20 people
+                </div>
+                <div
+                  class="overlay absolute inset-0 flex items-center justify-center"
+                >
+                  <div
+                    class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                  >
+                    <i class="fas fa-compass mr-2"></i>Explore Group Packages
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-3">
+                  Goa Beach Retreat
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                  Ultimate beach destination for groups with water sports, beach
+                  parties, and group villa stays.
+                </p>
+                <div class="mb-4">
+                  <p class="text-xs text-gray-500 mb-2">
+                    POPULAR GROUP ACTIVITIES:
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs"
+                      >Water Sports</span
+                    >
+                    <span
+                      class="bg-pink-100 text-pink-800 px-2 py-1 rounded-full text-xs"
+                      >Beach Parties</span
+                    >
+                    <span
+                      class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs"
+                      >Group Villas</span
+                    >
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="text-sm text-gray-600">
+                    <span class="font-semibold text-gray-900">₹3,200</span> per
+                    person
+                  </div>
+                  <button
+                    class="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-colors"
+                  >
+                    View Packages
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Manali -->
+            <div
+              class="destination-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer w-80 flex-shrink-0"
+            >
+              <div class="relative h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                  alt="Manali Mountain Groups"
+                  class="destination-image w-full h-full object-cover"
+                />
+                <div
+                  class="group-size-badge absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  Perfect for 10-25 people
+                </div>
+                <div
+                  class="overlay absolute inset-0 flex items-center justify-center"
+                >
+                  <div
+                    class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                  >
+                    <i class="fas fa-compass mr-2"></i>Explore Group Packages
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-3">
+                  Manali Mountain Escape
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                  Mountain adventure perfect for large groups with trekking,
+                  paragliding, and cozy group accommodations.
+                </p>
+                <div class="mb-4">
+                  <p class="text-xs text-gray-500 mb-2">
+                    POPULAR GROUP ACTIVITIES:
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs"
+                      >Group Trekking</span
+                    >
+                    <span
+                      class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs"
+                      >Paragliding</span
+                    >
+                    <span
+                      class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs"
+                      >Bonfire Nights</span
+                    >
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="text-sm text-gray-600">
+                    <span class="font-semibold text-gray-900">₹2,800</span> per
+                    person
+                  </div>
+                  <button
+                    class="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-colors"
+                  >
+                    View Packages
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kerala -->
+            <div
+              class="destination-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer w-80 flex-shrink-0"
+            >
+              <div class="relative h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                  alt="Kerala Backwaters Groups"
+                  class="destination-image w-full h-full object-cover"
+                />
+                <div
+                  class="group-size-badge absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  Perfect for 8-16 people
+                </div>
+                <div
+                  class="overlay absolute inset-0 flex items-center justify-center"
+                >
+                  <div
+                    class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                  >
+                    <i class="fas fa-compass mr-2"></i>Explore Group Packages
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-3">
+                  Kerala Backwaters
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                  Serene group experience with houseboat stays, group cooking
+                  classes, and cultural performances.
+                </p>
+                <div class="mb-4">
+                  <p class="text-xs text-gray-500 mb-2">
+                    POPULAR GROUP ACTIVITIES:
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs"
+                      >Houseboat Stays</span
+                    >
+                    <span
+                      class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs"
+                      >Cooking Classes</span
+                    >
+                    <span
+                      class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs"
+                      >Cultural Shows</span
+                    >
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="text-sm text-gray-600">
+                    <span class="font-semibold text-gray-900">₹3,500</span> per
+                    person
+                  </div>
+                  <button
+                    class="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-colors"
+                  >
+                    View Packages
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Rajasthan -->
+            <div
+              class="destination-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer w-80 flex-shrink-0"
+            >
+              <div class="relative h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1599661046827-dacde6976549?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                  alt="Rajasthan Heritage Groups"
+                  class="destination-image w-full h-full object-cover"
+                />
+                <div
+                  class="group-size-badge absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  Perfect for 12-30 people
+                </div>
+                <div
+                  class="overlay absolute inset-0 flex items-center justify-center"
+                >
+                  <div
+                    class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                  >
+                    <i class="fas fa-compass mr-2"></i>Explore Group Packages
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-3">
+                  Rajasthan Heritage
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                  Royal experience for groups with palace stays, camel safaris,
+                  and traditional group dining.
+                </p>
+                <div class="mb-4">
+                  <p class="text-xs text-gray-500 mb-2">
+                    POPULAR GROUP ACTIVITIES:
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs"
+                      >Palace Tours</span
+                    >
+                    <span
+                      class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs"
+                      >Camel Safari</span
+                    >
+                    <span
+                      class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs"
+                      >Folk Shows</span
+                    >
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="text-sm text-gray-600">
+                    <span class="font-semibold text-gray-900">₹4,200</span> per
+                    person
+                  </div>
+                  <button
+                    class="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-colors"
+                  >
+                    View Packages
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Group Transport Solutions -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            Group Transport Solutions
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Comfortable, safe, and cost-effective transportation options for
+            groups of all sizes.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Tempo Traveller -->
+          <div
+            class="transport-card bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-3xl"
+          >
+            <div class="relative h-40 mb-6 rounded-2xl overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Tempo Traveller"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute top-3 right-3 bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Most Popular
+              </div>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">
+              Tempo Traveller
+            </h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Perfect for medium groups with comfortable seating and ample
+              luggage space.
+            </p>
+
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Capacity:</span>
+                <span class="font-semibold">9-12 Seater</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Cost per day:</span>
+                <span class="font-semibold">₹3,500 - ₹4,500</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Features:</span>
+                <span
+                  class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full"
+                  >AC + Music</span
+                >
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+            >
+              <i class="fas fa-calculator mr-2"></i>Request Quote
+            </button>
+          </div>
+
+          <!-- Private Coach -->
+          <div
+            class="transport-card bg-gradient-to-br from-purple-50 to-violet-50 p-6 rounded-3xl"
+          >
+            <div class="relative h-40 mb-6 rounded-2xl overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Private Coach"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute top-3 right-3 bg-purple-500 text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Large Groups
+              </div>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Private Coach</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Luxury coaches for large groups with premium amenities and
+              professional drivers.
+            </p>
+
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Capacity:</span>
+                <span class="font-semibold">25-45 Seater</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Cost per day:</span>
+                <span class="font-semibold">₹8,000 - ₹12,000</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Features:</span>
+                <span
+                  class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded-full"
+                  >Luxury + WiFi</span
+                >
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-purple-600 text-white py-3 rounded-xl font-semibold hover:bg-purple-700 transition-colors"
+            >
+              <i class="fas fa-calculator mr-2"></i>Request Quote
+            </button>
+          </div>
+
+          <!-- Shared Cabs -->
+          <div
+            class="transport-card bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-3xl"
+          >
+            <div class="relative h-40 mb-6 rounded-2xl overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Shared Cabs"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute top-3 right-3 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Budget Friendly
+              </div>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Shared Cabs</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Cost-effective solution for small groups with multiple vehicle
+              coordination.
+            </p>
+
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Capacity:</span>
+                <span class="font-semibold">4-6 Seater</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Cost per day:</span>
+                <span class="font-semibold">₹2,000 - ₹3,000</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Features:</span>
+                <span
+                  class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full"
+                  >Multi-Car</span
+                >
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors"
+            >
+              <i class="fas fa-calculator mr-2"></i>Request Quote
+            </button>
+          </div>
+
+          <!-- Self-Drive -->
+          <div
+            class="transport-card bg-gradient-to-br from-orange-50 to-amber-50 p-6 rounded-3xl"
+          >
+            <div class="relative h-40 mb-6 rounded-2xl overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Self Drive"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute top-3 right-3 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Flexible
+              </div>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">
+              Self-Drive Fleet
+            </h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Multiple self-drive cars for groups who prefer driving themselves.
+            </p>
+
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Capacity:</span>
+                <span class="font-semibold">Multiple Cars</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Cost per day:</span>
+                <span class="font-semibold">₹1,800 - ₹2,500</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Features:</span>
+                <span
+                  class="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded-full"
+                  >GPS + Support</span
+                >
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-orange-600 text-white py-3 rounded-xl font-semibold hover:bg-orange-700 transition-colors"
+            >
+              <i class="fas fa-calculator mr-2"></i>Request Quote
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Group Accommodation Options -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            Group Accommodation Options
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            From luxury villas to budget hostels, find the perfect stay for your
+            group size and budget.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Group Villas -->
+          <div class="accommodation-card bg-white p-6 rounded-3xl shadow-lg">
+            <div class="relative h-40 mb-6 rounded-2xl overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Group Villa"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="discount-tag absolute top-3 right-3 text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                20% Group Discount
+              </div>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Private Villas</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Entire villas with multiple bedrooms, common areas, and private
+              amenities.
+            </p>
+
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Capacity:</span>
+                <span class="font-semibold">8-20 People</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Cost per night:</span>
+                <span class="font-semibold">₹8,000 - ₹25,000</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Amenities:</span>
+                <span
+                  class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full"
+                  >Pool + Kitchen</span
+                >
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+            >
+              <i class="fas fa-search mr-2"></i>Find Villas
+            </button>
+          </div>
+
+          <!-- Group Hotels -->
+          <div class="accommodation-card bg-white p-6 rounded-3xl shadow-lg">
+            <div class="relative h-40 mb-6 rounded-2xl overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Group Hotel"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="discount-tag absolute top-3 right-3 text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Group Rates
+              </div>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Group Hotels</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Hotels with group booking facilities, conference rooms, and group
+              dining options.
+            </p>
+
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Capacity:</span>
+                <span class="font-semibold">10-50 People</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Cost per night:</span>
+                <span class="font-semibold">₹2,500 - ₹8,000</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Amenities:</span>
+                <span
+                  class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full"
+                  >Conference + Dining</span
+                >
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors"
+            >
+              <i class="fas fa-search mr-2"></i>Find Hotels
+            </button>
+          </div>
+
+          <!-- Group Hostels -->
+          <div class="accommodation-card bg-white p-6 rounded-3xl shadow-lg">
+            <div class="relative h-40 mb-6 rounded-2xl overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Group Hostel"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="discount-tag absolute top-3 right-3 text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Budget Friendly
+              </div>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Group Hostels</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Budget-friendly hostels with dormitories and private group rooms.
+            </p>
+
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Capacity:</span>
+                <span class="font-semibold">6-30 People</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Cost per night:</span>
+                <span class="font-semibold">₹800 - ₹2,000</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Amenities:</span>
+                <span
+                  class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded-full"
+                  >Common Areas</span
+                >
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-purple-600 text-white py-3 rounded-xl font-semibold hover:bg-purple-700 transition-colors"
+            >
+              <i class="fas fa-search mr-2"></i>Find Hostels
+            </button>
+          </div>
+
+          <!-- Resort Packages -->
+          <div class="accommodation-card bg-white p-6 rounded-3xl shadow-lg">
+            <div class="relative h-40 mb-6 rounded-2xl overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Group Resort"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="discount-tag absolute top-3 right-3 text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                All Inclusive
+              </div>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">
+              Resort Packages
+            </h3>
+            <p class="text-gray-600 text-sm mb-4">
+              All-inclusive resorts with group activities, meals, and
+              entertainment.
+            </p>
+
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Capacity:</span>
+                <span class="font-semibold">15-100 People</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Cost per night:</span>
+                <span class="font-semibold">₹5,000 - ₹15,000</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Amenities:</span>
+                <span
+                  class="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded-full"
+                  >All Meals + Activities</span
+                >
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-orange-600 text-white py-3 rounded-xl font-semibold hover:bg-orange-700 transition-colors"
+            >
+              <i class="fas fa-search mr-2"></i>Find Resorts
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Group Experiences Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            Group Experiences & Activities
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Curated experiences designed to bring groups together and create
+            unforgettable memories.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Adventure Activities -->
+          <div
+            class="experience-card bg-gradient-to-br from-red-50 to-orange-50 p-6 rounded-3xl"
+          >
+            <div
+              class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-mountain text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+              Adventure Activities
+            </h3>
+            <p class="text-gray-600 text-sm mb-6 text-center">
+              Thrilling group adventures that build teamwork and create lasting
+              bonds.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">River Rafting</span>
+                <span class="text-sm font-semibold">₹1,500/person</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Rock Climbing</span>
+                <span class="text-sm font-semibold">₹1,200/person</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Zip Lining</span>
+                <span class="text-sm font-semibold">₹800/person</span>
+              </div>
+            </div>
+
+            <div class="text-center mb-4">
+              <span
+                class="group-size-badge px-3 py-1 rounded-full text-sm font-semibold"
+              >
+                Best for 8-20 people
+              </span>
+            </div>
+
+            <button
+              class="w-full bg-red-600 text-white py-3 rounded-xl font-semibold hover:bg-red-700 transition-colors"
+            >
+              <i class="fas fa-plus mr-2"></i>Add to Plan
+            </button>
+          </div>
+
+          <!-- Cultural Experiences -->
+          <div
+            class="experience-card bg-gradient-to-br from-purple-50 to-violet-50 p-6 rounded-3xl"
+          >
+            <div
+              class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-theater-masks text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+              Cultural Experiences
+            </h3>
+            <p class="text-gray-600 text-sm mb-6 text-center">
+              Immersive cultural activities that showcase local traditions and
+              heritage.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Cooking Classes</span>
+                <span class="text-sm font-semibold">₹2,000/person</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Folk Dance Shows</span>
+                <span class="text-sm font-semibold">₹500/person</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Heritage Walks</span>
+                <span class="text-sm font-semibold">₹300/person</span>
+              </div>
+            </div>
+
+            <div class="text-center mb-4">
+              <span
+                class="group-size-badge px-3 py-1 rounded-full text-sm font-semibold"
+              >
+                Best for 10-30 people
+              </span>
+            </div>
+
+            <button
+              class="w-full bg-purple-600 text-white py-3 rounded-xl font-semibold hover:bg-purple-700 transition-colors"
+            >
+              <i class="fas fa-plus mr-2"></i>Add to Plan
+            </button>
+          </div>
+
+          <!-- Team Building -->
+          <div
+            class="experience-card bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-3xl"
+          >
+            <div
+              class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-users text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+              Team Building
+            </h3>
+            <p class="text-gray-600 text-sm mb-6 text-center">
+              Professional team building activities perfect for corporate
+              groups.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Outdoor Challenges</span>
+                <span class="text-sm font-semibold">₹1,800/person</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Problem Solving</span>
+                <span class="text-sm font-semibold">₹1,500/person</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Leadership Games</span>
+                <span class="text-sm font-semibold">₹1,200/person</span>
+              </div>
+            </div>
+
+            <div class="text-center mb-4">
+              <span
+                class="group-size-badge px-3 py-1 rounded-full text-sm font-semibold"
+              >
+                Best for 15-50 people
+              </span>
+            </div>
+
+            <button
+              class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+            >
+              <i class="fas fa-plus mr-2"></i>Add to Plan
+            </button>
+          </div>
+
+          <!-- Wildlife Safaris -->
+          <div
+            class="experience-card bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-3xl"
+          >
+            <div
+              class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-paw text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+              Wildlife Safaris
+            </h3>
+            <p class="text-gray-600 text-sm mb-6 text-center">
+              Group wildlife experiences in national parks and sanctuaries.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Jeep Safari</span>
+                <span class="text-sm font-semibold">₹2,500/person</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Elephant Safari</span>
+                <span class="text-sm font-semibold">₹3,000/person</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Bird Watching</span>
+                <span class="text-sm font-semibold">₹800/person</span>
+              </div>
+            </div>
+
+            <div class="text-center mb-4">
+              <span
+                class="group-size-badge px-3 py-1 rounded-full text-sm font-semibold"
+              >
+                Best for 6-15 people
+              </span>
+            </div>
+
+            <button
+              class="w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors"
+            >
+              <i class="fas fa-plus mr-2"></i>Add to Plan
+            </button>
+          </div>
+
+          <!-- Wellness Retreats -->
+          <div
+            class="experience-card bg-gradient-to-br from-pink-50 to-rose-50 p-6 rounded-3xl"
+          >
+            <div
+              class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-spa text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+              Wellness Retreats
+            </h3>
+            <p class="text-gray-600 text-sm mb-6 text-center">
+              Relaxing group wellness experiences for mind, body, and soul.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Group Yoga</span>
+                <span class="text-sm font-semibold">₹1,000/person</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Meditation Sessions</span>
+                <span class="text-sm font-semibold">₹800/person</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Spa Treatments</span>
+                <span class="text-sm font-semibold">₹2,500/person</span>
+              </div>
+            </div>
+
+            <div class="text-center mb-4">
+              <span
+                class="group-size-badge px-3 py-1 rounded-full text-sm font-semibold"
+              >
+                Best for 8-25 people
+              </span>
+            </div>
+
+            <button
+              class="w-full bg-pink-600 text-white py-3 rounded-xl font-semibold hover:bg-pink-700 transition-colors"
+            >
+              <i class="fas fa-plus mr-2"></i>Add to Plan
+            </button>
+          </div>
+
+          <!-- Food Tours -->
+          <div
+            class="experience-card bg-gradient-to-br from-yellow-50 to-orange-50 p-6 rounded-3xl"
+          >
+            <div
+              class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-utensils text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+              Food Tours
+            </h3>
+            <p class="text-gray-600 text-sm mb-6 text-center">
+              Culinary adventures exploring local cuisines and food traditions
+              together.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Street Food Tours</span>
+                <span class="text-sm font-semibold">₹1,200/person</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Fine Dining</span>
+                <span class="text-sm font-semibold">₹3,500/person</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Food Festivals</span>
+                <span class="text-sm font-semibold">₹2,000/person</span>
+              </div>
+            </div>
+
+            <div class="text-center mb-4">
+              <span
+                class="group-size-badge px-3 py-1 rounded-full text-sm font-semibold"
+              >
+                Best for 6-20 people
+              </span>
+            </div>
+
+            <button
+              class="w-full bg-yellow-600 text-white py-3 rounded-xl font-semibold hover:bg-yellow-700 transition-colors"
+            >
+              <i class="fas fa-plus mr-2"></i>Add to Plan
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Group Trip Planning Tools Section -->
+    <section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            Group Trip Planning Tools
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Powerful collaboration tools that make planning with your group
+            effortless and fun.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Collaborative Itinerary Builder -->
+          <div class="planning-tool p-8 rounded-3xl transition-all">
+            <div
+              class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-route text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+              Collaborative Itinerary Builder
+            </h3>
+            <p class="text-gray-600 text-sm mb-6 text-center">
+              Build your trip itinerary together with real-time collaboration
+              and suggestions.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Real-time collaboration</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Drag & drop planning</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Smart recommendations</span>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+            >
+              <i class="fas fa-play mr-2"></i>Start Planning
+            </button>
+          </div>
+
+          <!-- Cost Splitting Calculator -->
+          <div class="planning-tool p-8 rounded-3xl transition-all">
+            <div
+              class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-calculator text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+              Cost Splitting Calculator
+            </h3>
+            <p class="text-gray-600 text-sm mb-6 text-center">
+              Automatically calculate and split costs among group members
+              fairly.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Automatic cost splitting</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Payment tracking</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Expense reports</span>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors"
+            >
+              <i class="fas fa-calculator mr-2"></i>Calculate Costs
+            </button>
+          </div>
+
+          <!-- Group Polls -->
+          <div class="planning-tool p-8 rounded-3xl transition-all">
+            <div
+              class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-poll text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+              Group Polls & Voting
+            </h3>
+            <p class="text-gray-600 text-sm mb-6 text-center">
+              Let your group vote on destinations, activities, and preferences
+              democratically.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Create instant polls</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Real-time voting</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Decision tracking</span>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-purple-600 text-white py-3 rounded-xl font-semibold hover:bg-purple-700 transition-colors"
+            >
+              <i class="fas fa-vote-yea mr-2"></i>Create Poll
+            </button>
+          </div>
+
+          <!-- Invite Friends -->
+          <div class="planning-tool p-8 rounded-3xl transition-all">
+            <div
+              class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-user-plus text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+              Invite & Manage Group
+            </h3>
+            <p class="text-gray-600 text-sm mb-6 text-center">
+              Easily invite friends and manage group members throughout the
+              planning process.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Easy invitations</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Member management</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Permission controls</span>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-orange-600 text-white py-3 rounded-xl font-semibold hover:bg-orange-700 transition-colors"
+            >
+              <i class="fas fa-envelope mr-2"></i>Send Invites
+            </button>
+          </div>
+
+          <!-- Group Chat -->
+          <div class="planning-tool p-8 rounded-3xl transition-all">
+            <div
+              class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-comments text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+              In-App Group Chat
+            </h3>
+            <p class="text-gray-600 text-sm mb-6 text-center">
+              Keep all trip discussions organized in one place with integrated
+              group messaging.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Real-time messaging</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>File sharing</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Trip updates</span>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-pink-600 text-white py-3 rounded-xl font-semibold hover:bg-pink-700 transition-colors"
+            >
+              <i class="fas fa-comment mr-2"></i>Start Chat
+            </button>
+          </div>
+
+          <!-- Document Sharing -->
+          <div class="planning-tool p-8 rounded-3xl transition-all">
+            <div
+              class="w-16 h-16 bg-teal-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-file-alt text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+              Document & Photo Sharing
+            </h3>
+            <p class="text-gray-600 text-sm mb-6 text-center">
+              Share important documents, photos, and trip information with all
+              group members.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Document storage</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Photo albums</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-check text-green-500 mr-2"></i>
+                <span>Version control</span>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-teal-600 text-white py-3 rounded-xl font-semibold hover:bg-teal-700 transition-colors"
+            >
+              <i class="fas fa-upload mr-2"></i>Share Files
+            </button>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <button
+            class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-5 rounded-full text-xl font-bold hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-2xl"
+          >
+            <i class="fas fa-rocket mr-3"></i>Plan My Group Trip Now
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Group Deals & Offers -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            Exclusive Group Deals & Offers
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Save more when you travel together! Unlock special group discounts
+            and limited-time offers.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Book for 6, Pay for 5 -->
+          <div
+            class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-3xl border-2 border-green-200 relative overflow-hidden"
+          >
+            <div
+              class="deal-badge absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-bold"
+            >
+              POPULAR
+            </div>
+            <div
+              class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-users text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">
+              Book for 6, Pay for 5
+            </h3>
+            <p class="text-gray-600 text-center mb-6">
+              Get one person's trip completely free when you book for 6 or more
+              people.
+            </p>
+
+            <div class="bg-white p-4 rounded-2xl mb-6">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-green-600 mb-2">16.7%</div>
+                <div class="text-sm text-gray-600">Average Savings</div>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <span
+                class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold"
+              >
+                Valid on all destinations
+              </span>
+            </div>
+          </div>
+
+          <!-- Early Bird Group Discount -->
+          <div
+            class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-3xl border-2 border-blue-200 relative overflow-hidden"
+          >
+            <div
+              class="deal-badge absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-bold"
+            >
+              LIMITED TIME
+            </div>
+            <div
+              class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-clock text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">
+              Early Bird Discount
+            </h3>
+            <p class="text-gray-600 text-center mb-6">
+              Book 60 days in advance and save up to 25% on group bookings.
+            </p>
+
+            <div class="bg-white p-4 rounded-2xl mb-6">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-blue-600 mb-2">25%</div>
+                <div class="text-sm text-gray-600">Maximum Savings</div>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <span
+                class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold"
+              >
+                Book 60+ days ahead
+              </span>
+            </div>
+          </div>
+
+          <!-- Free Activities Bundle -->
+          <div
+            class="bg-gradient-to-br from-purple-50 to-violet-50 p-8 rounded-3xl border-2 border-purple-200 relative overflow-hidden"
+          >
+            <div
+              class="deal-badge absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-bold"
+            >
+              BONUS
+            </div>
+            <div
+              class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-gift text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">
+              Free Activities Bundle
+            </h3>
+            <p class="text-gray-600 text-center mb-6">
+              Get 2 free group activities when you book accommodation and
+              transport together.
+            </p>
+
+            <div class="bg-white p-4 rounded-2xl mb-6">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-purple-600 mb-2">
+                  ₹5,000
+                </div>
+                <div class="text-sm text-gray-600">
+                  Value of Free Activities
+                </div>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <span
+                class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-semibold"
+              >
+                Min. 10 people required
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <p class="text-gray-600 mb-6">
+            *Terms and conditions apply. Offers cannot be combined. Valid for
+            new bookings only.
+          </p>
+          <button
+            class="bg-gradient-to-r from-green-600 to-blue-600 text-white px-10 py-4 rounded-full text-lg font-bold hover:from-green-700 hover:to-blue-700 transition-all transform hover:scale-105 shadow-xl"
+          >
+            <i class="fas fa-tag mr-2"></i>View All Offers
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dedicated Group Travel Support -->
+    <section class="py-20 bg-gradient-to-br from-green-600 to-blue-600">
+      <div class="container mx-auto px-4">
+        <div
+          class="support-card p-12 rounded-3xl text-white text-center max-w-4xl mx-auto"
+        >
+          <div
+            class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-8"
+          >
+            <i class="fas fa-headset text-white text-3xl"></i>
+          </div>
+
+          <h2 class="text-4xl font-bold mb-6">
+            Dedicated Group Travel Support
+          </h2>
+          <p class="text-xl text-green-100 mb-12 max-w-2xl mx-auto">
+            Our group travel experts are here to help you plan the perfect trip.
+            Get personalized assistance, custom quotes, and 24/7 support
+            throughout your journey.
+          </p>
+
+          <div class="grid md:grid-cols-3 gap-8 mb-12">
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-phone text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Call Our Experts</h3>
+              <p class="text-green-100 text-sm mb-4">
+                Speak directly with our group travel specialists
+              </p>
+              <div class="text-2xl font-bold">+91 98765 43210</div>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-envelope text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Email Support</h3>
+              <p class="text-green-100 text-sm mb-4">
+                Get detailed quotes and custom itineraries
+              </p>
+              <div class="text-lg font-semibold">groups@travelplatform.com</div>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-calendar text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Schedule Callback</h3>
+              <p class="text-green-100 text-sm mb-4">
+                Choose a convenient time for our experts to call you
+              </p>
+              <button
+                class="bg-white/20 text-white px-4 py-2 rounded-lg font-semibold hover:bg-white/30 transition-colors"
+              >
+                Schedule Now
+              </button>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              class="bg-white text-green-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors"
+            >
+              <i class="fas fa-phone mr-2"></i>Call Now
+            </button>
+            <button
+              class="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-green-600 transition-colors"
+            >
+              <i class="fas fa-envelope mr-2"></i>Request Quote
+            </button>
+          </div>
+
+          <div class="mt-8 text-sm text-green-100">
+            <p>Available 24/7 • Response within 2 hours • Free consultation</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Chat Button -->
+    <div class="floating-chat">
+      <button class="w-16 h-16 rounded-full text-white shadow-2xl">
+        <i class="fas fa-comments text-xl"></i>
+      </button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      // Destinations carousel functionality
+      const carousel = document.getElementById("destinations-carousel");
+      const prevBtn = document.getElementById("prev-dest");
+      const nextBtn = document.getElementById("next-dest");
+
+      let scrollAmount = 0;
+      const cardWidth = 320; // Card width + gap
+
+      prevBtn.addEventListener("click", () => {
+        scrollAmount = Math.max(0, scrollAmount - cardWidth);
+        carousel.scrollTo({
+          left: scrollAmount,
+          behavior: "smooth",
+        });
+      });
+
+      nextBtn.addEventListener("click", () => {
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+        scrollAmount = Math.min(maxScroll, scrollAmount + cardWidth);
+        carousel.scrollTo({
+          left: scrollAmount,
+          behavior: "smooth",
+        });
+      });
+
+      // Update button states based on scroll position
+      carousel.addEventListener("scroll", () => {
+        scrollAmount = carousel.scrollLeft;
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+        prevBtn.style.opacity = scrollAmount > 0 ? "1" : "0.5";
+        nextBtn.style.opacity = scrollAmount < maxScroll ? "1" : "0.5";
+      });
+
+      // Smooth scroll reveal animation
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        // Animate cards on scroll
+        document
+          .querySelectorAll(
+            ".benefit-card, .destination-card, .transport-card, .accommodation-card, .experience-card, .planning-tool"
+          )
+          .forEach((card, index) => {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(50px)";
+            card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+          });
+      });
+
+      // Floating chat functionality
+      document
+        .querySelector(".floating-chat button")
+        .addEventListener("click", () => {
+          // In a real app, this would open a chat widget
+          alert(
+            "Chat support coming soon! For now, please call +91 98765 43210 for immediate assistance."
+          );
+        });
+
+      // CTA button functionality
+      document.querySelectorAll("button").forEach((button) => {
+        if (
+          button.textContent.includes("Start Planning") ||
+          button.textContent.includes("Plan My")
+        ) {
+          button.addEventListener("click", () => {
+            // In a real app, this would navigate to the planning interface
+            console.log("Navigating to group trip planning interface...");
+            alert("Redirecting to group trip planning interface...");
+          });
+        }
+      });
+
+      // Request quote functionality
+      document.querySelectorAll("button").forEach((button) => {
+        if (button.textContent.includes("Request Quote")) {
+          button.addEventListener("click", () => {
+            // In a real app, this would open a quote request form
+            console.log("Opening quote request form...");
+            alert("Quote request form will open here...");
+          });
+        }
+      });
+
+      // Add to plan functionality
+      document.querySelectorAll("button").forEach((button) => {
+        if (button.textContent.includes("Add to Plan")) {
+          button.addEventListener("click", () => {
+            // In a real app, this would add the activity to the trip plan
+            console.log("Adding activity to trip plan...");
+            button.innerHTML = '<i class="fas fa-check mr-2"></i>Added to Plan';
+            button.classList.add("bg-green-600");
+            button.classList.remove(
+              "bg-red-600",
+              "bg-purple-600",
+              "bg-blue-600",
+              "bg-green-600",
+              "bg-pink-600",
+              "bg-yellow-600"
+            );
+            setTimeout(() => {
+              button.innerHTML = '<i class="fas fa-plus mr-2"></i>Add to Plan';
+              button.classList.remove("bg-green-600");
+              // Restore original color based on parent
+              const parentCard = button.closest(".experience-card");
+              if (parentCard.querySelector(".bg-red-500")) {
+                button.classList.add("bg-red-600");
+              } else if (parentCard.querySelector(".bg-purple-500")) {
+                button.classList.add("bg-purple-600");
+              } else if (parentCard.querySelector(".bg-blue-500")) {
+                button.classList.add("bg-blue-600");
+              } else if (parentCard.querySelector(".bg-green-500")) {
+                button.classList.add("bg-green-600");
+              } else if (parentCard.querySelector(".bg-pink-500")) {
+                button.classList.add("bg-pink-600");
+              } else if (parentCard.querySelector(".bg-yellow-500")) {
+                button.classList.add("bg-yellow-600");
+              }
+            }, 2000);
+          });
+        }
+      });
+
+      // Auto-scroll carousel on mobile
+      let autoScrollInterval;
+
+      function startAutoScroll() {
+        autoScrollInterval = setInterval(() => {
+          const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+          if (scrollAmount >= maxScroll) {
+            scrollAmount = 0;
+          } else {
+            scrollAmount += cardWidth;
+          }
+          carousel.scrollTo({
+            left: scrollAmount,
+            behavior: "smooth",
+          });
+        }, 4000);
+      }
+
+      function stopAutoScroll() {
+        clearInterval(autoScrollInterval);
+      }
+
+      // Start auto-scroll on mobile devices
+      if (window.innerWidth < 768) {
+        startAutoScroll();
+
+        // Pause auto-scroll when user interacts
+        carousel.addEventListener("touchstart", stopAutoScroll);
+        carousel.addEventListener("touchend", () => {
+          setTimeout(startAutoScroll, 5000);
+        });
+      }
+    </script>
+  </body>
+</html>
