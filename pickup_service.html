@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transfer Services in Dehradun | TravelHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              secondary: "#f59e0b",
+              accent: "#10b981",
+              coral: "#ff6b6b",
+              purple: "#8b5cf6",
+              teal: "#06b6d4",
+            },
+            animation: {
+              "fade-in": "fadeIn 0.6s ease-in-out",
+              "slide-up": "slideUp 0.6s ease-out",
+              "zoom-in": "zoomIn 0.3s ease-out",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.95);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .card-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
+      }
+
+      .tab-active {
+        background: linear-gradient(135deg, #2563eb, #8b5cf6);
+        color: white;
+      }
+
+      .hero-overlay {
+        background: linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.9),
+          rgba(139, 92, 246, 0.7)
+        );
+      }
+
+      .vehicle-card {
+        transition: all 0.3s ease;
+      }
+
+      .vehicle-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2);
+      }
+
+      .price-badge {
+        background: linear-gradient(135deg, #10b981, #06b6d4);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .booking-modal {
+        backdrop-filter: blur(10px);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-8">
+            <h1
+              class="text-2xl font-bold bg-gradient-to-r from-primary to-purple bg-clip-text text-transparent"
+            >
+              TravelHub
+            </h1>
+            <div class="hidden md:flex relative">
+              <input
+                type="text"
+                placeholder="Search transfers..."
+                class="w-80 pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+              <i
+                data-lucide="search"
+                class="absolute left-3 top-2.5 h-5 w-5 text-gray-400"
+              ></i>
+            </div>
+          </div>
+          <div class="flex items-center space-x-6">
+            <a
+              href="#"
+              class="text-gray-700 hover:text-primary transition-colors font-medium"
+              >Cities</a
+            >
+            <a
+              href="#"
+              class="text-gray-700 hover:text-primary transition-colors font-medium"
+              >My Bookings</a
+            >
+            <button
+              class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Sign In
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <nav class="flex text-sm text-gray-500">
+          <a href="#" class="hover:text-primary transition-colors">Home</a>
+          <i data-lucide="chevron-right" class="h-4 w-4 mx-2"></i>
+          <a href="#" class="hover:text-primary transition-colors">Cities</a>
+          <i data-lucide="chevron-right" class="h-4 w-4 mx-2"></i>
+          <a href="#" class="hover:text-primary transition-colors">Dehradun</a>
+          <i data-lucide="chevron-right" class="h-4 w-4 mx-2"></i>
+          <span class="text-gray-900 font-medium">Transfer Services</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section
+      class="relative h-80 bg-cover bg-center"
+      style="background-image: url('/placeholder.svg?height=320&width=1200')"
+    >
+      <div class="hero-overlay absolute inset-0"></div>
+      <div
+        class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center"
+      >
+        <div class="text-white animate-slide-up">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">
+            Transfer Services in <span class="text-yellow-300">Dehradun</span>
+          </h1>
+          <p class="text-xl text-gray-100 max-w-3xl mb-6">
+            Reliable airport, railway, and hotel transfers with professional
+            drivers
+          </p>
+          <div class="flex items-center space-x-6 text-sm">
+            <div class="flex items-center space-x-2">
+              <i data-lucide="clock" class="h-5 w-5"></i>
+              <span>24/7 Available</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i data-lucide="shield-check" class="h-5 w-5"></i>
+              <span>Verified Drivers</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i data-lucide="phone" class="h-5 w-5"></i>
+              <span>Live Tracking</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Booking Form -->
+    <section
+      class="bg-white shadow-lg -mt-16 relative z-10 mx-4 md:mx-8 rounded-2xl"
+    >
+      <div class="max-w-7xl mx-auto px-6 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+          <div class="md:col-span-1">
+            <label class="block text-sm font-medium text-gray-700 mb-2"
+              >Service Type</label
+            >
+            <select
+              class="w-full border border-gray-300 rounded-lg px-3 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              <option>Airport Transfer</option>
+              <option>Railway Transfer</option>
+              <option>Hotel Transfer</option>
+            </select>
+          </div>
+          <div class="md:col-span-1">
+            <label class="block text-sm font-medium text-gray-700 mb-2"
+              >From</label
+            >
+            <input
+              type="text"
+              placeholder="Pickup location"
+              class="w-full border border-gray-300 rounded-lg px-3 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+          </div>
+          <div class="md:col-span-1">
+            <label class="block text-sm font-medium text-gray-700 mb-2"
+              >To</label
+            >
+            <input
+              type="text"
+              placeholder="Drop location"
+              class="w-full border border-gray-300 rounded-lg px-3 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+          </div>
+          <div class="md:col-span-1">
+            <label class="block text-sm font-medium text-gray-700 mb-2"
+              >Date & Time</label
+            >
+            <input
+              type="datetime-local"
+              class="w-full border border-gray-300 rounded-lg px-3 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+          </div>
+          <div class="md:col-span-1 flex items-end">
+            <button
+              class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+            >
+              Search Transfers
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Type Tabs -->
+    <section class="py-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+          <button
+            class="service-tab tab-active px-6 py-3 rounded-full font-medium transition-all"
+            data-service="airport"
+          >
+            ✈️ Airport Transfers
+          </button>
+          <button
+            class="service-tab px-6 py-3 rounded-full font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all"
+            data-service="railway"
+          >
+            🚂 Railway Transfers
+          </button>
+          <button
+            class="service-tab px-6 py-3 rounded-full font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all"
+            data-service="hotel"
+          >
+            🏨 Hotel Transfers
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="py-4 bg-white border-b">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap items-center gap-4">
+          <div class="flex items-center space-x-2">
+            <span class="text-sm font-medium text-gray-700">Vehicle Type:</span>
+            <select
+              class="border border-gray-300 rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              <option>All Vehicles</option>
+              <option>Sedan</option>
+              <option>SUV</option>
+              <option>Luxury</option>
+              <option>Tempo Traveller</option>
+            </select>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="text-sm font-medium text-gray-700">Price Range:</span>
+            <select
+              class="border border-gray-300 rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              <option>All Prices</option>
+              <option>Under ₹500</option>
+              <option>₹500 - ₹1000</option>
+              <option>₹1000 - ₹2000</option>
+              <option>Above ₹2000</option>
+            </select>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="text-sm font-medium text-gray-700">Sort by:</span>
+            <select
+              class="border border-gray-300 rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+              <option>Rating</option>
+              <option>Distance</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Airport Transfers Section -->
+    <section id="airport-section" class="service-section py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            ✈️ Airport Transfers
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Comfortable and reliable transfers to/from Jolly Grant Airport
+          </p>
+        </div>
+
+        <!-- Popular Routes -->
+        <div class="bg-blue-50 rounded-2xl p-6 mb-8">
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">
+            Popular Airport Routes
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div
+              class="bg-white rounded-lg p-4 flex items-center justify-between"
+            >
+              <div>
+                <div class="font-medium text-gray-900">
+                  Airport ↔ City Center
+                </div>
+                <div class="text-sm text-gray-600">25 km • 45 mins</div>
+              </div>
+              <div class="text-primary font-bold">₹450+</div>
+            </div>
+            <div
+              class="bg-white rounded-lg p-4 flex items-center justify-between"
+            >
+              <div>
+                <div class="font-medium text-gray-900">Airport ↔ Mussoorie</div>
+                <div class="text-sm text-gray-600">60 km • 2 hours</div>
+              </div>
+              <div class="text-primary font-bold">₹1,200+</div>
+            </div>
+            <div
+              class="bg-white rounded-lg p-4 flex items-center justify-between"
+            >
+              <div>
+                <div class="font-medium text-gray-900">Airport ↔ Rishikesh</div>
+                <div class="text-sm text-gray-600">35 km • 1 hour</div>
+              </div>
+              <div class="text-primary font-bold">₹800+</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vehicle Options -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Sedan Option -->
+          <div
+            class="vehicle-card bg-white rounded-2xl shadow-lg overflow-hidden"
+          >
+            <div class="relative h-48">
+              <img
+                src="/placeholder.svg?height=200&width=300"
+                alt="Sedan"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute top-3 right-3 price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                Best Value
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">Sedan</h3>
+                <div class="text-right">
+                  <div class="text-2xl font-bold text-primary">₹450</div>
+                  <div class="text-sm text-gray-500">to City Center</div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <div
+                  class="flex items-center space-x-4 text-sm text-gray-600 mb-2"
+                >
+                  <span class="flex items-center space-x-1">
+                    <i data-lucide="users" class="h-4 w-4"></i>
+                    <span>4 passengers</span>
+                  </span>
+                  <span class="flex items-center space-x-1">
+                    <i data-lucide="luggage" class="h-4 w-4"></i>
+                    <span>2 bags</span>
+                  </span>
+                </div>
+                <p class="text-gray-600 text-sm">
+                  Comfortable sedan with AC and professional driver
+                </p>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="font-semibold text-gray-900 mb-2">
+                  Available Operators:
+                </h4>
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between text-sm">
+                    <div class="flex items-center space-x-2">
+                      <div
+                        class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center"
+                      >
+                        <span class="text-blue-600 font-bold text-xs">SC</span>
+                      </div>
+                      <span class="font-medium">Swift Cabs</span>
+                      <span class="flex items-center space-x-1 text-yellow-500">
+                        <i data-lucide="star" class="h-3 w-3"></i>
+                        <span>4.8</span>
+                      </span>
+                    </div>
+                    <span class="text-primary font-medium">₹450</span>
+                  </div>
+                  <div class="flex items-center justify-between text-sm">
+                    <div class="flex items-center space-x-2">
+                      <div
+                        class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center"
+                      >
+                        <span class="text-green-600 font-bold text-xs">RC</span>
+                      </div>
+                      <span class="font-medium">Reliable Rides</span>
+                      <span class="flex items-center space-x-1 text-yellow-500">
+                        <i data-lucide="star" class="h-3 w-3"></i>
+                        <span>4.6</span>
+                      </span>
+                    </div>
+                    <span class="text-primary font-medium">₹480</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex space-x-2">
+                <button
+                  class="flex-1 border border-primary text-primary px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors text-sm font-medium"
+                >
+                  View Details
+                </button>
+                <button
+                  class="flex-1 bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                  onclick="openBookingModal('Sedan', '450')"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUV Option -->
+          <div
+            class="vehicle-card bg-white rounded-2xl shadow-lg overflow-hidden"
+          >
+            <div class="relative h-48">
+              <img
+                src="/placeholder.svg?height=200&width=300"
+                alt="SUV"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                Popular
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">SUV</h3>
+                <div class="text-right">
+                  <div class="text-2xl font-bold text-primary">₹650</div>
+                  <div class="text-sm text-gray-500">to City Center</div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <div
+                  class="flex items-center space-x-4 text-sm text-gray-600 mb-2"
+                >
+                  <span class="flex items-center space-x-1">
+                    <i data-lucide="users" class="h-4 w-4"></i>
+                    <span>6 passengers</span>
+                  </span>
+                  <span class="flex items-center space-x-1">
+                    <i data-lucide="luggage" class="h-4 w-4"></i>
+                    <span>4 bags</span>
+                  </span>
+                </div>
+                <p class="text-gray-600 text-sm">
+                  Spacious SUV perfect for families and groups
+                </p>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="font-semibold text-gray-900 mb-2">
+                  Available Operators:
+                </h4>
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between text-sm">
+                    <div class="flex items-center space-x-2">
+                      <div
+                        class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center"
+                      >
+                        <span class="text-purple-600 font-bold text-xs"
+                          >PT</span
+                        >
+                      </div>
+                      <span class="font-medium">Prime Transport</span>
+                      <span class="flex items-center space-x-1 text-yellow-500">
+                        <i data-lucide="star" class="h-3 w-3"></i>
+                        <span>4.9</span>
+                      </span>
+                    </div>
+                    <span class="text-primary font-medium">₹650</span>
+                  </div>
+                  <div class="flex items-center justify-between text-sm">
+                    <div class="flex items-center space-x-2">
+                      <div
+                        class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center"
+                      >
+                        <span class="text-red-600 font-bold text-xs">EC</span>
+                      </div>
+                      <span class="font-medium">Elite Cars</span>
+                      <span class="flex items-center space-x-1 text-yellow-500">
+                        <i data-lucide="star" class="h-3 w-3"></i>
+                        <span>4.7</span>
+                      </span>
+                    </div>
+                    <span class="text-primary font-medium">₹680</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex space-x-2">
+                <button
+                  class="flex-1 border border-primary text-primary px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors text-sm font-medium"
+                >
+                  View Details
+                </button>
+                <button
+                  class="flex-1 bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                  onclick="openBookingModal('SUV', '650')"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Luxury Option -->
+          <div
+            class="vehicle-card bg-white rounded-2xl shadow-lg overflow-hidden"
+          >
+            <div class="relative h-48">
+              <img
+                src="/placeholder.svg?height=200&width=300"
+                alt="Luxury Car"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute top-3 right-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                Premium
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">Luxury</h3>
+                <div class="text-right">
+                  <div class="text-2xl font-bold text-primary">₹1,200</div>
+                  <div class="text-sm text-gray-500">to City Center</div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <div
+                  class="flex items-center space-x-4 text-sm text-gray-600 mb-2"
+                >
+                  <span class="flex items-center space-x-1">
+                    <i data-lucide="users" class="h-4 w-4"></i>
+                    <span>4 passengers</span>
+                  </span>
+                  <span class="flex items-center space-x-1">
+                    <i data-lucide="luggage" class="h-4 w-4"></i>
+                    <span>3 bags</span>
+                  </span>
+                </div>
+                <p class="text-gray-600 text-sm">
+                  Premium luxury vehicles with chauffeur service
+                </p>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="font-semibold text-gray-900 mb-2">
+                  Available Operators:
+                </h4>
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between text-sm">
+                    <div class="flex items-center space-x-2">
+                      <div
+                        class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center"
+                      >
+                        <span class="text-yellow-600 font-bold text-xs"
+                          >LC</span
+                        >
+                      </div>
+                      <span class="font-medium">Luxury Cars</span>
+                      <span class="flex items-center space-x-1 text-yellow-500">
+                        <i data-lucide="star" class="h-3 w-3"></i>
+                        <span>5.0</span>
+                      </span>
+                    </div>
+                    <span class="text-primary font-medium">₹1,200</span>
+                  </div>
+                  <div class="flex items-center justify-between text-sm">
+                    <div class="flex items-center space-x-2">
+                      <div
+                        class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center"
+                      >
+                        <span class="text-indigo-600 font-bold text-xs"
+                          >PS</span
+                        >
+                      </div>
+                      <span class="font-medium">Premium Service</span>
+                      <span class="flex items-center space-x-1 text-yellow-500">
+                        <i data-lucide="star" class="h-3 w-3"></i>
+                        <span>4.9</span>
+                      </span>
+                    </div>
+                    <span class="text-primary font-medium">₹1,350</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex space-x-2">
+                <button
+                  class="flex-1 border border-primary text-primary px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors text-sm font-medium"
+                >
+                  View Details
+                </button>
+                <button
+                  class="flex-1 bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                  onclick="openBookingModal('Luxury', '1200')"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Railway Transfers Section (Hidden by default) -->
+    <section id="railway-section" class="service-section py-12 hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            🚂 Railway Transfers
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Convenient transfers to/from Dehradun Railway Station
+          </p>
+        </div>
+
+        <!-- Popular Routes -->
+        <div class="bg-green-50 rounded-2xl p-6 mb-8">
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">
+            Popular Railway Routes
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div
+              class="bg-white rounded-lg p-4 flex items-center justify-between"
+            >
+              <div>
+                <div class="font-medium text-gray-900">
+                  Station ↔ City Center
+                </div>
+                <div class="text-sm text-gray-600">8 km • 20 mins</div>
+              </div>
+              <div class="text-primary font-bold">₹200+</div>
+            </div>
+            <div
+              class="bg-white rounded-lg p-4 flex items-center justify-between"
+            >
+              <div>
+                <div class="font-medium text-gray-900">Station ↔ Hotels</div>
+                <div class="text-sm text-gray-600">5-15 km • 15-30 mins</div>
+              </div>
+              <div class="text-primary font-bold">₹150+</div>
+            </div>
+            <div
+              class="bg-white rounded-lg p-4 flex items-center justify-between"
+            >
+              <div>
+                <div class="font-medium text-gray-900">
+                  Station ↔ Tourist Spots
+                </div>
+                <div class="text-sm text-gray-600">10-25 km • 25-45 mins</div>
+              </div>
+              <div class="text-primary font-bold">₹300+</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Similar vehicle cards structure for railway transfers with different pricing -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Railway transfer vehicle cards would go here with adjusted pricing -->
+          <div
+            class="vehicle-card bg-white rounded-2xl shadow-lg overflow-hidden"
+          >
+            <div class="relative h-48">
+              <img
+                src="/placeholder.svg?height=200&width=300"
+                alt="Auto Rickshaw"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute top-3 right-3 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                Budget
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">Auto Rickshaw</h3>
+                <div class="text-right">
+                  <div class="text-2xl font-bold text-primary">₹120</div>
+                  <div class="text-sm text-gray-500">to City Center</div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <div
+                  class="flex items-center space-x-4 text-sm text-gray-600 mb-2"
+                >
+                  <span class="flex items-center space-x-1">
+                    <i data-lucide="users" class="h-4 w-4"></i>
+                    <span>3 passengers</span>
+                  </span>
+                  <span class="flex items-center space-x-1">
+                    <i data-lucide="luggage" class="h-4 w-4"></i>
+                    <span>1 bag</span>
+                  </span>
+                </div>
+                <p class="text-gray-600 text-sm">
+                  Quick and economical option for short distances
+                </p>
+              </div>
+
+              <div class="flex space-x-2">
+                <button
+                  class="flex-1 border border-primary text-primary px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors text-sm font-medium"
+                >
+                  View Details
+                </button>
+                <button
+                  class="flex-1 bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                  onclick="openBookingModal('Auto Rickshaw', '120')"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- More railway transfer options... -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Hotel Transfers Section (Hidden by default) -->
+    <section id="hotel-section" class="service-section py-12 hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            🏨 Hotel Transfers
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Door-to-door transfers between hotels and attractions
+          </p>
+        </div>
+
+        <!-- Popular Routes -->
+        <div class="bg-purple-50 rounded-2xl p-6 mb-8">
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">
+            Popular Hotel Routes
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div
+              class="bg-white rounded-lg p-4 flex items-center justify-between"
+            >
+              <div>
+                <div class="font-medium text-gray-900">
+                  Hotel ↔ Robber's Cave
+                </div>
+                <div class="text-sm text-gray-600">15 km • 30 mins</div>
+              </div>
+              <div class="text-primary font-bold">₹250+</div>
+            </div>
+            <div
+              class="bg-white rounded-lg p-4 flex items-center justify-between"
+            >
+              <div>
+                <div class="font-medium text-gray-900">
+                  Hotel ↔ Sahastradhara
+                </div>
+                <div class="text-sm text-gray-600">20 km • 40 mins</div>
+              </div>
+              <div class="text-primary font-bold">₹350+</div>
+            </div>
+            <div
+              class="bg-white rounded-lg p-4 flex items-center justify-between"
+            >
+              <div>
+                <div class="font-medium text-gray-900">Hotel ↔ Mussoorie</div>
+                <div class="text-sm text-gray-600">35 km • 1.5 hours</div>
+              </div>
+              <div class="text-primary font-bold">₹800+</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hotel transfer vehicle options would go here -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Similar structure with hotel-specific pricing -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Why Choose Our Transfer Services?
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Experience hassle-free transportation with our premium features
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i data-lucide="clock" class="h-8 w-8 text-white"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              24/7 Service
+            </h3>
+            <p class="text-gray-600">
+              Available round the clock for all your transfer needs
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i data-lucide="shield-check" class="h-8 w-8 text-white"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              Verified Drivers
+            </h3>
+            <p class="text-gray-600">
+              All drivers are background checked and licensed
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i data-lucide="smartphone" class="h-8 w-8 text-white"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              Live Tracking
+            </h3>
+            <p class="text-gray-600">Track your ride in real-time with GPS</p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-coral rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i data-lucide="credit-card" class="h-8 w-8 text-white"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              Easy Payment
+            </h3>
+            <p class="text-gray-600">
+              Multiple payment options including cash and cards
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div
+      id="booking-modal"
+      class="fixed inset-0 bg-black bg-opacity-50 booking-modal hidden z-50 flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto"
+      >
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl font-bold text-gray-900">Book Transfer</h3>
+            <button
+              onclick="closeBookingModal()"
+              class="text-gray-400 hover:text-gray-600"
+            >
+              <i data-lucide="x" class="h-6 w-6"></i>
+            </button>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2"
+                >Vehicle Type</label
+              >
+              <input
+                id="modal-vehicle-type"
+                type="text"
+                readonly
+                class="w-full border border-gray-300 rounded-lg px-3 py-2 bg-gray-50"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2"
+                >Pickup Location</label
+              >
+              <input
+                type="text"
+                placeholder="Enter pickup address"
+                class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2"
+                >Drop Location</label
+              >
+              <input
+                type="text"
+                placeholder="Enter drop address"
+                class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                  >Date</label
+                >
+                <input
+                  type="date"
+                  class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                  >Time</label
+                >
+                <input
+                  type="time"
+                  class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2"
+                >Contact Number</label
+              >
+              <input
+                type="tel"
+                placeholder="+91 9876543210"
+                class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2"
+                >Special Instructions</label
+              >
+              <textarea
+                placeholder="Any special requirements..."
+                class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                rows="3"
+              ></textarea>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-4">
+              <div class="flex items-center justify-between">
+                <span class="font-medium text-gray-900">Estimated Fare:</span>
+                <span id="modal-price" class="text-2xl font-bold text-primary"
+                  >₹450</span
+                >
+              </div>
+              <p class="text-sm text-gray-600 mt-1">
+                *Final fare may vary based on actual distance and time
+              </p>
+            </div>
+
+            <div class="flex space-x-3 pt-4">
+              <button
+                onclick="closeBookingModal()"
+                class="flex-1 border border-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+              >
+                Cancel
+              </button>
+              <button
+                class="flex-1 bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+              >
+                Confirm Booking
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">TravelHub</h3>
+            <p class="text-gray-400">
+              Reliable transfer services connecting you to your destination
+              safely and comfortably.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Services</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Airport Transfers</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Railway Transfers</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Hotel Transfers</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Support</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >24/7 Help</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Track Booking</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Emergency</h4>
+            <div class="space-y-2 text-gray-400">
+              <div>Helpline: +91 9876543210</div>
+              <div>Email: help@travelhub.com</div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2024 TravelHub. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+
+      // Service tab functionality
+      const serviceTabs = document.querySelectorAll(".service-tab");
+      const serviceSections = document.querySelectorAll(".service-section");
+
+      serviceTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          // Update active tab
+          serviceTabs.forEach((t) => {
+            t.classList.remove("tab-active");
+            t.classList.add(
+              "bg-gray-100",
+              "text-gray-700",
+              "hover:bg-gray-200"
+            );
+          });
+          tab.classList.add("tab-active");
+          tab.classList.remove(
+            "bg-gray-100",
+            "text-gray-700",
+            "hover:bg-gray-200"
+          );
+
+          // Show corresponding section
+          const service = tab.getAttribute("data-service");
+          serviceSections.forEach((section) => {
+            section.classList.add("hidden");
+          });
+          document
+            .getElementById(`${service}-section`)
+            .classList.remove("hidden");
+        });
+      });
+
+      // Booking modal functions
+      function openBookingModal(vehicleType, price) {
+        document.getElementById("modal-vehicle-type").value = vehicleType;
+        document.getElementById("modal-price").textContent = `₹${price}`;
+        document.getElementById("booking-modal").classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeBookingModal() {
+        document.getElementById("booking-modal").classList.add("hidden");
+        document.body.style.overflow = "auto";
+      }
+
+      // Close modal when clicking outside
+      document
+        .getElementById("booking-modal")
+        .addEventListener("click", (e) => {
+          if (e.target.id === "booking-modal") {
+            closeBookingModal();
+          }
+        });
+
+      // Set default date to today
+      document.addEventListener("DOMContentLoaded", function () {
+        const today = new Date().toISOString().split("T")[0];
+        document.querySelectorAll('input[type="date"]').forEach((input) => {
+          input.value = today;
+        });
+
+        // Set default time to current time + 1 hour
+        const now = new Date();
+        now.setHours(now.getHours() + 1);
+        const timeString = now.toTimeString().slice(0, 5);
+        document.querySelectorAll('input[type="time"]').forEach((input) => {
+          input.value = timeString;
+        });
+      });
+
+      // Animate cards on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-slide-up");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all vehicle cards
+      document.querySelectorAll(".vehicle-card").forEach((card) => {
+        observer.observe(card);
+      });
+    </script>
+  </body>
+</html>

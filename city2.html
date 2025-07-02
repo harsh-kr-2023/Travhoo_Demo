@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dehradun - Your Gateway to the Himalayas | Travel Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              "primary-light": "#3b82f6",
+              secondary: "#64748b",
+              accent: "#10b981",
+              "accent-orange": "#f59e0b",
+              "accent-purple": "#8b5cf6",
+              surface: "#f8fafc",
+              "surface-dark": "#e2e8f0",
+            },
+            backgroundImage: {
+              "hero-pattern":
+                "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              "abstract-1": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+              "abstract-2": "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+              "abstract-3": "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .service-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .icon-container {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      }
+      .abstract-shape {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.1;
+      }
+      .shape-1 {
+        width: 300px;
+        height: 300px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        top: -150px;
+        right: -150px;
+      }
+      .shape-2 {
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(135deg, #f093fb, #f5576c);
+        bottom: -100px;
+        left: -100px;
+      }
+      .shape-3 {
+        width: 150px;
+        height: 150px;
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
+        top: 50%;
+        left: 10%;
+      }
+      .placeholder-image {
+        background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .placeholder-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        animation: shimmer 2s infinite;
+      }
+      @keyframes shimmer {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+      .tag {
+        backdrop-filter: blur(10px);
+      }
+      .hero-content {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-surface">
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center"
+            >
+              <i class="fas fa-compass text-white text-sm"></i>
+            </div>
+            <span class="text-xl font-bold text-gray-900">TravelHub</span>
+          </div>
+
+          <!-- Navigation Links -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#"
+              class="text-secondary hover:text-primary transition-colors"
+              >Explore</a
+            >
+            <a
+              href="#"
+              class="text-secondary hover:text-primary transition-colors"
+              >Plan Trip</a
+            >
+            <a
+              href="#"
+              class="text-secondary hover:text-primary transition-colors"
+              >Experiences</a
+            >
+            <a
+              href="#"
+              class="text-secondary hover:text-primary transition-colors"
+              >Support</a
+            >
+          </div>
+
+          <!-- CTA Button -->
+          <button
+            class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-light transition-colors"
+          >
+            <i class="fas fa-user mr-2"></i>Sign In
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="relative min-h-[60vh] bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden"
+    >
+      <!-- Abstract Background Shapes -->
+      <div class="abstract-shape shape-1"></div>
+      <div class="abstract-shape shape-2"></div>
+      <div class="abstract-shape shape-3"></div>
+
+      <!-- Geometric Pattern Overlay -->
+      <div class="absolute inset-0 opacity-5">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern
+              id="grid"
+              width="40"
+              height="40"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 40 0 L 0 0 0 40"
+                fill="none"
+                stroke="#4f46e5"
+                stroke-width="1"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center">
+          <!-- City Badge -->
+          <div
+            class="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-md rounded-full px-4 py-2 mb-6"
+          >
+            <i class="fas fa-map-marker-alt text-primary"></i>
+            <span class="text-sm font-medium text-gray-700"
+              >Uttarakhand, India</span
+            >
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
+            Dehradun
+          </h1>
+
+          <!-- Tagline -->
+          <p
+            class="text-xl md:text-2xl text-secondary max-w-3xl mx-auto mb-8 leading-relaxed"
+          >
+            Your Gateway to the Himalayas - Where Adventure Meets Serenity
+          </p>
+
+          <!-- Quick Stats -->
+          <div class="flex flex-wrap justify-center gap-6 mb-10">
+            <div class="hero-content rounded-lg px-4 py-2">
+              <div class="text-2xl font-bold text-primary">4.6★</div>
+              <div class="text-sm text-secondary">City Rating</div>
+            </div>
+            <div class="hero-content rounded-lg px-4 py-2">
+              <div class="text-2xl font-bold text-accent">280+</div>
+              <div class="text-sm text-secondary">Services</div>
+            </div>
+            <div class="hero-content rounded-lg px-4 py-2">
+              <div class="text-2xl font-bold text-accent-orange">15K+</div>
+              <div class="text-sm text-secondary">Monthly Visitors</div>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              class="bg-primary text-white px-8 py-4 rounded-lg hover:bg-primary-light transition-all transform hover:scale-105 shadow-lg"
+            >
+              <i class="fas fa-search mr-2"></i>Explore Services
+            </button>
+            <button
+              class="bg-white/20 backdrop-blur-md text-gray-700 px-8 py-4 rounded-lg hover:bg-white/30 transition-all border border-white/30"
+            >
+              <i class="fas fa-route mr-2"></i>Plan Your Trip
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Discover Dehradun Services
+          </h2>
+          <p class="text-lg text-secondary max-w-2xl mx-auto">
+            Everything you need for an unforgettable experience in the capital
+            of Uttarakhand
+          </p>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Restaurants & Dining -->
+          <div
+            class="service-card bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
+          >
+            <!-- Image Placeholder -->
+            <div
+              class="placeholder-image h-48 flex items-center justify-center"
+            >
+              <div
+                class="icon-container w-16 h-16 rounded-full flex items-center justify-center"
+              >
+                <i class="fas fa-utensils text-2xl text-accent-orange"></i>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <!-- Service Header -->
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">
+                  Restaurants & Dining
+                </h3>
+                <span
+                  class="tag bg-accent/10 text-accent text-xs px-2 py-1 rounded-full font-medium"
+                  >Top Picks</span
+                >
+              </div>
+
+              <!-- Description -->
+              <p class="text-secondary text-sm mb-4 leading-relaxed">
+                From local Garhwali cuisine to international flavors, discover
+                the best dining experiences in the city.
+              </p>
+
+              <!-- Stats -->
+              <div
+                class="flex items-center justify-between text-sm text-secondary mb-6"
+              >
+                <span
+                  ><i class="fas fa-store mr-1"></i>47 restaurants listed</span
+                >
+                <span
+                  ><i class="fas fa-star mr-1 text-yellow-500"></i>4.3 avg
+                  rating</span
+                >
+              </div>
+
+              <!-- CTA Button -->
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Vehicle Rentals -->
+          <div
+            class="service-card bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
+          >
+            <div
+              class="placeholder-image h-48 flex items-center justify-center"
+            >
+              <div
+                class="icon-container w-16 h-16 rounded-full flex items-center justify-center"
+              >
+                <i class="fas fa-car text-2xl text-primary"></i>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">Vehicle Rentals</h3>
+                <span
+                  class="tag bg-primary/10 text-primary text-xs px-2 py-1 rounded-full font-medium"
+                  >Popular</span
+                >
+              </div>
+
+              <p class="text-secondary text-sm mb-4 leading-relaxed">
+                Self-drive cars, bikes, and chauffeur services for exploring
+                Dehradun and nearby hill stations.
+              </p>
+
+              <div
+                class="flex items-center justify-between text-sm text-secondary mb-6"
+              >
+                <span><i class="fas fa-car mr-1"></i>32 rental providers</span>
+                <span
+                  ><i class="fas fa-star mr-1 text-yellow-500"></i>4.5 avg
+                  rating</span
+                >
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Local Guides -->
+          <div
+            class="service-card bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
+          >
+            <div
+              class="placeholder-image h-48 flex items-center justify-center"
+            >
+              <div
+                class="icon-container w-16 h-16 rounded-full flex items-center justify-center"
+              >
+                <i class="fas fa-user-tie text-2xl text-accent"></i>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">Local Guides</h3>
+                <span
+                  class="tag bg-accent/10 text-accent text-xs px-2 py-1 rounded-full font-medium"
+                  >Verified</span
+                >
+              </div>
+
+              <p class="text-secondary text-sm mb-4 leading-relaxed">
+                Expert local guides for city tours, trekking, and cultural
+                experiences in and around Dehradun.
+              </p>
+
+              <div
+                class="flex items-center justify-between text-sm text-secondary mb-6"
+              >
+                <span
+                  ><i class="fas fa-user-check mr-1"></i>18 certified
+                  guides</span
+                >
+                <span
+                  ><i class="fas fa-star mr-1 text-yellow-500"></i>4.7 avg
+                  rating</span
+                >
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Adventure Experiences -->
+          <div
+            class="service-card bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
+          >
+            <div
+              class="placeholder-image h-48 flex items-center justify-center"
+            >
+              <div
+                class="icon-container w-16 h-16 rounded-full flex items-center justify-center"
+              >
+                <i class="fas fa-mountain text-2xl text-accent-purple"></i>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">
+                  Adventure Experiences
+                </h3>
+                <span
+                  class="tag bg-red-100 text-red-600 text-xs px-2 py-1 rounded-full font-medium"
+                  >Thrilling</span
+                >
+              </div>
+
+              <p class="text-secondary text-sm mb-4 leading-relaxed">
+                Trekking, river rafting, paragliding, and other adventure
+                activities in the Himalayan foothills.
+              </p>
+
+              <div
+                class="flex items-center justify-between text-sm text-secondary mb-6"
+              >
+                <span
+                  ><i class="fas fa-hiking mr-1"></i>25 adventure packages</span
+                >
+                <span
+                  ><i class="fas fa-star mr-1 text-yellow-500"></i>4.6 avg
+                  rating</span
+                >
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Shopping & Markets -->
+          <div
+            class="service-card bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
+          >
+            <div
+              class="placeholder-image h-48 flex items-center justify-center"
+            >
+              <div
+                class="icon-container w-16 h-16 rounded-full flex items-center justify-center"
+              >
+                <i class="fas fa-shopping-bag text-2xl text-pink-600"></i>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">
+                  Shopping & Markets
+                </h3>
+                <span
+                  class="tag bg-pink-100 text-pink-600 text-xs px-2 py-1 rounded-full font-medium"
+                  >Local</span
+                >
+              </div>
+
+              <p class="text-secondary text-sm mb-4 leading-relaxed">
+                Traditional markets, handicrafts, local products, and modern
+                shopping centers across the city.
+              </p>
+
+              <div
+                class="flex items-center justify-between text-sm text-secondary mb-6"
+              >
+                <span><i class="fas fa-store mr-1"></i>35 shopping areas</span>
+                <span
+                  ><i class="fas fa-star mr-1 text-yellow-500"></i>4.2 avg
+                  rating</span
+                >
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Wellness & Spa -->
+          <div
+            class="service-card bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
+          >
+            <div
+              class="placeholder-image h-48 flex items-center justify-center"
+            >
+              <div
+                class="icon-container w-16 h-16 rounded-full flex items-center justify-center"
+              >
+                <i class="fas fa-spa text-2xl text-teal-600"></i>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">Wellness & Spa</h3>
+                <span
+                  class="tag bg-teal-100 text-teal-600 text-xs px-2 py-1 rounded-full font-medium"
+                  >Relaxing</span
+                >
+              </div>
+
+              <p class="text-secondary text-sm mb-4 leading-relaxed">
+                Rejuvenate with traditional Ayurvedic treatments, yoga centers,
+                and modern spa facilities.
+              </p>
+
+              <div
+                class="flex items-center justify-between text-sm text-secondary mb-6"
+              >
+                <span><i class="fas fa-leaf mr-1"></i>14 wellness centers</span>
+                <span
+                  ><i class="fas fa-star mr-1 text-yellow-500"></i>4.4 avg
+                  rating</span
+                >
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Emergency Services -->
+          <div
+            class="service-card bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
+          >
+            <div
+              class="placeholder-image h-48 flex items-center justify-center"
+            >
+              <div
+                class="icon-container w-16 h-16 rounded-full flex items-center justify-center"
+              >
+                <i class="fas fa-hospital text-2xl text-red-600"></i>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">
+                  Emergency Services
+                </h3>
+                <span
+                  class="tag bg-red-100 text-red-600 text-xs px-2 py-1 rounded-full font-medium"
+                  >24/7</span
+                >
+              </div>
+
+              <p class="text-secondary text-sm mb-4 leading-relaxed">
+                Hospitals, clinics, police stations, and emergency contacts for
+                your safety and peace of mind.
+              </p>
+
+              <div
+                class="flex items-center justify-between text-sm text-secondary mb-6"
+              >
+                <span
+                  ><i class="fas fa-hospital mr-1"></i>12 medical
+                  facilities</span
+                >
+                <span
+                  ><i class="fas fa-clock mr-1 text-green-500"></i>Always
+                  available</span
+                >
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Corporate Travel -->
+          <div
+            class="service-card bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
+          >
+            <div
+              class="placeholder-image h-48 flex items-center justify-center"
+            >
+              <div
+                class="icon-container w-16 h-16 rounded-full flex items-center justify-center"
+              >
+                <i class="fas fa-briefcase text-2xl text-indigo-600"></i>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">
+                  Corporate Travel
+                </h3>
+                <span
+                  class="tag bg-indigo-100 text-indigo-600 text-xs px-2 py-1 rounded-full font-medium"
+                  >Business</span
+                >
+              </div>
+
+              <p class="text-secondary text-sm mb-4 leading-relaxed">
+                Professional travel services, conference venues, and business
+                facilities for corporate travelers.
+              </p>
+
+              <div
+                class="flex items-center justify-between text-sm text-secondary mb-6"
+              >
+                <span
+                  ><i class="fas fa-building mr-1"></i>8 business centers</span
+                >
+                <span
+                  ><i class="fas fa-star mr-1 text-yellow-500"></i>4.5 avg
+                  rating</span
+                >
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Group Travel -->
+          <div
+            class="service-card bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
+          >
+            <div
+              class="placeholder-image h-48 flex items-center justify-center"
+            >
+              <div
+                class="icon-container w-16 h-16 rounded-full flex items-center justify-center"
+              >
+                <i class="fas fa-users text-2xl text-purple-600"></i>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">Group Travel</h3>
+                <span
+                  class="tag bg-purple-100 text-purple-600 text-xs px-2 py-1 rounded-full font-medium"
+                  >New</span
+                >
+              </div>
+
+              <p class="text-secondary text-sm mb-4 leading-relaxed">
+                Special packages and services designed for families, friends,
+                and large group travel experiences.
+              </p>
+
+              <div
+                class="flex items-center justify-between text-sm text-secondary mb-6"
+              >
+                <span><i class="fas fa-users mr-1"></i>22 group packages</span>
+                <span
+                  ><i class="fas fa-star mr-1 text-yellow-500"></i>4.8 avg
+                  rating</span
+                >
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Load More Section -->
+        <div class="text-center mt-12">
+          <button
+            class="bg-surface-dark text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+          >
+            <i class="fas fa-plus mr-2"></i>Load More Services
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="bg-gradient-to-r from-primary to-primary-light py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready to Explore Dehradun?
+        </h2>
+        <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          Start planning your perfect trip with our comprehensive city services
+          and local expertise.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            class="bg-white text-primary px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+          >
+            <i class="fas fa-route mr-2"></i>Plan Your Trip
+          </button>
+          <button
+            class="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary transition-colors font-medium"
+          >
+            <i class="fas fa-phone mr-2"></i>Contact Support
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- Company Info -->
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center space-x-3 mb-4">
+              <div
+                class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center"
+              >
+                <i class="fas fa-compass text-white text-sm"></i>
+              </div>
+              <span class="text-xl font-bold">TravelHub</span>
+            </div>
+            <p class="text-gray-400 mb-4 max-w-md">
+              Your trusted companion for exploring incredible destinations
+              across India. Discover, plan, and experience unforgettable
+              journeys.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Destinations</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div>
+            <h3 class="font-semibold mb-4">Support</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Safety</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors">Terms</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Privacy</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>
+            &copy; 2024 TravelHub. All rights reserved. | Explore Dehradun with
+            confidence
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Service card interactions
+        const serviceCards = document.querySelectorAll(".service-card");
+
+        serviceCards.forEach((card) => {
+          const button = card.querySelector("button");
+
+          button.addEventListener("click", function () {
+            const serviceName = card.querySelector("h3").textContent;
+            console.log(`Exploring ${serviceName}...`);
+
+            // Add loading state
+            this.innerHTML =
+              '<i class="fas fa-spinner fa-spin mr-2"></i>Loading...';
+            this.disabled = true;
+
+            // Simulate navigation delay
+            setTimeout(() => {
+              alert(`Opening ${serviceName} details...`);
+              this.innerHTML = "View Details";
+              this.disabled = false;
+            }, 1000);
+          });
+        });
+
+        // Smooth scroll for CTA buttons
+        document.querySelectorAll("button").forEach((button) => {
+          if (button.textContent.includes("Explore Services")) {
+            button.addEventListener("click", function () {
+              document.querySelector("section:nth-of-type(2)").scrollIntoView({
+                behavior: "smooth",
+              });
+            });
+          }
+        });
+
+        // Add intersection observer for animations
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        // Animate service cards on scroll
+        serviceCards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(30px)";
+          card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+          observer.observe(card);
+        });
+      });
+    </script>
+  </body>
+</html>

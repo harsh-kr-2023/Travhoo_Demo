@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tour Packages in Dehradun | TravelHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              secondary: "#f59e0b",
+              accent: "#10b981",
+              coral: "#ff6b6b",
+              purple: "#8b5cf6",
+              teal: "#06b6d4",
+            },
+            animation: {
+              "fade-in": "fadeIn 0.6s ease-in-out",
+              "slide-up": "slideUp 0.6s ease-out",
+              "zoom-in": "zoomIn 0.3s ease-out",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.95);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .card-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+
+      .card-hover:hover .card-image {
+        transform: scale(1.05);
+      }
+
+      .card-image {
+        transition: transform 0.3s ease;
+      }
+
+      .filter-active {
+        background: linear-gradient(135deg, #2563eb, #8b5cf6);
+        color: white;
+      }
+
+      .hero-overlay {
+        background: linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.8),
+          rgba(139, 92, 246, 0.6)
+        );
+      }
+
+      .price-range-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 6px;
+        border-radius: 3px;
+        background: #e5e7eb;
+        outline: none;
+      }
+
+      .price-range-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #2563eb;
+        cursor: pointer;
+      }
+
+      .price-range-slider::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #2563eb;
+        cursor: pointer;
+        border: none;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .tag-adventure {
+        @apply bg-red-100 text-red-800;
+      }
+      .tag-spiritual {
+        @apply bg-purple-100 text-purple-800;
+      }
+      .tag-food {
+        @apply bg-orange-100 text-orange-800;
+      }
+      .tag-heritage {
+        @apply bg-amber-100 text-amber-800;
+      }
+      .tag-nature {
+        @apply bg-green-100 text-green-800;
+      }
+      .tag-photography {
+        @apply bg-blue-100 text-blue-800;
+      }
+      .tag-wellness {
+        @apply bg-teal-100 text-teal-800;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-8">
+            <h1
+              class="text-2xl font-bold bg-gradient-to-r from-primary to-purple bg-clip-text text-transparent"
+            >
+              TravelHub
+            </h1>
+            <div class="hidden md:flex relative">
+              <input
+                type="text"
+                placeholder="Search tours..."
+                class="w-80 pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+              <i
+                data-lucide="search"
+                class="absolute left-3 top-2.5 h-5 w-5 text-gray-400"
+              ></i>
+            </div>
+          </div>
+          <div class="flex items-center space-x-6">
+            <a
+              href="#"
+              class="text-gray-700 hover:text-primary transition-colors font-medium"
+              >Cities</a
+            >
+            <a
+              href="#"
+              class="text-gray-700 hover:text-primary transition-colors font-medium"
+              >My Bookings</a
+            >
+            <button
+              class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Sign In
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <nav class="flex text-sm text-gray-500">
+          <a href="#" class="hover:text-primary transition-colors">Home</a>
+          <i data-lucide="chevron-right" class="h-4 w-4 mx-2"></i>
+          <a href="#" class="hover:text-primary transition-colors">Cities</a>
+          <i data-lucide="chevron-right" class="h-4 w-4 mx-2"></i>
+          <a href="#" class="hover:text-primary transition-colors">Dehradun</a>
+          <i data-lucide="chevron-right" class="h-4 w-4 mx-2"></i>
+          <span class="text-gray-900 font-medium">Tours</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section
+      class="relative h-80 bg-cover bg-center"
+      style="background-image: url('/placeholder.svg?height=320&width=1200')"
+    >
+      <div class="hero-overlay absolute inset-0"></div>
+      <div
+        class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center"
+      >
+        <div class="text-white animate-slide-up">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">
+            Tour Packages in <span class="text-yellow-300">Dehradun</span>
+          </h1>
+          <p class="text-xl text-gray-100 max-w-3xl mb-6">
+            Explore curated experiences from heritage walks to adventure tours
+          </p>
+          <div class="flex items-center space-x-6 text-sm">
+            <div class="flex items-center space-x-2">
+              <i data-lucide="calendar" class="h-5 w-5"></i>
+              <span>15+ Tour Options</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i data-lucide="users" class="h-5 w-5"></i>
+              <span>Expert Local Guides</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i data-lucide="shield-check" class="h-5 w-5"></i>
+              <span>100% Safe & Secure</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Filters Sidebar -->
+        <div class="lg:w-80 flex-shrink-0">
+          <div class="bg-white rounded-2xl shadow-lg p-6 sticky top-24">
+            <h3 class="text-xl font-bold text-gray-900 mb-6">Filters</h3>
+
+            <!-- Duration Filter -->
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-900 mb-3">Duration</h4>
+              <div class="space-y-2">
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="duration-filter rounded border-gray-300 text-primary focus:ring-primary"
+                    value="half-day"
+                    checked
+                  />
+                  <span class="ml-2 text-gray-700">Half Day (2-4 hours)</span>
+                </label>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="duration-filter rounded border-gray-300 text-primary focus:ring-primary"
+                    value="full-day"
+                    checked
+                  />
+                  <span class="ml-2 text-gray-700">Full Day (6-8 hours)</span>
+                </label>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="duration-filter rounded border-gray-300 text-primary focus:ring-primary"
+                    value="multi-day"
+                    checked
+                  />
+                  <span class="ml-2 text-gray-700">Multi Day (2+ days)</span>
+                </label>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="duration-filter rounded border-gray-300 text-primary focus:ring-primary"
+                    value="custom"
+                    checked
+                  />
+                  <span class="ml-2 text-gray-700">Custom Duration</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Price Range Filter -->
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-900 mb-3">Price Range</h4>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-sm text-gray-600 mb-2"
+                    >Min Price: ₹<span id="min-price-display">500</span></label
+                  >
+                  <input
+                    type="range"
+                    id="min-price"
+                    class="price-range-slider w-full"
+                    min="500"
+                    max="10000"
+                    value="500"
+                    step="100"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm text-gray-600 mb-2"
+                    >Max Price: ₹<span id="max-price-display"
+                      >10000</span
+                    ></label
+                  >
+                  <input
+                    type="range"
+                    id="max-price"
+                    class="price-range-slider w-full"
+                    min="500"
+                    max="10000"
+                    value="10000"
+                    step="100"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Theme Filter -->
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-900 mb-3">Themes</h4>
+              <div class="space-y-2">
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="theme-filter rounded border-gray-300 text-primary focus:ring-primary"
+                    value="adventure"
+                    checked
+                  />
+                  <span class="ml-2 text-gray-700">Adventure</span>
+                </label>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="theme-filter rounded border-gray-300 text-primary focus:ring-primary"
+                    value="spiritual"
+                    checked
+                  />
+                  <span class="ml-2 text-gray-700">Spiritual</span>
+                </label>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="theme-filter rounded border-gray-300 text-primary focus:ring-primary"
+                    value="food"
+                    checked
+                  />
+                  <span class="ml-2 text-gray-700">Food & Culture</span>
+                </label>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="theme-filter rounded border-gray-300 text-primary focus:ring-primary"
+                    value="heritage"
+                    checked
+                  />
+                  <span class="ml-2 text-gray-700">Heritage</span>
+                </label>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="theme-filter rounded border-gray-300 text-primary focus:ring-primary"
+                    value="nature"
+                    checked
+                  />
+                  <span class="ml-2 text-gray-700">Nature</span>
+                </label>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="theme-filter rounded border-gray-300 text-primary focus:ring-primary"
+                    value="photography"
+                    checked
+                  />
+                  <span class="ml-2 text-gray-700">Photography</span>
+                </label>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="theme-filter rounded border-gray-300 text-primary focus:ring-primary"
+                    value="wellness"
+                    checked
+                  />
+                  <span class="ml-2 text-gray-700">Wellness</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Additional Filters -->
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-900 mb-3">Additional</h4>
+              <div class="space-y-2">
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="rounded border-gray-300 text-primary focus:ring-primary"
+                  />
+                  <span class="ml-2 text-gray-700">Includes Meals</span>
+                </label>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="rounded border-gray-300 text-primary focus:ring-primary"
+                  />
+                  <span class="ml-2 text-gray-700"
+                    >Transportation Included</span
+                  >
+                </label>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="rounded border-gray-300 text-primary focus:ring-primary"
+                  />
+                  <span class="ml-2 text-gray-700">Small Group (≤10)</span>
+                </label>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="rounded border-gray-300 text-primary focus:ring-primary"
+                  />
+                  <span class="ml-2 text-gray-700">Private Tour</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Clear Filters -->
+            <button
+              id="clear-filters"
+              class="w-full bg-gray-100 text-gray-700 py-2 rounded-lg hover:bg-gray-200 transition-colors"
+            >
+              Clear All Filters
+            </button>
+          </div>
+        </div>
+
+        <!-- Tours Grid -->
+        <div class="flex-1">
+          <!-- Sort and Results Count -->
+          <div
+            class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6"
+          >
+            <div class="mb-4 sm:mb-0">
+              <h2 class="text-2xl font-bold text-gray-900">Available Tours</h2>
+              <p class="text-gray-600" id="results-count">Showing 12 tours</p>
+            </div>
+            <div class="flex items-center space-x-4">
+              <span class="text-sm text-gray-600">Sort by:</span>
+              <select
+                class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              >
+                <option>Most Popular</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Duration: Short to Long</option>
+                <option>Highest Rated</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Tours Grid -->
+          <div id="tours-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Tour Card 1 -->
+            <div
+              class="tour-card card-hover bg-white rounded-2xl shadow-lg overflow-hidden"
+              data-duration="half-day"
+              data-price="1200"
+              data-theme="heritage"
+            >
+              <div class="relative">
+                <div class="grid grid-cols-3 gap-1 h-48">
+                  <img
+                    src="/placeholder.svg?height=200&width=200"
+                    alt="Heritage Walk"
+                    class="card-image col-span-2 w-full h-full object-cover"
+                  />
+                  <div class="space-y-1">
+                    <img
+                      src="/placeholder.svg?height=95&width=100"
+                      alt="Heritage Walk 2"
+                      class="card-image w-full h-23 object-cover"
+                    />
+                    <img
+                      src="/placeholder.svg?height=95&width=100"
+                      alt="Heritage Walk 3"
+                      class="card-image w-full h-23 object-cover"
+                    />
+                  </div>
+                </div>
+                <div class="absolute top-3 left-3">
+                  <span
+                    class="bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                  >
+                    Half Day
+                  </span>
+                </div>
+                <div class="absolute top-3 right-3">
+                  <button
+                    class="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                  >
+                    <i data-lucide="heart" class="h-4 w-4 text-gray-600"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">
+                      Dehradun Heritage Walk
+                    </h3>
+                    <div
+                      class="flex items-center space-x-2 text-sm text-gray-600"
+                    >
+                      <i data-lucide="clock" class="h-4 w-4"></i>
+                      <span>4 hours</span>
+                      <i data-lucide="users" class="h-4 w-4 ml-2"></i>
+                      <span>Max 15 people</span>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-2xl font-bold text-primary">₹1,200</div>
+                    <div class="text-sm text-gray-500">per person</div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div
+                    class="flex items-center space-x-4 text-sm text-gray-600 mb-2"
+                  >
+                    <span class="flex items-center space-x-1">
+                      <i data-lucide="star" class="h-4 w-4 text-yellow-400"></i>
+                      <span class="font-medium">4.8</span>
+                      <span>(124 reviews)</span>
+                    </span>
+                  </div>
+                  <p class="text-gray-600 text-sm">
+                    Explore Dehradun's colonial architecture and local markets
+                    with expert guides
+                  </p>
+                </div>
+
+                <div class="mb-4">
+                  <h4 class="font-semibold text-gray-900 mb-2">Highlights:</h4>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li class="flex items-center space-x-2">
+                      <i data-lucide="map-pin" class="h-3 w-3 text-primary"></i>
+                      <span>Clock Tower & Paltan Bazaar</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                      <i data-lucide="camera" class="h-3 w-3 text-primary"></i>
+                      <span>Colonial Architecture Tour</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                      <i data-lucide="coffee" class="h-3 w-3 text-primary"></i>
+                      <span>Local Tea & Snacks</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span
+                      class="tag-heritage px-3 py-1 rounded-full text-xs font-medium"
+                      >Heritage</span
+                    >
+                  </div>
+                  <div class="flex space-x-2">
+                    <button
+                      class="border border-primary text-primary px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors text-sm font-medium"
+                    >
+                      View Details
+                    </button>
+                    <button
+                      class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                    >
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tour Card 2 -->
+            <div
+              class="tour-card card-hover bg-white rounded-2xl shadow-lg overflow-hidden"
+              data-duration="full-day"
+              data-price="2800"
+              data-theme="adventure nature"
+            >
+              <div class="relative">
+                <div class="grid grid-cols-3 gap-1 h-48">
+                  <img
+                    src="/placeholder.svg?height=200&width=200"
+                    alt="Adventure Tour"
+                    class="card-image col-span-2 w-full h-full object-cover"
+                  />
+                  <div class="space-y-1">
+                    <img
+                      src="/placeholder.svg?height=95&width=100"
+                      alt="Adventure Tour 2"
+                      class="card-image w-full h-23 object-cover"
+                    />
+                    <img
+                      src="/placeholder.svg?height=95&width=100"
+                      alt="Adventure Tour 3"
+                      class="card-image w-full h-23 object-cover"
+                    />
+                  </div>
+                </div>
+                <div class="absolute top-3 left-3">
+                  <span
+                    class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                  >
+                    Full Day
+                  </span>
+                </div>
+                <div class="absolute top-3 right-3">
+                  <button
+                    class="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                  >
+                    <i data-lucide="heart" class="h-4 w-4 text-gray-600"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">
+                      Robber's Cave Adventure
+                    </h3>
+                    <div
+                      class="flex items-center space-x-2 text-sm text-gray-600"
+                    >
+                      <i data-lucide="clock" class="h-4 w-4"></i>
+                      <span>8 hours</span>
+                      <i data-lucide="users" class="h-4 w-4 ml-2"></i>
+                      <span>Max 12 people</span>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-2xl font-bold text-primary">₹2,800</div>
+                    <div class="text-sm text-gray-500">per person</div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div
+                    class="flex items-center space-x-4 text-sm text-gray-600 mb-2"
+                  >
+                    <span class="flex items-center space-x-1">
+                      <i data-lucide="star" class="h-4 w-4 text-yellow-400"></i>
+                      <span class="font-medium">4.9</span>
+                      <span>(89 reviews)</span>
+                    </span>
+                  </div>
+                  <p class="text-gray-600 text-sm">
+                    Full day adventure including cave exploration, trekking, and
+                    nature photography
+                  </p>
+                </div>
+
+                <div class="mb-4">
+                  <h4 class="font-semibold text-gray-900 mb-2">Highlights:</h4>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li class="flex items-center space-x-2">
+                      <i
+                        data-lucide="mountain"
+                        class="h-3 w-3 text-primary"
+                      ></i>
+                      <span>Robber's Cave Exploration</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                      <i data-lucide="camera" class="h-3 w-3 text-primary"></i>
+                      <span>Nature Photography Session</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                      <i
+                        data-lucide="utensils"
+                        class="h-3 w-3 text-primary"
+                      ></i>
+                      <span>Lunch & Refreshments</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span
+                      class="tag-adventure px-3 py-1 rounded-full text-xs font-medium"
+                      >Adventure</span
+                    >
+                    <span
+                      class="tag-nature px-3 py-1 rounded-full text-xs font-medium"
+                      >Nature</span
+                    >
+                  </div>
+                  <div class="flex space-x-2">
+                    <button
+                      class="border border-primary text-primary px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors text-sm font-medium"
+                    >
+                      View Details
+                    </button>
+                    <button
+                      class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                    >
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tour Card 3 -->
+            <div
+              class="tour-card card-hover bg-white rounded-2xl shadow-lg overflow-hidden"
+              data-duration="half-day"
+              data-price="1800"
+              data-theme="spiritual"
+            >
+              <div class="relative">
+                <div class="grid grid-cols-3 gap-1 h-48">
+                  <img
+                    src="/placeholder.svg?height=200&width=200"
+                    alt="Spiritual Tour"
+                    class="card-image col-span-2 w-full h-full object-cover"
+                  />
+                  <div class="space-y-1">
+                    <img
+                      src="/placeholder.svg?height=95&width=100"
+                      alt="Spiritual Tour 2"
+                      class="card-image w-full h-23 object-cover"
+                    />
+                    <img
+                      src="/placeholder.svg?height=95&width=100"
+                      alt="Spiritual Tour 3"
+                      class="card-image w-full h-23 object-cover"
+                    />
+                  </div>
+                </div>
+                <div class="absolute top-3 left-3">
+                  <span
+                    class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                  >
+                    Half Day
+                  </span>
+                </div>
+                <div class="absolute top-3 right-3">
+                  <button
+                    class="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                  >
+                    <i data-lucide="heart" class="h-4 w-4 text-gray-600"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">
+                      Spiritual Temple Tour
+                    </h3>
+                    <div
+                      class="flex items-center space-x-2 text-sm text-gray-600"
+                    >
+                      <i data-lucide="clock" class="h-4 w-4"></i>
+                      <span>5 hours</span>
+                      <i data-lucide="users" class="h-4 w-4 ml-2"></i>
+                      <span>Max 20 people</span>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-2xl font-bold text-primary">₹1,800</div>
+                    <div class="text-sm text-gray-500">per person</div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div
+                    class="flex items-center space-x-4 text-sm text-gray-600 mb-2"
+                  >
+                    <span class="flex items-center space-x-1">
+                      <i data-lucide="star" class="h-4 w-4 text-yellow-400"></i>
+                      <span class="font-medium">4.7</span>
+                      <span>(156 reviews)</span>
+                    </span>
+                  </div>
+                  <p class="text-gray-600 text-sm">
+                    Visit sacred temples and monasteries with meditation
+                    sessions
+                  </p>
+                </div>
+
+                <div class="mb-4">
+                  <h4 class="font-semibold text-gray-900 mb-2">Highlights:</h4>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li class="flex items-center space-x-2">
+                      <i data-lucide="home" class="h-3 w-3 text-primary"></i>
+                      <span>Mindrolling Monastery</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                      <i data-lucide="heart" class="h-3 w-3 text-primary"></i>
+                      <span>Tapkeshwar Temple</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                      <i data-lucide="sun" class="h-3 w-3 text-primary"></i>
+                      <span>Meditation Session</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span
+                      class="tag-spiritual px-3 py-1 rounded-full text-xs font-medium"
+                      >Spiritual</span
+                    >
+                  </div>
+                  <div class="flex space-x-2">
+                    <button
+                      class="border border-primary text-primary px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors text-sm font-medium"
+                    >
+                      View Details
+                    </button>
+                    <button
+                      class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                    >
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tour Card 4 -->
+            <div
+              class="tour-card card-hover bg-white rounded-2xl shadow-lg overflow-hidden"
+              data-duration="half-day"
+              data-price="2200"
+              data-theme="food"
+            >
+              <div class="relative">
+                <div class="grid grid-cols-3 gap-1 h-48">
+                  <img
+                    src="/placeholder.svg?height=200&width=200"
+                    alt="Food Tour"
+                    class="card-image col-span-2 w-full h-full object-cover"
+                  />
+                  <div class="space-y-1">
+                    <img
+                      src="/placeholder.svg?height=95&width=100"
+                      alt="Food Tour 2"
+                      class="card-image w-full h-23 object-cover"
+                    />
+                    <img
+                      src="/placeholder.svg?height=95&width=100"
+                      alt="Food Tour 3"
+                      class="card-image w-full h-23 object-cover"
+                    />
+                  </div>
+                </div>
+                <div class="absolute top-3 left-3">
+                  <span
+                    class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                  >
+                    Half Day
+                  </span>
+                </div>
+                <div class="absolute top-3 right-3">
+                  <button
+                    class="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                  >
+                    <i data-lucide="heart" class="h-4 w-4 text-gray-600"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">
+                      Garhwali Food Trail
+                    </h3>
+                    <div
+                      class="flex items-center space-x-2 text-sm text-gray-600"
+                    >
+                      <i data-lucide="clock" class="h-4 w-4"></i>
+                      <span>4 hours</span>
+                      <i data-lucide="users" class="h-4 w-4 ml-2"></i>
+                      <span>Max 10 people</span>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-2xl font-bold text-primary">₹2,200</div>
+                    <div class="text-sm text-gray-500">per person</div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div
+                    class="flex items-center space-x-4 text-sm text-gray-600 mb-2"
+                  >
+                    <span class="flex items-center space-x-1">
+                      <i data-lucide="star" class="h-4 w-4 text-yellow-400"></i>
+                      <span class="font-medium">4.6</span>
+                      <span>(78 reviews)</span>
+                    </span>
+                  </div>
+                  <p class="text-gray-600 text-sm">
+                    Taste authentic Garhwali cuisine at local eateries and
+                    street food stalls
+                  </p>
+                </div>
+
+                <div class="mb-4">
+                  <h4 class="font-semibold text-gray-900 mb-2">Highlights:</h4>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li class="flex items-center space-x-2">
+                      <i
+                        data-lucide="utensils"
+                        class="h-3 w-3 text-primary"
+                      ></i>
+                      <span>5+ Local Food Tastings</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                      <i
+                        data-lucide="chef-hat"
+                        class="h-3 w-3 text-primary"
+                      ></i>
+                      <span>Traditional Cooking Demo</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                      <i
+                        data-lucide="shopping-bag"
+                        class="h-3 w-3 text-primary"
+                      ></i>
+                      <span>Spice Market Visit</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span
+                      class="tag-food px-3 py-1 rounded-full text-xs font-medium"
+                      >Food</span
+                    >
+                  </div>
+                  <div class="flex space-x-2">
+                    <button
+                      class="border border-primary text-primary px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors text-sm font-medium"
+                    >
+                      View Details
+                    </button>
+                    <button
+                      class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                    >
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tour Card 5 -->
+            <div
+              class="tour-card card-hover bg-white rounded-2xl shadow-lg overflow-hidden"
+              data-duration="multi-day"
+              data-price="8500"
+              data-theme="adventure nature"
+            >
+              <div class="relative">
+                <div class="grid grid-cols-3 gap-1 h-48">
+                  <img
+                    src="/placeholder.svg?height=200&width=200"
+                    alt="Multi-day Trek"
+                    class="card-image col-span-2 w-full h-full object-cover"
+                  />
+                  <div class="space-y-1">
+                    <img
+                      src="/placeholder.svg?height=95&width=100"
+                      alt="Trek 2"
+                      class="card-image w-full h-23 object-cover"
+                    />
+                    <img
+                      src="/placeholder.svg?height=95&width=100"
+                      alt="Trek 3"
+                      class="card-image w-full h-23 object-cover"
+                    />
+                  </div>
+                </div>
+                <div class="absolute top-3 left-3">
+                  <span
+                    class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                  >
+                    3 Days
+                  </span>
+                </div>
+                <div class="absolute top-3 right-3">
+                  <button
+                    class="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                  >
+                    <i data-lucide="heart" class="h-4 w-4 text-gray-600"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">
+                      Himalayan Base Trek
+                    </h3>
+                    <div
+                      class="flex items-center space-x-2 text-sm text-gray-600"
+                    >
+                      <i data-lucide="clock" class="h-4 w-4"></i>
+                      <span>3 days, 2 nights</span>
+                      <i data-lucide="users" class="h-4 w-4 ml-2"></i>
+                      <span>Max 8 people</span>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-2xl font-bold text-primary">₹8,500</div>
+                    <div class="text-sm text-gray-500">per person</div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div
+                    class="flex items-center space-x-4 text-sm text-gray-600 mb-2"
+                  >
+                    <span class="flex items-center space-x-1">
+                      <i data-lucide="star" class="h-4 w-4 text-yellow-400"></i>
+                      <span class="font-medium">4.9</span>
+                      <span>(45 reviews)</span>
+                    </span>
+                  </div>
+                  <p class="text-gray-600 text-sm">
+                    Multi-day trekking adventure with camping and mountain views
+                  </p>
+                </div>
+
+                <div class="mb-4">
+                  <h4 class="font-semibold text-gray-900 mb-2">Highlights:</h4>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li class="flex items-center space-x-2">
+                      <i data-lucide="tent" class="h-3 w-3 text-primary"></i>
+                      <span>Mountain Camping</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                      <i data-lucide="sunrise" class="h-3 w-3 text-primary"></i>
+                      <span>Sunrise Views</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                      <i
+                        data-lucide="utensils"
+                        class="h-3 w-3 text-primary"
+                      ></i>
+                      <span>All Meals Included</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span
+                      class="tag-adventure px-3 py-1 rounded-full text-xs font-medium"
+                      >Adventure</span
+                    >
+                    <span
+                      class="tag-nature px-3 py-1 rounded-full text-xs font-medium"
+                      >Nature</span
+                    >
+                  </div>
+                  <div class="flex space-x-2">
+                    <button
+                      class="border border-primary text-primary px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors text-sm font-medium"
+                    >
+                      View Details
+                    </button>
+                    <button
+                      class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                    >
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tour Card 6 -->
+            <div
+              class="tour-card card-hover bg-white rounded-2xl shadow-lg overflow-hidden"
+              data-duration="half-day"
+              data-price="1500"
+              data-theme="photography nature"
+            >
+              <div class="relative">
+                <div class="grid grid-cols-3 gap-1 h-48">
+                  <img
+                    src="/placeholder.svg?height=200&width=200"
+                    alt="Photography Tour"
+                    class="card-image col-span-2 w-full h-full object-cover"
+                  />
+                  <div class="space-y-1">
+                    <img
+                      src="/placeholder.svg?height=95&width=100"
+                      alt="Photography 2"
+                      class="card-image w-full h-23 object-cover"
+                    />
+                    <img
+                      src="/placeholder.svg?height=95&width=100"
+                      alt="Photography 3"
+                      class="card-image w-full h-23 object-cover"
+                    />
+                  </div>
+                </div>
+                <div class="absolute top-3 left-3">
+                  <span
+                    class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                  >
+                    Half Day
+                  </span>
+                </div>
+                <div class="absolute top-3 right-3">
+                  <button
+                    class="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                  >
+                    <i data-lucide="heart" class="h-4 w-4 text-gray-600"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">
+                      Photography Workshop
+                    </h3>
+                    <div
+                      class="flex items-center space-x-2 text-sm text-gray-600"
+                    >
+                      <i data-lucide="clock" class="h-4 w-4"></i>
+                      <span>5 hours</span>
+                      <i data-lucide="users" class="h-4 w-4 ml-2"></i>
+                      <span>Max 6 people</span>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-2xl font-bold text-primary">₹1,500</div>
+                    <div class="text-sm text-gray-500">per person</div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div
+                    class="flex items-center space-x-4 text-sm text-gray-600 mb-2"
+                  >
+                    <span class="flex items-center space-x-1">
+                      <i data-lucide="star" class="h-4 w-4 text-yellow-400"></i>
+                      <span class="font-medium">4.8</span>
+                      <span>(92 reviews)</span>
+                    </span>
+                  </div>
+                  <p class="text-gray-600 text-sm">
+                    Learn landscape and street photography with professional
+                    guidance
+                  </p>
+                </div>
+
+                <div class="mb-4">
+                  <h4 class="font-semibold text-gray-900 mb-2">Highlights:</h4>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li class="flex items-center space-x-2">
+                      <i data-lucide="camera" class="h-3 w-3 text-primary"></i>
+                      <span>Professional Guidance</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                      <i data-lucide="image" class="h-3 w-3 text-primary"></i>
+                      <span>Photo Editing Tips</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                      <i data-lucide="award" class="h-3 w-3 text-primary"></i>
+                      <span>Certificate Included</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <div class="flex space-x-2">
+                    <span
+                      class="tag-photography px-3 py-1 rounded-full text-xs font-medium"
+                      >Photography</span
+                    >
+                  </div>
+                  <div class="flex space-x-2">
+                    <button
+                      class="border border-primary text-primary px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors text-sm font-medium"
+                    >
+                      View Details
+                    </button>
+                    <button
+                      class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                    >
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Load More Button -->
+          <div class="text-center mt-12">
+            <button
+              class="bg-gray-200 text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+            >
+              Load More Tours
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <section class="py-16 bg-gradient-to-r from-primary to-purple">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+          Can't Find the Perfect Tour?
+        </h2>
+        <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          Let us create a custom tour package tailored to your interests and
+          schedule
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            class="bg-white text-primary px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+          >
+            Create Custom Tour
+          </button>
+          <button
+            class="border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-primary transition-colors"
+          >
+            Contact Us
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">TravelHub</h3>
+            <p class="text-gray-400">
+              Discover amazing places and create unforgettable memories with our
+              curated tours.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Tours</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Adventure Tours</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Cultural Tours</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Food Tours</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Support</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Booking Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Connect</h4>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i data-lucide="facebook" class="h-5 w-5"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i data-lucide="twitter" class="h-5 w-5"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i data-lucide="instagram" class="h-5 w-5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2024 TravelHub. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+
+      // Price range sliders
+      const minPriceSlider = document.getElementById("min-price");
+      const maxPriceSlider = document.getElementById("max-price");
+      const minPriceDisplay = document.getElementById("min-price-display");
+      const maxPriceDisplay = document.getElementById("max-price-display");
+
+      minPriceSlider.addEventListener("input", function () {
+        minPriceDisplay.textContent = this.value;
+        if (parseInt(this.value) >= parseInt(maxPriceSlider.value)) {
+          maxPriceSlider.value = parseInt(this.value) + 100;
+          maxPriceDisplay.textContent = maxPriceSlider.value;
+        }
+        filterTours();
+      });
+
+      maxPriceSlider.addEventListener("input", function () {
+        maxPriceDisplay.textContent = this.value;
+        if (parseInt(this.value) <= parseInt(minPriceSlider.value)) {
+          minPriceSlider.value = parseInt(this.value) - 100;
+          minPriceDisplay.textContent = minPriceSlider.value;
+        }
+        filterTours();
+      });
+
+      // Filter functionality
+      const durationFilters = document.querySelectorAll(".duration-filter");
+      const themeFilters = document.querySelectorAll(".theme-filter");
+      const tourCards = document.querySelectorAll(".tour-card");
+      const resultsCount = document.getElementById("results-count");
+
+      function filterTours() {
+        const selectedDurations = Array.from(durationFilters)
+          .filter((filter) => filter.checked)
+          .map((filter) => filter.value);
+
+        const selectedThemes = Array.from(themeFilters)
+          .filter((filter) => filter.checked)
+          .map((filter) => filter.value);
+
+        const minPrice = parseInt(minPriceSlider.value);
+        const maxPrice = parseInt(maxPriceSlider.value);
+
+        let visibleCount = 0;
+
+        tourCards.forEach((card) => {
+          const cardDuration = card.getAttribute("data-duration");
+          const cardPrice = parseInt(card.getAttribute("data-price"));
+          const cardThemes = card.getAttribute("data-theme").split(" ");
+
+          const durationMatch =
+            selectedDurations.length === 0 ||
+            selectedDurations.includes(cardDuration);
+          const priceMatch = cardPrice >= minPrice && cardPrice <= maxPrice;
+          const themeMatch =
+            selectedThemes.length === 0 ||
+            selectedThemes.some((theme) => cardThemes.includes(theme));
+
+          if (durationMatch && priceMatch && themeMatch) {
+            card.style.display = "block";
+            card.classList.add("animate-fade-in");
+            visibleCount++;
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        resultsCount.textContent = `Showing ${visibleCount} tours`;
+      }
+
+      // Add event listeners to all filters
+      durationFilters.forEach((filter) => {
+        filter.addEventListener("change", filterTours);
+      });
+
+      themeFilters.forEach((filter) => {
+        filter.addEventListener("change", filterTours);
+      });
+
+      // Clear filters
+      document
+        .getElementById("clear-filters")
+        .addEventListener("click", function () {
+          // Reset all checkboxes
+          document
+            .querySelectorAll('input[type="checkbox"]')
+            .forEach((checkbox) => {
+              checkbox.checked = true;
+            });
+
+          // Reset price sliders
+          minPriceSlider.value = 500;
+          maxPriceSlider.value = 10000;
+          minPriceDisplay.textContent = "500";
+          maxPriceDisplay.textContent = "10000";
+
+          // Show all tours
+          filterTours();
+        });
+
+      // Heart button functionality
+      document.querySelectorAll('[data-lucide="heart"]').forEach((heartBtn) => {
+        heartBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          heartBtn.classList.toggle("text-red-500");
+          heartBtn.classList.toggle("text-gray-600");
+        });
+      });
+
+      // Animate cards on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-slide-up");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all tour cards
+      tourCards.forEach((card) => {
+        observer.observe(card);
+      });
+
+      // Initialize filters
+      filterTours();
+    </script>
+  </body>
+</html>
