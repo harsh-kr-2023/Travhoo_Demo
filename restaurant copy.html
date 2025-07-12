@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top Restaurants in Dehradun - Culinary Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.3)
+          ),
+          url("https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .restaurant-card {
+        transition: all 0.3s ease;
+      }
+      .restaurant-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+      .filter-btn.active {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        color: white;
+      }
+      .testimonial-bg {
+        background: linear-gradient(135deg, #fef3c7, #fde68a);
+      }
+      .rating-stars {
+        color: #fbbf24;
+      }
+      .cuisine-tag {
+        backdrop-filter: blur(10px);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Hero Banner -->
+    <section
+      class="hero-bg h-96 flex items-center justify-center text-white relative"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-transparent to-black/20"
+      ></div>
+      <div class="text-center max-w-4xl px-4 relative z-10">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          Top Restaurants in Dehradun
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed"
+        >
+          Embark on a culinary adventure through the heart of Uttarakhand. From
+          traditional Pahadi flavors to contemporary fusion, discover the
+          restaurants that define Dehradun's vibrant food culture.
+        </p>
+      </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <section
+      class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 py-4"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap justify-center gap-3">
+          <button
+            class="filter-btn active px-6 py-2 rounded-full border border-gray-300 hover:bg-amber-500 hover:text-white transition-all font-medium"
+            data-filter="all"
+          >
+            <i class="fas fa-utensils mr-2"></i>All Restaurants
+          </button>
+          <button
+            class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-green-500 hover:text-white transition-all font-medium"
+            data-filter="veg"
+          >
+            <i class="fas fa-leaf mr-2"></i>Vegetarian
+          </button>
+          <button
+            class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-red-500 hover:text-white transition-all font-medium"
+            data-filter="non-veg"
+          >
+            <i class="fas fa-drumstick-bite mr-2"></i>Non-Vegetarian
+          </button>
+          <button
+            class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-purple-500 hover:text-white transition-all font-medium"
+            data-filter="fine-dining"
+          >
+            <i class="fas fa-wine-glass mr-2"></i>Fine Dining
+          </button>
+          <button
+            class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-blue-500 hover:text-white transition-all font-medium"
+            data-filter="cafe"
+          >
+            <i class="fas fa-coffee mr-2"></i>Cafés
+          </button>
+          <button
+            class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-teal-500 hover:text-white transition-all font-medium"
+            data-filter="budget"
+          >
+            <i class="fas fa-coins mr-2"></i>Budget Friendly
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Restaurants Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <!-- Restaurant 1 - Image Left -->
+        <div
+          class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0"
+          data-category="veg fine-dining"
+        >
+          <div class="relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              alt="Sagar Ratna"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-leaf mr-1"></i>Pure Veg
+              </span>
+            </div>
+          </div>
+          <div class="p-8 flex flex-col justify-center">
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Sagar Ratna</h3>
+            <p class="text-gray-600 mb-4 italic">
+              Established in 1986, this iconic restaurant has been serving
+              authentic South Indian delicacies with the perfect blend of
+              traditional recipes and modern presentation.
+            </p>
+
+            <div class="flex items-center mb-4">
+              <div class="rating-stars text-xl mr-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="text-gray-600 font-medium">4.5 (2,340 reviews)</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">
+                  Menu Highlights
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Masala Dosa</li>
+                  <li>• Rava Uttapam</li>
+                  <li>• Filter Coffee</li>
+                  <li>• Sambhar Vada</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Details</h4>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Cost for Two:</strong> ₹450
+                </p>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Famous For:</strong> South Indian
+                </p>
+                <p class="text-sm text-gray-600">
+                  <strong>Timing:</strong> 8 AM - 10 PM
+                </p>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book a Table
+            </button>
+          </div>
+        </div>
+
+        <!-- Restaurant 2 - Image Right -->
+        <div
+          class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0"
+          data-category="non-veg fine-dining"
+        >
+          <div class="p-8 flex flex-col justify-center order-2 md:order-1">
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">
+              Barbeque Nation
+            </h3>
+            <p class="text-gray-600 mb-4 italic">
+              A paradise for meat lovers since 2006, offering unlimited grilled
+              delicacies with live counters and an extensive buffet that
+              celebrates flavors from around the world.
+            </p>
+
+            <div class="flex items-center mb-4">
+              <div class="rating-stars text-xl mr-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="text-gray-600 font-medium">4.2 (1,890 reviews)</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">
+                  Menu Highlights
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Grilled Chicken</li>
+                  <li>• Mutton Seekh</li>
+                  <li>• Paneer Tikka</li>
+                  <li>• Live Pasta Counter</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Details</h4>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Cost for Two:</strong> ₹1,200
+                </p>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Famous For:</strong> BBQ Buffet
+                </p>
+                <p class="text-sm text-gray-600">
+                  <strong>Timing:</strong> 12 PM - 11 PM
+                </p>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-red-600 hover:to-pink-600 transition-all transform hover:scale-105"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book a Table
+            </button>
+          </div>
+          <div class="relative overflow-hidden order-1 md:order-2">
+            <img
+              src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              alt="Barbeque Nation"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute top-4 right-4">
+              <span
+                class="cuisine-tag bg-red-500/90 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-drumstick-bite mr-1"></i>Non-Veg
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial Break 1 -->
+        <div class="testimonial-bg rounded-2xl p-8 mb-12 text-center">
+          <div class="max-w-3xl mx-auto">
+            <i class="fas fa-quote-left text-3xl text-amber-600 mb-4"></i>
+            <p class="text-lg text-gray-700 mb-4 italic">
+              "Dehradun's food scene is a beautiful blend of traditional Pahadi
+              flavors and modern culinary innovations. Every meal here tells a
+              story of the mountains."
+            </p>
+            <div class="flex items-center justify-center">
+              <img
+                src="https://images.unsplash.com/photo-1494790108755-2616c9c0e8e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                alt="Reviewer"
+                class="w-12 h-12 rounded-full mr-3"
+              />
+              <div>
+                <p class="font-semibold text-gray-800">Priya Sharma</p>
+                <p class="text-sm text-gray-600">
+                  Food Blogger & Travel Enthusiast
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Restaurant 3 - Image Left -->
+        <div
+          class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0"
+          data-category="veg budget"
+        >
+          <div class="relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              alt="Pahadi House"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-leaf mr-1"></i>Pure Veg
+              </span>
+            </div>
+          </div>
+          <div class="p-8 flex flex-col justify-center">
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Pahadi House</h3>
+            <p class="text-gray-600 mb-4 italic">
+              Started in 1965 by a local family, this humble eatery has become
+              legendary for serving the most authentic Pahadi thalis that
+              transport you to the heart of Uttarakhand's culinary heritage.
+            </p>
+
+            <div class="flex items-center mb-4">
+              <div class="rating-stars text-xl mr-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="text-gray-600 font-medium">4.8 (3,120 reviews)</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">
+                  Menu Highlights
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Pahadi Thali</li>
+                  <li>• Mandua Roti</li>
+                  <li>• Bhatt ki Churkani</li>
+                  <li>• Bal Mithai</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Details</h4>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Cost for Two:</strong> ₹300
+                </p>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Famous For:</strong> Pahadi Cuisine
+                </p>
+                <p class="text-sm text-gray-600">
+                  <strong>Timing:</strong> 11 AM - 9 PM
+                </p>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-green-500 to-teal-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-green-600 hover:to-teal-600 transition-all transform hover:scale-105"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book a Table
+            </button>
+          </div>
+        </div>
+
+        <!-- Restaurant 4 - Image Right -->
+        <div
+          class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0"
+          data-category="cafe"
+        >
+          <div class="p-8 flex flex-col justify-center order-2 md:order-1">
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">
+              Café Coffee Day
+            </h3>
+            <p class="text-gray-600 mb-4 italic">
+              The perfect spot for coffee enthusiasts and casual meetups,
+              offering a cozy ambiance with mountain views and freshly brewed
+              coffee that pairs perfectly with light snacks.
+            </p>
+
+            <div class="flex items-center mb-4">
+              <div class="rating-stars text-xl mr-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="text-gray-600 font-medium">4.1 (1,560 reviews)</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">
+                  Menu Highlights
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Cappuccino</li>
+                  <li>• Chocolate Muffin</li>
+                  <li>• Chicken Sandwich</li>
+                  <li>• Cold Coffee</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Details</h4>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Cost for Two:</strong> ₹400
+                </p>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Famous For:</strong> Coffee & Snacks
+                </p>
+                <p class="text-sm text-gray-600">
+                  <strong>Timing:</strong> 8 AM - 11 PM
+                </p>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition-all transform hover:scale-105"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book a Table
+            </button>
+          </div>
+          <div class="relative overflow-hidden order-1 md:order-2">
+            <img
+              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              alt="Café Coffee Day"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute top-4 right-4">
+              <span
+                class="cuisine-tag bg-blue-500/90 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-coffee mr-1"></i>Café
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Restaurant 5 - Image Left -->
+        <div
+          class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0"
+          data-category="non-veg"
+        >
+          <div class="relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              alt="Kalsang Restaurant"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="cuisine-tag bg-orange-500/90 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-globe mr-1"></i>Mixed
+              </span>
+            </div>
+          </div>
+          <div class="p-8 flex flex-col justify-center">
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">
+              Kalsang Restaurant
+            </h3>
+            <p class="text-gray-600 mb-4 italic">
+              A hidden gem serving authentic Tibetan cuisine since 1990, run by
+              a Tibetan family who brought traditional recipes from the
+              monasteries of Tibet to the foothills of Dehradun.
+            </p>
+
+            <div class="flex items-center mb-4">
+              <div class="rating-stars text-xl mr-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="text-gray-600 font-medium">4.6 (2,780 reviews)</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">
+                  Menu Highlights
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Chicken Momos</li>
+                  <li>• Thukpa</li>
+                  <li>• Tingmo</li>
+                  <li>• Butter Tea</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Details</h4>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Cost for Two:</strong> ₹500
+                </p>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Famous For:</strong> Tibetan Cuisine
+                </p>
+                <p class="text-sm text-gray-600">
+                  <strong>Timing:</strong> 10 AM - 10 PM
+                </p>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-orange-600 hover:to-red-600 transition-all transform hover:scale-105"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book a Table
+            </button>
+          </div>
+        </div>
+
+        <!-- Restaurant 6 - Image Right -->
+        <div
+          class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0"
+          data-category="fine-dining non-veg"
+        >
+          <div class="p-8 flex flex-col justify-center order-2 md:order-1">
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">
+              The Great Indian Pub
+            </h3>
+            <p class="text-gray-600 mb-4 italic">
+              An upscale dining destination that combines contemporary Indian
+              cuisine with a vibrant pub atmosphere, perfect for celebrations
+              and special occasions with friends and family.
+            </p>
+
+            <div class="flex items-center mb-4">
+              <div class="rating-stars text-xl mr-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="text-gray-600 font-medium">4.3 (1,450 reviews)</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">
+                  Menu Highlights
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Butter Chicken</li>
+                  <li>• Fish & Chips</li>
+                  <li>• Craft Beer</li>
+                  <li>• Tandoori Platter</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Details</h4>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Cost for Two:</strong> ₹1,500
+                </p>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Famous For:</strong> Pub Food & Drinks
+                </p>
+                <p class="text-sm text-gray-600">
+                  <strong>Timing:</strong> 12 PM - 1 AM
+                </p>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-purple-600 hover:to-indigo-600 transition-all transform hover:scale-105"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book a Table
+            </button>
+          </div>
+          <div class="relative overflow-hidden order-1 md:order-2">
+            <img
+              src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              alt="The Great Indian Pub"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute top-4 right-4">
+              <span
+                class="cuisine-tag bg-purple-500/90 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-wine-glass mr-1"></i>Fine Dining
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial Break 2 -->
+        <div class="testimonial-bg rounded-2xl p-8 mb-12 text-center">
+          <div class="max-w-3xl mx-auto">
+            <i class="fas fa-quote-left text-3xl text-amber-600 mb-4"></i>
+            <p class="text-lg text-gray-700 mb-4 italic">
+              "From street-side momos to fine dining experiences, Dehradun
+              offers a culinary journey that reflects its diverse cultural
+              heritage. Each restaurant has its own unique story to tell."
+            </p>
+            <div class="flex items-center justify-center">
+              <img
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                alt="Reviewer"
+                class="w-12 h-12 rounded-full mr-3"
+              />
+              <div>
+                <p class="font-semibold text-gray-800">Rajesh Kumar</p>
+                <p class="text-sm text-gray-600">Local Food Critic</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Restaurant 7 - Image Left -->
+        <div
+          class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0"
+          data-category="budget veg"
+        >
+          <div class="relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              alt="Moti Mahal"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="cuisine-tag bg-orange-500/90 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-globe mr-1"></i>Mixed
+              </span>
+            </div>
+          </div>
+          <div class="p-8 flex flex-col justify-center">
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">
+              Moti Mahal Delux
+            </h3>
+            <p class="text-gray-600 mb-4 italic">
+              The legendary restaurant chain that invented Butter Chicken and
+              Dal Makhani, bringing the authentic flavors of Old Delhi to
+              Dehradun with the same traditional recipes and royal hospitality.
+            </p>
+
+            <div class="flex items-center mb-4">
+              <div class="rating-stars text-xl mr-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="text-gray-600 font-medium">4.4 (2,890 reviews)</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">
+                  Menu Highlights
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Butter Chicken</li>
+                  <li>• Dal Makhani</li>
+                  <li>• Tandoori Roti</li>
+                  <li>• Kulfi</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Details</h4>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Cost for Two:</strong> ₹600
+                </p>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Famous For:</strong> Mughlai Cuisine
+                </p>
+                <p class="text-sm text-gray-600">
+                  <strong>Timing:</strong> 11 AM - 11 PM
+                </p>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book a Table
+            </button>
+          </div>
+        </div>
+
+        <!-- Restaurant 8 - Image Right -->
+        <div
+          class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0"
+          data-category="cafe"
+        >
+          <div class="p-8 flex flex-col justify-center order-2 md:order-1">
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">
+              Orchard Restaurant
+            </h3>
+            <p class="text-gray-600 mb-4 italic">
+              Nestled amidst lush gardens, this charming restaurant offers a
+              farm-to-table dining experience with fresh ingredients sourced
+              locally, creating a perfect harmony between nature and cuisine.
+            </p>
+
+            <div class="flex items-center mb-4">
+              <div class="rating-stars text-xl mr-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="text-gray-600 font-medium">4.7 (1,230 reviews)</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">
+                  Menu Highlights
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Garden Salad</li>
+                  <li>• Wood-fired Pizza</li>
+                  <li>• Fresh Fruit Juice</li>
+                  <li>• Organic Pasta</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Details</h4>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Cost for Two:</strong> ₹800
+                </p>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Famous For:</strong> Garden Dining
+                </p>
+                <p class="text-sm text-gray-600">
+                  <strong>Timing:</strong> 9 AM - 10 PM
+                </p>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-green-500 to-teal-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-green-600 hover:to-teal-600 transition-all transform hover:scale-105"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book a Table
+            </button>
+          </div>
+          <div class="relative overflow-hidden order-1 md:order-2">
+            <img
+              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              alt="Orchard Restaurant"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute top-4 right-4">
+              <span
+                class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-leaf mr-1"></i>Organic
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Continue with more restaurants following the same pattern... -->
+        <!-- Restaurant 9 through 20 would follow the same alternating layout -->
+
+        <!-- Restaurant 9 - Image Left -->
+        <div
+          class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0"
+          data-category="non-veg budget"
+        >
+          <div class="relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              alt="Doon Darbar"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="cuisine-tag bg-red-500/90 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-drumstick-bite mr-1"></i>Non-Veg
+              </span>
+            </div>
+          </div>
+          <div class="p-8 flex flex-col justify-center">
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Doon Darbar</h3>
+            <p class="text-gray-600 mb-4 italic">
+              A local favorite since 1978, famous for its succulent kebabs and
+              traditional North Indian curries, where every dish is prepared
+              with age-old family recipes passed down through generations.
+            </p>
+
+            <div class="flex items-center mb-4">
+              <div class="rating-stars text-xl mr-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="text-gray-600 font-medium">4.2 (1,670 reviews)</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">
+                  Menu Highlights
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Mutton Rogan Josh</li>
+                  <li>• Chicken Tikka</li>
+                  <li>• Seekh Kebab</li>
+                  <li>• Biryani</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Details</h4>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Cost for Two:</strong> ₹550
+                </p>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Famous For:</strong> Kebabs & Curries
+                </p>
+                <p class="text-sm text-gray-600">
+                  <strong>Timing:</strong> 12 PM - 11 PM
+                </p>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-red-600 hover:to-pink-600 transition-all transform hover:scale-105"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book a Table
+            </button>
+          </div>
+        </div>
+
+        <!-- Restaurant 10 - Image Right -->
+        <div
+          class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0"
+          data-category="veg fine-dining"
+        >
+          <div class="p-8 flex flex-col justify-center order-2 md:order-1">
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">
+              Rajdhani Thali
+            </h3>
+            <p class="text-gray-600 mb-4 italic">
+              Experience the royal flavors of Rajasthan in the heart of
+              Dehradun, where unlimited traditional thalis are served with
+              authentic Rajasthani hospitality and time-honored recipes.
+            </p>
+
+            <div class="flex items-center mb-4">
+              <div class="rating-stars text-xl mr-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="text-gray-600 font-medium">4.5 (2,340 reviews)</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">
+                  Menu Highlights
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Rajasthani Thali</li>
+                  <li>• Dal Baati Churma</li>
+                  <li>• Gatte ki Sabzi</li>
+                  <li>• Ghevar</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Details</h4>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Cost for Two:</strong> ₹700
+                </p>
+                <p class="text-sm text-gray-600 mb-1">
+                  <strong>Famous For:</strong> Rajasthani Thali
+                </p>
+                <p class="text-sm text-gray-600">
+                  <strong>Timing:</strong> 11 AM - 10 PM
+                </p>
+              </div>
+            </div>
+
+            <button
+              class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-orange-600 hover:to-red-600 transition-all transform hover:scale-105"
+            >
+              <i class="fas fa-calendar-check mr-2"></i>Book a Table
+            </button>
+          </div>
+          <div class="relative overflow-hidden order-1 md:order-2">
+            <img
+              src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              alt="Rajdhani Thali"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute top-4 right-4">
+              <span
+                class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-leaf mr-1"></i>Pure Veg
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Final Testimonial -->
+        <div class="testimonial-bg rounded-2xl p-8 mb-12 text-center">
+          <div class="max-w-3xl mx-auto">
+            <i class="fas fa-quote-left text-3xl text-amber-600 mb-4"></i>
+            <p class="text-lg text-gray-700 mb-4 italic">
+              "What makes Dehradun's dining scene special is not just the food,
+              but the stories behind each restaurant. Every meal is a journey
+              through culture, tradition, and passion."
+            </p>
+            <div class="flex items-center justify-center">
+              <img
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                alt="Reviewer"
+                class="w-12 h-12 rounded-full mr-3"
+              />
+              <div>
+                <p class="font-semibold text-gray-800">Anita Verma</p>
+                <p class="text-sm text-gray-600">Culinary Explorer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center py-12">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            Ready to Explore Dehradun's Culinary Scene?
+          </h2>
+          <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            From traditional Pahadi flavors to international cuisines, Dehradun
+            offers a dining experience for every palate. Start your culinary
+            journey today!
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105"
+            >
+              <i class="fas fa-utensils mr-2"></i>Explore More Restaurants
+            </button>
+            <button
+              class="border-2 border-amber-500 text-amber-600 px-8 py-3 rounded-lg font-semibold hover:bg-amber-50 transition-all"
+            >
+              <i class="fas fa-map-marker-alt mr-2"></i>View on Map
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+      // Filter functionality
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const restaurantCards = document.querySelectorAll(".restaurant-card");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Remove active class from all buttons
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          // Add active class to clicked button
+          button.classList.add("active");
+
+          const filterValue = button.getAttribute("data-filter");
+
+          restaurantCards.forEach((card) => {
+            if (filterValue === "all") {
+              card.style.display = "grid";
+              setTimeout(() => {
+                card.style.opacity = "1";
+                card.style.transform = "translateY(0)";
+              }, 100);
+            } else {
+              const categories = card.getAttribute("data-category").split(" ");
+              if (categories.includes(filterValue)) {
+                card.style.display = "grid";
+                setTimeout(() => {
+                  card.style.opacity = "1";
+                  card.style.transform = "translateY(0)";
+                }, 100);
+              } else {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(20px)";
+                setTimeout(() => {
+                  card.style.display = "none";
+                }, 300);
+              }
+            }
+          });
+        });
+      });
+
+      // Smooth scroll for better UX
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".restaurant-card");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        cards.forEach((card) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(30px)";
+          card.style.transition = "all 0.6s ease";
+          observer.observe(card);
+        });
+      });
+
+      // Book table functionality (placeholder)
+      document.querySelectorAll("button").forEach((button) => {
+        if (button.textContent.includes("Book a Table")) {
+          button.addEventListener("click", () => {
+            alert("Booking functionality would be implemented here!");
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

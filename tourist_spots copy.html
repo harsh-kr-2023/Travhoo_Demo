@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Places to Visit in Dehradun - Discover Amazing Tourist Spots</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url("https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .spot-card {
+        transition: all 0.4s ease;
+        overflow: hidden;
+      }
+      .spot-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+      }
+      .spot-card:hover .spot-image {
+        transform: scale(1.15);
+      }
+      .spot-card:hover .overlay {
+        opacity: 1;
+      }
+      .spot-card:hover .cta-button {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .spot-image {
+        transition: transform 0.7s ease;
+      }
+      .overlay {
+        background: linear-gradient(
+          135deg,
+          rgba(34, 197, 94, 0.9),
+          rgba(16, 185, 129, 0.9)
+        );
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
+      .cta-button {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+      }
+      .filter-chip {
+        transition: all 0.3s ease;
+      }
+      .filter-chip.active {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+      }
+      .filter-chip:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+      .breadcrumb-item {
+        transition: color 0.3s ease;
+      }
+      .breadcrumb-item:hover {
+        color: #10b981;
+      }
+      .featured-ribbon {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        animation: shimmer 2s infinite;
+      }
+      @keyframes shimmer {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+      .view-toggle {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+      }
+      .view-toggle.active {
+        background: #10b981;
+        color: white;
+      }
+      .category-icon {
+        background: linear-gradient(135deg, #10b981, #059669);
+      }
+      .entry-badge {
+        backdrop-filter: blur(10px);
+      }
+      .rating-stars {
+        color: #fbbf24;
+      }
+      .duration-badge {
+        background: rgba(59, 130, 246, 0.1);
+        color: #1d4ed8;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+      }
+      .timing-badge {
+        background: rgba(16, 185, 129, 0.1);
+        color: #047857;
+        border: 1px solid rgba(16, 185, 129, 0.2);
+      }
+      .featured-card {
+        background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+        border: 2px solid #10b981;
+      }
+      .map-container {
+        height: 500px;
+        border-radius: 1rem;
+        overflow: hidden;
+      }
+      .stats-counter {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+      }
+      .floating-map-toggle {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 50;
+      }
+      .floating-map-toggle button {
+        background: linear-gradient(135deg, #10b981, #059669);
+        transition: all 0.3s ease;
+      }
+      .floating-map-toggle button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Breadcrumb Navigation -->
+    <nav class="bg-white border-b border-gray-200 py-3">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center space-x-2 text-sm">
+          <a
+            href="#"
+            class="breadcrumb-item text-gray-600 hover:text-green-600 transition-colors"
+          >
+            <i class="fas fa-home mr-1"></i>Home
+          </a>
+          <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+          <a
+            href="#"
+            class="breadcrumb-item text-gray-600 hover:text-green-600 transition-colors"
+            >Cities</a
+          >
+          <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+          <a
+            href="#"
+            class="breadcrumb-item text-gray-600 hover:text-green-600 transition-colors"
+            >Dehradun</a
+          >
+          <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+          <span class="text-green-600 font-medium">Places to Visit</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="hero-bg h-96 flex items-center justify-center text-white relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-green-900/30 to-blue-900/30"
+      ></div>
+      <div class="text-center max-w-5xl px-4 relative z-10">
+        <div
+          class="category-icon w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+        >
+          <i class="fas fa-map-marked-alt text-white text-3xl"></i>
+        </div>
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          Places to Visit in Dehradun
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-green-100 max-w-4xl mx-auto leading-relaxed mb-8"
+        >
+          Discover the must-see attractions, hidden gems, and cultural hotspots
+          in the capital of Uttarakhand. From natural wonders to historical
+          landmarks, explore what makes Dehradun special.
+        </p>
+
+        <!-- Stats -->
+        <div class="flex flex-wrap justify-center gap-6 text-sm">
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-map-marker-alt mr-2"></i>
+            <span class="font-semibold">15+ Tourist Spots</span>
+          </div>
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-clock mr-2"></i>
+            <span class="font-semibold">2-3 Days Recommended</span>
+          </div>
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-rupee-sign mr-2"></i>
+            <span class="font-semibold">Budget Friendly</span>
+          </div>
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-camera mr-2"></i>
+            <span class="font-semibold">Instagram Worthy</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter and View Toggle Section -->
+    <section
+      class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 py-6"
+    >
+      <div class="container mx-auto px-4">
+        <div
+          class="flex flex-col lg:flex-row gap-4 items-center justify-between"
+        >
+          <!-- Category Filters -->
+          <div class="flex flex-wrap gap-3">
+            <span
+              class="text-sm font-semibold text-gray-700 mr-2 flex items-center"
+              >Filter by Category:</span
+            >
+            <button
+              class="filter-chip active px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="all"
+            >
+              <i class="fas fa-th-large mr-1"></i>All Spots
+            </button>
+            <button
+              class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="nature"
+            >
+              <i class="fas fa-leaf mr-1"></i>Nature
+            </button>
+            <button
+              class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="religious"
+            >
+              <i class="fas fa-om mr-1"></i>Religious
+            </button>
+            <button
+              class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="historical"
+            >
+              <i class="fas fa-landmark mr-1"></i>Historical
+            </button>
+            <button
+              class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="adventure"
+            >
+              <i class="fas fa-mountain mr-1"></i>Adventure
+            </button>
+            <button
+              class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="museums"
+            >
+              <i class="fas fa-university mr-1"></i>Museums
+            </button>
+          </div>
+
+          <!-- View Toggle and Results -->
+          <div class="flex items-center gap-4">
+            <div class="view-toggle rounded-full p-1 flex">
+              <button
+                id="grid-view"
+                class="view-toggle active px-4 py-2 rounded-full text-sm font-medium transition-all"
+              >
+                <i class="fas fa-th mr-1"></i>Grid
+              </button>
+              <button
+                id="map-view"
+                class="view-toggle px-4 py-2 rounded-full text-sm font-medium transition-all"
+              >
+                <i class="fas fa-map mr-1"></i>Map
+              </button>
+            </div>
+            <span class="text-sm text-gray-600" id="results-count"
+              >Showing 15 tourist spots</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Spots Section -->
+    <section class="py-12 bg-gradient-to-br from-green-50 to-blue-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Editor's Picks</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Don't miss these must-visit attractions that define the essence of
+            Dehradun
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Robber's Cave - Featured -->
+          <div
+            class="featured-card spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer relative"
+            data-category="nature adventure"
+            data-spot="robbers-cave"
+          >
+            <div
+              class="featured-ribbon absolute top-4 left-0 z-20 text-white px-4 py-1 text-xs font-bold transform -rotate-45 -translate-x-3 translate-y-3"
+            >
+              EDITOR'S PICK
+            </div>
+
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Robber's Cave"
+                class="spot-image w-full h-full object-cover"
+              />
+
+              <!-- Entry Fee Badge -->
+              <div
+                class="entry-badge absolute top-4 right-4 bg-green-500/90 text-white px-3 py-1 rounded-full text-xs font-semibold"
+              >
+                ₹25 Entry
+              </div>
+
+              <!-- Overlay -->
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                Robber's Cave (Guchhupani)
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Natural river cave formation with crystal clear water flowing
+                through limestone rocks
+              </p>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Nature</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Adventure</span
+                >
+                <span
+                  class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Photography</span
+                >
+              </div>
+
+              <!-- Details -->
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center justify-between text-sm">
+                  <span class="timing-badge px-2 py-1 rounded-full"
+                    >9:00 AM - 6:00 PM</span
+                  >
+                  <span class="duration-badge px-2 py-1 rounded-full"
+                    >2-3 hours</span
+                  >
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="rating-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span class="text-gray-600 text-sm ml-1"
+                      >4.5 (2.1k reviews)</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors"
+              >
+                <i class="fas fa-info-circle mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Sahastradhara - Featured -->
+          <div
+            class="featured-card spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer relative"
+            data-category="nature"
+            data-spot="sahastradhara"
+          >
+            <div
+              class="featured-ribbon absolute top-4 left-0 z-20 text-white px-4 py-1 text-xs font-bold transform -rotate-45 -translate-x-3 translate-y-3"
+            >
+              EDITOR'S PICK
+            </div>
+
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Sahastradhara"
+                class="spot-image w-full h-full object-cover"
+              />
+              <div
+                class="entry-badge absolute top-4 right-4 bg-blue-500/90 text-white px-3 py-1 rounded-full text-xs font-semibold"
+              >
+                Free Entry
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                Sahastradhara
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Thousand-fold spring with therapeutic sulphur water cascading
+                down limestone caves
+              </p>
+
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Nature</span
+                >
+                <span
+                  class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Wellness</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Therapeutic</span
+                >
+              </div>
+
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center justify-between text-sm">
+                  <span class="timing-badge px-2 py-1 rounded-full"
+                    >6:00 AM - 8:00 PM</span
+                  >
+                  <span class="duration-badge px-2 py-1 rounded-full"
+                    >1-2 hours</span
+                  >
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="rating-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span class="text-gray-600 text-sm ml-1"
+                      >4.2 (1.8k reviews)</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors"
+              >
+                <i class="fas fa-info-circle mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Forest Research Institute - Featured -->
+          <div
+            class="featured-card spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer relative"
+            data-category="historical museums"
+            data-spot="forest-research-institute"
+          >
+            <div
+              class="featured-ribbon absolute top-4 left-0 z-20 text-white px-4 py-1 text-xs font-bold transform -rotate-45 -translate-x-3 translate-y-3"
+            >
+              EDITOR'S PICK
+            </div>
+
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Forest Research Institute"
+                class="spot-image w-full h-full object-cover"
+              />
+              <div
+                class="entry-badge absolute top-4 right-4 bg-orange-500/90 text-white px-3 py-1 rounded-full text-xs font-semibold"
+              >
+                ₹50 Entry
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg"
+                >
+                  <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                Forest Research Institute
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Magnificent colonial architecture housing forestry museum and
+                research facilities
+              </p>
+
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Historical</span
+                >
+                <span
+                  class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Museums</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >Architecture</span
+                >
+              </div>
+
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center justify-between text-sm">
+                  <span class="timing-badge px-2 py-1 rounded-full"
+                    >10:00 AM - 5:00 PM</span
+                  >
+                  <span class="duration-badge px-2 py-1 rounded-full"
+                    >2-3 hours</span
+                  >
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="rating-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span class="text-gray-600 text-sm ml-1"
+                      >4.6 (1.5k reviews)</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors"
+              >
+                <i class="fas fa-info-circle mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Tourist Spots Grid -->
+    <section class="py-16" id="spots-grid-section">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            All Tourist Spots in Dehradun
+          </h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Explore every corner of Dehradun with our comprehensive guide to the
+            city's most captivating destinations
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+          id="spots-grid"
+        >
+          <!-- Mindrolling Monastery -->
+          <div
+            class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-category="religious"
+            data-spot="mindrolling-monastery"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Mindrolling Monastery"
+                class="spot-image w-full h-full object-cover"
+              />
+              <div
+                class="entry-badge absolute top-3 right-3 bg-blue-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Free Entry
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+              </div>
+            </div>
+            <div class="p-5">
+              <h4 class="text-lg font-bold text-gray-900 mb-2">
+                Mindrolling Monastery
+              </h4>
+              <p class="text-gray-600 text-sm mb-3">
+                Beautiful Tibetan Buddhist monastery with stunning architecture
+                and peaceful gardens
+              </p>
+
+              <div class="flex flex-wrap gap-1 mb-3">
+                <span
+                  class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs"
+                  >Religious</span
+                >
+                <span
+                  class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs"
+                  >Architecture</span
+                >
+              </div>
+
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full"
+                  >6:00 AM - 8:00 PM</span
+                >
+                <span class="duration-badge px-2 py-1 rounded-full"
+                  >1-2 hrs</span
+                >
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <span class="text-gray-600 ml-1">4.4</span>
+                </div>
+                <button
+                  class="bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tapkeshwar Temple -->
+          <div
+            class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-category="religious"
+            data-spot="tapkeshwar-temple"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Tapkeshwar Temple"
+                class="spot-image w-full h-full object-cover"
+              />
+              <div
+                class="entry-badge absolute top-3 right-3 bg-blue-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Free Entry
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+              </div>
+            </div>
+            <div class="p-5">
+              <h4 class="text-lg font-bold text-gray-900 mb-2">
+                Tapkeshwar Temple
+              </h4>
+              <p class="text-gray-600 text-sm mb-3">
+                Ancient cave temple dedicated to Lord Shiva with natural water
+                dripping on the Shivling
+              </p>
+
+              <div class="flex flex-wrap gap-1 mb-3">
+                <span
+                  class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs"
+                  >Religious</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs"
+                  >Cave</span
+                >
+              </div>
+
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full"
+                  >5:00 AM - 9:00 PM</span
+                >
+                <span class="duration-badge px-2 py-1 rounded-full">1 hr</span>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <span class="text-gray-600 ml-1">4.1</span>
+                </div>
+                <button
+                  class="bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Malsi Deer Park -->
+          <div
+            class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-category="nature"
+            data-spot="malsi-deer-park"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Malsi Deer Park"
+                class="spot-image w-full h-full object-cover"
+              />
+              <div
+                class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                ₹20 Entry
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+              </div>
+            </div>
+            <div class="p-5">
+              <h4 class="text-lg font-bold text-gray-900 mb-2">
+                Malsi Deer Park
+              </h4>
+              <p class="text-gray-600 text-sm mb-3">
+                Wildlife sanctuary with deer, peacocks and other animals in
+                natural habitat
+              </p>
+
+              <div class="flex flex-wrap gap-1 mb-3">
+                <span
+                  class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs"
+                  >Nature</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs"
+                  >Wildlife</span
+                >
+              </div>
+
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full"
+                  >9:00 AM - 6:00 PM</span
+                >
+                <span class="duration-badge px-2 py-1 rounded-full"
+                  >2-3 hrs</span
+                >
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <span class="text-gray-600 ml-1">3.9</span>
+                </div>
+                <button
+                  class="bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clock Tower -->
+          <div
+            class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-category="historical"
+            data-spot="clock-tower"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Clock Tower"
+                class="spot-image w-full h-full object-cover"
+              />
+              <div
+                class="entry-badge absolute top-3 right-3 bg-blue-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Free Entry
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+              </div>
+            </div>
+            <div class="p-5">
+              <h4 class="text-lg font-bold text-gray-900 mb-2">
+                Clock Tower (Ghanta Ghar)
+              </h4>
+              <p class="text-gray-600 text-sm mb-3">
+                Iconic landmark and bustling market area in the heart of
+                Dehradun
+              </p>
+
+              <div class="flex flex-wrap gap-1 mb-3">
+                <span
+                  class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs"
+                  >Historical</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs"
+                  >Shopping</span
+                >
+              </div>
+
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full"
+                  >24/7 Open</span
+                >
+                <span class="duration-badge px-2 py-1 rounded-full"
+                  >30 mins</span
+                >
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <i class="far fa-star"></i>
+                  <span class="text-gray-600 ml-1">3.7</span>
+                </div>
+                <button
+                  class="bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lachhiwala -->
+          <div
+            class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-category="nature adventure"
+            data-spot="lachhiwala"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Lachhiwala"
+                class="spot-image w-full h-full object-cover"
+              />
+              <div
+                class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                ₹30 Entry
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+              </div>
+            </div>
+            <div class="p-5">
+              <h4 class="text-lg font-bold text-gray-900 mb-2">Lachhiwala</h4>
+              <p class="text-gray-600 text-sm mb-3">
+                Natural picnic spot with man-made pools and lush green
+                surroundings
+              </p>
+
+              <div class="flex flex-wrap gap-1 mb-3">
+                <span
+                  class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs"
+                  >Nature</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs"
+                  >Picnic</span
+                >
+              </div>
+
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full"
+                  >8:00 AM - 6:00 PM</span
+                >
+                <span class="duration-badge px-2 py-1 rounded-full"
+                  >3-4 hrs</span
+                >
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <span class="text-gray-600 ml-1">4.0</span>
+                </div>
+                <button
+                  class="bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rajaji National Park -->
+          <div
+            class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-category="nature adventure"
+            data-spot="rajaji-national-park"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Rajaji National Park"
+                class="spot-image w-full h-full object-cover"
+              />
+              <div
+                class="entry-badge absolute top-3 right-3 bg-orange-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                ₹150 Entry
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+              </div>
+            </div>
+            <div class="p-5">
+              <h4 class="text-lg font-bold text-gray-900 mb-2">
+                Rajaji National Park
+              </h4>
+              <p class="text-gray-600 text-sm mb-3">
+                Wildlife sanctuary famous for elephants, tigers and diverse
+                flora and fauna
+              </p>
+
+              <div class="flex flex-wrap gap-1 mb-3">
+                <span
+                  class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs"
+                  >Nature</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs"
+                  >Wildlife</span
+                >
+                <span
+                  class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs"
+                  >Safari</span
+                >
+              </div>
+
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full"
+                  >6:00 AM - 6:00 PM</span
+                >
+                <span class="duration-badge px-2 py-1 rounded-full"
+                  >4-5 hrs</span
+                >
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <span class="text-gray-600 ml-1">4.3</span>
+                </div>
+                <button
+                  class="bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wadia Institute of Himalayan Geology -->
+          <div
+            class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-category="museums"
+            data-spot="wadia-institute"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Wadia Institute"
+                class="spot-image w-full h-full object-cover"
+              />
+              <div
+                class="entry-badge absolute top-3 right-3 bg-blue-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Free Entry
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+              </div>
+            </div>
+            <div class="p-5">
+              <h4 class="text-lg font-bold text-gray-900 mb-2">
+                Wadia Institute
+              </h4>
+              <p class="text-gray-600 text-sm mb-3">
+                Geological museum showcasing Himalayan geology and mineral
+                collections
+              </p>
+
+              <div class="flex flex-wrap gap-1 mb-3">
+                <span
+                  class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs"
+                  >Museums</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs"
+                  >Science</span
+                >
+              </div>
+
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full"
+                  >10:00 AM - 5:00 PM</span
+                >
+                <span class="duration-badge px-2 py-1 rounded-full"
+                  >1-2 hrs</span
+                >
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <span class="text-gray-600 ml-1">4.0</span>
+                </div>
+                <button
+                  class="bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tibetan Temple -->
+          <div
+            class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer"
+            data-category="religious"
+            data-spot="tibetan-temple"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Tibetan Temple"
+                class="spot-image w-full h-full object-cover"
+              />
+              <div
+                class="entry-badge absolute top-3 right-3 bg-blue-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Free Entry
+              </div>
+              <div
+                class="overlay absolute inset-0 flex items-center justify-center"
+              >
+                <div
+                  class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold"
+                >
+                  <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+              </div>
+            </div>
+            <div class="p-5">
+              <h4 class="text-lg font-bold text-gray-900 mb-2">
+                Tibetan Temple
+              </h4>
+              <p class="text-gray-600 text-sm mb-3">
+                Serene Buddhist temple with traditional Tibetan architecture and
+                prayer wheels
+              </p>
+
+              <div class="flex flex-wrap gap-1 mb-3">
+                <span
+                  class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs"
+                  >Religious</span
+                >
+                <span
+                  class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs"
+                  >Buddhist</span
+                >
+              </div>
+
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full"
+                  >6:00 AM - 8:00 PM</span
+                >
+                <span class="duration-badge px-2 py-1 rounded-full">1 hr</span>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <span class="text-gray-600 ml-1">4.2</span>
+                </div>
+                <button
+                  class="bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div id="no-results" class="text-center py-16 hidden">
+          <div class="text-gray-400 mb-4">
+            <i class="fas fa-search text-6xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-600 mb-2">
+            No tourist spots found
+          </h3>
+          <p class="text-gray-500">
+            Try adjusting your filters to see more results.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map View Section -->
+    <section class="py-16 hidden" id="map-section">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Tourist Spots Map View
+          </h2>
+          <p class="text-lg text-gray-600">
+            Explore Dehradun's attractions on an interactive map
+          </p>
+        </div>
+
+        <div class="map-container bg-gray-200 flex items-center justify-center">
+          <div id="map" class="w-full h-full"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-gradient-to-r from-green-600 to-blue-600 py-16">
+      <div class="container mx-auto px-4 text-center text-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Ready to Explore Dehradun?
+        </h2>
+        <p class="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+          From natural wonders to cultural treasures, Dehradun offers
+          unforgettable experiences. Start planning your perfect itinerary
+          today!
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            class="bg-white text-green-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors text-lg"
+          >
+            <i class="fas fa-route mr-2"></i>Plan Your Itinerary
+          </button>
+          <button
+            class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-green-600 transition-colors text-lg"
+          >
+            <i class="fas fa-phone mr-2"></i>Contact Local Guide
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Map Toggle -->
+    <div class="floating-map-toggle">
+      <button
+        id="floating-toggle"
+        class="w-14 h-14 rounded-full text-white shadow-lg"
+      >
+        <i class="fas fa-map text-xl"></i>
+      </button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      // Filter functionality
+      const filterChips = document.querySelectorAll(".filter-chip");
+      const spotCards = document.querySelectorAll(".spot-card");
+      const resultsCount = document.getElementById("results-count");
+      const noResults = document.getElementById("no-results");
+      const gridView = document.getElementById("grid-view");
+      const mapView = document.getElementById("map-view");
+      const spotsGridSection = document.getElementById("spots-grid-section");
+      const mapSection = document.getElementById("map-section");
+      const floatingToggle = document.getElementById("floating-toggle");
+
+      let currentCategory = "all";
+      let currentView = "grid";
+      let map = null;
+
+      // Category filter functionality
+      filterChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          // Remove active class from all chips
+          filterChips.forEach((c) => c.classList.remove("active"));
+          // Add active class to clicked chip
+          chip.classList.add("active");
+
+          currentCategory = chip.getAttribute("data-category");
+          applyFilters();
+        });
+      });
+
+      // View toggle functionality
+      gridView.addEventListener("click", () => {
+        if (currentView !== "grid") {
+          currentView = "grid";
+          updateViewToggle();
+          showGridView();
+        }
+      });
+
+      mapView.addEventListener("click", () => {
+        if (currentView !== "map") {
+          currentView = "map";
+          updateViewToggle();
+          showMapView();
+        }
+      });
+
+      floatingToggle.addEventListener("click", () => {
+        if (currentView === "grid") {
+          currentView = "map";
+          updateViewToggle();
+          showMapView();
+        } else {
+          currentView = "grid";
+          updateViewToggle();
+          showGridView();
+        }
+      });
+
+      function updateViewToggle() {
+        if (currentView === "grid") {
+          gridView.classList.add("active");
+          mapView.classList.remove("active");
+          floatingToggle.innerHTML = '<i class="fas fa-map text-xl"></i>';
+        } else {
+          mapView.classList.add("active");
+          gridView.classList.remove("active");
+          floatingToggle.innerHTML = '<i class="fas fa-th text-xl"></i>';
+        }
+      }
+
+      function showGridView() {
+        spotsGridSection.classList.remove("hidden");
+        mapSection.classList.add("hidden");
+      }
+
+      function showMapView() {
+        spotsGridSection.classList.add("hidden");
+        mapSection.classList.remove("hidden");
+        initializeMap();
+      }
+
+      function initializeMap() {
+        if (!map) {
+          map = L.map("map").setView([30.3165, 78.0322], 12);
+
+          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: "© OpenStreetMap contributors",
+          }).addTo(map);
+
+          // Add markers for tourist spots
+          const spots = [
+            {
+              name: "Robber's Cave",
+              lat: 30.3739,
+              lng: 78.0322,
+              category: "nature",
+            },
+            {
+              name: "Sahastradhara",
+              lat: 30.3254,
+              lng: 78.0101,
+              category: "nature",
+            },
+            {
+              name: "Forest Research Institute",
+              lat: 30.3398,
+              lng: 78.0177,
+              category: "historical",
+            },
+            {
+              name: "Mindrolling Monastery",
+              lat: 30.3165,
+              lng: 78.0322,
+              category: "religious",
+            },
+            {
+              name: "Tapkeshwar Temple",
+              lat: 30.3254,
+              lng: 78.0101,
+              category: "religious",
+            },
+            {
+              name: "Malsi Deer Park",
+              lat: 30.3739,
+              lng: 78.0322,
+              category: "nature",
+            },
+            {
+              name: "Clock Tower",
+              lat: 30.3165,
+              lng: 78.0322,
+              category: "historical",
+            },
+            { name: "Lachhiwala", lat: 30.25, lng: 78.05, category: "nature" },
+          ];
+
+          spots.forEach((spot) => {
+            const marker = L.marker([spot.lat, spot.lng]).addTo(map);
+            marker.bindPopup(
+              `<b>${spot.name}</b><br>Category: ${spot.category}`
+            );
+          });
+        }
+      }
+
+      function applyFilters() {
+        let visibleCount = 0;
+
+        spotCards.forEach((card) => {
+          const categories = card.getAttribute("data-category");
+
+          // Check if card matches current category
+          const matchesCategory =
+            currentCategory === "all" ||
+            (categories && categories.includes(currentCategory));
+
+          if (matchesCategory) {
+            card.style.display = "block";
+            visibleCount++;
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        // Update results count
+        const categoryText =
+          currentCategory === "all"
+            ? "tourist spots"
+            : `${currentCategory} spots`;
+        resultsCount.textContent = `Showing ${visibleCount} ${categoryText}`;
+
+        // Show/hide no results message
+        if (visibleCount === 0) {
+          noResults.classList.remove("hidden");
+        } else {
+          noResults.classList.add("hidden");
+        }
+      }
+
+      // Spot card click functionality
+      spotCards.forEach((card) => {
+        card.addEventListener("click", (e) => {
+          // Don't trigger if clicking on buttons
+          if (e.target.closest("button")) {
+            return;
+          }
+
+          const spotName = card.getAttribute("data-spot");
+          console.log(
+            `Navigating to /cities/dehradun/tourist-spots/${spotName}`
+          );
+          // In a real app, this would navigate to the spot detail page
+          window.location.href = `#/cities/dehradun/tourist-spots/${spotName}`;
+        });
+      });
+
+      // Smooth scroll reveal animation
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        spotCards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(50px)";
+          card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+          observer.observe(card);
+        });
+      });
+
+      // Breadcrumb navigation
+      document.querySelectorAll(".breadcrumb-item").forEach((item) => {
+        item.addEventListener("click", (e) => {
+          e.preventDefault();
+          const href = item.getAttribute("href");
+          if (href && href !== "#") {
+            console.log(`Navigating to ${href}`);
+            // window.location.href = href;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

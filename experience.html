@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top 30 Things To Do in Dehradun - Wanderly</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#059669",
+              "primary-light": "#10b981",
+              secondary: "#0ea5e9",
+              accent: "#f59e0b",
+              earth: "#92400e",
+              nature: "#16a34a",
+              adventure: "#dc2626",
+              heritage: "#7c3aed",
+              food: "#ea580c",
+              spiritual: "#8b5cf6",
+              culture: "#ec4899",
+              shopping: "#0891b2",
+              surface: "#f8fafc",
+              "surface-dark": "#e2e8f0",
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .experience-card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .experience-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url("https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .filter-button {
+        transition: all 0.3s ease;
+      }
+      .filter-button.active {
+        background: linear-gradient(135deg, #059669, #10b981);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(5, 150, 105, 0.3);
+      }
+      .category-badge {
+        backdrop-filter: blur(10px);
+      }
+      .price-badge {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+      }
+      .duration-badge {
+        background: linear-gradient(135deg, #0ea5e9, #0284c7);
+      }
+      .navbar-blur {
+        backdrop-filter: blur(20px);
+        background: rgba(255, 255, 255, 0.95);
+      }
+      .masonry-grid {
+        column-count: 1;
+        column-gap: 1.5rem;
+      }
+      @media (min-width: 640px) {
+        .masonry-grid {
+          column-count: 2;
+        }
+      }
+      @media (min-width: 1024px) {
+        .masonry-grid {
+          column-count: 3;
+        }
+      }
+      @media (min-width: 1280px) {
+        .masonry-grid {
+          column-count: 4;
+        }
+      }
+      .masonry-item {
+        break-inside: avoid;
+        margin-bottom: 1.5rem;
+      }
+      .image-placeholder {
+        background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .image-placeholder::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        animation: shimmer 2s infinite;
+      }
+      @keyframes shimmer {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+      .floating-stats {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 40;
+      }
+    </style>
+  </head>
+  <body class="bg-surface font-sans">
+    <!-- Navigation -->
+    <nav class="navbar-blur sticky top-0 z-50 border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center"
+            >
+              <i class="fas fa-compass text-white text-lg"></i>
+            </div>
+            <div>
+              <span class="text-xl font-bold text-gray-900">Wanderly</span>
+              <div class="text-xs text-gray-500">
+                Explore. Discover. Wander.
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Links -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#"
+              class="text-gray-600 hover:text-primary transition-colors font-medium"
+              >Home</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 hover:text-primary transition-colors font-medium"
+              >Explore</a
+            >
+            <a
+              href="#"
+              class="text-primary font-semibold border-b-2 border-primary pb-1"
+              >Experiences</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 hover:text-primary transition-colors font-medium"
+              >My Account</a
+            >
+          </div>
+
+          <!-- CTA Button -->
+          <div class="flex items-center space-x-4">
+            <button
+              class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-light transition-colors font-medium"
+            >
+              <i class="fas fa-heart mr-2"></i>Wishlist
+            </button>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-600 hover:text-gray-900">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="hero-bg min-h-[70vh] flex items-center justify-center text-white relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30"
+      ></div>
+      <div class="text-center max-w-6xl px-4 relative z-10">
+        <!-- Location Badge -->
+        <div
+          class="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-md rounded-full px-4 py-2 mb-6"
+        >
+          <i class="fas fa-map-marker-alt text-accent"></i>
+          <span class="text-sm font-medium">Dehradun, Uttarakhand</span>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">
+          Top 30 Things To Do in Dehradun
+        </h1>
+
+        <!-- Subheading -->
+        <p
+          class="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-12"
+        >
+          Discover unique experiences, hidden gems, and unforgettable activities
+          for every traveler.
+        </p>
+
+        <!-- Hero Stats -->
+        <div class="flex flex-wrap justify-center gap-6 text-sm mb-8">
+          <div class="bg-white/20 backdrop-blur-md px-6 py-3 rounded-full">
+            <i class="fas fa-star mr-2"></i>
+            <span class="font-semibold">30 Curated Experiences</span>
+          </div>
+          <div class="bg-white/20 backdrop-blur-md px-6 py-3 rounded-full">
+            <i class="fas fa-users mr-2"></i>
+            <span class="font-semibold">For All Travelers</span>
+          </div>
+          <div class="bg-white/20 backdrop-blur-md px-6 py-3 rounded-full">
+            <i class="fas fa-clock mr-2"></i>
+            <span class="font-semibold">Updated Daily</span>
+          </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="animate-bounce">
+          <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="py-8 bg-white sticky top-16 z-40 border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap justify-center gap-3">
+          <button
+            class="filter-button active px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium"
+            data-filter="all"
+          >
+            <i class="fas fa-th-large mr-2"></i>All
+          </button>
+          <button
+            class="filter-button px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium"
+            data-filter="adventure"
+          >
+            <i class="fas fa-mountain mr-2"></i>Adventure
+          </button>
+          <button
+            class="filter-button px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium"
+            data-filter="nature"
+          >
+            <i class="fas fa-leaf mr-2"></i>Nature
+          </button>
+          <button
+            class="filter-button px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium"
+            data-filter="spiritual"
+          >
+            <i class="fas fa-om mr-2"></i>Spiritual
+          </button>
+          <button
+            class="filter-button px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium"
+            data-filter="food"
+          >
+            <i class="fas fa-utensils mr-2"></i>Food Experiences
+          </button>
+          <button
+            class="filter-button px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium"
+            data-filter="shopping"
+          >
+            <i class="fas fa-shopping-bag mr-2"></i>Shopping
+          </button>
+          <button
+            class="filter-button px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium"
+            data-filter="culture"
+          >
+            <i class="fas fa-palette mr-2"></i>Art & Culture
+          </button>
+          <button
+            class="filter-button px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium"
+            data-filter="heritage"
+          >
+            <i class="fas fa-landmark mr-2"></i>Heritage
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiences Grid -->
+    <section class="py-16 bg-gradient-to-br from-surface to-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Results Counter -->
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Explore Amazing Experiences
+          </h2>
+          <p class="text-gray-600">
+            Showing
+            <span id="results-count" class="font-semibold text-primary"
+              >30</span
+            >
+            experiences
+          </p>
+        </div>
+
+        <!-- Masonry Grid -->
+        <div class="masonry-grid" id="experiences-grid">
+          <!-- Experience cards will be injected here by the script. -->
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Markets & Shopping in Dehradun | TravelHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              secondary: "#f59e0b",
+              accent: "#10b981",
+              coral: "#ff6b6b",
+              purple: "#8b5cf6",
+              teal: "#06b6d4",
+              rose: "#f43f5e",
+            },
+            animation: {
+              "fade-in": "fadeIn 0.6s ease-in-out",
+              "slide-up": "slideUp 0.6s ease-out",
+              "zoom-in": "zoomIn 0.3s ease-out",
+              "bounce-gentle": "bounceGentle 2s infinite",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.95);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes bounceGentle {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-10px);
+        }
+        60% {
+          transform: translateY(-5px);
+        }
+      }
+
+      .card-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+
+      .card-hover:hover .card-image {
+        transform: scale(1.05);
+      }
+
+      .card-image {
+        transition: transform 0.3s ease;
+      }
+
+      .filter-active {
+        background: linear-gradient(135deg, #2563eb, #8b5cf6);
+        color: white;
+      }
+
+      .hero-overlay {
+        background: linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.8),
+          rgba(139, 92, 246, 0.6)
+        );
+      }
+
+      .bargain-tip {
+        background: linear-gradient(135deg, #10b981, #06b6d4);
+      }
+
+      .popular-item {
+        background: linear-gradient(135deg, #f59e0b, #f97316);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .market-card {
+        background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+      }
+
+      .category-traditional {
+        @apply bg-amber-100 text-amber-800;
+      }
+      .category-street {
+        @apply bg-green-100 text-green-800;
+      }
+      .category-handicraft {
+        @apply bg-purple-100 text-purple-800;
+      }
+      .category-food {
+        @apply bg-red-100 text-red-800;
+      }
+      .category-clothing {
+        @apply bg-blue-100 text-blue-800;
+      }
+      .category-electronics {
+        @apply bg-gray-100 text-gray-800;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-8">
+            <h1
+              class="text-2xl font-bold bg-gradient-to-r from-primary to-purple bg-clip-text text-transparent"
+            >
+              TravelHub
+            </h1>
+            <div class="hidden md:flex relative">
+              <input
+                type="text"
+                placeholder="Search markets..."
+                class="w-80 pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+              <i
+                data-lucide="search"
+                class="absolute left-3 top-2.5 h-5 w-5 text-gray-400"
+              ></i>
+            </div>
+          </div>
+          <div class="flex items-center space-x-6">
+            <a
+              href="#"
+              class="text-gray-700 hover:text-primary transition-colors font-medium"
+              >Cities</a
+            >
+            <a
+              href="#"
+              class="text-gray-700 hover:text-primary transition-colors font-medium"
+              >Shopping Guide</a
+            >
+            <button
+              class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Sign In
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <nav class="flex text-sm text-gray-500">
+          <a href="#" class="hover:text-primary transition-colors">Home</a>
+          <i data-lucide="chevron-right" class="h-4 w-4 mx-2"></i>
+          <a href="#" class="hover:text-primary transition-colors">Cities</a>
+          <i data-lucide="chevron-right" class="h-4 w-4 mx-2"></i>
+          <a href="#" class="hover:text-primary transition-colors">Dehradun</a>
+          <i data-lucide="chevron-right" class="h-4 w-4 mx-2"></i>
+          <span class="text-gray-900 font-medium">Local Markets</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section
+      class="relative h-96 bg-cover bg-center"
+      style="background-image: url('/placeholder.svg?height=400&width=1200')"
+    >
+      <div class="hero-overlay absolute inset-0"></div>
+      <div
+        class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center"
+      >
+        <div class="text-white animate-slide-up">
+          <h1 class="text-5xl md:text-6xl font-bold mb-4">
+            Local Markets in <span class="text-yellow-300">Dehradun</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-100 max-w-3xl mb-6">
+            Discover authentic shopping experiences, local crafts, and the best
+            bargains in the city
+          </p>
+          <div class="flex items-center space-x-6 text-sm">
+            <div class="flex items-center space-x-2">
+              <i data-lucide="shopping-bag" class="h-5 w-5"></i>
+              <span>15+ Markets</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i data-lucide="map-pin" class="h-5 w-5"></i>
+              <span>All Locations Mapped</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i data-lucide="clock" class="h-5 w-5"></i>
+              <span>Updated Timings</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section
+      class="bg-white shadow-sm -mt-16 relative z-10 mx-4 md:mx-8 rounded-2xl"
+    >
+      <div class="max-w-7xl mx-auto px-6 py-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary mb-2">15+</div>
+            <div class="text-gray-600">Markets</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-accent mb-2">500+</div>
+            <div class="text-gray-600">Shops</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-secondary mb-2">50+</div>
+            <div class="text-gray-600">Categories</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-coral mb-2">24/7</div>
+            <div class="text-gray-600">Some Markets</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="py-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0"
+        >
+          <!-- Category Filters -->
+          <div class="flex flex-wrap gap-3">
+            <button
+              class="filter-btn filter-active px-4 py-2 rounded-full text-sm font-medium transition-all"
+              data-filter="all"
+            >
+              All Markets
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all"
+              data-filter="traditional"
+            >
+              🏛️ Traditional
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all"
+              data-filter="street"
+            >
+              🛣️ Street Markets
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all"
+              data-filter="handicraft"
+            >
+              🎨 Handicrafts
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all"
+              data-filter="food"
+            >
+              🍽️ Food Markets
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all"
+              data-filter="clothing"
+            >
+              👕 Clothing
+            </button>
+          </div>
+
+          <!-- Sort Options -->
+          <div class="flex items-center space-x-4">
+            <span class="text-sm text-gray-600">Sort by:</span>
+            <select
+              class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              <option>Most Popular</option>
+              <option>Nearest</option>
+              <option>Best for Bargains</option>
+              <option>Recently Updated</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Markets -->
+    <section class="py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            🌟 Featured Markets
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Must-visit markets that offer the best shopping experience in
+            Dehradun
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          <!-- Featured Market 1 -->
+          <div
+            class="market-card card-hover rounded-2xl shadow-lg overflow-hidden"
+            data-category="traditional"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="/placeholder.svg?height=260&width=500"
+                alt="Paltan Bazaar"
+                class="card-image w-full h-full object-cover"
+              />
+              <div class="absolute top-4 left-4">
+                <span
+                  class="bg-gradient-to-r from-secondary to-coral text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  Most Popular
+                </span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <button
+                  class="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                >
+                  <i data-lucide="map-pin" class="h-4 w-4 text-primary"></i>
+                </button>
+              </div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <div
+                  class="bg-black/70 backdrop-blur-sm rounded-lg p-3 text-white"
+                >
+                  <h3 class="text-xl font-bold mb-1">Paltan Bazaar</h3>
+                  <p class="text-sm text-gray-200">
+                    The heart of Dehradun's shopping scene
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="mb-4">
+                <p class="text-gray-600 text-sm mb-3">
+                  Dehradun's oldest and most vibrant market, offering everything
+                  from traditional clothing to modern electronics. A shopper's
+                  paradise with over 200 shops.
+                </p>
+                <div class="flex items-center space-x-4 text-xs text-gray-500">
+                  <span class="flex items-center space-x-1">
+                    <i data-lucide="clock" class="h-3 w-3"></i>
+                    <span>10 AM - 9 PM</span>
+                  </span>
+                  <span class="flex items-center space-x-1">
+                    <i data-lucide="car" class="h-3 w-3"></i>
+                    <span>Parking Available</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="font-semibold text-gray-900 mb-2">Popular Items:</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="popular-item text-white px-3 py-1 rounded-full text-xs font-medium"
+                    >Clothing</span
+                  >
+                  <span
+                    class="popular-item text-white px-3 py-1 rounded-full text-xs font-medium"
+                    >Electronics</span
+                  >
+                  <span
+                    class="popular-item text-white px-3 py-1 rounded-full text-xs font-medium"
+                    >Jewelry</span
+                  >
+                  <span
+                    class="popular-item text-white px-3 py-1 rounded-full text-xs font-medium"
+                    >Books</span
+                  >
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="font-semibold text-gray-900 mb-2">
+                  💡 Bargaining Tip:
+                </h4>
+                <div class="bargain-tip text-white p-3 rounded-lg text-sm">
+                  "Start at 50% of the quoted price. Best deals available during
+                  weekday mornings!"
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="flex space-x-2">
+                  <span
+                    class="category-traditional px-3 py-1 rounded-full text-xs font-medium"
+                    >Traditional</span
+                  >
+                </div>
+                <button
+                  class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Market 2 -->
+          <div
+            class="market-card card-hover rounded-2xl shadow-lg overflow-hidden"
+            data-category="handicraft"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="/placeholder.svg?height=260&width=500"
+                alt="Tibetan Market"
+                class="card-image w-full h-full object-cover"
+              />
+              <div class="absolute top-4 left-4">
+                <span
+                  class="bg-gradient-to-r from-purple to-primary text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  Unique Finds
+                </span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <button
+                  class="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                >
+                  <i data-lucide="map-pin" class="h-4 w-4 text-primary"></i>
+                </button>
+              </div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <div
+                  class="bg-black/70 backdrop-blur-sm rounded-lg p-3 text-white"
+                >
+                  <h3 class="text-xl font-bold mb-1">Tibetan Market</h3>
+                  <p class="text-sm text-gray-200">
+                    Authentic Tibetan handicrafts and artifacts
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="mb-4">
+                <p class="text-gray-600 text-sm mb-3">
+                  A treasure trove of authentic Tibetan handicrafts, woolen
+                  items, and spiritual artifacts. Perfect for unique souvenirs
+                  and cultural items.
+                </p>
+                <div class="flex items-center space-x-4 text-xs text-gray-500">
+                  <span class="flex items-center space-x-1">
+                    <i data-lucide="clock" class="h-3 w-3"></i>
+                    <span>9 AM - 8 PM</span>
+                  </span>
+                  <span class="flex items-center space-x-1">
+                    <i data-lucide="users" class="h-3 w-3"></i>
+                    <span>Tourist Friendly</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="font-semibold text-gray-900 mb-2">Popular Items:</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="popular-item text-white px-3 py-1 rounded-full text-xs font-medium"
+                    >Woolen Items</span
+                  >
+                  <span
+                    class="popular-item text-white px-3 py-1 rounded-full text-xs font-medium"
+                    >Prayer Flags</span
+                  >
+                  <span
+                    class="popular-item text-white px-3 py-1 rounded-full text-xs font-medium"
+                    >Handicrafts</span
+                  >
+                  <span
+                    class="popular-item text-white px-3 py-1 rounded-full text-xs font-medium"
+                    >Jewelry</span
+                  >
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="font-semibold text-gray-900 mb-2">
+                  💡 Bargaining Tip:
+                </h4>
+                <div class="bargain-tip text-white p-3 rounded-lg text-sm">
+                  "Be respectful while bargaining. Quality items here are worth
+                  the price!"
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="flex space-x-2">
+                  <span
+                    class="category-handicraft px-3 py-1 rounded-full text-xs font-medium"
+                    >Handicraft</span
+                  >
+                </div>
+                <button
+                  class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- All Markets Grid -->
+    <section class="py-12 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-3xl font-bold text-gray-900">All Markets</h2>
+          <span class="text-gray-600" id="market-count"
+            >Showing 12 markets</span
+          >
+        </div>
+
+        <div
+          id="markets-grid"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <!-- Market Card 1 -->
+          <div
+            class="market-card card-hover rounded-xl shadow-lg overflow-hidden"
+            data-category="traditional"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="/placeholder.svg?height=200&width=300"
+                alt="Gandhi Road Market"
+                class="card-image w-full h-full object-cover"
+              />
+              <div class="absolute top-3 right-3">
+                <button
+                  class="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                >
+                  <i data-lucide="map-pin" class="h-4 w-4 text-primary"></i>
+                </button>
+              </div>
+              <div class="absolute bottom-3 left-3">
+                <span class="bg-green-600 text-white px-2 py-1 rounded text-xs"
+                  >Open Now</span
+                >
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                Gandhi Road Market
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">
+                Famous for books, stationery, and educational materials. A
+                student's paradise.
+              </p>
+
+              <div class="mb-3">
+                <h4 class="font-medium text-gray-900 mb-1 text-sm">
+                  Popular Items:
+                </h4>
+                <div class="flex flex-wrap gap-1">
+                  <span
+                    class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs"
+                    >Books</span
+                  >
+                  <span
+                    class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs"
+                    >Stationery</span
+                  >
+                  <span
+                    class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs"
+                    >Electronics</span
+                  >
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <h4 class="font-medium text-gray-900 mb-1 text-sm">
+                  💡 Bargaining Tip:
+                </h4>
+                <p class="text-xs text-gray-600 bg-gray-50 p-2 rounded">
+                  "Fixed prices on books, but negotiate on electronics and
+                  accessories."
+                </p>
+              </div>
+
+              <div
+                class="flex items-center justify-between text-xs text-gray-500 mb-3"
+              >
+                <span class="flex items-center space-x-1">
+                  <i data-lucide="clock" class="h-3 w-3"></i>
+                  <span>10 AM - 8 PM</span>
+                </span>
+                <span class="flex items-center space-x-1">
+                  <i data-lucide="map-pin" class="h-3 w-3"></i>
+                  <span>2.5 km from center</span>
+                </span>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <span
+                  class="category-traditional px-2 py-1 rounded-full text-xs font-medium"
+                  >Traditional</span
+                >
+                <button
+                  class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Market Card 2 -->
+          <div
+            class="market-card card-hover rounded-xl shadow-lg overflow-hidden"
+            data-category="food"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="/placeholder.svg?height=200&width=300"
+                alt="Indira Market"
+                class="card-image w-full h-full object-cover"
+              />
+              <div class="absolute top-3 right-3">
+                <button
+                  class="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                >
+                  <i data-lucide="map-pin" class="h-4 w-4 text-primary"></i>
+                </button>
+              </div>
+              <div class="absolute bottom-3 left-3">
+                <span class="bg-orange-600 text-white px-2 py-1 rounded text-xs"
+                  >Food Market</span
+                >
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                Indira Market
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">
+                Fresh vegetables, fruits, and local produce. Best prices in the
+                city.
+              </p>
+
+              <div class="mb-3">
+                <h4 class="font-medium text-gray-900 mb-1 text-sm">
+                  Popular Items:
+                </h4>
+                <div class="flex flex-wrap gap-1">
+                  <span
+                    class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs"
+                    >Vegetables</span
+                  >
+                  <span
+                    class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs"
+                    >Fruits</span
+                  >
+                  <span
+                    class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs"
+                    >Spices</span
+                  >
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <h4 class="font-medium text-gray-900 mb-1 text-sm">
+                  💡 Bargaining Tip:
+                </h4>
+                <p class="text-xs text-gray-600 bg-gray-50 p-2 rounded">
+                  "Buy in bulk for better prices. Early morning offers freshest
+                  produce."
+                </p>
+              </div>
+
+              <div
+                class="flex items-center justify-between text-xs text-gray-500 mb-3"
+              >
+                <span class="flex items-center space-x-1">
+                  <i data-lucide="clock" class="h-3 w-3"></i>
+                  <span>6 AM - 2 PM</span>
+                </span>
+                <span class="flex items-center space-x-1">
+                  <i data-lucide="map-pin" class="h-3 w-3"></i>
+                  <span>1.8 km from center</span>
+                </span>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <span
+                  class="category-food px-2 py-1 rounded-full text-xs font-medium"
+                  >Food</span
+                >
+                <button
+                  class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Market Card 3 -->
+          <div
+            class="market-card card-hover rounded-xl shadow-lg overflow-hidden"
+            data-category="street"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="/placeholder.svg?height=200&width=300"
+                alt="Rajpur Road Market"
+                class="card-image w-full h-full object-cover"
+              />
+              <div class="absolute top-3 right-3">
+                <button
+                  class="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                >
+                  <i data-lucide="map-pin" class="h-4 w-4 text-primary"></i>
+                </button>
+              </div>
+              <div class="absolute bottom-3 left-3">
+                <span class="bg-purple-600 text-white px-2 py-1 rounded text-xs"
+                  >Street Market</span
+                >
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                Rajpur Road Market
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">
+                Trendy clothing, accessories, and street food. Popular among
+                young shoppers.
+              </p>
+
+              <div class="mb-3">
+                <h4 class="font-medium text-gray-900 mb-1 text-sm">
+                  Popular Items:
+                </h4>
+                <div class="flex flex-wrap gap-1">
+                  <span
+                    class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs"
+                    >Fashion</span
+                  >
+                  <span
+                    class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs"
+                    >Accessories</span
+                  >
+                  <span
+                    class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs"
+                    >Street Food</span
+                  >
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <h4 class="font-medium text-gray-900 mb-1 text-sm">
+                  💡 Bargaining Tip:
+                </h4>
+                <p class="text-xs text-gray-600 bg-gray-50 p-2 rounded">
+                  "Evening hours offer better deals. Compare prices at multiple
+                  stalls."
+                </p>
+              </div>
+
+              <div
+                class="flex items-center justify-between text-xs text-gray-500 mb-3"
+              >
+                <span class="flex items-center space-x-1">
+                  <i data-lucide="clock" class="h-3 w-3"></i>
+                  <span>11 AM - 10 PM</span>
+                </span>
+                <span class="flex items-center space-x-1">
+                  <i data-lucide="map-pin" class="h-3 w-3"></i>
+                  <span>3.2 km from center</span>
+                </span>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <span
+                  class="category-street px-2 py-1 rounded-full text-xs font-medium"
+                  >Street</span
+                >
+                <button
+                  class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Market Card 4 -->
+          <div
+            class="market-card card-hover rounded-xl shadow-lg overflow-hidden"
+            data-category="clothing"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="/placeholder.svg?height=200&width=300"
+                alt="Sadar Bazaar"
+                class="card-image w-full h-full object-cover"
+              />
+              <div class="absolute top-3 right-3">
+                <button
+                  class="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                >
+                  <i data-lucide="map-pin" class="h-4 w-4 text-primary"></i>
+                </button>
+              </div>
+              <div class="absolute bottom-3 left-3">
+                <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs"
+                  >Wholesale</span
+                >
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                Sadar Bazaar
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">
+                Wholesale clothing market with traditional and modern wear at
+                great prices.
+              </p>
+
+              <div class="mb-3">
+                <h4 class="font-medium text-gray-900 mb-1 text-sm">
+                  Popular Items:
+                </h4>
+                <div class="flex flex-wrap gap-1">
+                  <span
+                    class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs"
+                    >Sarees</span
+                  >
+                  <span
+                    class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs"
+                    >Suits</span
+                  >
+                  <span
+                    class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs"
+                    >Fabrics</span
+                  >
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <h4 class="font-medium text-gray-900 mb-1 text-sm">
+                  💡 Bargaining Tip:
+                </h4>
+                <p class="text-xs text-gray-600 bg-gray-50 p-2 rounded">
+                  "Wholesale rates available for bulk purchases. Negotiate
+                  confidently."
+                </p>
+              </div>
+
+              <div
+                class="flex items-center justify-between text-xs text-gray-500 mb-3"
+              >
+                <span class="flex items-center space-x-1">
+                  <i data-lucide="clock" class="h-3 w-3"></i>
+                  <span>10 AM - 9 PM</span>
+                </span>
+                <span class="flex items-center space-x-1">
+                  <i data-lucide="map-pin" class="h-3 w-3"></i>
+                  <span>1.5 km from center</span>
+                </span>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <span
+                  class="category-clothing px-2 py-1 rounded-full text-xs font-medium"
+                  >Clothing</span
+                >
+                <button
+                  class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Market Card 5 -->
+          <div
+            class="market-card card-hover rounded-xl shadow-lg overflow-hidden"
+            data-category="handicraft"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="/placeholder.svg?height=200&width=300"
+                alt="Craft Bazaar"
+                class="card-image w-full h-full object-cover"
+              />
+              <div class="absolute top-3 right-3">
+                <button
+                  class="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                >
+                  <i data-lucide="map-pin" class="h-4 w-4 text-primary"></i>
+                </button>
+              </div>
+              <div class="absolute bottom-3 left-3">
+                <span class="bg-purple-600 text-white px-2 py-1 rounded text-xs"
+                  >Artisan</span
+                >
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                Craft Bazaar
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">
+                Local artisan crafts, woodwork, and traditional Garhwali items.
+              </p>
+
+              <div class="mb-3">
+                <h4 class="font-medium text-gray-900 mb-1 text-sm">
+                  Popular Items:
+                </h4>
+                <div class="flex flex-wrap gap-1">
+                  <span
+                    class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs"
+                    >Woodcraft</span
+                  >
+                  <span
+                    class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs"
+                    >Paintings</span
+                  >
+                  <span
+                    class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs"
+                    >Souvenirs</span
+                  >
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <h4 class="font-medium text-gray-900 mb-1 text-sm">
+                  💡 Bargaining Tip:
+                </h4>
+                <p class="text-xs text-gray-600 bg-gray-50 p-2 rounded">
+                  "Appreciate the craftsmanship. Gentle bargaining is
+                  acceptable."
+                </p>
+              </div>
+
+              <div
+                class="flex items-center justify-between text-xs text-gray-500 mb-3"
+              >
+                <span class="flex items-center space-x-1">
+                  <i data-lucide="clock" class="h-3 w-3"></i>
+                  <span>10 AM - 7 PM</span>
+                </span>
+                <span class="flex items-center space-x-1">
+                  <i data-lucide="map-pin" class="h-3 w-3"></i>
+                  <span>4.1 km from center</span>
+                </span>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <span
+                  class="category-handicraft px-2 py-1 rounded-full text-xs font-medium"
+                  >Handicraft</span
+                >
+                <button
+                  class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Market Card 6 -->
+          <div
+            class="market-card card-hover rounded-xl shadow-lg overflow-hidden"
+            data-category="electronics"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="/placeholder.svg?height=200&width=300"
+                alt="Electronics Market"
+                class="card-image w-full h-full object-cover"
+              />
+              <div class="absolute top-3 right-3">
+                <button
+                  class="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                >
+                  <i data-lucide="map-pin" class="h-4 w-4 text-primary"></i>
+                </button>
+              </div>
+              <div class="absolute bottom-3 left-3">
+                <span class="bg-gray-600 text-white px-2 py-1 rounded text-xs"
+                  >Tech Hub</span
+                >
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                Electronics Market
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">
+                Latest gadgets, mobile phones, and electronic accessories at
+                competitive prices.
+              </p>
+
+              <div class="mb-3">
+                <h4 class="font-medium text-gray-900 mb-1 text-sm">
+                  Popular Items:
+                </h4>
+                <div class="flex flex-wrap gap-1">
+                  <span
+                    class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs"
+                    >Mobiles</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs"
+                    >Laptops</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs"
+                    >Accessories</span
+                  >
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <h4 class="font-medium text-gray-900 mb-1 text-sm">
+                  💡 Bargaining Tip:
+                </h4>
+                <p class="text-xs text-gray-600 bg-gray-50 p-2 rounded">
+                  "Compare prices across shops. Ask for warranty and after-sales
+                  service."
+                </p>
+              </div>
+
+              <div
+                class="flex items-center justify-between text-xs text-gray-500 mb-3"
+              >
+                <span class="flex items-center space-x-1">
+                  <i data-lucide="clock" class="h-3 w-3"></i>
+                  <span>10 AM - 8 PM</span>
+                </span>
+                <span class="flex items-center space-x-1">
+                  <i data-lucide="map-pin" class="h-3 w-3"></i>
+                  <span>2.8 km from center</span>
+                </span>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <span
+                  class="category-electronics px-2 py-1 rounded-full text-xs font-medium"
+                  >Electronics</span
+                >
+                <button
+                  class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-12">
+          <button
+            class="bg-gray-200 text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+          >
+            Load More Markets
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shopping Tips Section -->
+    <section class="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            💡 Smart Shopping Tips
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Master the art of bargaining and shopping like a local
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white rounded-2xl p-6 shadow-lg">
+            <div
+              class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4"
+            >
+              <i data-lucide="clock" class="h-6 w-6 text-white"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+              Best Shopping Times
+            </h3>
+            <ul class="text-gray-600 space-y-2 text-sm">
+              <li>• Weekday mornings for fresh produce</li>
+              <li>• Evening hours for better bargains</li>
+              <li>• Avoid peak hours (12-2 PM)</li>
+              <li>• Festival seasons for special deals</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 shadow-lg">
+            <div
+              class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mb-4"
+            >
+              <i data-lucide="handshake" class="h-6 w-6 text-white"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+              Bargaining Etiquette
+            </h3>
+            <ul class="text-gray-600 space-y-2 text-sm">
+              <li>• Start at 50-60% of quoted price</li>
+              <li>• Be polite and respectful</li>
+              <li>• Walk away if price doesn't match</li>
+              <li>• Bundle items for better deals</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 shadow-lg">
+            <div
+              class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4"
+            >
+              <i data-lucide="shield-check" class="h-6 w-6 text-white"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+              Safety Tips
+            </h3>
+            <ul class="text-gray-600 space-y-2 text-sm">
+              <li>• Keep valuables secure</li>
+              <li>• Carry small denominations</li>
+              <li>• Check quality before buying</li>
+              <li>• Ask for bills/receipts</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-16 bg-gradient-to-r from-primary to-purple">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+          Ready to Explore Local Markets?
+        </h2>
+        <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          Download our shopping guide and get exclusive discounts at partner
+          stores
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            class="bg-white text-primary px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+          >
+            Download Shopping Guide
+          </button>
+          <button
+            class="border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-primary transition-colors"
+          >
+            View on Map
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">TravelHub</h3>
+            <p class="text-gray-400">
+              Your guide to authentic local shopping experiences and hidden
+              market gems.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Markets</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Traditional Markets</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Street Markets</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Handicraft Markets</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Shopping Guide</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Bargaining Tips</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Best Shopping Times</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Local Specialties</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Connect</h4>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i data-lucide="facebook" class="h-5 w-5"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i data-lucide="twitter" class="h-5 w-5"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i data-lucide="instagram" class="h-5 w-5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2024 TravelHub. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+
+      // Filter functionality
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const marketCards = document.querySelectorAll(".market-card");
+      const marketCount = document.getElementById("market-count");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Update active filter button
+          filterButtons.forEach((btn) => {
+            btn.classList.remove("filter-active");
+            btn.classList.add(
+              "bg-gray-100",
+              "text-gray-700",
+              "hover:bg-gray-200"
+            );
+          });
+          button.classList.add("filter-active");
+          button.classList.remove(
+            "bg-gray-100",
+            "text-gray-700",
+            "hover:bg-gray-200"
+          );
+
+          const filter = button.getAttribute("data-filter");
+          let visibleCount = 0;
+
+          // Filter cards
+          marketCards.forEach((card) => {
+            if (filter === "all") {
+              card.style.display = "block";
+              card.classList.add("animate-fade-in");
+              visibleCount++;
+            } else {
+              if (card.getAttribute("data-category") === filter) {
+                card.style.display = "block";
+                card.classList.add("animate-fade-in");
+                visibleCount++;
+              } else {
+                card.style.display = "none";
+              }
+            }
+          });
+
+          // Update count
+          marketCount.textContent = `Showing ${visibleCount} markets`;
+        });
+      });
+
+      // Animate cards on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-slide-up");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all market cards
+      marketCards.forEach((card) => {
+        observer.observe(card);
+      });
+
+      // Map pin functionality (placeholder)
+      document.querySelectorAll('[data-lucide="map-pin"]').forEach((mapPin) => {
+        mapPin.addEventListener("click", (e) => {
+          e.stopPropagation();
+          // Here you would integrate with a mapping service
+          alert("Opening location on map...");
+        });
+      });
+
+      // Initialize count
+      document.addEventListener("DOMContentLoaded", function () {
+        const totalMarkets = document.querySelectorAll(".market-card").length;
+        marketCount.textContent = `Showing ${totalMarkets} markets`;
+      });
+    </script>
+  </body>
+</html>

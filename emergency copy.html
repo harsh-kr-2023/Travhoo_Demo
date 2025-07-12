@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emergency Services in Dehradun - SafeTravel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1e40af",
+              "primary-light": "#3b82f6",
+              secondary: "#64748b",
+              accent: "#dc2626",
+              "accent-light": "#ef4444",
+              success: "#059669",
+              warning: "#d97706",
+              surface: "#f8fafc",
+              "surface-dark": "#e2e8f0",
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .emergency-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .emergency-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+      .icon-container {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      }
+      .emergency-number {
+        background: linear-gradient(135deg, #dc2626, #ef4444);
+      }
+      .navbar-blur {
+        backdrop-filter: blur(20px);
+        background: rgba(255, 255, 255, 0.95);
+      }
+      .pulse-animation {
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.7;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-surface font-sans">
+    <!-- Navigation -->
+    <nav class="navbar-blur sticky top-0 z-50 border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center"
+            >
+              <i class="fas fa-shield-alt text-white text-lg"></i>
+            </div>
+            <div>
+              <span class="text-xl font-bold text-gray-900">SafeTravel</span>
+              <div class="text-xs text-secondary">Your Safety Companion</div>
+            </div>
+          </div>
+
+          <!-- Navigation Links -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#"
+              class="text-secondary hover:text-primary transition-colors font-medium"
+              >Home</a
+            >
+            <a
+              href="#"
+              class="text-secondary hover:text-primary transition-colors font-medium"
+              >Explore</a
+            >
+            <a
+              href="#"
+              class="text-primary font-semibold border-b-2 border-primary pb-1"
+              >Emergency Services</a
+            >
+            <a
+              href="#"
+              class="text-secondary hover:text-primary transition-colors font-medium"
+              >My Account</a
+            >
+          </div>
+
+          <!-- Emergency Button -->
+          <div class="flex items-center space-x-4">
+            <button
+              class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent-light transition-colors font-medium pulse-animation"
+            >
+              <i class="fas fa-exclamation-triangle mr-2"></i>Emergency
+            </button>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-600 hover:text-gray-900">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-50 via-white to-red-50 py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <!-- Emergency Badge -->
+          <div
+            class="inline-flex items-center space-x-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-2 mb-6"
+          >
+            <i class="fas fa-map-marker-alt text-accent"></i>
+            <span class="text-sm font-medium text-accent"
+              >Dehradun, Uttarakhand</span
+            >
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            🚨 Emergency Services in Dehradun
+          </h1>
+
+          <!-- Description -->
+          <p
+            class="text-lg md:text-xl text-secondary max-w-3xl mx-auto mb-8 leading-relaxed"
+          >
+            Essential emergency contacts and services to stay safe during your
+            visit. Keep these numbers handy and know where to find help when you
+            need it most.
+          </p>
+
+          <!-- Quick Stats -->
+          <div class="flex flex-wrap justify-center gap-6 mb-8">
+            <div
+              class="bg-white/70 backdrop-blur-sm rounded-lg px-4 py-2 border border-gray-200"
+            >
+              <div class="text-2xl font-bold text-primary">24/7</div>
+              <div class="text-sm text-secondary">Available</div>
+            </div>
+            <div
+              class="bg-white/70 backdrop-blur-sm rounded-lg px-4 py-2 border border-gray-200"
+            >
+              <div class="text-2xl font-bold text-success">8</div>
+              <div class="text-sm text-secondary">Service Types</div>
+            </div>
+            <div
+              class="bg-white/70 backdrop-blur-sm rounded-lg px-4 py-2 border border-gray-200"
+            >
+              <div class="text-2xl font-bold text-warning">Fast</div>
+              <div class="text-sm text-secondary">Response</div>
+            </div>
+          </div>
+
+          <!-- Emergency Alert -->
+          <div
+            class="bg-accent/5 border border-accent/20 rounded-xl p-4 max-w-2xl mx-auto"
+          >
+            <div class="flex items-center justify-center space-x-2 text-accent">
+              <i class="fas fa-info-circle"></i>
+              <span class="font-medium"
+                >In case of immediate emergency, dial 112 (National Emergency
+                Number)</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emergency Services Grid -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Services Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        >
+          <!-- Police -->
+          <div
+            class="emergency-card bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:border-primary/20"
+          >
+            <div class="text-center">
+              <!-- Icon -->
+              <div
+                class="icon-container w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-shield-alt text-2xl text-primary"></i>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Police</h3>
+
+              <!-- Description -->
+              <p class="text-secondary text-sm mb-4 leading-relaxed">
+                24x7 assistance for safety and law enforcement. Report crimes,
+                seek help, and ensure your security.
+              </p>
+
+              <!-- Emergency Number -->
+              <div
+                class="emergency-number text-white px-4 py-2 rounded-lg mb-4"
+              >
+                <div class="text-xs font-medium opacity-90">
+                  Emergency Contact
+                </div>
+                <div class="text-lg font-bold">100</div>
+              </div>
+
+              <!-- Additional Contact -->
+              <div class="bg-gray-50 rounded-lg p-3 mb-4">
+                <div class="text-xs text-secondary">Local Station</div>
+                <div class="font-medium text-gray-900">+91 135 2715000</div>
+              </div>
+
+              <!-- CTA Button -->
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-info-circle mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Hospitals -->
+          <div
+            class="emergency-card bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:border-success/20"
+          >
+            <div class="text-center">
+              <div
+                class="icon-container w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-hospital text-2xl text-success"></i>
+              </div>
+
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Hospitals</h3>
+
+              <p class="text-secondary text-sm mb-4 leading-relaxed">
+                Nearest medical facilities for emergencies. 24x7 emergency
+                departments and specialized care.
+              </p>
+
+              <div class="bg-success text-white px-4 py-2 rounded-lg mb-4">
+                <div class="text-xs font-medium opacity-90">
+                  Emergency Contact
+                </div>
+                <div class="text-lg font-bold">102</div>
+              </div>
+
+              <div class="bg-gray-50 rounded-lg p-3 mb-4">
+                <div class="text-xs text-secondary">MB Hospital</div>
+                <div class="font-medium text-gray-900">+91 12345 67890</div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-info-circle mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Ambulance Services -->
+          <div
+            class="emergency-card bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:border-accent/20"
+          >
+            <div class="text-center">
+              <div
+                class="icon-container w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-ambulance text-2xl text-accent"></i>
+              </div>
+
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Ambulance Services
+              </h3>
+
+              <p class="text-secondary text-sm mb-4 leading-relaxed">
+                Emergency medical transport services. Quick response for medical
+                emergencies and patient transfer.
+              </p>
+
+              <div
+                class="emergency-number text-white px-4 py-2 rounded-lg mb-4"
+              >
+                <div class="text-xs font-medium opacity-90">
+                  Emergency Contact
+                </div>
+                <div class="text-lg font-bold">108</div>
+              </div>
+
+              <div class="bg-gray-50 rounded-lg p-3 mb-4">
+                <div class="text-xs text-secondary">Private Service</div>
+                <div class="font-medium text-gray-900">+91 98765 43210</div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-info-circle mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Fire Stations -->
+          <div
+            class="emergency-card bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:border-orange-500/20"
+          >
+            <div class="text-center">
+              <div
+                class="icon-container w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i
+                  class="fas fa-fire-extinguisher text-2xl text-orange-600"
+                ></i>
+              </div>
+
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Fire Stations
+              </h3>
+
+              <p class="text-secondary text-sm mb-4 leading-relaxed">
+                Fire emergencies and rescue services. Professional firefighters
+                for fire safety and rescue operations.
+              </p>
+
+              <div class="bg-orange-600 text-white px-4 py-2 rounded-lg mb-4">
+                <div class="text-xs font-medium opacity-90">
+                  Emergency Contact
+                </div>
+                <div class="text-lg font-bold">101</div>
+              </div>
+
+              <div class="bg-gray-50 rounded-lg p-3 mb-4">
+                <div class="text-xs text-secondary">Fire Station</div>
+                <div class="font-medium text-gray-900">+91 135 2715555</div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-info-circle mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Women Helpline -->
+          <div
+            class="emergency-card bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:border-pink-500/20"
+          >
+            <div class="text-center">
+              <div
+                class="icon-container w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-female text-2xl text-pink-600"></i>
+              </div>
+
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Women Helpline
+              </h3>
+
+              <p class="text-secondary text-sm mb-4 leading-relaxed">
+                Dedicated helpline for women's safety. 24x7 support for
+                harassment, violence, and safety concerns.
+              </p>
+
+              <div class="bg-pink-600 text-white px-4 py-2 rounded-lg mb-4">
+                <div class="text-xs font-medium opacity-90">
+                  Emergency Contact
+                </div>
+                <div class="text-lg font-bold">1091</div>
+              </div>
+
+              <div class="bg-gray-50 rounded-lg p-3 mb-4">
+                <div class="text-xs text-secondary">National Helpline</div>
+                <div class="font-medium text-gray-900">181</div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-info-circle mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Pharmacy -->
+          <div
+            class="emergency-card bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:border-green-500/20"
+          >
+            <div class="text-center">
+              <div
+                class="icon-container w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-pills text-2xl text-green-600"></i>
+              </div>
+
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Pharmacy</h3>
+
+              <p class="text-secondary text-sm mb-4 leading-relaxed">
+                Emergency medicines and pharmaceutical services. Find nearest
+                pharmacies for urgent medication needs.
+              </p>
+
+              <div class="bg-green-600 text-white px-4 py-2 rounded-lg mb-4">
+                <div class="text-xs font-medium opacity-90">24x7 Pharmacy</div>
+                <div class="text-lg font-bold">Available</div>
+              </div>
+
+              <div class="bg-gray-50 rounded-lg p-3 mb-4">
+                <div class="text-xs text-secondary">Apollo Pharmacy</div>
+                <div class="font-medium text-gray-900">+91 98765 12345</div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-info-circle mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- 24x7 Medical Stores -->
+          <div
+            class="emergency-card bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:border-blue-500/20"
+          >
+            <div class="text-center">
+              <div
+                class="icon-container w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-store text-2xl text-blue-600"></i>
+              </div>
+
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                24x7 Medical Stores
+              </h3>
+
+              <p class="text-secondary text-sm mb-4 leading-relaxed">
+                Round-the-clock medical stores for emergency medicines, first
+                aid supplies, and health products.
+              </p>
+
+              <div class="bg-blue-600 text-white px-4 py-2 rounded-lg mb-4">
+                <div class="text-xs font-medium opacity-90">Always Open</div>
+                <div class="text-lg font-bold">24/7</div>
+              </div>
+
+              <div class="bg-gray-50 rounded-lg p-3 mb-4">
+                <div class="text-xs text-secondary">MedPlus Store</div>
+                <div class="font-medium text-gray-900">+91 87654 32109</div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-info-circle mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Blood Banks -->
+          <div
+            class="emergency-card bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:border-red-500/20"
+          >
+            <div class="text-center">
+              <div
+                class="icon-container w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-tint text-2xl text-red-600"></i>
+              </div>
+
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Blood Banks</h3>
+
+              <p class="text-secondary text-sm mb-4 leading-relaxed">
+                Emergency blood supply services. Blood donation centers and
+                emergency blood requirements.
+              </p>
+
+              <div class="bg-red-600 text-white px-4 py-2 rounded-lg mb-4">
+                <div class="text-xs font-medium opacity-90">
+                  Blood Emergency
+                </div>
+                <div class="text-lg font-bold">Available</div>
+              </div>
+
+              <div class="bg-gray-50 rounded-lg p-3 mb-4">
+                <div class="text-xs text-secondary">Red Cross Blood Bank</div>
+                <div class="font-medium text-gray-900">+91 135 2715678</div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-info-circle mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Important Information Section -->
+    <section class="py-12 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl shadow-lg p-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+            <i class="fas fa-exclamation-triangle text-accent mr-2"></i>
+            Important Emergency Information
+          </h2>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <h3 class="font-semibold text-gray-900">
+                Quick Emergency Numbers
+              </h3>
+              <div class="space-y-2 text-sm">
+                <div class="flex justify-between">
+                  <span>National Emergency</span>
+                  <span class="font-bold text-accent">112</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Police</span>
+                  <span class="font-bold">100</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Fire</span>
+                  <span class="font-bold">101</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Ambulance</span>
+                  <span class="font-bold">108</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <h3 class="font-semibold text-gray-900">Safety Tips</h3>
+              <ul class="text-sm space-y-2 text-secondary">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-success mr-2 mt-1"></i>
+                  Save emergency numbers in your phone
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-success mr-2 mt-1"></i>
+                  Keep important documents handy
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-success mr-2 mt-1"></i>
+                  Share your location with trusted contacts
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-success mr-2 mt-1"></i>
+                  Know the nearest hospital location
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <!-- Logo and Copyright -->
+          <div class="flex items-center space-x-3 mb-4 md:mb-0">
+            <div
+              class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center"
+            >
+              <i class="fas fa-shield-alt text-white text-sm"></i>
+            </div>
+            <div>
+              <span class="text-lg font-bold">SafeTravel</span>
+              <div class="text-xs text-gray-400">Your Safety Companion</div>
+            </div>
+          </div>
+
+          <!-- Copyright -->
+          <div class="text-center md:text-right">
+            <p class="text-gray-400">
+              &copy; 2025 SafeTravel. All rights reserved.
+            </p>
+            <p class="text-xs text-gray-500 mt-1">
+              Emergency services information for Dehradun
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Emergency card interactions
+        const emergencyCards = document.querySelectorAll(".emergency-card");
+
+        emergencyCards.forEach((card) => {
+          const button = card.querySelector("button");
+
+          button.addEventListener("click", function () {
+            const serviceName = card.querySelector("h3").textContent;
+            console.log(`Viewing details for ${serviceName}...`);
+
+            // Add loading state
+            this.innerHTML =
+              '<i class="fas fa-spinner fa-spin mr-2"></i>Loading...';
+            this.disabled = true;
+
+            // Simulate navigation delay
+            setTimeout(() => {
+              alert(
+                `Opening ${serviceName} details with locations, contact information, and directions...`
+              );
+              this.innerHTML =
+                '<i class="fas fa-info-circle mr-2"></i>View Details';
+              this.disabled = false;
+            }, 1000);
+          });
+        });
+
+        // Emergency button functionality
+        document
+          .querySelector(".pulse-animation")
+          .addEventListener("click", function () {
+            const confirmed = confirm(
+              "This will call the emergency services. Are you sure you want to proceed?"
+            );
+            if (confirmed) {
+              alert(
+                "Connecting to emergency services...\nIn a real app, this would initiate an emergency call."
+              );
+            }
+          });
+
+        // Phone number click functionality
+        document
+          .querySelectorAll(".emergency-number, .bg-gray-50")
+          .forEach((element) => {
+            element.style.cursor = "pointer";
+            element.addEventListener("click", function () {
+              const phoneNumber = this.querySelector(
+                ".font-bold, .font-medium"
+              )?.textContent;
+              if (
+                (phoneNumber && phoneNumber.includes("+91")) ||
+                phoneNumber.match(/^\d+$/)
+              ) {
+                alert(
+                  `Calling ${phoneNumber}...\nIn a real app, this would initiate a phone call.`
+                );
+              }
+            });
+          });
+
+        // Add intersection observer for animations
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        // Animate emergency cards on scroll
+        emergencyCards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(30px)";
+          card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+          observer.observe(card);
+        });
+      });
+    </script>
+  </body>
+</html>

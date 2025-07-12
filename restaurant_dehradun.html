@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top Restaurants in Dehradun - Culinary Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.3)
+          ),
+          url("https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .restaurant-card {
+        transition: all 0.3s ease;
+      }
+      .restaurant-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+      .filter-btn.active {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        color: white;
+      }
+      .testimonial-bg {
+        background: linear-gradient(135deg, #fef3c7, #fde68a);
+      }
+      .rating-stars {
+        color: #fbbf24;
+      }
+      .cuisine-tag {
+        backdrop-filter: blur(10px);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Hero Banner -->
+    <section
+      class="hero-bg h-96 flex items-center justify-center text-white relative"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-transparent to-black/20"
+      ></div>
+      <div class="text-center max-w-4xl px-4 relative z-10">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          Top Restaurants in Dehradun
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed"
+        >
+          Embark on a culinary adventure through the heart of Uttarakhand. From
+          traditional Pahadi flavors to contemporary fusion, discover the
+          restaurants that define Dehradun's vibrant food culture.
+        </p>
+      </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <section
+      class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 py-4"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap justify-center gap-3">
+          <button
+            class="filter-btn active px-6 py-2 rounded-full border border-gray-300 hover:bg-amber-500 hover:text-white transition-all font-medium"
+            data-filter="all"
+          >
+            <i class="fas fa-utensils mr-2"></i>All Restaurants
+          </button>
+          <button
+            class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-green-500 hover:text-white transition-all font-medium"
+            data-filter="veg"
+          >
+            <i class="fas fa-leaf mr-2"></i>Vegetarian
+          </button>
+          <button
+            class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-red-500 hover:text-white transition-all font-medium"
+            data-filter="non-veg"
+          >
+            <i class="fas fa-drumstick-bite mr-2"></i>Non-Vegetarian
+          </button>
+          <button
+            class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-purple-500 hover:text-white transition-all font-medium"
+            data-filter="fine-dining"
+          >
+            <i class="fas fa-wine-glass mr-2"></i>Fine Dining
+          </button>
+          <button
+            class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-blue-500 hover:text-white transition-all font-medium"
+            data-filter="cafe"
+          >
+            <i class="fas fa-coffee mr-2"></i>Cafés
+          </button>
+          <button
+            class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-teal-500 hover:text-white transition-all font-medium"
+            data-filter="budget"
+          >
+            <i class="fas fa-coins mr-2"></i>Budget Friendly
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Restaurants Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4 max-w-6xl">
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/Punjab-Grill.jpg" alt="20. Punjab Grill" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>-
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">20. Punjab Grill</h3>
+        
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">No rating</span>
+        </div>
+        
+        
+        
+        
+        <div class="mb-2"></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/mussoorie-lights-dehradun.jpg" alt="19. Mussoorie Lights" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>Afghani, Continental, Indian, Italian, and Mexican
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">19. Mussoorie Lights</h3>
+        <p class="text-gray-600 mb-4 italic"> Located on the famous Rajpur road, Mussoorie Lights is one of thebest places to eat in Dehradunfor an exquisite rooftop dining experience. This restaurant is not only known for its lip-smacking food, but also for its exotic drinks menu, and opulent ambiance, and serene location, and enthralling views of the surrounding mountains of Uttarakhand. No doubt, it is one of the top open-air restaurants in Dehradun.</p>
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">4.1/5</span>
+        </div>
+        <p class="text-sm text-gray-600 mb-1"><strong>Must Try:</strong> Espara Pizza, and Chocolate Waffles</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Location:</strong> Hotel Park View (Payal Cinema Lane, 17, Rajpur Road, Astley Hall, Chukkuwala, Dehradun</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Timings:</strong> 11:30 am to 11 pm</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Avg Cost:</strong> INR 1,000 (tax excluded)</p>
+        <div class="mb-2"><a href="https://www.zomato.com/dehradun/mussoorie-lights-karanpur/reviews" target="_blank" class="text-blue-600 underline mr-2">Website</a></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/y-cafe-restaurant-Dehradun.jpg" alt="18. Y Cafe And Restaurant" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>Multi-cuisine
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">18. Y Cafe And Restaurant</h3>
+        <p class="text-gray-600 mb-4 italic"> Featuring a casual dining setup, Y Cafe And Restaurant is one of the best restaurants in Dehradun for hanging out with your best friends. This cafe is famous for its live music sessions, elegant ambiance, and limited but delectable variety of food. It is also a good place to spend time in solitude where one can peacefully read a novel from their book collection while sipping a mug of coffee, and enjoying some light snacks. So, if you’re looking forcafes in Dehradunwhere you can enjoy live music, this is the place to be.</p>
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">3.8/5</span>
+        </div>
+        <p class="text-sm text-gray-600 mb-1"><strong>Must Try:</strong> Lasagna, and Blueberry Smoothie</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Location:</strong> Hotel White House, Behind St. Joseph’s Academy, Subhash Road, Karanpur, Dehradun</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Timings:</strong> 11 am to 10 pm</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Avg Cost:</strong> INR 500 (tax excluded)</p>
+        <div class="mb-2"><a href="https://www.zomato.com/dehradun/y-cafe-restaurant-1-karanpur/reviews" target="_blank" class="text-blue-600 underline mr-2">Website</a></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/punjab-restaurant-dehradun.jpg" alt="17. Punjab Restaurant" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>-
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">17. Punjab Restaurant</h3>
+        
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">No rating</span>
+        </div>
+        
+        
+        
+        
+        <div class="mb-2"></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/black-pepper-restaurant.jpg" alt="16. Black Pepper Restaurant" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>North Indian, and Chinese
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">16. Black Pepper Restaurant</h3>
+        <p class="text-gray-600 mb-4 italic"> Mastering authentic Indian cuisine, the Black Pepper restaurant in Dehradun is one of the top-rated restaurants in the city. Any list of restaurants in Dehradun will be incomplete without including Black Pepper not only because of its food but also because of its exemplary ambiance, extensive sitting, and extremely professional staff.</p>
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">3.9/5</span>
+        </div>
+        <p class="text-sm text-gray-600 mb-1"><strong>Must Try:</strong> Paneer Butter Masala, and Butter Chicken</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Location:</strong> 3, Astley Hall, Rajpur Road, Rajpur, Dehradun</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Timings:</strong> 11 am to 11 pm</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Avg Cost:</strong> INR 1,000 (tax excluded)</p>
+        <div class="mb-2"><a href="http://www.blackpepperdehradun.com/" target="_blank" class="text-blue-600 underline mr-2">Website</a><a href="https://www.zomato.com/dehradun/black-pepper-restaurant-rajpur/reviews" target="_blank" class="text-blue-600 underline">Reviews</a></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/town-table.jpg" alt="15. Town Table Restaurant" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>North Indian, Chinese, and Continental
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">15. Town Table Restaurant</h3>
+        <p class="text-gray-600 mb-4 italic"> Feel like eating vegetarian food in Dehradun? Head to Town Table, one of the best vegetarian restaurants in Dehradun. Even though this restaurant is not amongst the top pure veg restaurants in Dehradun, it is still known for its wide, and delicious variety of vegetarian dishes. Also, its exquisite ambiance makes it an ideal place for dining with friends as well as family.</p>
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">3.8/5</span>
+        </div>
+        <p class="text-sm text-gray-600 mb-1"><strong>Must Try:</strong> Dahi Ke Sholey, and Stuffed Schezwan Mushroom</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Location:</strong> 101, Rajpur Road, Hathibarkala Salwala, Dehradun</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Timings:</strong> 12 pm to 11 pm</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Avg Cost:</strong> INR 1,000 (tax excluded)</p>
+        <div class="mb-2"><a href="https://www.zomato.com/dehradun/town-table-restaurant-hathibarkala-salwala/reviews" target="_blank" class="text-blue-600 underline mr-2">Website</a></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/kalsang-friends.jpg" alt="14. Kalsang Friends Corner" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>Chinese, Thai, and Tibetan
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">14. Kalsang Friends Corner</h3>
+        <p class="text-gray-600 mb-4 italic"> Featuring Buddhist style interiors, Kalsang Friends Corner is agood restaurant in Dehradundesigned to give you a perfect Tibetan feel. If you are looking for good non-veg restaurants in Dehradun that serve toothsome Tibetan, and Chinese food, then Kalsang would be your best pick. Its elaborate menu features numerous Tibetan, and Chinese dishes which are prepared with different variations.</p>
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">4.2/5</span>
+        </div>
+        <p class="text-sm text-gray-600 mb-1"><strong>Must Try:</strong> Chicken Chilli Momos, and Chicken Tofu</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Location:</strong> 88 A, Opposite Osho, Chander Lok Colony, Rajpur Road, Hathibarkala Salwala, Dehradun</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Timings:</strong> 12 pm to 10:30 pm</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Avg Cost:</strong> INR 750 (tax excluded)</p>
+        <div class="mb-2"><a href="https://www.zomato.com/dehradun/kalsang-friends-corner-hathibarkala-salwala/reviews" target="_blank" class="text-blue-600 underline mr-2">Website</a></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/muse-restaurants.jpg" alt="13. Muse Restaurant" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>North Indian, Chinese, Continental
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">13. Muse Restaurant</h3>
+        <p class="text-gray-600 mb-4 italic"> Located inside Hotel Inderlok, Muse is a fine dining restaurant known for its art of gourmet. The innovative kitchen of this elegant restaurant is run by extremely professional chefs who work to deliver the best quality food on the customer’s table. Also, the sophisticated ambiance of the restaurant complements its family-style theme, making it one of the most famous restaurants in Dehradun.</p>
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">3.3/5</span>
+        </div>
+        <p class="text-sm text-gray-600 mb-1"><strong>Must Try:</strong> Pollo Juicy Lucy, and Red Thai Curry</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Location:</strong> Hotel Inderlok, 29, Rajpur Road, Chukkuwala, Dehradun</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Timings:</strong> 12 pm to 12 am</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Avg Cost:</strong> INR (tax excluded)</p>
+        <div class="mb-2"><a href="http://www.inderlokhotel.com/dining" target="_blank" class="text-blue-600 underline mr-2">Website</a><a href="https://www.zomato.com/dehradun/muse-restaurant-chukkuwala/reviews" target="_blank" class="text-blue-600 underline">Reviews</a></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/un-pligged.jpg" alt="12. Un-Plugged" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>Multi-cuisine
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">12. Un-Plugged</h3>
+        <p class="text-gray-600 mb-4 italic"> Nestled amidst a tranquil environment of the surrounding hills, Unplugged is a casual dining restaurant located near the famous attraction of Dehradun, the Sahastradhara. Offering both outdoor, and indoor sitting, and a small pool, it is one of the best restaurants for couples in Dehradun where they can enjoy flavourful food in a quaint environment, and an intimate ambiance.</p>
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">4.2/5</span>
+        </div>
+        <p class="text-sm text-gray-600 mb-1"><strong>Must Try:</strong> Cold Chicken Salad, and Chicken Lollipop</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Location:</strong> Sahastradhara Bypass Road, Tarla Nagal Back Side, Orchid Park, Rajpur, Dehradun</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Timings:</strong> 12 pm to 10 pm</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Avg Cost:</strong> INR 1,000 (tax excluded)</p>
+        <div class="mb-2"><a href="https://www.zomato.com/dehradun/cafe-unplugged-rajpur/reviews" target="_blank" class="text-blue-600 underline mr-2">Website</a></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/bmg.jpg" alt="11. BMG" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>North Indian, and Chinese
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">11. BMG</h3>
+        <p class="text-gray-600 mb-4 italic"> Be My Guest is one of the top restaurants in Dehradun if you are looking for decent places to eat with your loved ones. Set up amidst lush green surroundings, BMG offers a tranquil environment where you can spend quality time with your friends and family while savoring palatable North Indian, and Chinese food.</p>
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">4/5</span>
+        </div>
+        <p class="text-sm text-gray-600 mb-1"><strong>Must Try:</strong> Malabari Paratha, and Momos</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Location:</strong> 140 A, Rajpur Road, Jakhan, Dehradun</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Timings:</strong> 11 am to 10:30 pm</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Avg Cost:</strong> INR 700 (tax excluded)</p>
+        <div class="mb-2"><a href="https://www.zomato.com/dehradun/bmg-all-day-dining-jakhan/reviews" target="_blank" class="text-blue-600 underline mr-2">Website</a></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/garage-dine-in.jpg" alt="10. The Garage Dine-In" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>North Indian
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">10. The Garage Dine-In</h3>
+        <p class="text-gray-600 mb-4 italic"> The Garage Dine-in is one of the most popular restaurants in Dehradun, known for its unique way of preparing even the most basic Indian dishes. With an extremely decent, and cozy ambiance, and close proximity to the city center, this restaurant is the best place to savor the real taste of fusion food.</p>
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">3.9/5</span>
+        </div>
+        <p class="text-sm text-gray-600 mb-1"><strong>Must Try:</strong> Chicken Khurchan Cigars, and Garage Da Kukkad</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Location:</strong> 316, Gms Road, Opposite Akash Coaching, Near Ballupur Chowk, Ballupur, Dehradun</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Timings:</strong> 1:30 am to 10:30 pm</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Avg Cost:</strong> INR 700 (tax excluded)</p>
+        <div class="mb-2"><a href="http://the-garage-dine-in-dehradun.business.site/" target="_blank" class="text-blue-600 underline mr-2">Website</a><a href="https://www.zomato.com/dehradun/the-garage-dine-in-1-ballupur/reviews" target="_blank" class="text-blue-600 underline">Reviews</a></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/tavern-restaurant-dehradun.jpg" alt="9. The Tavern" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>North Indian, Chinese, Continental, Italian, Thai
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">9. The Tavern</h3>
+        <p class="text-gray-600 mb-4 italic"> The Tavern is a restaurant and bar located on the property of Brentwood Hotels & Resorts. Overlooking The Mall road, it is one of the most extravagant restaurants in Dehradun that features an extensive bar, live music, a rustic ambiance, and of course delicious food. This restro bar is a perfect blend of fine and casual dining.</p>
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">3.6/5</span>
+        </div>
+        <p class="text-sm text-gray-600 mb-1"><strong>Must Try:</strong> Paneer Butter Masala, and Sizzlers</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Location:</strong> 2nd Floor, Crossroads Mall, Chironwali, Dehradun</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Timings:</strong> 11 am to 11 pm</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Avg Cost:</strong> INR 1,500 (tax excluded)</p>
+        <div class="mb-2"><a href="http://www.brentwoodhotelsandresorts.com/the-tavern-dehradun/" target="_blank" class="text-blue-600 underline mr-2">Website</a><a href="https://www.zomato.com/dehradun/the-tavern-restaurant-chironwali/reviews" target="_blank" class="text-blue-600 underline">Reviews</a></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/flavours.png" alt="8. Flavours" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>-
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">8. Flavours</h3>
+        
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">No rating</span>
+        </div>
+        
+        
+        
+        
+        <div class="mb-2"></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/pavilion-restaurant-dehradun.jpg" alt="7. Pavilion Restaurant" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>North Indian, Continental, Chinese
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">7. Pavilion Restaurant</h3>
+        <p class="text-gray-600 mb-4 italic"> Located inside Hotel President, Pavilion is one of the oldest restaurants in Dehradun. This restaurant has maintained its reputation of serving the best North Indian food in town, and plating unmatched flavors of Continental, and Chinese cuisines as well. Apart from the good food, this restaurant is also known for its courteous staff who work hard to provide excellent service.</p>
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">3.4/5</span>
+        </div>
+        <p class="text-sm text-gray-600 mb-1"><strong>Must Try:</strong> Paneer Tikka, and Kadhai Chicken</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Location:</strong> Hotel President, 6, Astley Hall, Rajpur Road, Karanpur, Dehradun</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Timings:</strong> 7 am to 11 pm</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Avg Cost:</strong> INR 1,100 (tax excluded)</p>
+        <div class="mb-2"><a href="http://www.hotelpresidentdehradun.com/Hotel/Dining" target="_blank" class="text-blue-600 underline mr-2">Website</a><a href="https://www.zomato.com/dehradun/the-pavilion-karanpur/reviews" target="_blank" class="text-blue-600 underline">Reviews</a></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/salt-and-cravings.jpg" alt="6. Prez Restaurant" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>North Indian, Chinese, and Continental
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">6. Prez Restaurant</h3>
+        <p class="text-gray-600 mb-4 italic"> Looking for family restaurants in Dehradun? Then book a table at Prez restaurant to enjoy an unforgettable dining experience with your loved ones. With an extensive food menu featuring North Indian, and Continental dishes, and a soothing ambiance, the prez is one of the top restaurants in Dehradun where you would love to go again and again.</p>
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">3.9/5</span>
+        </div>
+        <p class="text-sm text-gray-600 mb-1"><strong>Must Try:</strong> Mutton Rogan Josh, and Butter Chicken</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Location:</strong> Hotel President, 6, Astley Hall, Rajpur Road, Karanpur, Dehradun</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Timings:</strong> 8 am to 3 pm, and 7 pm to 11 pm</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Avg Cost:</strong> INR 800 (tax excluded)</p>
+        <div class="mb-2"><a href="http://www.hotelpresidentdehradun.com/Hotel/Dining" target="_blank" class="text-blue-600 underline mr-2">Website</a><a href="https://www.zomato.com/dehradun/prez-restaurant-karanpur/reviews" target="_blank" class="text-blue-600 underline">Reviews</a></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/mirabilia.jpg" alt="5. Mirabilia Restaurant" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>North Indian, South Indian, and Continental
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">5. Mirabilia Restaurant</h3>
+        <p class="text-gray-600 mb-4 italic"> A part of the luxurious IDA Hotel in Dehradun, Mirabilia is one of the most romantic South Indian restaurants in Dehradun. Set alongside a pool, this open-air restaurant is designed exquisitely to provide a luxury dining experience. The intimate open-air setting renders this restaurant as one of the top places to go out on a dinner date with your partner where the ambiance will compliment your mood and the food will satisfy your palate.</p>
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">4.2/5</span>
+        </div>
+        <p class="text-sm text-gray-600 mb-1"><strong>Must Try:</strong> Malai Tikka, and Chicken Lasagna</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Location:</strong> 46, East Canal Road, Dehradun</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Timings:</strong> 11 am to 10:45 pm</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Avg Cost:</strong> INR 800 (tax excluded)</p>
+        <div class="mb-2"><a href="https://www.zomato.com/dehradun/mirabilia-karanpur/reviews" target="_blank" class="text-blue-600 underline mr-2">Website</a></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/pacific-blue-dehradun.jpg" alt="4. Pacific Blue Restaurant" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>North Indian, Chinese
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">4. Pacific Blue Restaurant</h3>
+        <p class="text-gray-600 mb-4 italic"> Pacific Blue is a popular restro lounge located on Rajpur Road. It features a dark ambiance lit with blue LEDs throughout. It is one of the best budget-friendly restaurants in Dehradun which serves mouth-watering North Indian, and Chinese cuisines, in a lavish environment like nowhere else.</p>
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">3.3/5</span>
+        </div>
+        <p class="text-sm text-gray-600 mb-1"><strong>Must Try:</strong> Cottage Cheese sizzler and Penne Pollo Picante</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Location:</strong> 68, Krishna Tower, Rajpur Road, Hathibarkala Salwala, Dehradun</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Timings:</strong> 10:30 am to 11 pm</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Avg Cost:</strong> INR 800 (tax excluded)</p>
+        <div class="mb-2"><a href="https://www.zomato.com/dehradun/pacific-blue-hathibarkala-salwala/reviews" target="_blank" class="text-blue-600 underline mr-2">Website</a></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/the-terrace.jpg" alt="3. The Terrace" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>-
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">3. The Terrace</h3>
+        
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">No rating</span>
+        </div>
+        
+        
+        
+        
+        <div class="mb-2"></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/emerald-court.jpg" alt="2. Emerald Court Restaurant" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>North Indian, Chinese, Thai, Italian
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">2. Emerald Court Restaurant</h3>
+        <p class="text-gray-600 mb-4 italic"> Relish a tranquil, and relaxing environment as you dine out at one of the most luxurious restaurants in Dehradun, the Emerald Court. This restaurant is a part of the dining arena of the Solitaire group of hotels. With an utterly professional team of chefs, this restaurant provides one of a kind dining experience and serves one of the best Mughlai, and Continental dishes in the whole town.</p>
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">No rating</span>
+        </div>
+        <p class="text-sm text-gray-600 mb-1"><strong>Must Try:</strong> Tandoori Khumb Tikka, Kalmi Kebab</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Location:</strong> The Solitaire, Haridwar Byepass Road, Dharampur, Dehradun</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Timings:</strong> 7 am to 11 pm</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Avg Cost:</strong> INR (tax excluded)</p>
+        <div class="mb-2"><a href="http://thesolitaire.in/dining/emerald-court-restaurant" target="_blank" class="text-blue-600 underline mr-2">Website</a><a href="https://www.zomato.com/dehradun/emerald-court-restaurant-dharampur/reviews" target="_blank" class="text-blue-600 underline">Reviews</a></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="restaurant-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12 grid md:grid-cols-2 gap-0">
+      <div class="relative overflow-hidden">
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/02/onyx-Dehradun.jpg" alt="1. Onyx" class="w-full h-full object-cover" />
+        <div class="absolute top-4 left-4">
+          <span class="cuisine-tag bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <i class="fas fa-leaf mr-1"></i>Contemporary
+          </span>
+        </div>
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">1. Onyx</h3>
+        <p class="text-gray-600 mb-4 italic"> Onyx is a fine dining restaurant located inside the Four Points Hotel Sheraton, Dehradun. It is one of the best restaurants in Dehradun where the courteous staff works to deliver perfection, and satisfaction to the customer. Apart from the service, the food served is of superior taste and quality which is complemented by a variety of alcoholic drinks and cocktails.</p>
+        <div class="flex items-center mb-4">
+          <div class="rating-stars text-xl mr-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
+          <span class="text-gray-600 font-medium">3.1/5</span>
+        </div>
+        <p class="text-sm text-gray-600 mb-1"><strong>Must Try:</strong> Paneer Kuchran, and Masala Peanuts</p>
+        
+        <p class="text-sm text-gray-600 mb-1"><strong>Timings:</strong> 12 pm to 11 pm</p>
+        <p class="text-sm text-gray-600 mb-1"><strong>Avg Cost:</strong> INR 1,500 (tax excluded)</p>
+        <div class="mb-2"><a href="http://www.starwoodhotels.com/fourpoints/property/dining/index.html?propertyID=4009" target="_blank" class="text-blue-600 underline mr-2">Website</a><a href="https://www.zomato.com/dehradun/onyx-four-points-by-sheraton-dehradun-jakhan/reviews" target="_blank" class="text-blue-600 underline">Reviews</a></div>
+        <button class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all transform hover:scale-105">
+          <i class="fas fa-calendar-check mr-2"></i>Book a Table
+        </button>
+      </div>
+    </div>
+    
+     </div>
+
+            
+      </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+      // Filter functionality
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const restaurantCards = document.querySelectorAll(".restaurant-card");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Remove active class from all buttons
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          // Add active class to clicked button
+          button.classList.add("active");
+
+          const filterValue = button.getAttribute("data-filter");
+
+          restaurantCards.forEach((card) => {
+            if (filterValue === "all") {
+              card.style.display = "grid";
+              setTimeout(() => {
+                card.style.opacity = "1";
+                card.style.transform = "translateY(0)";
+              }, 100);
+            } else {
+              const categories = card.getAttribute("data-category").split(" ");
+              if (categories.includes(filterValue)) {
+                card.style.display = "grid";
+                setTimeout(() => {
+                  card.style.opacity = "1";
+                  card.style.transform = "translateY(0)";
+                }, 100);
+              } else {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(20px)";
+                setTimeout(() => {
+                  card.style.display = "none";
+                }, 300);
+              }
+            }
+          });
+        });
+      });
+
+      // Smooth scroll for better UX
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".restaurant-card");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        cards.forEach((card) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(30px)";
+          card.style.transition = "all 0.6s ease";
+          observer.observe(card);
+        });
+      });
+
+      // Book table functionality (placeholder)
+      document.querySelectorAll("button").forEach((button) => {
+        if (button.textContent.includes("Book a Table")) {
+          button.addEventListener("click", () => {
+            alert("Booking functionality would be implemented here!");
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

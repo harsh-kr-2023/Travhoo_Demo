@@ -1,0 +1,2067 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top 30 Things To Do in Dehradun - Wanderly</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#059669",
+              "primary-light": "#10b981",
+              secondary: "#0ea5e9",
+              accent: "#f59e0b",
+              earth: "#92400e",
+              nature: "#16a34a",
+              adventure: "#dc2626",
+              heritage: "#7c3aed",
+              food: "#ea580c",
+              spiritual: "#8b5cf6",
+              culture: "#ec4899",
+              shopping: "#0891b2",
+              surface: "#f8fafc",
+              "surface-dark": "#e2e8f0",
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .experience-card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .experience-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url("https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .filter-button {
+        transition: all 0.3s ease;
+      }
+      .filter-button.active {
+        background: linear-gradient(135deg, #059669, #10b981);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(5, 150, 105, 0.3);
+      }
+      .category-badge {
+        backdrop-filter: blur(10px);
+      }
+      .price-badge {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+      }
+      .duration-badge {
+        background: linear-gradient(135deg, #0ea5e9, #0284c7);
+      }
+      .navbar-blur {
+        backdrop-filter: blur(20px);
+        background: rgba(255, 255, 255, 0.95);
+      }
+      .masonry-grid {
+        column-count: 1;
+        column-gap: 1.5rem;
+      }
+      @media (min-width: 640px) {
+        .masonry-grid {
+          column-count: 2;
+        }
+      }
+      @media (min-width: 1024px) {
+        .masonry-grid {
+          column-count: 3;
+        }
+      }
+      @media (min-width: 1280px) {
+        .masonry-grid {
+          column-count: 4;
+        }
+      }
+      .masonry-item {
+        break-inside: avoid;
+        margin-bottom: 1.5rem;
+      }
+      .image-placeholder {
+        background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .image-placeholder::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        animation: shimmer 2s infinite;
+      }
+      @keyframes shimmer {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+      .floating-stats {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 40;
+      }
+    </style>
+  </head>
+  <body class="bg-surface font-sans">
+    <!-- Navigation -->
+    <nav class="navbar-blur sticky top-0 z-50 border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center"
+            >
+              <i class="fas fa-compass text-white text-lg"></i>
+            </div>
+            <div>
+              <span class="text-xl font-bold text-gray-900">Wanderly</span>
+              <div class="text-xs text-gray-500">
+                Explore. Discover. Wander.
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Links -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#"
+              class="text-gray-600 hover:text-primary transition-colors font-medium"
+              >Home</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 hover:text-primary transition-colors font-medium"
+              >Explore</a
+            >
+            <a
+              href="#"
+              class="text-primary font-semibold border-b-2 border-primary pb-1"
+              >Experiences</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 hover:text-primary transition-colors font-medium"
+              >My Account</a
+            >
+          </div>
+
+          <!-- CTA Button -->
+          <div class="flex items-center space-x-4">
+            <button
+              class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-light transition-colors font-medium"
+            >
+              <i class="fas fa-heart mr-2"></i>Wishlist
+            </button>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-600 hover:text-gray-900">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="hero-bg min-h-[70vh] flex items-center justify-center text-white relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30"
+      ></div>
+      <div class="text-center max-w-6xl px-4 relative z-10">
+        <!-- Location Badge -->
+        <div
+          class="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-md rounded-full px-4 py-2 mb-6"
+        >
+          <i class="fas fa-map-marker-alt text-accent"></i>
+          <span class="text-sm font-medium">Dehradun, Uttarakhand</span>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">
+          Top 30 Things To Do in Dehradun
+        </h1>
+
+        <!-- Subheading -->
+        <p
+          class="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-12"
+        >
+          Discover unique experiences, hidden gems, and unforgettable activities
+          for every traveler.
+        </p>
+
+        <!-- Hero Stats -->
+        <div class="flex flex-wrap justify-center gap-6 text-sm mb-8">
+          <div class="bg-white/20 backdrop-blur-md px-6 py-3 rounded-full">
+            <i class="fas fa-star mr-2"></i>
+            <span class="font-semibold">30 Curated Experiences</span>
+          </div>
+          <div class="bg-white/20 backdrop-blur-md px-6 py-3 rounded-full">
+            <i class="fas fa-users mr-2"></i>
+            <span class="font-semibold">For All Travelers</span>
+          </div>
+          <div class="bg-white/20 backdrop-blur-md px-6 py-3 rounded-full">
+            <i class="fas fa-clock mr-2"></i>
+            <span class="font-semibold">Updated Daily</span>
+          </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="animate-bounce">
+          <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="py-8 bg-white sticky top-16 z-40 border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap justify-center gap-3">
+          <button
+            class="filter-button active px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium"
+            data-filter="all"
+          >
+            <i class="fas fa-th-large mr-2"></i>All
+          </button>
+          <button
+            class="filter-button px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium"
+            data-filter="adventure"
+          >
+            <i class="fas fa-mountain mr-2"></i>Adventure
+          </button>
+          <button
+            class="filter-button px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium"
+            data-filter="nature"
+          >
+            <i class="fas fa-leaf mr-2"></i>Nature
+          </button>
+          <button
+            class="filter-button px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium"
+            data-filter="spiritual"
+          >
+            <i class="fas fa-om mr-2"></i>Spiritual
+          </button>
+          <button
+            class="filter-button px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium"
+            data-filter="food"
+          >
+            <i class="fas fa-utensils mr-2"></i>Food Experiences
+          </button>
+          <button
+            class="filter-button px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium"
+            data-filter="shopping"
+          >
+            <i class="fas fa-shopping-bag mr-2"></i>Shopping
+          </button>
+          <button
+            class="filter-button px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium"
+            data-filter="culture"
+          >
+            <i class="fas fa-palette mr-2"></i>Art & Culture
+          </button>
+          <button
+            class="filter-button px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium"
+            data-filter="heritage"
+          >
+            <i class="fas fa-landmark mr-2"></i>Heritage
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiences Grid -->
+    <section class="py-16 bg-gradient-to-br from-surface to-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Results Counter -->
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Explore Amazing Experiences
+          </h2>
+          <p class="text-gray-600">
+            Showing
+            <span id="results-count" class="font-semibold text-primary"
+              >30</span
+            >
+            experiences
+          </p>
+        </div>
+
+        <!-- Masonry Grid -->
+        <div class="masonry-grid" id="experiences-grid">
+          <!-- Experience 1: Robber's Cave Trek -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="nature"
+          >
+            <div
+              class="image-placeholder h-48 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Robber's Cave Trek"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-nature/20 text-nature px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-leaf mr-1"></i>Nature
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Robber's Cave Trek
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Walk through a mystical river cave hidden in Dehradun's hills.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>2 hours
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  ₹50 Entry
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 2: Mindrolling Monastery -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="spiritual"
+          >
+            <div
+              class="image-placeholder h-56 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Mindrolling Monastery"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-spiritual/20 text-spiritual px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-om mr-1"></i>Spiritual
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Mindrolling Monastery Visit
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Explore one of India's largest Buddhist monasteries with
+                stunning architecture.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>1 hour
+                </div>
+                <div
+                  class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  Free
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 3: Local Food Walk -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="food"
+          >
+            <div
+              class="image-placeholder h-44 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Local Food Walk"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-food/20 text-food px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-utensils mr-1"></i>Food
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Local Food Walk
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Taste authentic Dehradun street food in a guided culinary tour.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>3 hours
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  From ₹500
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 4: Tibetan Market Shopping -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="shopping"
+          >
+            <div
+              class="image-placeholder h-52 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Tibetan Market"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-shopping/20 text-shopping px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-shopping-bag mr-1"></i>Shopping
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Tibetan Market Shopping
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Shop for souvenirs, handicrafts, and authentic woolens.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>Flexible
+                </div>
+                <div
+                  class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  Free Entry
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 5: Forest Research Institute -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="heritage"
+          >
+            <div
+              class="image-placeholder h-48 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1599661046827-dacde6976549?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Forest Research Institute"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-heritage/20 text-heritage px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-landmark mr-1"></i>Heritage
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Forest Research Institute Tour
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Explore colonial architecture and museums dedicated to forestry.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>1.5 hours
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  Entry ₹150
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 6: Sahastradhara Waterfalls -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="nature"
+          >
+            <div
+              class="image-placeholder h-56 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Sahastradhara Waterfalls"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-nature/20 text-nature px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-leaf mr-1"></i>Nature
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Sahastradhara Waterfalls
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Natural limestone caves with therapeutic sulfur springs and
+                waterfalls.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>3 hours
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  ₹25 Entry
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 7: Mussoorie Day Trip -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="adventure"
+          >
+            <div
+              class="image-placeholder h-44 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Mussoorie Day Trip"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-adventure/20 text-adventure px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-mountain mr-1"></i>Adventure
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Mussoorie Day Trip
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Scenic hill station adventure with cable car rides and mountain
+                views.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>Full Day
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  From ₹1200
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 8: Tapkeshwar Temple -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="spiritual"
+          >
+            <div
+              class="image-placeholder h-50 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Tapkeshwar Temple"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-spiritual/20 text-spiritual px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-om mr-1"></i>Spiritual
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Tapkeshwar Temple
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Ancient Shiva temple in a natural cave with continuous water
+                dripping.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>1 hour
+                </div>
+                <div
+                  class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  Free
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 9: Rajaji National Park Safari -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="adventure"
+          >
+            <div
+              class="image-placeholder h-52 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1549366021-9f761d040a94?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Rajaji National Park"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-adventure/20 text-adventure px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-mountain mr-1"></i>Adventure
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Rajaji National Park Safari
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Wildlife safari to spot elephants, tigers, and diverse bird
+                species.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>4 hours
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  From ₹800
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 10: Malsi Deer Park -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="nature"
+          >
+            <div
+              class="image-placeholder h-48 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Malsi Deer Park"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-nature/20 text-nature px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-leaf mr-1"></i>Nature
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Malsi Deer Park
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Mini zoo and deer park perfect for families and nature lovers.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>2 hours
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  ₹30 Entry
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 11: Clock Tower Market -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="shopping"
+          >
+            <div
+              class="image-placeholder h-44 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Clock Tower Market"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-shopping/20 text-shopping px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-shopping-bag mr-1"></i>Shopping
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Clock Tower Market
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Bustling local market for clothes, accessories, and street food.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>2-3 hours
+                </div>
+                <div
+                  class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  Free Entry
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 12: Lacchiwala -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="nature"
+          >
+            <div
+              class="image-placeholder h-56 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Lacchiwala"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-nature/20 text-nature px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-leaf mr-1"></i>Nature
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Lacchiwala Nature Park
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Picnic spot with natural pools, dense forests, and adventure
+                activities.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>Half Day
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  ₹100 Entry
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 13: Buddha Temple -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="spiritual"
+          >
+            <div
+              class="image-placeholder h-48 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Buddha Temple"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-spiritual/20 text-spiritual px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-om mr-1"></i>Spiritual
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Buddha Temple
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Peaceful Buddhist temple with meditation halls and beautiful
+                gardens.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>45 mins
+                </div>
+                <div
+                  class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  Free
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 14: Dehradun Art Gallery -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="culture"
+          >
+            <div
+              class="image-placeholder h-44 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Art Gallery"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-culture/20 text-culture px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-palette mr-1"></i>Culture
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Dehradun Art Gallery
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Contemporary and traditional art exhibitions by local and
+                national artists.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>1.5 hours
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  ₹50 Entry
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 15: Rishikesh Day Trip -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="spiritual"
+          >
+            <div
+              class="image-placeholder h-52 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Rishikesh Day Trip"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-spiritual/20 text-spiritual px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-om mr-1"></i>Spiritual
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Rishikesh Day Trip
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Yoga capital visit with Ganga Aarti, temples, and adventure
+                sports.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>Full Day
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  From ₹1000
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Continue with more experiences... -->
+          <!-- For brevity, I'll add a few more key experiences -->
+
+          <!-- Experience 16: Haridwar Day Trip -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="spiritual"
+          >
+            <div
+              class="image-placeholder h-48 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Haridwar"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-spiritual/20 text-spiritual px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-om mr-1"></i>Spiritual
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Haridwar Day Trip
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Holy city experience with Ganga Aarti and ancient temples.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>Full Day
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  From ₹800
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 17: Doon Valley Trek -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="adventure"
+          >
+            <div
+              class="image-placeholder h-56 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Doon Valley Trek"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-adventure/20 text-adventure px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-mountain mr-1"></i>Adventure
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Doon Valley Trek
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Scenic valley trekking with panoramic Himalayan views.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>6 hours
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  From ₹1500
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 18: Local Cooking Class -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="food"
+          >
+            <div
+              class="image-placeholder h-44 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Cooking Class"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-food/20 text-food px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-utensils mr-1"></i>Food
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Local Cooking Class
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Learn to cook traditional Garhwali dishes with local families.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>4 hours
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  From ₹800
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 19: Paltan Bazaar Shopping -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="shopping"
+          >
+            <div
+              class="image-placeholder h-48 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Paltan Bazaar"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-shopping/20 text-shopping px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-shopping-bag mr-1"></i>Shopping
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Paltan Bazaar Shopping
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Main shopping district for books, electronics, and local goods.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>2-4 hours
+                </div>
+                <div
+                  class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  Free Entry
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 20: Wadia Institute Visit -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="heritage"
+          >
+            <div
+              class="image-placeholder h-52 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1599661046827-dacde6976549?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Wadia Institute"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-heritage/20 text-heritage px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-landmark mr-1"></i>Heritage
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Wadia Institute Visit
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Geological research institute with fascinating rock and mineral
+                collections.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>1 hour
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  ₹20 Entry
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Add more experiences to reach 30... -->
+          <!-- For demo purposes, I'll add 10 more experiences with varied categories -->
+
+          <!-- Experience 21-30 would continue here with similar structure -->
+          <!-- I'll add a few more to demonstrate the variety -->
+
+          <!-- Experience 21: Yoga Session -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="spiritual"
+          >
+            <div
+              class="image-placeholder h-44 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Yoga Session"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-spiritual/20 text-spiritual px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-om mr-1"></i>Spiritual
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Morning Yoga Session
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Start your day with peaceful yoga in scenic outdoor locations.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>1.5 hours
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  From ₹300
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 22: Photography Walk -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="culture"
+          >
+            <div
+              class="image-placeholder h-56 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Photography Walk"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-culture/20 text-culture px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-palette mr-1"></i>Culture
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Photography Walk
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Capture Dehradun's beauty with guided photography tours.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>3 hours
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  From ₹600
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 23: River Rafting -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="adventure"
+          >
+            <div
+              class="image-placeholder h-48 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="River Rafting"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-adventure/20 text-adventure px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-mountain mr-1"></i>Adventure
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                River Rafting
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Thrilling white water rafting on nearby Ganges tributaries.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>5 hours
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  From ₹2000
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 24: Tea Garden Visit -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="nature"
+          >
+            <div
+              class="image-placeholder h-52 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Tea Garden"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-nature/20 text-nature px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-leaf mr-1"></i>Nature
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Tea Garden Visit
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Explore lush tea plantations and learn about tea processing.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>3 hours
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  From ₹400
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 25: Handicraft Workshop -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="culture"
+          >
+            <div
+              class="image-placeholder h-44 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Handicraft Workshop"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-culture/20 text-culture px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-palette mr-1"></i>Culture
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Handicraft Workshop
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Learn traditional crafts from local artisans and create
+                souvenirs.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>2.5 hours
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  From ₹700
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 26: Spice Market Tour -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="food"
+          >
+            <div
+              class="image-placeholder h-48 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Spice Market"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-food/20 text-food px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-utensils mr-1"></i>Food
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Spice Market Tour
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Discover aromatic spices and learn about traditional Indian
+                cooking ingredients.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>2 hours
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  From ₹350
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 27: Vintage Car Museum -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="heritage"
+          >
+            <div
+              class="image-placeholder h-56 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Vintage Car Museum"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-heritage/20 text-heritage px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-landmark mr-1"></i>Heritage
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Vintage Car Museum
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Collection of classic automobiles and vintage motorcycles from
+                different eras.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>1 hour
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  ₹100 Entry
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 28: Night Market -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="shopping"
+          >
+            <div
+              class="image-placeholder h-44 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Night Market"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-shopping/20 text-shopping px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-shopping-bag mr-1"></i>Shopping
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Night Market Experience
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Evening shopping with street food, local crafts, and vibrant
+                atmosphere.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>3 hours
+                </div>
+                <div
+                  class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  Free Entry
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 29: Paragliding -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="adventure"
+          >
+            <div
+              class="image-placeholder h-52 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Paragliding"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-adventure/20 text-adventure px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-mountain mr-1"></i>Adventure
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Paragliding Adventure
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Soar above the Doon Valley with breathtaking aerial views of the
+                Himalayas.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>4 hours
+                </div>
+                <div
+                  class="price-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  From ₹3500
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Experience 30: Sunset Point -->
+          <div
+            class="masonry-item experience-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="nature"
+          >
+            <div
+              class="image-placeholder h-48 flex items-center justify-center relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Sunset Point"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="category-badge absolute top-4 left-4 bg-nature/20 text-nature px-3 py-1 rounded-full text-sm font-medium"
+              >
+                <i class="fas fa-leaf mr-1"></i>Nature
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Sunset Point Visit
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                Watch spectacular sunsets over the Doon Valley from scenic
+                viewpoints.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="duration-badge text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  <i class="fas fa-clock mr-1"></i>2 hours
+                </div>
+                <div
+                  class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  Free
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-light transition-colors font-medium"
+              >
+                <i class="fas fa-eye mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Load More Section -->
+        <div class="text-center mt-12">
+          <button
+            class="bg-surface-dark text-gray-700 px-8 py-4 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+          >
+            <i class="fas fa-plus mr-2"></i>Load More Experiences
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="bg-gradient-to-r from-primary to-secondary py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready to Explore Dehradun?
+        </h2>
+        <p class="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+          Start your adventure today with our curated experiences and local
+          expertise. Create memories that will last a lifetime.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            class="bg-white text-primary px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+          >
+            <i class="fas fa-route mr-2"></i>Plan Your Trip
+          </button>
+          <button
+            class="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary transition-colors font-medium"
+          >
+            <i class="fas fa-heart mr-2"></i>Save to Wishlist
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Stats -->
+    <div class="floating-stats">
+      <div class="bg-white rounded-full shadow-lg p-4 text-center">
+        <div class="text-lg font-bold text-primary" id="visible-count">30</div>
+        <div class="text-xs text-gray-600">Experiences</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- Company Info -->
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center space-x-3 mb-4">
+              <div
+                class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center"
+              >
+                <i class="fas fa-compass text-white text-lg"></i>
+              </div>
+              <div>
+                <span class="text-xl font-bold">Wanderly</span>
+                <div class="text-xs text-gray-400">
+                  Explore. Discover. Wander.
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-400 mb-4 max-w-md">
+              Your trusted companion for discovering incredible experiences
+              across India. From adventure to culture, we curate the best
+              activities for every traveler.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Destinations</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Experiences</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div>
+            <h3 class="font-semibold mb-4">Support</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Booking Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2025 Wanderly. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Filter functionality
+        const filterButtons = document.querySelectorAll(".filter-button");
+        const experienceCards = document.querySelectorAll(".experience-card");
+        const resultsCount = document.getElementById("results-count");
+        const visibleCount = document.getElementById("visible-count");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const filter = this.getAttribute("data-filter");
+
+            // Remove active class from all buttons
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            // Add active class to clicked button
+            this.classList.add("active");
+
+            let visibleCards = 0;
+
+            // Filter experience cards
+            experienceCards.forEach((card) => {
+              const category = card.getAttribute("data-category");
+
+              if (filter === "all" || category === filter) {
+                card.style.display = "block";
+                card.style.opacity = "0";
+                setTimeout(() => {
+                  card.style.opacity = "1";
+                }, 100);
+                visibleCards++;
+              } else {
+                card.style.opacity = "0";
+                setTimeout(() => {
+                  card.style.display = "none";
+                }, 300);
+              }
+            });
+
+            // Update counts
+            setTimeout(() => {
+              resultsCount.textContent = visibleCards;
+              visibleCount.textContent = visibleCards;
+            }, 100);
+          });
+        });
+
+        // Experience card interactions
+        experienceCards.forEach((card) => {
+          const button = card.querySelector("button");
+
+          button.addEventListener("click", function () {
+            const experienceName = card.querySelector("h3").textContent;
+            console.log(`Viewing details for ${experienceName}...`);
+
+            // Add loading state
+            this.innerHTML =
+              '<i class="fas fa-spinner fa-spin mr-2"></i>Loading...';
+            this.disabled = true;
+
+            // Simulate navigation delay
+            setTimeout(() => {
+              alert(
+                `Opening ${experienceName} details with booking options, reviews, and more information...`
+              );
+              this.innerHTML = '<i class="fas fa-eye mr-2"></i>View Details';
+              this.disabled = false;
+            }, 1000);
+          });
+        });
+
+        // Smooth scroll for hero CTA
+        document
+          .querySelector(".animate-bounce")
+          .addEventListener("click", function () {
+            document.querySelector("section:nth-of-type(2)").scrollIntoView({
+              behavior: "smooth",
+            });
+          });
+
+        // Wishlist functionality
+        document.querySelectorAll("button").forEach((button) => {
+          if (button.textContent.includes("Wishlist")) {
+            button.addEventListener("click", function () {
+              const icon = this.querySelector("i");
+              if (icon.classList.contains("fa-heart")) {
+                icon.classList.remove("fa-heart");
+                icon.classList.add("fa-heart-broken");
+                this.innerHTML =
+                  '<i class="fas fa-heart-broken mr-2"></i>Wishlist';
+              } else {
+                icon.classList.remove("fa-heart-broken");
+                icon.classList.add("fa-heart");
+                this.innerHTML = '<i class="fas fa-heart mr-2"></i>Wishlist';
+              }
+            });
+          }
+        });
+
+        // Add intersection observer for animations
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        // Animate experience cards on scroll
+        experienceCards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(30px)";
+          card.style.transition = `all 0.6s ease ${index * 0.05}s`;
+          observer.observe(card);
+        });
+
+        // Update floating stats on scroll
+        let lastScrollTop = 0;
+        window.addEventListener("scroll", function () {
+          const scrollTop =
+            window.pageYOffset || document.documentElement.scrollTop;
+          const floatingStats = document.querySelector(".floating-stats");
+
+          if (scrollTop > lastScrollTop) {
+            // Scrolling down
+            floatingStats.style.transform = "translateY(100px)";
+          } else {
+            // Scrolling up
+            floatingStats.style.transform = "translateY(0)";
+          }
+          lastScrollTop = scrollTop;
+        });
+      });
+    </script>
+  </body>
+</html>

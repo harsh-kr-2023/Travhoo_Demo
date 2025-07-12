@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -1499,3 +1500,1718 @@
     </script>
   </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Places to Visit in Dehradun - Discover Amazing Tourist Spots</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url("https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .spot-card {
+        transition: all 0.4s ease;
+        overflow: hidden;
+      }
+      .spot-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+      }
+      .spot-card:hover .spot-image {
+        transform: scale(1.15);
+      }
+      .spot-card:hover .overlay {
+        opacity: 1;
+      }
+      .spot-card:hover .cta-button {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .spot-image {
+        transition: transform 0.7s ease;
+      }
+      .overlay {
+        background: linear-gradient(
+          135deg,
+          rgba(34, 197, 94, 0.9),
+          rgba(16, 185, 129, 0.9)
+        );
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
+      .cta-button {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+      }
+      .filter-chip {
+        transition: all 0.3s ease;
+      }
+      .filter-chip.active {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+      }
+      .filter-chip:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+      .breadcrumb-item {
+        transition: color 0.3s ease;
+      }
+      .breadcrumb-item:hover {
+        color: #10b981;
+      }
+      .featured-ribbon {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        animation: shimmer 2s infinite;
+      }
+      @keyframes shimmer {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+      .view-toggle {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+      }
+      .view-toggle.active {
+        background: #10b981;
+        color: white;
+      }
+      .category-icon {
+        background: linear-gradient(135deg, #10b981, #059669);
+      }
+      .entry-badge {
+        backdrop-filter: blur(10px);
+      }
+      .rating-stars {
+        color: #fbbf24;
+      }
+      .duration-badge {
+        background: rgba(59, 130, 246, 0.1);
+        color: #1d4ed8;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+      }
+      .timing-badge {
+        background: rgba(16, 185, 129, 0.1);
+        color: #047857;
+        border: 1px solid rgba(16, 185, 129, 0.2);
+      }
+      .featured-card {
+        background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+        border: 2px solid #10b981;
+      }
+      .map-container {
+        height: 500px;
+        border-radius: 1rem;
+        overflow: hidden;
+      }
+      .stats-counter {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+      }
+      .floating-map-toggle {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 50;
+      }
+      .floating-map-toggle button {
+        background: linear-gradient(135deg, #10b981, #059669);
+        transition: all 0.3s ease;
+      }
+      .floating-map-toggle button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Breadcrumb Navigation -->
+    <nav class="bg-white border-b border-gray-200 py-3">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center space-x-2 text-sm">
+          <a
+            href="#"
+            class="breadcrumb-item text-gray-600 hover:text-green-600 transition-colors"
+          >
+            <i class="fas fa-home mr-1"></i>Home
+          </a>
+          <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+          <a
+            href="#"
+            class="breadcrumb-item text-gray-600 hover:text-green-600 transition-colors"
+            >Cities</a
+          >
+          <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+          <a
+            href="#"
+            class="breadcrumb-item text-gray-600 hover:text-green-600 transition-colors"
+            >Dehradun</a
+          >
+          <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+          <span class="text-green-600 font-medium">Places to Visit</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="hero-bg h-96 flex items-center justify-center text-white relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-green-900/30 to-blue-900/30"
+      ></div>
+      <div class="text-center max-w-5xl px-4 relative z-10">
+        <div
+          class="category-icon w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+        >
+          <i class="fas fa-map-marked-alt text-white text-3xl"></i>
+        </div>
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          Places to Visit in Dehradun
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-green-100 max-w-4xl mx-auto leading-relaxed mb-8"
+        >
+          Discover the must-see attractions, hidden gems, and cultural hotspots
+          in the capital of Uttarakhand. From natural wonders to historical
+          landmarks, explore what makes Dehradun special.
+        </p>
+
+        <!-- Stats -->
+        <div class="flex flex-wrap justify-center gap-6 text-sm">
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-map-marker-alt mr-2"></i>
+            <span class="font-semibold">15+ Tourist Spots</span>
+          </div>
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-clock mr-2"></i>
+            <span class="font-semibold">2-3 Days Recommended</span>
+          </div>
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-rupee-sign mr-2"></i>
+            <span class="font-semibold">Budget Friendly</span>
+          </div>
+          <div class="stats-counter px-6 py-3 rounded-full">
+            <i class="fas fa-camera mr-2"></i>
+            <span class="font-semibold">Instagram Worthy</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter and View Toggle Section -->
+    <section
+      class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 py-6"
+    >
+      <div class="container mx-auto px-4">
+        <div
+          class="flex flex-col lg:flex-row gap-4 items-center justify-between"
+        >
+          <!-- Category Filters -->
+          <div class="flex flex-wrap gap-3">
+            <span
+              class="text-sm font-semibold text-gray-700 mr-2 flex items-center"
+              >Filter by Category:</span
+            >
+            <button
+              class="filter-chip active px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="all"
+            >
+              <i class="fas fa-th-large mr-1"></i>All Spots
+            </button>
+            <button
+              class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="nature"
+            >
+              <i class="fas fa-leaf mr-1"></i>Nature
+            </button>
+            <button
+              class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="religious"
+            >
+              <i class="fas fa-om mr-1"></i>Religious
+            </button>
+            <button
+              class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="historical"
+            >
+              <i class="fas fa-landmark mr-1"></i>Historical
+            </button>
+            <button
+              class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="adventure"
+            >
+              <i class="fas fa-mountain mr-1"></i>Adventure
+            </button>
+            <button
+              class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+              data-category="museums"
+            >
+              <i class="fas fa-university mr-1"></i>Museums
+            </button>
+          </div>
+
+          <!-- View Toggle and Results -->
+          <div class="flex items-center gap-4">
+            <div class="view-toggle rounded-full p-1 flex">
+              <button
+                id="grid-view"
+                class="view-toggle active px-4 py-2 rounded-full text-sm font-medium transition-all"
+              >
+                <i class="fas fa-th mr-1"></i>Grid
+              </button>
+              <button
+                id="map-view"
+                class="view-toggle px-4 py-2 rounded-full text-sm font-medium transition-all"
+              >
+                <i class="fas fa-map mr-1"></i>Map
+              </button>
+            </div>
+            <span class="text-sm text-gray-600" id="results-count"
+              >Showing 15 tourist spots</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Tourist Spots Grid -->
+    <section class="py-16" id="spots-grid-section">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            All Tourist Spots in Dehradun
+          </h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Explore every corner of Dehradun with our comprehensive guide to the
+            city's most captivating destinations
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="spots-grid">
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="religious">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/ebjyxcab8dy89ildbxqf1snkxco1_1464678878_Snow_covered_path_to_Tungnath.JPG?w=753&h=450&dpr" alt="Chopta Tungnath Trek" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Chopta Tungnath Trek</h4>
+            <p class="text-gray-600 text-sm mb-3">Chopta Tungnath trek is a relatively unexplored trekking destination, which is known for its mesmerizing scenic beauty. The trek towards Tungnath, the...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">Religious</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-gray-600 ml-1">4.2</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Chopta Tungnath Trek" 
+                        data-spot-desc="Chopta Tungnath trek is a relatively unexplored trekking destination, which is known for its mesmerizing scenic beauty. The trek towards Tungnath, the 3 from Tungnath takes you to Chandrashila, which is situated at an altitude of 4,000 meters above sea level.Chopta is blessed with rich flora and fauna as it is located in the midst of dense forests, with a beautiful floor of rhododendrons, interspersed by deodar and pine trees. During the first one and half kilometers, you will pass through a sea of brightly coloured rhododendrons and silver oak forests. Following this the vista opens to green alpine meadows which take you to the Tungnath temple.According to folklore, the arms of Lord Shiva are believed to have emerged here. On trekking a kilometer further ahead, you will reach the Chandrashila peak from where you get spectacular views of the snow capped peaks of the Himalayas glistening in the sun rays. The grassy meadows of the region make it an ideal spot for camping too.Chopta is well-connected by roadways connecting Guptakashi and Gopeshwar. The weather is lovely and the views are simply breathtaking.Best season:May to June and August to SeptemberDuration:3 DaysAltitude:3680 m" 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/ebjyxcab8dy89ildbxqf1snkxco1_1464678878_Snow_covered_path_to_Tungnath.JPG?w=753&h=450&dpr" 
+                        data-spot-category="religious" 
+                        data-spot-rating="4.2">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="adventure">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/nozbo44q5dgmn05c5isirg31de17_Har%20ki%20Dun%20Trek.jpeg?w=753&h=450&dpr" alt="Har Ki Dun" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Har Ki Dun</h4>
+            <p class="text-gray-600 text-sm mb-3">Situated amidst the Garhwal Himalayas, Har Ki Dun is a charming valley that is admired for its natural surroundings and hiking opportunities. Blankete...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Adventure</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-gray-600 ml-1">4.2</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Har Ki Dun" 
+                        data-spot-desc="Situated amidst the Garhwal Himalayas, Har Ki Dun is a charming valley that is admired for its natural surroundings and hiking opportunities. Blanketed by milky-white snow and lush grasslands, it provides a fascinating haven for adventurous travellers looking for peace amidst majestic peaks and pristine landscapes." 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/nozbo44q5dgmn05c5isirg31de17_Har%20ki%20Dun%20Trek.jpeg?w=753&h=450&dpr" 
+                        data-spot-category="adventure" 
+                        data-spot-rating="4.2">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="nature">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/rnwa9ckz5h6e584ejjddha5u2z82_1488818176_Himalayan_Buck_alias_Musk_Deer_at_Gangotri_National_Park__Uttarakhand_02.jpg?w=753&h=450&dpr" alt="Deer Park" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Deer Park</h4>
+            <p class="text-gray-600 text-sm mb-3">After Rajaji National Par, Malsi Deer Park is the most visited wildlife centre in Dehradun. This is a mini zoological park turned out to be one of the...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Nature</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-gray-600 ml-1">4.3</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Deer Park" 
+                        data-spot-desc="After Rajaji National Par, Malsi Deer Park is the most visited wildlife centre in Dehradun. This is a mini zoological park turned out to be one of the favourite picnic spots or hangout places in the city, ideal for family outings or school excursions. The herds of deer meandering freely in their habitat through the scenic Malsi reserve forest area ensures an amazing sight before the eyes of its visitors, incomparably beautiful. Unlimited number of birds can also be found inside the park together giving a mind blowing views. For kids, there are fun rides and space for games also. The weekend witnesses the flooding of people towards the park. The park is situated just 10 KM away from Dehradun city at Mussoorie Road.Check out the bestChardham tour package by helicopter" 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/rnwa9ckz5h6e584ejjddha5u2z82_1488818176_Himalayan_Buck_alias_Musk_Deer_at_Gangotri_National_Park__Uttarakhand_02.jpg?w=753&h=450&dpr" 
+                        data-spot-category="nature" 
+                        data-spot-rating="4.3">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="historical">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/n9hn2762bgl8gdx2y97mu8eljvjt_1465997511_10101090033_7c5ed353a0_b.jpg.jpg?w=753&h=450&dpr" alt="Forest Research Institute" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Forest Research Institute</h4>
+            <p class="text-gray-600 text-sm mb-3">The Forest Research Institute (FRI) in Dehradun, is an important organisation known for its pioneering research in forestry and allied sciences. Estab...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Historical</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-gray-600 ml-1">4.1</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Forest Research Institute" 
+                        data-spot-desc="The Forest Research Institute (FRI) in Dehradun, is an important organisation known for its pioneering research in forestry and allied sciences. Established in 1906, its large campus of grand colonial architecture amidst lush vegetation attracts researchers, students, and tourists alike. Explore its museums, botanical gardens, and educational exhibits for a fascinating look at India's forestry history." 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/n9hn2762bgl8gdx2y97mu8eljvjt_1465997511_10101090033_7c5ed353a0_b.jpg.jpg?w=753&h=450&dpr" 
+                        data-spot-category="historical" 
+                        data-spot-rating="4.1">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="adventure">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/taind8sdos2lvck44feq573zx2ei_1574484498640.jfif?w=753&h=450&dpr" alt="Robber's Cave" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Robber's Cave</h4>
+            <p class="text-gray-600 text-sm mb-3">Visit Robber's Cave, a natural wonder that attracts adventurers located close to Dehradun. Explore the chilly, mysterious passageways of the cave, whi...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Adventure</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-gray-600 ml-1">4.7</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Robber's Cave" 
+                        data-spot-desc="Visit Robber's Cave, a natural wonder that attracts adventurers located close to Dehradun. Explore the chilly, mysterious passageways of the cave, which are dotted with bubbling streams and strange formations. Fascinating tales about its usage as a robber's hideout offer an air of mystery. These days, it's a refuge for adventurers looking for thrilling treks, refreshing stream swims, and the magic of nature's hidden gems." 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/taind8sdos2lvck44feq573zx2ei_1574484498640.jfif?w=753&h=450&dpr" 
+                        data-spot-category="adventure" 
+                        data-spot-rating="4.7">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="religious">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/mx8zc04keycydg0h23pqjcmp5uwg_1569305895_couple.jpg?w=753&h=450&dpr" alt="Buddha Temple" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Buddha Temple</h4>
+            <p class="text-gray-600 text-sm mb-3">Constructed by the highly revered Khochhen Rinpoche, the Buddha Temple in Dehradun is among the most notable tourist places in Dehradun. Known for its...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">Religious</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-gray-600 ml-1">4.1</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Buddha Temple" 
+                        data-spot-desc="Constructed by the highly revered Khochhen Rinpoche, the Buddha Temple in Dehradun is among the most notable tourist places in Dehradun. Known for its intriguing Japanese style architecture, beautifully-manicured gardens, and serene ambience, the temple depicts the life and teachings of Lord Buddha in the form of paintings and murals.Boasting a 220-feet high stupa, the tallest of its kind in Asia, and a 130-feet high Buddha statue, the temple is dedicated to preserving and promoting Buddhism around the world. Home to many intriguing paintings and magnificent effigies, the temple expands to five floors. The fourth floor, which is mainly accessible on Sundays, has an open-air observation platform that provides a gorgeous 360° view of Dehradun Valley.Additionally, the temple also houses a library dedicated to books and journals related to Buddhism studies. Interestingly, Buddha Temple, also known as Nyingma, is one of the four primary schools devoted to Tibetan religion, the other three being Sakya, Kagyu, and Geluk.Location:New Basti, Clement Town, Dehradun, Uttarakhand 248002Opening Hours:10:00 AM to 5:00 PMEntry Fee:No Entry Fee" 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/mx8zc04keycydg0h23pqjcmp5uwg_1569305895_couple.jpg?w=753&h=450&dpr" 
+                        data-spot-category="religious" 
+                        data-spot-rating="4.1">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="nature">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/twu1bo7obq64ub9mg0eew3qw4wc1_1488818158_Asan-Barrage-1.jpg?w=753&h=450&dpr" alt="Asan Barrage" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Asan Barrage</h4>
+            <p class="text-gray-600 text-sm mb-3">A barrage located at the confluence of Eastern Yamuna Canal and Asan River is Asan Barrage in Doon Valley, Dehradun. The barrage contributes well in t...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Nature</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-gray-600 ml-1">4.7</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Asan Barrage" 
+                        data-spot-desc="A barrage located at the confluence of Eastern Yamuna Canal and Asan River is Asan Barrage in Doon Valley, Dehradun. The barrage contributes well in the process of electricity generation and the dam is the reason for the creation of the Asan Reservoir or Dhalipur Lake. An adorning spot for bird lovers, the surrounding acts as a haven for 53 species of native birds and 19 types of migratory birds. Recently this man-made wetland is declared as a bird sanctuary as well.The Asan River also has a prominent significant when we talk about Asan Barrage as the river is a combination of different streams in the Doon valley. GMVN water sports complex near the barrage is quite famous for providing the thrilling water activities like water skiing, rowing, paddle boating, kayaking, double waters skiing, mono-skiing and motor boating." 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/twu1bo7obq64ub9mg0eew3qw4wc1_1488818158_Asan-Barrage-1.jpg?w=753&h=450&dpr" 
+                        data-spot-category="nature" 
+                        data-spot-rating="4.7">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="nature">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/ey5lla764nsp58smuyxjnbe800lb_1550311206_Sahastradhara.jpg?w=753&h=450&dpr" alt="Sahastradhara" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Sahastradhara</h4>
+            <p class="text-gray-600 text-sm mb-3">Sahastradhara in Dehradun, nestled in the verdant Himalayan foothills, is a stunning natural attraction known for its thousandfold springs. Translatin...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Nature</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-gray-600 ml-1">3.8</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Sahastradhara" 
+                        data-spot-desc="Sahastradhara in Dehradun, nestled in the verdant Himalayan foothills, is a stunning natural attraction known for its thousandfold springs. Translating to &quot;Thousand Fold Spring,&quot; it provides guests with a revitalising experience with its medicinal sulphur-rich waters. Surrounded by stunning scenery, it's an ideal location for leisure, picnics, and taking in the tranquil splendour of Uttarakhand's natural beauties. Visitors can include Sahastradhara in their Dehradun packages to fully enjoy this serene and therapeutic destination." 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/ey5lla764nsp58smuyxjnbe800lb_1550311206_Sahastradhara.jpg?w=753&h=450&dpr" 
+                        data-spot-category="nature" 
+                        data-spot-rating="3.8">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="religious">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/pq9z4eh1iyh09j0t2w7816vks6j6_1488818153_maxresdefault.jpg?w=753&h=450&dpr" alt="Tapkeshwar Temple" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Tapkeshwar Temple</h4>
+            <p class="text-gray-600 text-sm mb-3">Dehradun houses one of its most visited temples, Tapkeshwar where Lord Shiva is the presiding deity. Blessed by natural extravagant sights abundantly,...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">Religious</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-gray-600 ml-1">4.1</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Tapkeshwar Temple" 
+                        data-spot-desc="Dehradun houses one of its most visited temples, Tapkeshwar where Lord Shiva is the presiding deity. Blessed by natural extravagant sights abundantly, the prominent feature of this temple is the main Shivlinga that is kept sacredly inside a cave.The temple resides by the side of thick forests and the natural cave drops water from the roof little by little to give away the Shivlinga more beauty and in turn it appears as an amusing spectacle. The temple is existing in a location which is easily accessible, it is hardly six kilometers away from the city.Shivratri is the biggest festival celebrated at the temple when thousands of pilgrims come and pay tribute to the deity. The cool sulphur- water springs are an additional feature the temple proudly possesses within it. The devotees will take a bath in these springs before they enter inside the temple." 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/pq9z4eh1iyh09j0t2w7816vks6j6_1488818153_maxresdefault.jpg?w=753&h=450&dpr" 
+                        data-spot-category="religious" 
+                        data-spot-rating="4.1">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="religious">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/1p0srzjsiyyx112uppboet8jorpf_1568965473_shutterstock_1309768168.jpg.jpg?w=753&h=450&dpr" alt="Tapovan Temple" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Tapovan Temple</h4>
+            <p class="text-gray-600 text-sm mb-3">Also known as Maha Rudreshwar Shiv Mandir, Tapovan Temple is one of the most popular religious attractions in Dehradun. Located 5 kilometres away from...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">Religious</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-gray-600 ml-1">3.7</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Tapovan Temple" 
+                        data-spot-desc="Also known as Maha Rudreshwar Shiv Mandir, Tapovan Temple is one of the most popular religious attractions in Dehradun. Located 5 kilometres away from the main city, the temple is nestled on the banks of the Holy Ganges. As the story goes, Tapovan Temple is where Guru Dronacharya stayed for his atonement. Attracting hundreds and thousands of devotees from all across the country each year, the temple surrounding is known to provide tranquillity and peace to the troubled mind. Nature lovers would love the hike among the forest engulfing the temple.Upon entry to the temple, visitors are greeted with a huge statue of Lord Shiva. A Shivalinga rests in the sanctum sanctorum of the temple while stone sculptures of several other Hindu deities can be seen around the temple, including but not limited to Lord Hanuman, Goddess Kali, and Goddess Durga.Yoga enthusiasts would benefit from the many yoga and meditation events held regularly within the temple premises. Furthermore, there are several dedicated green spaces and temple areas which are suitable to sit down and practice meditation.Location:9, Lane-2, Raipur, Dehradun, Uttarakhand 248008Opening Hours:6:00 AM to 8:00 PMEntry Fee:No Entry Fee" 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/1p0srzjsiyyx112uppboet8jorpf_1568965473_shutterstock_1309768168.jpg.jpg?w=753&h=450&dpr" 
+                        data-spot-category="religious" 
+                        data-spot-rating="3.7">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="adventure">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/p7kzm3s8zutvlf3ymo1g0xdktvae_shikhar-fall.jpg?w=753&h=450&dpr" alt="Shikhar Fall" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Shikhar Fall</h4>
+            <p class="text-gray-600 text-sm mb-3">Tucked away in a quaint corner of Dehradun, Shikhar Falls is one of the most fascinating places to see in Dehradun. Although hidden, it is one of the ...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Adventure</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-gray-600 ml-1">3.5</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Shikhar Fall" 
+                        data-spot-desc="Tucked away in a quaint corner of Dehradun, Shikhar Falls is one of the most fascinating places to see in Dehradun. Although hidden, it is one of the most popular tourist places in the city that sees plenty of adventure lovers regularly. Surrounded by woodlands and mountainous terrain, the falls takes visitors through a short yet strenuous hike across a shallow pool to reach the main waterfall. Once at the summit, the mind-blowing views and the refreshing breeze make up for all the extra effort.Due to its rich vegetation and plush greenery, the waterfall is home to several birds and butterflies species. Additionally, there are several small and big waterfalls on the way to the top of Shikhar Falls. There are a few hawkers and snacks stalls at the summit for refreshment.Location:Kairwaan Gaon, Dumal Gaon, Uttarakhand 24800Timings:AnytimeBest Time to visit:October to JuneEntry Fee:No Entry Fee" 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/p7kzm3s8zutvlf3ymo1g0xdktvae_shikhar-fall.jpg?w=753&h=450&dpr" 
+                        data-spot-category="adventure" 
+                        data-spot-rating="3.5">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="religious">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/7d5or0yt0hdyxndhpntarqjiznx5_1568965200_maxresdefault-1.jpg.jpg?w=753&h=450&dpr" alt="Shiv Mandir" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Shiv Mandir</h4>
+            <p class="text-gray-600 text-sm mb-3">One of the most significant religious places to see in Dehradun is the Shiv Mandir on Mussoorie Road. Also known as Shri Prakasheshwar Mahadev Mandir,...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">Religious</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-gray-600 ml-1">4.5</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Shiv Mandir" 
+                        data-spot-desc="One of the most significant religious places to see in Dehradun is the Shiv Mandir on Mussoorie Road. Also known as Shri Prakasheshwar Mahadev Mandir, the temple is dedicated to Hindu deity, Lord Shiva, and is situated amidst the lush green valleys of Dehradun. The temple is not only visited by devotees from nearby cities but also from all over the country. The primary attraction of the temple is the sphatik Shivlinga.During special occasions such as Shivratri and Saawan (monsoons), the temple is literally flooded by worshippers from everywhere. During a visit to the temple, visitors must cherish the free Bhandara that is held every day where devotees are distributed prasad. There is also a small gem and jewellery shop within the temple premises for buying precious birthstones and other jewellery or souvenirs. An intriguing fact about the temple is that it is the only private temple of its kind which has an anonymous owner.Location:Mussoorie Rd, Salan Gaon, Bhagwant Pur, Khala Gaon, Uttarakhand 248009Opening Hours:8:00 AM to 8:30 PMEntry Fee:No Entry Fee" 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/7d5or0yt0hdyxndhpntarqjiznx5_1568965200_maxresdefault-1.jpg.jpg?w=753&h=450&dpr" 
+                        data-spot-category="religious" 
+                        data-spot-rating="4.5">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="nature">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/a2n1ugxjrflm5bu6l6lkhr8r4yqd_1569322370_couple.jpg?w=753&h=450&dpr" alt="Shopping At Tibetan Market" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Shopping At Tibetan Market</h4>
+            <p class="text-gray-600 text-sm mb-3">This popular market in Dehradun is completely run by the Tibetan Community. One of the top places to visit in Dehradun, you can buy handicrafts, woode...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Nature</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-gray-600 ml-1">4.3</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Shopping At Tibetan Market" 
+                        data-spot-desc="This popular market in Dehradun is completely run by the Tibetan Community. One of the top places to visit in Dehradun, you can buy handicrafts, wooden showcases, art pieces, handbags, Garhwali jewellery pieces, and wind chimes. Apart from the above items, you can also shop for beautiful souvenirs for your friends and family.This place is also known for delicious snacks such as momos, noodles, hot noodles soup with extra butter. Just a pro tip for anyone who visits this market is to definitely buy the hand-knitted woollen garments. You can buy multi-coloured sweaters for yourself and your family. The busy street of Tibet Market is accentuated by a whiff of scrumptious Himalayan food and spices, and it is vibrant with a good ambience and great vibes all the time.Highlights:Handwoven woollen garments, momos, noodle soup, colourful clothes, etc.Location:Opposite Parade Ground, Dehradun, Uttarakhand - 248001Timings:Monday to Sunday – 10 AM to 10 PM.Entry Fee:There is no Entry Fee." 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/a2n1ugxjrflm5bu6l6lkhr8r4yqd_1569322370_couple.jpg?w=753&h=450&dpr" 
+                        data-spot-category="nature" 
+                        data-spot-rating="4.3">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="nature">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/8jb92e9ibsutyfrt58pqzdmdnfmu_1568980696_buccaneer-bay-water-playground.jpg.jpg?w=753&h=450&dpr" alt="Fun 'N' Food Kingdom" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Fun 'N' Food Kingdom</h4>
+            <p class="text-gray-600 text-sm mb-3">Reportedly, the first-ever amusement and entertainment park in Dehradun, Fun ‘N’ Food Kingdom is another great place to enjoy a day with your loved on...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Nature</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-gray-600 ml-1">4.2</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Fun 'N' Food Kingdom" 
+                        data-spot-desc="Reportedly, the first-ever amusement and entertainment park in Dehradun, Fun ‘N’ Food Kingdom is another great place to enjoy a day with your loved ones. Living up to their motto ‘fun for the whole day,' Fun ‘N’ Food Kingdom boasts  an amusement park as well as a water park. Kids and adults can enjoy 14 thrill rides as well as several water slides and boating options.There is also a wave pool and rain dance area for children and adults. For visitors travelling with little children, the park has a dedicated kids’ swimming pool with dedicated activities for them. Furthermore, the park also has several modern educational equipment that can help kids’ learn new things through interactive and fun ways. The theme park also has a picnic area which is ideal for enjoying food and refreshments with your family. The area within Fun ‘N’ Food Kingdom is dotted with fountains and lush green spaces to enjoy a peaceful walk.Location:Village Kohlupani, Nanda Ki Chawki, Near, Prem Nagar, Dehradun, Uttarakhand 248007Timings:Monday to Saturday – 10:00 AM to 6:00 PM, Sunday – 10:00 AM to 7:00 PMEntry Fee:Adult (Above 132 cms. ) Above 10 years - INR 600, Kids (Below 132 cms.) Below 10 yrs. - INR 500, Senior Citizen - INR 400" 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/8jb92e9ibsutyfrt58pqzdmdnfmu_1568980696_buccaneer-bay-water-playground.jpg.jpg?w=753&h=450&dpr" 
+                        data-spot-category="nature" 
+                        data-spot-rating="4.2">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="nature">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/zua8s9q2e078aw0227bcgy1xtf7e_Untitled-5.jpg?w=753&h=450&dpr" alt="Fun Valley" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Fun Valley</h4>
+            <p class="text-gray-600 text-sm mb-3">One of the most family-friendly attractions in Dehradun, the Fun Valley’s reputation for being a full-fledged entertainment venue is unfathomable. Loc...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Nature</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-gray-600 ml-1">3.6</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Fun Valley" 
+                        data-spot-desc="One of the most family-friendly attractions in Dehradun, the Fun Valley’s reputation for being a full-fledged entertainment venue is unfathomable. Located almost in the smack middle of Dehradun, Rishikesh, and Haridwar, the amusement park offers the perfect opportunity to have an excitement-filled day with your family, especially for children. Home to several thrill rides, a water park, and multi-cuisine restaurants, the Fun Valley can be the perfect venue for a family picnic.Additionally, the vast complex also boasts a motel and deluxe rooms for guests wanting to stay within the premises. Set amidst the lush foothills of Garhwal Himalayas, the Fun Valley is also equipped with conference rooms, banquet halls, and lavish cottages. Whether you are staying within the complex or planning to spend a day, it is the perfect excuse to get away from the chaos of daily life and enjoy exclusive time with your loved ones.Location:28th Km Stone, Haridwar Road, Lal Tappar, Dehradun, Uttarakhand 248001Timings:9:00 AM to 6:00 PMEntry Fee:Below 3ft – Free, From 3ft to 4ft 6 inches - INR 600, Above 4ft 6inches - INR 800" 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/zua8s9q2e078aw0227bcgy1xtf7e_Untitled-5.jpg?w=753&h=450&dpr" 
+                        data-spot-category="nature" 
+                        data-spot-rating="3.6">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="religious">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/r6xa77drcjcb0hshxacr6qdgcokk_1568966205_shutterstock_375338461.jpg.jpg?w=753&h=450&dpr" alt="Guru Ram Rai Gurudwara" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Guru Ram Rai Gurudwara</h4>
+            <p class="text-gray-600 text-sm mb-3">Built in the 17th century, Guru Ram Rai Gurudwara is regarded as one of the most illustrious places to visit in Dehradun. The oldest of its kind in th...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">Religious</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-gray-600 ml-1">4.1</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Guru Ram Rai Gurudwara" 
+                        data-spot-desc="Built in the 17th century, Guru Ram Rai Gurudwara is regarded as one of the most illustrious places to visit in Dehradun. The oldest of its kind in the city, it is an eminent place of worship for Dehradun’s Sikh community. Situated in the heart of the city, the place is visited by visitors from all religions and states.An impeccable example of Indo-Islamic architecture, the Gurudwara comprises minarets, domes, and murals that depict an intriguing amalgamation of the two cultures that denotes spiritual enlightenment. The walls of the Gurudwara are adorned by portraits and murals of many sages, gods, goddesses, and saints as well as religious inscriptions. A huge pond rests in the front of the Gurudwara which has been recently restored to serve the place as well as attract visitors.Location:Tilak Rd, Jhanda Bazar, Jhanda Mohalla, Dehradun, Uttarakhand 248001Opening Hours:5:00 AM to 9:00 PMEntry Fee:No Entry Fee" 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/r6xa77drcjcb0hshxacr6qdgcokk_1568966205_shutterstock_375338461.jpg.jpg?w=753&h=450&dpr" 
+                        data-spot-category="religious" 
+                        data-spot-rating="4.1">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="religious">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/ze8mai0jfisrhszdnx4fcqdpzww0_1569305125_couple.jpg?w=753&h=450&dpr" alt="Mindrolling Monastery" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Mindrolling Monastery</h4>
+            <p class="text-gray-600 text-sm mb-3">One of the most famous places to visit in Dehradun, Mindrolling Monastery is among the six major monasteries of Tibet’s Nyingma School. Originally con...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">Religious</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-gray-600 ml-1">4.2</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Mindrolling Monastery" 
+                        data-spot-desc="One of the most famous places to visit in Dehradun, Mindrolling Monastery is among the six major monasteries of Tibet’s Nyingma School. Originally constructed in 1676 by Rigzin Terdak Lingpa, the monastery was re-established in 1965 by Khochhen Rinpoche. Highly significant to tourists as well as religious visitors, the place is regarded as an architectural masterpiece.Surrounded by endless gardens, vast spaces, and a striking stupa, the tallest of its kind in Asia, the monastery is known to offer spiritual guidance to hundreds of devotees every day. The paintings and murals around the monastery depict the life of Buddha as well as teaching from Buddhism. Built according to Japanese architectural style, the edifice has five floors dedicated to Lord Buddha and Guru Padmasambhava.On the fourth floor, visitors would find a massive open space that allows them to experience a 360° view of Dehradun Valley. Home to Ngagyur Nyingma College, one of the largest institutes in the world dedicated to Buddhism studies, the monastery provides education to over 300 monks at a time.Location:3, Buddha Temple Road, New Basti, Clement Town, Dehradun, Uttarakhand 248002.Opening Hours:Tuesday to Sunday – 10:00 AM to 7:00 PM.Entry Fee:No Entry Fee" 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/ze8mai0jfisrhszdnx4fcqdpzww0_1569305125_couple.jpg?w=753&h=450&dpr" 
+                        data-spot-category="religious" 
+                        data-spot-rating="4.2">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="adventure">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/l5qysodviqrzr5ba0cwi98luzx09_1550310404_jabarkhet.jpg?w=753&h=450&dpr" alt="Jabarkhet Wildlife Reserve" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Jabarkhet Wildlife Reserve</h4>
+            <p class="text-gray-600 text-sm mb-3">Unexplored forest trails covered in the scarlet of Rhododendrons kissed by the mesmerising views of the mighty Himalayas—this is Jabarkhet Wildlife Re...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Adventure</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-gray-600 ml-1">4.7</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Jabarkhet Wildlife Reserve" 
+                        data-spot-desc="Unexplored forest trails covered in the scarlet of Rhododendrons kissed by the mesmerising views of the mighty Himalayas—this is Jabarkhet Wildlife Reserve for you. One of the top tourist places in Dehradun, this reserve is home to a wide variety of flora and fauna. This reserve is the first privately-owned wildlife sanctuary of Uttarakhand. The reserve sprawls over 100 acres of land and offers majestic Himalayan views on all sides all through the year.The aim of this reserve is to grow a sustainable and dense forest that would keep sheltering animals such as leopards, gorals, cats, Himalayan Griffon, deer, giraffes, etc. One of the best things to do in this reserve is soaking in the first light of the sun. Wake up early in the morning and hike through the forest to get a view of the majestic Himalayan vista and perhaps, come face-to-face with some of the wildlife in the forest. You will have a great experience in this wildlife reserve, it’s a promise.Highlights:4 km hiking trail, bird – watching, wildlife, nature guides, and dense forest.Location:A 100 acre land on the Mussoorie Dhanaulti road close to Jabarkhet, Dehradun, Uttarakhand – 248122.Timings:Between the hours of sunrise and sunset.Entry Fee:INR 350 per adult." 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/l5qysodviqrzr5ba0cwi98luzx09_1550310404_jabarkhet.jpg?w=753&h=450&dpr" 
+                        data-spot-category="adventure" 
+                        data-spot-rating="4.7">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="adventure">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/uqool76ctd13rxxycd260ra645of_1569312205_couple.jpg?w=753&h=450&dpr" alt="Kalsi" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Kalsi</h4>
+            <p class="text-gray-600 text-sm mb-3">A small village set on the outskirts of Dehradun, Kalsi is known for its calm environment and breathtaking Himalayan views. This charming village is l...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Adventure</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-gray-600 ml-1">3.7</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Kalsi" 
+                        data-spot-desc="A small village set on the outskirts of Dehradun, Kalsi is known for its calm environment and breathtaking Himalayan views. This charming village is located at a height of 780m and forms its boundary at the confluence of River Yamuna and Tons. The most popular attraction of this village is the Ashokan Rock Edict, a monument that has quite significance in Indian history. Ashoka, the Great Mauryan King was engraved in this Edict in 253 BC.Apart from it, Kalsi is famous for its ancient architecture, beautiful views, picnic spots, and water streams. Dak Pathar is another popular place to visit in this village. One can enjoy popular activities, such as boating, water skiing, sailing, swimming, canoeing, camping, and trekking. One can also go fishing after receiving a permit from the concerned authorities of the village.Location:Dehradun-Chakrata Road, Uttarakhand -248158Best time to visit:Summer is the best time to visit Kalsi.Timings:Anytime.Entry Fee:No Entry Fee." 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/uqool76ctd13rxxycd260ra645of_1569312205_couple.jpg?w=753&h=450&dpr" 
+                        data-spot-category="adventure" 
+                        data-spot-rating="3.7">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="adventure">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/hwgy5yaj6d851t2opd6stf0taapc_lachhiwala-2-e1529583436311.jpg?w=753&h=450&dpr" alt="Lachhiwala" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Lachhiwala</h4>
+            <p class="text-gray-600 text-sm mb-3">Surrounded by Sal trees, accompanied by deciduous shrubs, and shimmering with the cold waters of Susma river, Lachhiwala is known as a Nature Park. Th...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Adventure</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-gray-600 ml-1">4.1</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Lachhiwala" 
+                        data-spot-desc="Surrounded by Sal trees, accompanied by deciduous shrubs, and shimmering with the cold waters of Susma river, Lachhiwala is known as a Nature Park. The highlight of the picnic spot is its pool which is quite an attraction for nature lovers. Soak in the sunlight while swimming in the man-made pools of Lachhiwala.This place is also flocked by tourists for its lush green forest cover, bird-watching, trekking, swimming, and other interesting activities. This place is a paradise for bird-watchers since there are various species of birds and even hires a local guide to educate you about these birds and the locations where you will find them.Location:Doiwala Block, Lachhiwala Range, near Haridwar – Rishikesh Road, Uttarakhand – 248008.Best time to visit:The weather at Lachhiwala is pleasant all through the year but it is advisable to visit this beautiful place during summer.Timings:Monday to Sunday – 8 AM to 5 PM.Entry Fee:Adult – INR 10, Child –INR 5" 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/hwgy5yaj6d851t2opd6stf0taapc_lachhiwala-2-e1529583436311.jpg?w=753&h=450&dpr" 
+                        data-spot-category="adventure" 
+                        data-spot-rating="4.1">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="religious">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/x061tjcio31kyh13acin23loapbg_m_1.jpg.jpg?w=753&h=450&dpr" alt="Maldevta" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Maldevta</h4>
+            <p class="text-gray-600 text-sm mb-3">Tucked away in the Raipur area of Dehradun, Maldevta is nature in utmost abundance. From an ancient temple to great Himalayan vistas, this gorgeous pl...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">Religious</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-gray-600 ml-1">4.5</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Maldevta" 
+                        data-spot-desc="Tucked away in the Raipur area of Dehradun, Maldevta is nature in utmost abundance. From an ancient temple to great Himalayan vistas, this gorgeous place is bliss for nature lovers. The untouched trails of this place will lead you to a quaint hamlet which is nestled in the lap of lush green hills and bordered by meandering River Song. It is one of the top places to visit in Dehradun.Maldevta is also known for its recreational activities, such as swimming, sightseeing, biking, cycling, and bird-watching, photography, and camping. The best way to spend your night in Maldevta is by pitching your own tents under the stars, preferably in groups.  Dance around the bonfire during the night and wake up to the sweet chirping of birds and shining light of the sun.Location:Maldevta, Shripur, near Raipur, Uttarakhand- 492001.Best time to Visit:This place has pleasant weather all year long but summer is considered to be the best time to visit Maldevta.Timings:Monday to Sunday – 10 AM to 6 PM.Entry Fee:No Entry Fee" 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/x061tjcio31kyh13acin23loapbg_m_1.jpg.jpg?w=753&h=450&dpr" 
+                        data-spot-category="religious" 
+                        data-spot-rating="4.5">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="adventure">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/b93e9qb2mu7fx2rdvrxnmm51b4af_57751043.jpg?w=753&h=450&dpr" alt="Paltan Bazar" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Paltan Bazar</h4>
+            <p class="text-gray-600 text-sm mb-3">The bazaar is one of the busiest places to visit in Dehradun. Located near the prestigious Clock Tower, Paltan Bazar is a popular shopping market in t...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Adventure</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-gray-600 ml-1">4.6</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Paltan Bazar" 
+                        data-spot-desc="The bazaar is one of the busiest places to visit in Dehradun. Located near the prestigious Clock Tower, Paltan Bazar is a popular shopping market in the town. One can buy products like clothes, footwear, books, handicrafts, artworks, brasswares, and snacks in the market. The best sight to witness in the Bazaar is of Tibetan women knitting and selling woollen clothes in every corner of the market. The place is also known for selling the fragrant Basmati Rice, the best quality of rice available in India.Paltan Bazar is the main local market of Dehradun and is surrounded by many sub-markets, such as Sahakari Bazaar, Connaught Place, Rajpur Road and Mall Road. A simple stroll through the market will imbibe your soul with true mountain vibes as the fragrance of authentic Himalayan spices and other food ingredients will make you want to have a taste of them all. Paltan Bazar is indeed one of the top attractions in Dehradun.Highlights:Kotwali, hand-woven woollen garments, the fragrance of the hillside food, and the Clock Tower.Location:Rajpur Road, Near Clock Tower, Dehradun, Uttarakhand – 248001.Timings:Mondays to Sundays – 10 AM to 10 PM.Entry Fee:There is no Entry Fee." 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/b93e9qb2mu7fx2rdvrxnmm51b4af_57751043.jpg?w=753&h=450&dpr" 
+                        data-spot-category="adventure" 
+                        data-spot-rating="4.6">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="spot-card bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer" data-category="nature">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://media1.thrillophilia.com/filestore/i7a1vq7boc9ggw8zfxfvdf025czr_1568966481_select-locality-heroshot-2939886.jpeg.jpg?w=753&h=450&dpr" alt="Clock Tower" class="spot-image w-full h-full object-cover" />
+            <div class="entry-badge absolute top-3 right-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                Free Entry
+            </div>
+            <div class="overlay absolute inset-0 flex items-center justify-center">
+                <div class="cta-button bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Clock Tower</h4>
+            <p class="text-gray-600 text-sm mb-3">One of the most iconic places to visit in Dehradun, Clock Tower. The history of Clock Tower or Ghanta Ghar goes back to the time of India’s Independen...</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Nature</span>
+            </div>
+            
+            <div class="flex items-center justify-between text-xs mb-3">
+                <span class="timing-badge px-2 py-1 rounded-full">6:00 AM - 8:00 PM</span>
+                <span class="duration-badge px-2 py-1 rounded-full">2-3 hours</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="rating-stars text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-gray-600 ml-1">4.1</span>
+                </div>
+                <button class="view-details-btn bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors" 
+                        data-spot-name="Clock Tower" 
+                        data-spot-desc="One of the most iconic places to visit in Dehradun, Clock Tower. The history of Clock Tower or Ghanta Ghar goes back to the time of India’s Independence. The monument was built as a sign of respect and commemoration of the hard-earned independence of our country. Originally named as ‘Balbir Tower,’ this tower is approximately 85m long and holds the names of many freedom fighters engraved on a gold plate. Its foundation was first laid by the then Governor of Uttar Pradesh, Sarojini Naidu.The tower was finally completed in 1953 and since then, it is a symbol of pride for all Dolomites. This hexagon-shaped edifice has often been a part of Ruskin Bond’s tales of Dehradun. Today, Clock Tower stands tall in the busiest street of Dehradun and even though, it needs restoration from time-to-time, its regality has inarguably remained intact all through these years. No wonder this Greco-Roman styled structure is one of the most popular places to see in DehradunHighlights:Location, history, and architecture.Location:Rajpur Road, Near Paltan Market, Dehradun, Uttarakhand – 248001.Best time to visit:It can be visited at any time of the year but winter is an excellent time to visit Clock Tower.Timings:Anytime.Entry Fee:No Entry Fee." 
+                        data-spot-img="https://media1.thrillophilia.com/filestore/i7a1vq7boc9ggw8zfxfvdf025czr_1568966481_select-locality-heroshot-2939886.jpeg.jpg?w=753&h=450&dpr" 
+                        data-spot-category="nature" 
+                        data-spot-rating="4.1">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    
+</div>    
+</div>     </div>
+
+        <!-- No Results Message -->
+        <div id="no-results" class="text-center py-16 hidden">
+          <div class="text-gray-400 mb-4">
+            <i class="fas fa-search text-6xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-600 mb-2">
+            No tourist spots found
+          </h3>
+          <p class="text-gray-500">
+            Try adjusting your filters to see more results.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spot Details Modal -->
+    <div id="spot-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="relative">
+                <button id="close-modal" class="absolute top-4 right-4 z-10 bg-white/80 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-colors">
+                    <i class="fas fa-times text-gray-600"></i>
+                </button>
+                <div id="modal-image" class="h-64 bg-cover bg-center rounded-t-3xl relative">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h2 id="modal-title" class="text-3xl font-bold mb-2"></h2>
+                        <div class="flex items-center gap-4">
+                            <span id="modal-category" class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm"></span>
+                            <div id="modal-rating" class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span id="modal-rating-value"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-8">
+                <div id="modal-description" class="text-gray-700 leading-relaxed text-lg mb-6"></div>
+                <div class="flex flex-wrap gap-4 mb-6">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-clock text-green-600"></i>
+                        <span class="text-gray-600">6:00 AM - 8:00 PM</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-hourglass-half text-blue-600"></i>
+                        <span class="text-gray-600">2-3 hours</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-ticket-alt text-orange-600"></i>
+                        <span class="text-gray-600">Free Entry</span>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <button class="bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center text-sm">
+                        <i class="fas fa-map-marker-alt mr-2"></i>Get Directions
+                    </button>
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center text-sm">
+                        <i class="fas fa-share mr-2"></i>Share
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map View Section -->
+    <section class="py-16 hidden" id="map-section">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Tourist Spots Map View
+          </h2>
+          <p class="text-lg text-gray-600">
+            Explore Dehradun's attractions on an interactive map
+          </p>
+        </div>
+
+        <div class="map-container bg-gray-200 flex items-center justify-center">
+          <div id="map" class="w-full h-full"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-gradient-to-r from-green-600 to-blue-600 py-16">
+      <div class="container mx-auto px-4 text-center text-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Ready to Explore Dehradun?
+        </h2>
+        <p class="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+          From natural wonders to cultural treasures, Dehradun offers
+          unforgettable experiences. Start planning your perfect itinerary
+          today!
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            class="bg-white text-green-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors text-lg"
+          >
+            <i class="fas fa-route mr-2"></i>Plan Your Itinerary
+          </button>
+          <button
+            class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-green-600 transition-colors text-lg"
+          >
+            <i class="fas fa-phone mr-2"></i>Contact Local Guide
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Map Toggle -->
+    <div class="floating-map-toggle">
+      <button
+        id="floating-toggle"
+        class="w-14 h-14 rounded-full text-white shadow-lg"
+      >
+        <i class="fas fa-map text-xl"></i>
+      </button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      // Filter functionality
+      const filterChips = document.querySelectorAll(".filter-chip");
+      const spotCards = document.querySelectorAll(".spot-card");
+      const resultsCount = document.getElementById("results-count");
+      const noResults = document.getElementById("no-results");
+      const gridView = document.getElementById("grid-view");
+      const mapView = document.getElementById("map-view");
+      const spotsGridSection = document.getElementById("spots-grid-section");
+      const mapSection = document.getElementById("map-section");
+      const floatingToggle = document.getElementById("floating-toggle");
+
+      let currentCategory = "all";
+      let currentView = "grid";
+      let map = null;
+
+      // Category filter functionality
+      filterChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          // Remove active class from all chips
+          filterChips.forEach((c) => c.classList.remove("active"));
+          // Add active class to clicked chip
+          chip.classList.add("active");
+
+          currentCategory = chip.getAttribute("data-category");
+          applyFilters();
+        });
+      });
+
+      // View toggle functionality
+      gridView.addEventListener("click", () => {
+        if (currentView !== "grid") {
+          currentView = "grid";
+          updateViewToggle();
+          showGridView();
+        }
+      });
+
+      mapView.addEventListener("click", () => {
+        if (currentView !== "map") {
+          currentView = "map";
+          updateViewToggle();
+          showMapView();
+        }
+      });
+
+      floatingToggle.addEventListener("click", () => {
+        if (currentView === "grid") {
+          currentView = "map";
+          updateViewToggle();
+          showMapView();
+        } else {
+          currentView = "grid";
+          updateViewToggle();
+          showGridView();
+        }
+      });
+
+      function updateViewToggle() {
+        if (currentView === "grid") {
+          gridView.classList.add("active");
+          mapView.classList.remove("active");
+          floatingToggle.innerHTML = '<i class="fas fa-map text-xl"></i>';
+        } else {
+          mapView.classList.add("active");
+          gridView.classList.remove("active");
+          floatingToggle.innerHTML = '<i class="fas fa-th text-xl"></i>';
+        }
+      }
+
+      function showGridView() {
+        spotsGridSection.classList.remove("hidden");
+        mapSection.classList.add("hidden");
+      }
+
+      function showMapView() {
+        spotsGridSection.classList.add("hidden");
+        mapSection.classList.remove("hidden");
+        initializeMap();
+      }
+
+      function initializeMap() {
+        if (!map) {
+          map = L.map("map").setView([30.3165, 78.0322], 12);
+
+          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: "© OpenStreetMap contributors",
+          }).addTo(map);
+
+          // Add markers for tourist spots
+          const spots = [
+            {
+              name: "Robber's Cave",
+              lat: 30.3739,
+              lng: 78.0322,
+              category: "nature",
+            },
+            {
+              name: "Sahastradhara",
+              lat: 30.3254,
+              lng: 78.0101,
+              category: "nature",
+            },
+            {
+              name: "Forest Research Institute",
+              lat: 30.3398,
+              lng: 78.0177,
+              category: "historical",
+            },
+            {
+              name: "Mindrolling Monastery",
+              lat: 30.3165,
+              lng: 78.0322,
+              category: "religious",
+            },
+            {
+              name: "Tapkeshwar Temple",
+              lat: 30.3254,
+              lng: 78.0101,
+              category: "religious",
+            },
+            {
+              name: "Malsi Deer Park",
+              lat: 30.3739,
+              lng: 78.0322,
+              category: "nature",
+            },
+            {
+              name: "Clock Tower",
+              lat: 30.3165,
+              lng: 78.0322,
+              category: "historical",
+            },
+            { name: "Lachhiwala", lat: 30.25, lng: 78.05, category: "nature" },
+          ];
+
+          spots.forEach((spot) => {
+            const marker = L.marker([spot.lat, spot.lng]).addTo(map);
+            marker.bindPopup(
+              `<b>${spot.name}</b><br>Category: ${spot.category}`
+            );
+          });
+        }
+      }
+
+      function applyFilters() {
+        let visibleCount = 0;
+
+        spotCards.forEach((card) => {
+          const categories = card.getAttribute("data-category");
+
+          // Check if card matches current category
+          const matchesCategory =
+            currentCategory === "all" ||
+            (categories && categories.includes(currentCategory));
+
+          if (matchesCategory) {
+            card.style.display = "block";
+            visibleCount++;
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        // Update results count
+        const categoryText =
+          currentCategory === "all"
+            ? "tourist spots"
+            : `${currentCategory} spots`;
+        resultsCount.textContent = `Showing ${visibleCount} ${categoryText}`;
+
+        // Show/hide no results message
+        if (visibleCount === 0) {
+          noResults.classList.remove("hidden");
+        } else {
+          noResults.classList.add("hidden");
+        }
+      }
+
+      // Spot card click functionality
+      spotCards.forEach((card) => {
+        card.addEventListener("click", (e) => {
+          // Don't trigger if clicking on buttons
+          if (e.target.closest("button")) {
+            return;
+          }
+
+          const spotName = card.getAttribute("data-spot");
+          console.log(
+            `Navigating to /cities/dehradun/tourist-spots/${spotName}`
+          );
+          // In a real app, this would navigate to the spot detail page
+          window.location.href = `#/cities/dehradun/tourist-spots/${spotName}`;
+        });
+      });
+
+      // Smooth scroll reveal animation
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        spotCards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(50px)";
+          card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+          observer.observe(card);
+        });
+      });
+
+      // Breadcrumb navigation
+      document.querySelectorAll(".breadcrumb-item").forEach((item) => {
+        item.addEventListener("click", (e) => {
+          e.preventDefault();
+          const href = item.getAttribute("href");
+          if (href && href !== "#") {
+            console.log(`Navigating to ${href}`);
+            // window.location.href = href;
+          }
+        });
+      });
+
+      // Modal functionality
+      const modal = document.getElementById("spot-modal");
+      const closeModal = document.getElementById("close-modal");
+      const modalTitle = document.getElementById("modal-title");
+      const modalDescription = document.getElementById("modal-description");
+      const modalImage = document.getElementById("modal-image");
+      const modalCategory = document.getElementById("modal-category");
+      const modalRatingValue = document.getElementById("modal-rating-value");
+
+      // Add event listeners to all view details buttons
+      document.addEventListener("click", function(e) {
+        if (e.target.classList.contains("view-details-btn")) {
+          const spotName = e.target.getAttribute("data-spot-name");
+          const spotDesc = e.target.getAttribute("data-spot-desc");
+          const spotImg = e.target.getAttribute("data-spot-img");
+          const spotCategory = e.target.getAttribute("data-spot-category");
+          const spotRating = e.target.getAttribute("data-spot-rating");
+
+          // Populate modal with spot data
+          modalTitle.textContent = spotName;
+          modalDescription.textContent = spotDesc;
+          modalImage.style.backgroundImage = `url(${spotImg})`;
+          modalCategory.textContent = spotCategory.charAt(0).toUpperCase() + spotCategory.slice(1);
+          modalRatingValue.textContent = spotRating;
+
+          // Show modal
+          modal.classList.remove("hidden");
+          document.body.style.overflow = "hidden";
+        }
+      });
+
+      // Close modal functionality
+      closeModal.addEventListener("click", function() {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "auto";
+      });
+
+      // Close modal when clicking outside
+      modal.addEventListener("click", function(e) {
+        if (e.target === modal) {
+          modal.classList.add("hidden");
+          document.body.style.overflow = "auto";
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+          modal.classList.add("hidden");
+          document.body.style.overflow = "auto";
+        }
+      });
+    </script>
+  </body>
+</html>
+>>>>>>> Stashed changes
